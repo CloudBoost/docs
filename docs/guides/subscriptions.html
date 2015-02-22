@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stripe.com/docs/guides/subscriptions by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Subscriptions Implementation Guide</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/site-ea99019a1bc27872a48d1149a4785b01.css" media="screen" />
+    <script type="text/javascript">
+        var _sf_startpt=(new Date()).getTime()
+        var APIValues = {};
+    </script>
+    <script type="application/json" id="mixpanel_config">{&quot;identifier&quot;:&quot;eb71b6171a4f7ed97de9b7a0395b7ca5&quot;}</script>
+<script type="application/json" id="analytics_config">{}</script>
+<script src="../../../www.googleadservices.com/pagead/f.txt"></script>
+<script src="../../assets/external_analytics-a9e3d39cd6110aa8c184d9c1f2e5777e.js"></script>
+<script src="../../assets/qframe-cb903dc9166e266dc7d9f11d44f5e81a.js"></script>
+
+    <link rel="shortcut icon" href="https://stripe.com/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="/assets/html5shiv-17761200a17ebcb716dda86cca6d2472.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../../../use.typekit.net/gbh7uto.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    
+</head>
+<body id="documentation">
+
+  <div id="header">
+    <h1><a href="https://stripe.com/">Stripe</a></h1>
+    <div class="navigation">
+    <div class="signin"><a id='signin' href="https://dashboard.stripe.com/login"><span>Sign In</span></a></div>
+
+  <ul class="global">
+    <li><a href="https://stripe.com/docs" class="selected">Documentation</a></li>
+    <li><a href="https://support.stripe.com/">Help &amp; Support</a></li>
+  </ul>
+</div>
+
+  </div><!-- #header -->
+
+  <section id="doc">
+
+    <nav>
+
+      <h1 class="getting-started">Documentation</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/docs">Getting Started</a>
+        </li>
+          <li class="unselected sub">
+            <a href="../tutorials/checkout.html">Embedded Form</a>
+          </li>
+          <li class="unselected sub">
+            <a href="../tutorials/forms.html">Custom Forms</a>
+          </li>
+          <li class="unselected sub">
+            <a href="../mobile.html">Mobile Apps</a>
+          </li>
+
+        <li class="unselected">
+          <a href="../tutorials/charges.html">Charging Cards</a>
+        </li>
+
+        <li class="unselected">
+          <a href="../tutorials/sending-transfers.html">Sending Transfers</a>
+        </li>
+
+        <li class="unselected">
+          <a href="../tutorials/dashboard.html">Your Account</a>
+        </li>
+      </ul>
+
+      <h1 class="references">References</h1>
+      <ul>
+        <li class="unselected">
+          <a href="../stripe.html">Stripe.js</a>
+        </li>
+        <li class="unselected">
+          <a href="../checkout.html">Checkout</a>
+        </li>
+        <li class="unselected">
+          <a href="../webhooks.html">Webhooks</a>
+        </li>
+        <li class="unselected">
+          <a href="../fraud.html">Fraud Protection</a>
+        </li>
+        <li class="unselected">
+          <a href="../testing.html">Testing</a>
+        </li>
+        <li class="unselected">
+          <a href="../examples.html">Examples</a>
+        </li>
+        <li class="unselected">
+          <a href="../upgrades.html">API Upgrades</a>
+        </li>
+        <li class="unselected">
+          <a href="../libraries.html">API Libraries</a>
+        </li>
+        <li class="unselected">
+          <a href="file-upload.html">File Upload Guide</a>
+        </li>
+        <li class="unselected">
+          <a href="../api.html" class="external" target="_blank">
+            Full API Reference
+          </a>
+        </li>
+      </ul>
+
+      <h1 class="subscriptions">Subscriptions</h1>
+      <ul>
+        <li class="unselected">
+          <a href="../subscriptions.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="../tutorials/subscriptions.html">Getting Started</a>
+        </li>
+        <li class="selected">
+          <a href="subscriptions.html">Integration Guide</a>
+        </li>
+      </ul>
+
+      <h1 class="connect">Connect</h1>
+      <ul>
+        <li class="unselected">
+          <a href="../connect.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="../connect/getting-started.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="../connect/oauth.html">Integrating OAuth</a>
+        </li>
+        <li class="unselected">
+          <a href="../connect/collecting-fees.html">Collecting Fees</a>
+        </li>
+        <li class="unselected">
+          <a href="../connect/shared-customers.html">Shared Customers</a>
+        </li>
+        <li class="unselected">
+          <a href="../connect/reference.html">Reference</a>
+        </li>
+      </ul>
+
+      <h1 class="disputes">Disputes</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes-overview">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="dispute-evidence.html">Submitting Evidence</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/dispute-types">Dispute Types</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes">FAQ</a>
+        </li>
+      </ul>
+
+
+      <h1 class="faq"><abbr title="Frequently Asked Questions">FAQ</abbr></h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/transfers">Getting Paid</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/ssl">SSL/TLS</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/security">Security</a>
+        </li>
+      </ul>
+
+      <h1 class="more">More</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/contact">Contact</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/global">Global Users</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/gallery">Gallery</a>
+        </li>
+        <li class="last unselected">
+          <a href="../integrations.html">Integrations</a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <section id="content">
+      <style>
+
+</style>
+
+<section class="subscriptions-guide" id="details">
+  <header>
+    <h1>Subscriptions guide</h1>
+    <p>This guide is an in-depth walkthrough of building a subscription service with Stripe. You can also get a <a href="../tutorials/subscriptions.html">quick intro</a> or check out the <a href="../subscriptions.html">subscriptions reference</a>.</p>
+  </header>
+  <article>
+
+    <h1 id="contents">Contents</h1>
+
+    <div id="create-plan-modal" alt="Create a plan using the dashboard" class="caption-image right"></div>
+
+    <ol>
+      <li><a href="#overview">Overview</a>
+        <ul>
+          <li><a href="#step-1-create-plans">Step 1: Create plans</a></li>
+          <li><a href="#step-2-subscribe-customers">Step 2: Subscribe customers</a></li>
+          <li><a href="#step-3-sync-with-your-site">Step 3: Sync with your site</a></li>
+        </ul>
+      </li>
+      <li><a href="#the-lifecycle-of-a-subscription">The lifecycle of a subscription</a>
+        <ul>
+          <li><a href="#invoices">Invoices</a></li>
+          <li><a href="#subscription-events">Subscription events</a></li>
+          <li><a href="#webhooks">Webhooks</a></li>
+        </ul>
+      </li>
+      <li><a href="#changing-subscriptions">Changing subscriptions</a>
+        <ul>
+          <li><a href="#working-with-trials">Working with trials</a></li>
+          <li><a href="#upgrading-or-downgrading-plans">Upgrading and downgrading plans</a></li>
+          <li><a href="#canceling-subscriptions">Canceling subscriptions</a></li>
+          <li><a href="#payment-failures">Payment failures</a></li>
+        </ul>
+      </li>
+      <li><a href="#changing-the-amount-billed">Changing the amount billed</a>
+        <ul>
+          <li><a href="#adding-invoice-items">Adding invoice items</a></li>
+          <li><a href="#using-customer-balances">Using customer balances</a></li>
+          <li><a href="#applying-discounts">Applying discounts</a></li>
+          <li><a href="#setting-quantities">Setting quantities</a></li>
+        </ul>
+      </li>
+      <li><a href="#multiple-subscriptions">Multiple subscriptions</a>
+        <ul>
+          <li><a href="#creating-a-new-subscription">Creating a new subscription</a></li>
+          <li><a href="#discounting-a-subscription">Discounting a subscription</a></li>
+        </ul>
+      </li>
+      <li><a href="#specific-examples-and-use-cases">Examples and use cases</a></li>
+    </ol>
+
+    <hr />
+
+    <h1 id="overview">Overview</h1>
+    <p>If you use subscriptions for your business, you can build anything from simple recurring billing to very complex relationships (using invoice items, discounts, quantities, trial periods, and multiple active subscriptions per customer).</p>
+
+    <p>A subscription is defined as the association of a <em>customer</em> with a <em>plan</em>.</p>
+
+    <h2 id="step-1-create-plans">Step 1: Create plans</h2>
+
+    <p>To start, you’ll need to create a plan either via the API or through the dashboard. Plans have the following <a href="../api.html#create_plan">parameters</a>:</p>
+
+    <ul>
+      <li>
+        <p><code>id</code>: a value to identify the plan to the API. Unlike other IDs that are auto-generated by Stripe, this ID is specified by you and must be unique across all the plans in your Stripe account.</p>
+      </li>
+      <li>
+        <p><code>name</code>: a user-friendly label for the plan that’ll be seen by you in your dashboard, and possibly by your customers on receipts.</p>
+      </li>
+      <li>
+        <p><code>amount</code>: what the customer will be charged per subscription per interval. For simple subscriptions, a customer might have a single subscription that costs $9.99/month. In more advanced uses of subscriptions, a customer might have 5 subscriptions to a single plan and would pay $49.95/month (e.g., 5 * $9.99).</p>
+      </li>
+      <li>
+        <p><code>interval</code>: the billing period for the plan, which can range from a single day to a year. The <code>interval</code> options are <code>daily</code>, <code>weekly</code>, <code>monthly</code>, or <code>yearly</code>. You can also use the <code>interval_count</code> to set more customized intervals, such as billing a customer every 30 days or every 5 months. If you’d like to test subscription behavior by creating a subscription that bills sooner than one day from its creation, one thing you can do is set a <code>trial_end</code> to some point in the near future via the API.</p>
+      </li>
+      <li>
+        <p><code>trial_period_days</code>: An optional number used when <a href="#working-with-trials">working with trials</a>.</p>
+      </li>
+    </ul>
+
+    <p>To start, let’s assume you’ve created two plans:</p>
+
+    <ul>
+      <li>Basic Monthly at $10/month (id: <code>basic_monthly</code>)</li>
+      <li>Premium Monthly at $25/month (id: <code>premium_monthly</code>)</li>
+    </ul>
+
+    <h2 id="step-2-subscribe-customers">Step 2: Subscribe customers</h2>
+
+    <p>Having created one or more plans, you can now subscribe customers to plans. In order to bill customers for subscriptions, you’ll need to collect their payment details using <a href="../tutorials/checkout.html">Checkout</a> or <a href="../tutorials/forms.html">Stripe.js</a>. (Even with subscriptions, you still need to securely obtain the customer’s payment information.)</p>
+
+    <p>Assuming you’ve used Checkout or Stripe.js to fetch a Stripe token that represents the customer’s payment information, you can then create a customer and subscribe her to a plan in one step:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_customer_create">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>The code above creates a customer, associates the previously provided payment info with that customer, and subscribes the customer to the “Basic Monthly” plan. (Note that the plan value should be ID, not its name.)</p>
+
+    <aside class="content note">
+      <h1>Tip: Check your mode</h1>
+      <p>
+    You can check the <code>livemode</code> property of the returned object to confirm that this is a live transaction (or test, if you’re testing).
+  </p>
+    </aside>
+
+    <p>Just as you would when attempting a charge, you should wrap that code within a <code>try...catch</code> block in order to handle any thrown exceptions. If the payment method was invalid (i.e., the customer’s card was declined), if the plan does not exist, or if anything else went wrong, you’ll need to <a href="../api.html#errors">handle the error</a>.</p>
+
+    <p>If successful, the resulting <code>Customer</code> object will reflect that the customer was successfully subscribed to the plan. The <code>default_card</code> property will point to the default payment method. The <code>subscriptions</code> property will contain the subscription that you created.</p>
+
+    <p>You should store the <code>id</code> property in your database along with the other customer info that you’ve collected, such as login credentials, for later reference.</p>
+
+    <h2 id="step-3-sync-with-your-site">Step 3: Sync with your site</h2>
+
+    <p>Subscriptions require more coordination between your site and Stripe than one-time payments do. Let’s use the example of a site where a subscription provides access to site content.</p>
+
+    <p>On your site, you’d need to store each user’s login credentials (e.g., username and password, in an appropriately secure, encrypted format). You’d also need to store a value for how long the customer has paid for access.</p>
+
+    <p>If a customer was subscribed to a monthly plan, you would initially set this timestamp value (i.e., <code>active_until</code>) to one month from now. When the customer logs in, you’d verify the login credentials and check the <code>active_until</code> timestamp to confirm that it’s still in the future, and therefore an active account.</p>
+
+    <p><strong>TIP:</strong> You can view all active subscriptions from the <a href="https://dashboard.stripe.com/customers">dashboard</a>. You can even filter by which customers are subscribed to a particular plan.</p>
+
+    <p>When the subscription is renewed (i.e., when Stripe bills the customer and they are charged again) your site will need to be notified of the additional payment so that you can update the customer’s <code>active_until</code> timestamp in your database. This is where <em>events</em> and <em>webhooks</em> come into play.</p>
+
+    <hr />
+
+    <h1 id="the-lifecycle-of-a-subscription">The lifecycle of a subscription</h1>
+
+    <p>Beyond the simple act of subscribing a customer to a plan, everything you’ll want to do relative to subscriptions with Stripe requires an understanding the <em>lifecycle</em> of a subscription–and <em>invoices</em>.</p>
+
+    <h2 id="invoices">Invoices</h2>
+    <p>Subscriptions on Stripe are charged through invoices. We generate an <a href="../api.html#invoices"><code>Invoice</code></a> object that represents the amount the customer owes and then attempt to charge the customer that amount. Note that this kind of invoice isn’t actually sent to the customer but is instead paid automatically in Stripe. A successful payment of the invoice results in an active subscription.</p>
+
+    <p>When you first subscribe a customer to a plan, an invoice is immediately generated. Assuming that the plan does not have a free trial period (i.e., the customer must pay immediately), Stripe will immediately attempt to charge the customer for that invoice amount.</p>
+
+    <div id="created-subs-events" alt="Created subscription events" class="caption-image"></div>
+
+    <p>When a subscription period is up (e.g., one month or two weeks or whatever period your plan uses), Stripe will automatically generate another invoice. Unlike the first invoice, Stripe will wait approximately one hour before attempting to charge subsequent invoices so that you can make adjustments to the invoice if needed (e.g., add additional charges to the invoice, or add credits that offset the invoice amount).</p>
+
+    <div id="created-unattempted-invoice" alt="Created unattempted invoice" class="caption-image"></div>
+
+    <p>In order to make adjustments to an invoice, your site will need to be aware of the invoice’s creation by using <em>webhooks</em>, which listen for events.</p>
+
+    <h2 id="subscription-events">Subscription events</h2>
+
+    <p>Stripe has an associated event for everything that happens with a subscription. (There’s actually <a href="../api.html#event_types">dozens of events</a> that occur when using Stripe, not all of which are specific to subscriptions.)</p>
+
+    <p>For our example of a new customer with a valid payment method and no trial period, here’s the lifecycle in events:</p>
+
+    <aside class="content note">
+      <h1>Other events</h1>
+      <p>
+    Other important events can also occur, such as <code>invoice.payment_failed</code>.
+  </p>
+      <p>
+    While these aren’t part of the normal cycle, you’ll still need to be set up to handle them.
+  </p>
+    </aside>
+
+    <ol>
+      <li><code>customer.created</code></li>
+      <li><code>customer.subscription.created</code></li>
+      <li><code>invoice.created</code></li>
+      <li><code>charge.succeeded</code> (immediate attempt for the first invoice)</li>
+      <li><code>invoice.payment_succeeded</code></li>
+      <li><code>invoice.created</code> (after the subscription period is up)</li>
+      <li><code>charge.succeeded</code> (approximately one hour later)</li>
+      <li><code>invoice.payment_succeeded</code></li>
+      <li>Go back to Step 6.</li>
+    </ol>
+
+    <p>When certain events occur, you should listen for the associated <a href="#webhooks">webhooks</a> and take corresponding steps on your website (e.g., extending the length of time that a customer can use your site, or terminating access when a subscription is canceled).</p>
+
+    <h2 id="webhooks">Webhooks</h2>
+
+    <p>Webhooks are a tool Stripe uses to notify your site of the events that occur related to your account. To use them, you’ll have to create an endpoint (e.g., a script) on your site that Stripe will send information to and register that endpoint with Stripe.</p>
+
+    <h3 id="the-webhook-endpoint">The webhook endpoint</h3>
+
+    <p>We’ll send event data as JSON to your webhook endpoint. The specifics of the data will differ based upon the type of event that occurred.</p>
+
+    <p>Beyond whatever your endpoint does with the JSON data, it must also return a 200 status code to tell Stripe that the event notification was received. If your script does not return 200, Stripe will continue to retry the webhook until it’s properly acknowledged.</p>
+
+    <p>Here’s a simple webhook endpoint setup:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_webhook_simple">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>From that point, you can use the JSON data stored in <code>event_json</code> to take the necessary actions. Note that your webhooks resource will always automatically be notified of every event that occurs, and you’ll need to write your webhook endpoint to gracefully handle different–and unfamiliar–event types.</p>
+
+    <h3 id="working-with-json-event-data">Working with JSON event data</h3>
+
+    <p>The JSON data sent to your webhook depends on the type of event.</p>
+
+    <ul>
+      <li><a href="https://support.stripe.com/questions/what-does-the-json-data-for-a-customer-created-event-look-like"><code>customer.created</code></a> example response</li>
+      <li><a href="https://support.stripe.com/questions/what-does-the-json-data-for-a-invoice-created-event-look-like"><code>invoice.created</code></a> example response</li>
+    </ul>
+
+    <p>Here’s a example response for an <code>invoice.payment_succeeded</code> event (edited for brevity):</p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+        <pre><code><span class="highlight_js javascript">{
+  &quot;created&quot;: 1326853478,
+  &quot;type&quot;: &quot;invoice.payment_succeeded&quot;,
+  ...
+  &quot;data&quot;: {
+    &quot;object&quot;: {
+      ...
+      &quot;id&quot;: &quot;in_00000000000000&quot;,
+      &quot;object&quot;: &quot;invoice&quot;,
+      &quot;customer&quot;: &quot;cus_00000000000000&quot;,
+      ...
+    }
+  }
+}</span></code></pre>
+      </div>
+    </section>
+
+    <p>Every event will include a <code>type</code> property indicating the kind of event that took place. By looking at that value, you can figure out how to respond. Events often include the <code>customer</code> that the event is for, which you can use to match up with the customer records you’ve previously stored.</p>
+
+    <p>For events related to invoices, your webhook endpoint will receive the applicable plan, its details, the period to which the invoice applies (as Unix timestamps), and more.</p>
+
+    <p>Using this info, you can update your database (e.g., extend the <code>active_until</code> value), send an email (to yourself or the customer), or simply log the transaction.</p>
+
+    <h3 id="verifying-events">Verifying events</h3>
+
+    <p>As an extra security measure, you can verify an event with Stripe before acting upon it. Just use the event ID that your webhook received to directly retrieve the event details from Stripe:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_webhook">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>If successful, the result of the <code>retrieve</code> call will be an <a href="../api.html#events"><code>Event</code></a> object.</p>
+
+    <h3 id="registering-your-webhook-endpoint">Registering Your Webhook Endpoint</h3>
+    <aside class="content note">
+      <h1>Common webhook mistakes</h1>
+      <p>
+    The two most common mistakes with webhooks are providing the wrong URL in the dashboard and the webhook endpoint not returning a 200 status code.
+  </p>
+    </aside>
+
+    <p>With the webhook endpoint set up, you can register it with Stripe:</p>
+
+    <ol>
+      <li>Log in to your dashboard.</li>
+      <li>Select your account name &gt; Account Settings &gt; Webhooks.</li>
+      <li>Click Add URL and enter your webhook URL. Indicate whether this is for live or test transactions.</li>
+      <li>Click Create webhook URL.</li>
+    </ol>
+
+    <p>Once you register a webhook endpoint, Stripe will wait up to 72 hours for that endpoint to successfully receive the notification before attempting payment on an invoice.</p>
+
+    <p>Stripe will always attempt to pay an invoice except in certain situations:</p>
+
+    <ul>
+      <li>If no valid payment information is stored for the customer, Stripe won’t attempt to pay the invoice.</li>
+      <li>If previous attempts have failed (and the account has been marked as unpaid), Stripe will continue to generate invoices but will not attempt to pay them.</li>
+      <li>If you’re using webhooks and Stripe does not see a successful response for the <code>invoice.created</code> event, Stripe will continue retrying the webhook every hour for up to 72 hours. During that time, no payment will be attempted until a successful response is received.</li>
+    </ul>
+
+    <p>If the webhook hasn’t succeeded after 72 hours, Stripe will attempt to pay the invoice. Along the way, you’ll also get an email notifying you that the webhook is failing.</p>
+
+    <p>As new ideas are introduced in the rest of the guide, the corresponding events will be mentioned. It’s up to your webhooks to recognize these events and react accordingly. For example, you’ll want to mark a customer as inactive in your database when the <code>customer.subscription.deleted</code> event occurs.</p>
+
+    <hr />
+
+    <h1 id="changing-subscriptions">Changing subscriptions</h1>
+
+    <p>There’s several ways that a subscription can change:</p>
+
+    <ul>
+      <li><a href="#working-with-trials">Transitioning from a trial</a> to a paid subscription</li>
+      <li><a href="#upgrading-or-downgrading-plans">Upgrading or downgrading</a> between differently-priced plans</li>
+      <li><a href="#canceling-subscriptions">Canceling a plan</a></li>
+      <li><a href="#payment-failures">Payment failures</a></li>
+    </ul>
+
+    <h2 id="working-with-trials">Working with trials</h2>
+
+    <p>Subscriptions can begin with a free trial period in one of two ways:</p>
+
+    <ol>
+      <li>Defining a trial in the plan itself</li>
+      <li>Setting a trial period when subscribing the customer to a plan by passing a <code>trial_end</code> timestamp</li>
+    </ol>
+
+    <p>To do the latter, set a <code>trial_end</code> value (Unix timestamp in seconds) when creating the customer.</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_customer_create_trial">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>When you define a plan with a trial period, every new customer subscribed to that plan will automatically receive that free trial period. The number of trial days a customer has used is tracked on a per-subscription basis. We will deduct the number of trial days previously consumed by a customer from the plan’s <code>trial_period_days</code> and use the remaining days, if any, for the trial. If you’d like to change the length of that trial period, you can use the code above to override it. Providing the value “now” for <code>trial_end</code> will enroll the customer to a subscription without a trial period.</p>
+
+    <p>Three days before the trial period is up, a <code>customer.subscription.trial_will_end</code> event will be sent to your webhook endpoint. If you’d like, you can use it as a trigger to email your customer that billing for the plan is about to begin.</p>
+
+    <aside class="content note">
+      <p>
+    <strong>Tip:</strong> Unlike plans that require immediate payment, you can subscribe a customer to a plan with a trial period without providing a payment method.
+  </p>
+    </aside>
+
+    <p>Once the trial period is up, Stripe will generate an invoice and send out an <code>invoice.created</code> event notification. Approximately an hour later, Stripe will attempt to charge that invoice. Assuming that the payment attempt succeeded, you’ll receive notifications of the following events:</p>
+
+    <ul>
+      <li><code>charge.succeeded</code></li>
+      <li><code>invoice.payment_succeeded</code></li>
+      <li><code>customer.subscription.updated</code> (reflecting an update from a trial to an active subscription)</li>
+    </ul>
+
+    <p>To make a subscription active without waiting for the trial period to end, you can use the update subscription API call, setting the <code>trial_end</code> value to “now”:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_subscription_trial_end">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <h2 id="upgrading-or-downgrading-plans">Upgrading or downgrading plans</h2>
+
+    <p>Subscriptions can be changed by switching the plan to which a customer is subscribed. Normally this is a matter of either <em>upgrading</em> or <em>downgrading</em> the subscription, depending upon the price difference between the two plans.</p>
+
+    <p>Assuming a customer is currently subscribed to the <code>basic_monthly</code> at $10 per month, here’s how you’d switch the customer to the <code>premium_monthly</code> plan:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_change_plan">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>If both plans have the same billing frequency (e.g., <code>interval</code> and <code>interval_count</code>), the customer will retain the same billing dates. If the plans don’t have the same billing frequency, the new plan will be billed at the new interval, starting on the day of the change. For example, if you switch a customer from one monthly plan to another, the billing date does not change. However, if you switch a customer from a monthly plan to a yearly plan, the billing date becomes the date of the switch.</p>
+
+    <p>If the subscription change moves the customer from no-pay being required to a paid requirement (e.g., from a trial period to an active subscription, or from a free plan to a paid plan) or moves the customer to a different billing frequency (e.g., yearly to monthly), Stripe will <em>synchronously</em> attempt payment of the amount owed. In other words, in these cases, Stripe will attempt payment as part of the subscription change request. If that payment succeeds, the subscription update request will also succeed. But if that payment fails, the subscription change request will also fail, and the subscription will be left unchanged.</p>
+
+    <p>The most confusing aspect to upgrading or downgrading plans is how existing payments are factored into the amount to be invoiced. By default, Stripe <em>prorates</em> subscription costs.</p>
+
+    <p>For example, say the customer in the above code is billed on the 1st of each month and the above code is executed exactly half-way through the plan’s billing cycle (i.e., on the 15th of March). In that case, the customer has already paid $10, and used half of the current billing cycle. When the customer is switched to the new plan, with a cost of $25, the unused portion of the previous plan results in a credit of $5. The cost of the new plan for the rest of the billing cycle (i.e., the rest of March) will be $12.50. Therefore, the total prorated cost of switching from the cheaper plan to the most expensive plan is $7.50. This amount will be added to the next invoice.</p>
+
+    <p>The next invoice, on April 1st, will also reflect the payment required on the new plan for that upcoming month: $25. Thus, the April 1st invoice would be for a total of $32.50.</p>
+
+    <p>Note that changing the plan would not change the billing cycle in this example. The customer will not be billed the $32.50 at the time when the plans are switched. The plan changes impact the <em>next</em> invoice, which remains on the same billing cycle (as both plans have the same billing frequency).</p>
+
+    <p>If the new plan is less expensive than the existing plan, the prorated credit will be larger than the new amount due. For example, if the customer is switching from the $25/month plan to the $10/month plan exactly halfway through the billing cycle, the customer will have a net credit of $7.50 resulting from a credit of $12.50 for the unused portion of the old plan less a charge of $5 for the remaining time on the new plan. The next invoice, at the start of the next billing period, will reflect the $7.50 credit and the $10 due for a full, upcoming month on the new plan, resulting in a net charge of of $2.50.</p>
+
+    <p>The prorated amount is calculated down to the second by Stripe. This means that Stripe will calculate the differences between the two plans based on the time that the API call was made to change the customer’s plan, using the current billing period’s start and end times. It is not possible in advance to know <em>exactly</em> what the cost of a proration will be, as the exact cost depends upon the exact second the switch is made. If you’d like to provide to your customer how much the switch will cost, Stripe recommends you calculate that amount yourself, and provide it as a rough estimate.</p>
+
+    <p>Prorating the costs of plans is the default behavior. You can disable proration by setting <code>prorate</code> to false when making a subscription change:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_prorate_false">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>With proration disabled, the customer will be billed the full amount for the new plan when the next invoice is generated.</p>
+
+    <p>If you want the customer to immediately pay the price difference when switching plans, you’ll need to generate an invoice after making the switch (explained <a href="#generating-invoices">below</a>).</p>
+
+    <p>Note that changing a plan will trigger a <code>customer.subscription.updated</code> event, among other possible events.</p>
+
+    <h2 id="canceling-subscriptions">Canceling subscriptions</h2>
+
+    <p>Subscriptions are also changed when they’re canceled:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_cancel_plan">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>By default, the cancellation takes effect immediately. Once a customer’s subscription is canceled, no further invoices will be generated for that subscription. If the customer had paid for the entire billing period and the subscription was canceled part-way through the period, the customer is <em>not</em> credited a refund automatically by Stripe.</p>
+
+    <p>If you would like to cancel the subscription immediately, but keep the subscription active until the end of the billing period (e.g., through the time the customer has already paid for), provide an <code>at_period_end</code> value of true:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_at_period_end">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <ul>
+      <li>Stripe sends out a <code>customer.subscription.deleted</code> event when a customer’s subscription is canceled immediately.</li>
+      <li>A <code>customer.subscription.updated</code> event is immediately triggered if you cancel a subscription at the end of the billing period instead, reflecting the change in the subscription’s <code>cancel_at_period_end</code> value. When the subscription is actually canceled at the end of the period, a <code>customer.subscription.deleted</code> event will occur.</li>
+    </ul>
+
+    <h2 id="payment-failures">Payment failures</h2>
+
+    <p>A subscription also changes if an invoice is generated but the charge attempt fails. The events that occur and the results of those events when a charge attempt fails depend upon your subscription account settings.</p>
+
+    <p>In the Stripe dashboard, under Account Settings &gt; Subscriptions, you can choose how Stripe should respond when an invoice payment attempt fails. Stripe can retry failed payments up to four times, and you can specify the delay between attempts.</p>
+
+    <div class="caption-image" id="settings" alt="Subscription settings"></div>
+
+    <p>You can also decide whether the subscription’s status should be marked as unpaid or canceled after the last payment attempt fails. (Note that a payment failure on the very first invoice of a subscription without a trial results in the customer never being subscribed to the plan.)</p>
+
+    <p>In either case, after the final payment attempt on an invoice, no further payment attempts will be made until a new payment method (i.e., credit card) is added to the customer’s account. The two states differ in what happens from that point forward.</p>
+
+    <ul>
+      <li>
+        <p>With a canceled subscription, the unpaid invoice will be closed, and no further invoices will be generated. A <code>customer.subscription.deleted</code> event is triggered, following the <code>charge.failed</code> and <code>invoice.payment_failed</code> events that would have preceeded it.  Since the subscription is fully deleted at this point, there is no direct way to “reactivate” it. If you collect updated billing details from your customer, you can “start from scratch”: update your customer’s default card and add the customer to a new subscription.</p>
+      </li>
+      <li>
+        <p>If you choose to mark the subscription as unpaid, it will continue to generate new invoices, but those invoices will be marked as closed. This prevents subsequent payment attempts, which would fail.</p>
+      </li>
+      <li>
+        <p>If you choose to leave the subscription as-is, it will continue to generate new invoices, and those new invoices will be attempted.  You can use this if you want to keep attempting to bill your customers every month, even when previous invoice payments have failed.</p>
+      </li>
+    </ul>
+
+    <p>Note that when a subscription has been scheduled for cancellation using <code>at_period_end</code>, it can be reactivated at any point up to the end of the period with any update via the API or the dashboard.</p>
+
+    <p><strong>TIP</strong>: When an invoice payment fails, the customer gets flagged as “delinquent”, letting you easily identify delinquent customers using filters in the dashboard. The delinquent property always represents whether the most recent payment attempt succeeded or failed. When that invoice is paid, the delinquent label is removed.</p>
+
+    <p>A subscription will be reactivated when the most recently created unpaid invoice for the subscription is paid. So, if it is June 15th, but the May 1st and June 1st invoices are both unpaid:</p>
+
+    <ul>
+      <li>Successfully paying the May 1st invoice will <em>not</em> reactivate the subscription.</li>
+      <li>Successfully paying the June 1st invoice <em>will</em> reactivate the subscription.</li>
+    </ul>
+
+    <hr />
+
+    <h1 id="changing-the-amount-billed">Changing the amount billed</h1>
+
+    <p>The amount a customer is billed on a subscription (via an invoice) is based upon the plan’s cost. Switching between plans usually affects the amount invoiced, due to proration. There are also other ways you can change the amount billed on any given invoice:</p>
+
+    <ul>
+      <li><a href="#adding-invoice-items">Adding invoice items</a></li>
+      <li><a href="#using-customer-balances">Using customer balances</a></li>
+      <li><a href="#applying-discounts">Applying discounts</a></li>
+      <li><a href="#setting-quantities">Setting quantities</a></li>
+    </ul>
+
+    <p>In many cases, more than one of these options can have the same net effect, but philosophically preferring one over the other will make more sense.</p>
+
+    <h2 id="adding-invoice-items">Adding invoice items</h2>
+
+    <p>Invoice items are the most common way to change the amount the customer will be charged. Invoice items appear on an invoice as separate line items.</p>
+
+    <div class="caption-image" alt="Invoice with line items" id="invoice-with-line-items"></div>
+
+    <p>Invoice items are always added to the next invoice to be charged. For example, if a customer is billed on the 1st of each month, any invoice item generated during the month is added to the invoice generated on the 1st of the following month.</p>
+
+    <p>As another example, when Stripe automatically generates an invoice for a recurring payment, your site will be notified of the invoice via webhooks (an <code>invoice.created</code> event). Stripe will wait approximately an hour before attempting to pay that invoice.  In that time, you can add invoice items to the recently-created invoice.</p>
+
+    <p>You can create an invoice item at any point in time, and you can create as many invoice items as you want:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_create_invoiceitem">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>Any positive invoice item amount (an integer in cents) increases the cost of the applicable invoice. To discount an invoice, use a negative amount.</p>
+
+    <p>Invoice items have some unique behaviors:</p>
+
+    <ul>
+      <li>Invoice items will always be charged when the billing period ends even if the subscription is canceled. Canceling a customer’s subscription only means the customer will not be billed again if no invoice items exist.</li>
+      <li>Invoice items are not prorated when a customer’s subscription is changed from one plan to another.</li>
+      <li>The only way to add an invoice item to the first invoice (on a non-trial subscription) is by adding the invoice items to the customer and prior to creating the subscription. This is because there’s no delay between when the first invoice on a non-trial subscription is generated and when payment is attempted. Alternatively, you can impact the amount charged on the first invoice using account balances.</li>
+    </ul>
+
+    <h2 id="using-customer-balances">Using customer balances</h2>
+
+    <p>Account balances are simply a way to directly set how much a customer owes or is owed. You can establish an account balance when you create the customer:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_account_balance_create">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>The amount needs to be an integer in cents. Like invoice items, customer account balances will automatically be factored into the next invoice. A positive amount as a customer balance increases the amount of the next invoice. A negative amount becomes a credit that decreases the amount of the next invoice.</p>
+
+    <p>You can also set the account balance by updating a customer:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_account_balance_update">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>Account balances are easy to implement and understand–and they don’t impact one-off charges. The main downside to manipulating amounts charged via account balances is that they don’t provide a way to document the adjustment, as you can using the description on an invoice item or by applying a discount.</p>
+
+    <h2 id="applying-discounts">Applying discounts</h2>
+
+    <div class="caption-image right" id="create-a-coupon" alt="Create a coupon"></div>
+
+    <p>Coupons are used to provide discounts to a customer on recurring charges. A coupon will reduce the amount of an invoice (by either a percentage of the total of all invoice items, or a flat amount). To start, you’ll need to create the coupon, which can be done in the dashboard or via the API. Coupons have the following <a href="../api.html#coupons">parameters</a>:</p>
+
+    <ul>
+      <li><code>percent_off</code> or <code>amount_off</code></li>
+      <li><code>currency</code></li>
+      <li><code>duration</code>: either <code>once</code>, <code>forever</code>, or <code>repeating</code>.  When using <code>repeating</code>, also specify <code>duration_in_months</code>: the number of months for which the coupon should repeatedly apply.</li>
+      <li><code>id</code>: a unique identifier that serves as the “code” for the coupon.</li>
+      <li><code>max_redemptions</code>: the total number of times that this coupon can be applied to customers. For example, you can restrict a coupon to the first 50 customers that use it, or you can make a coupon expire by a certain date.</li>
+      <li><code>redeem_by</code>: the latest date at which this coupon can be applied to customers.</li>
+    </ul>
+
+    <p>The maximum number of redemptions and the expiration date apply to every customer you have. If you do the latter, this only impacts when the coupon can be applied to a customer. If you set a coupon to last forever when used by a customer, but have it expire on January 1st, any customer given that coupon will have that coupon’s discount forever, but no new customers can apply the coupon after January 1st.</p>
+
+    <p><strong>TIP:</strong> Coupons can be designed to work once (e.g., apply to one invoice), apply to a number of months regardless of the billing period in use, or to last forever. The duration settings individually impact each customer, based on the time that the coupon was applied to the customer.</p>
+
+    <p>Coupons can be applied to a customer when the customer is created:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_coupon_customer_create">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>Coupons can also be added to existing customers by updating the customer:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_coupon_customer_update">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>If you delete a coupon, customers that already have discounts that were created using the coupon will keep those discounts, but no new redemptions of the coupon will be allowed.</p>
+
+    <h2 id="setting-quantities">Setting quantities</h2>
+
+    <p>The final way to change the amount billed to a customer is to use quantities. Quantities are often used to have your subscriptions reflect either multiple simultaneous purchases or to easily support multiple payment amounts.</p>
+
+    <p>By default, each subscription is to one instance of a plan, but Stripe does allow you to subscribe a customer to multiple quantities of a plan to flexibly adjust the amount billed each period.</p>
+
+    <p>For example, say you run a hosting company through which a customer may host 5 sites at a cost of $9.99 per month. You could create a plan for $49.95 and subscribe the customer to it. But then you would also need $9.99, $19.98, and other plans. Furthermore, the billing of $49.95 for 5 hosted sites would not be easily distinguished from your customers on your deluxe hosting plan at a cost of $49.95. The solution is to subscribe your customer to 5 of the $9.99 plan.</p>
+
+    <p>As another example, if the amount each customer pays can vary greatly, you could end up with too many plans to address all possible cases, and yet still need to create new plans for new situations. Alternatively, you could create a $1 plan and subscribe each customer to the appropriate quantity, thereby creating virtual $5 plans, $8 plans, $17 plans, and so forth.</p>
+
+    <p>To set the quantity of a plan, provide that argument and value when creating or updating the subscription:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_set_quantity">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>Multiple quantities of a plan are billed using one invoice, and are prorated when subscriptions are changed, including when you change just the quantities involved.</p>
+
+    <hr />
+
+    <h1 id="multiple-subscriptions">Multiple subscriptions</h1>
+
+    <h2 id="creating-a-new-subscription">Creating a new subscription</h2>
+
+    <p>Stripe offers the ability to subscribe a single customer object to multiple subscriptions. Each subscription will have a unique ID and its state is handled independently from other subscriptions.  To add a new subscription to an existing customer, first retrieve the customer, and then use the <code>create</code> method within the subscriptions sublist:</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <p><a href="https://stripe.com/docs/guides/.">ruby</a>
+  <a href="https://stripe.com/docs/guides/.">python</a>
+  <a href="https://stripe.com/docs/guides/.">php</a>
+  <a href="https://stripe.com/docs/guides/.">node</a></p>
+      </nav>
+      <div class="terminal-wrap" data-action="guide_subscriptions_create_subscription">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>A customer can be subscribed to a single plan more than once. The billing cycle for each subscription can be different, and is dependent on when that subscription was created.</p>
+
+    <p>Note that the number of trial days a customer has used is tracked on a per-subscription basis. We will deduct the number of trial days previously consumed by a subscription from the plan’s <code>trial_period_days</code> unless a <code>trial_end</code> value is specified.</p>
+
+    <h2 id="discounting-a-subscription">Discounting a subscription</h2>
+
+    <p>A coupon can be applied directly to the customer object, or on the subscription itself. A coupon applied at the customer object level will be applied to all recurring charges for that customer. However, a coupon applied at the subscription level will always take priority. An invoice can only have one coupon applied–it’s not possible to stack two or more coupons onto an invoice.</p>
+
+    <hr />
+
+    <h1 id="specific-examples-and-use-cases">Specific examples and use cases</h1>
+
+    <h2 id="generating-invoices">Generating invoices</h2>
+
+    <p>At the end of a billing cycle, Stripe will automatically create an invoice containing both a line item for the customer’s subscription and any invoice items that had been left pending on the customer. However, when the customer has pending invoice items, you can also request that an invoice be generated at any time. Generating a one-off invoice will not affect the customer’s standard billing schedule, but it will pull in any pending invoice items.</p>
+
+    <p>You can do this via the API using the <a href="../api.html#create_invoice">create invoice method</a> or from the dashboard, using the “Invoice Now” button in the Pending Invoice Items pane.</p>
+
+    <p>This can be helpful when you want to request immediate payment of prorations that were created when you upgraded your customer’s subscription (e.g., upgrading a user from a $10 per month plan to a $20 per month plan mid-month will trigger proration invoice items in the net of approximately $5). However, by default, these prorations will simply remain pending on the customer until the end of the month. If you’d like the customer to be billed immediately, you can always request creation of an invoice after upgrading.</p>
+
+    <p>Note that creating an invoice does not lead to an <em>synchronous</em> attempt to pay the invoice. However, the invoice will be automatically attempted between and 1 and 2 hours after it is created. You can also request immediate payment of an invoice at any time using <a href="../api.html#pay_invoice"><code>pay_invoice</code></a>.</p>
+
+    <h2 id="varying-billing-amounts">Varying billing amounts</h2>
+
+    <p>Some users need full flexibility in computing billing amounts. For example, you might have a conceptual subscription that has a base cost of $10 per month, and a $5 per-seat cost each month. We recommend representing these billing relationships by creating a base plan that is only $1 per month, or even $0.01 per month. This lets you use <code>quantity</code> parameter to bill each user very flexibly. In an example with a $10 base cost and three $5 seats, you could use a $1 per month base plan, and set <code>quantity=25</code> to achieve the desired total cost of $25 for the month.</p>
+
+    <h2 id="creating-an-installment-plan">Creating an installment plan</h2>
+
+    <p>Stripe does not currently have direct support for installment plans (i.e., “3 easy payments of $19.99”). However, you can easily set up an installment plan on top of our subscriptions. Essentially, if you want to bill a customer for three payments of $19.99:</p>
+
+    <ul>
+      <li>Subscribe the customer to a $19.99 per month plan. The first payment will occur immediately when the signup occurs.</li>
+      <li>Every time you get an <code>invoice.paid</code> webhook for the user, you can increment a counter on your side to track the total amount paid by the customer.</li>
+      <li>After the third successful payment, you can cancel the customer’s subscription.</li>
+    </ul>
+
+    <h2 id="changing-or-deleting-plans">Changing or deleting plans</h2>
+    <p>If you’re trying to change the price of a plan, it’s best to create a new plan instead of editing. If you do edit a plan, you can change the plan’s name, metadata, and statement description, but not the billing amount or billing interval of the plan. (This avoids the potential surprise of changing the amount that existing users are billed, and the confusion of having some customers on different price points with the same plan).</p>
+
+    <p>If you’re looking to change the billing date on a plan, we recommend specifying a new <code>trial_end</code> when you want to update the billing date of an existing subscription. For example, if it is May 15th and a customer has an active subscription that is set to bill next on May 23rd, but you set their <code>trial_end</code> to be June 1st:</p>
+
+    <ul>
+      <li>The customer will not be billed on May 23rd.</li>
+      <li>The customer will be billed next on June 1st, and then will subsequently be billed on the first of the month thereafter.</li>
+    </ul>
+
+    <p>Deleting a plan will not affect current subscribers to the plan, but new subscribers to the plan won’t be allowed.</p>
+
+    <h2 id="working-with-local-currencies">Working with local currencies</h2>
+
+    <p>A plan’s currency is set at the time of plan creation. If you’d like to offer the same plan in multiple currencies, you’d have to create separate plans.</p>
+
+    <p>Likewise, customer objects are tethered to the currency in which you first charge them. If a customer subscribes to a plan denominated in USD but would later like to be billed in GBP, you wouldn’t be able to subscribe her to a plan in a different currency as she’s already denominated as a USD customer. In this case, you would have to create an entirely new customer object.</p>
+  </article>
+
+  <footer>
+
+    <section id="next">
+      <h1>Next up</h1>
+      <p>
+    Congrats! You’ve gone through how to set up subscriptions with Stripe. Some things you might want to see next:
+  </p>
+      <ul>
+    <li><a href="../api.html#subscriptions">Subscriptions API docs</a></li>
+    <li><a href="../integrations.html#invoicing">Add-ons for subscriptions</a></li>
+    <li><a href="https://dashboard.stripe.com/settings">Stripe dashboard</a></li>
+  </ul>
+    </section>
+
+    <section id="questions">
+      <h1>Questions?</h1>
+      <p>We’re always happy to help with code or other questions you might have! Check out our answers to <a href="https://support.stripe.com/">common questions</a> or chat live with other developers in #stripe on freenode.</p>
+
+    </section>
+
+  </footer>
+
+</section>
+    </section>
+
+  </section><!-- #documentation -->
+
+  <div id="footer">
+    <div class="country-dropdown-view">
+        <a class="select">
+            <span>
+                <img src="../../img/flags/us.png" width="23" height="17" data-hires="true" />
+                <strong>United States</strong>
+            </span>
+        </a>
+
+        <div class="popover">
+            <div class="arrow"></div>
+            <h4>Select your Country</h4>
+            <ul>
+                    <li>
+                        <a href="https://stripe.com/country?country=AU&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/au.png" width="23" height="17" data-hires="true" />
+                            <span>Australia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CA&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/ca.png" width="23" height="17" data-hires="true" />
+                            <span>Canada</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=GB&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/gb.png" width="23" height="17" data-hires="true" />
+                            <span>United Kingdom</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IE&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/ie.png" width="23" height="17" data-hires="true" />
+                            <span>Ireland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=US&amp;redirect=/docs/guides/subscriptions" class="selected">
+                            <img src="../../img/flags/us.png" width="23" height="17" data-hires="true" />
+                            <span>United States</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=AT&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/at.png" width="23" height="17" data-hires="true" />
+                            <span>Austria</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=BE&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/be.png" width="23" height="17" data-hires="true" />
+                            <span>Belgium</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DK&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/dk.png" width="23" height="17" data-hires="true" />
+                            <span>Denmark</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FI&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/fi.png" width="23" height="17" data-hires="true" />
+                            <span>Finland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FR&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/fr.png" width="23" height="17" data-hires="true" />
+                            <span>France</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DE&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/de.png" width="23" height="17" data-hires="true" />
+                            <span>Germany</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IT&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/it.png" width="23" height="17" data-hires="true" />
+                            <span>Italy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=LU&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/lu.png" width="23" height="17" data-hires="true" />
+                            <span>Luxembourg</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NL&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/nl.png" width="23" height="17" data-hires="true" />
+                            <span>Netherlands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NO&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/no.png" width="23" height="17" data-hires="true" />
+                            <span>Norway</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=ES&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/es.png" width="23" height="17" data-hires="true" />
+                            <span>Spain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=SE&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/se.png" width="23" height="17" data-hires="true" />
+                            <span>Sweden</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CH&amp;redirect=/docs/guides/subscriptions" >
+                            <img src="../../img/flags/ch.png" width="23" height="17" data-hires="true" />
+                            <span>Switzerland</span>
+                        </a>
+                    </li>
+          </ul>
+        </div>
+    </div>
+
+
+    <p><a href="https://stripe.com/">&copy; Stripe</a></p>
+
+    <ul>
+        <li><a href="https://status.stripe.com/"><span>System Status</span></a></li>
+        <li><a href="https://stripe.com/about">About</a></li>
+        <li><a href="https://stripe.com/blog"><span>Blog</span></a></li>
+        <li><a href="https://stripe.com/jobs"><span>Jobs</span></a></li>
+        <li><a href="http://twitter.com/stripe">Twitter</a></li>
+    </ul>
+    <ul class="lesser">
+        <li><a href="https://stripe.com/terms">Terms of Service</a></li>
+        <li><a href="https://stripe.com/privacy">Privacy Policy</a></li>
+    </ul>
+</div>
+<div class="country-dropdown-overlay"></div>
+
+    <script src="../../assets/jquery-47d53801b9f61ca8a21dcc2571aeb3ec.js"></script>
+    <script src="../../assets/shared-3abadcaa3af6e785a085062e45894014.js"></script>
+
+<script src="../../assets/footer_analytics-6e8fc3677422b1ab0ef7aca057103605.js"></script>
+
+<noscript>
+  <div style="display:inline;">
+  <img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1008370075/?value=0&amp;guid=ON&amp;script=0"/>
+  </div>
+</noscript>
+
+
+    <script src="../../assets/tutorial-157e244e708a25090e620c16535e5350.js"></script>
+  <script type="text/javascript">
+      var APIValues = {};
+          APIValues["ruby"] = {};
+              APIValues["ruby"]["guide_subscriptions_customer_create"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nStripe::Customer.create(\n  :card =\u0026gt; token, # obtained from Stripe.js\n  :plan =\u0026gt; \u0026quot;basic_monthly\u0026quot;,\n  :email =\u0026gt; \u0026quot;payinguser@example.com\u0026quot;\n)\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_webhook_simple"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nrequire \u0026quot;json\u0026quot;\n\n# Using Sinatra\npost \u0026quot;/my/webhook/url\u0026quot; do\n  # Retrieve the request\u0026#39;s body and parse it as JSON\n  event_json = JSON.parse(request.body.read)\n\n  # Do something with event_json\n\n  status 200\nend\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_webhook"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nrequire \u0026quot;json\u0026quot;\n\n# Using Sinatra\npost \u0026quot;/my/webhook/url\u0026quot; do\n  # Retrieve the request\u0026#39;s body and parse it as JSON\n  event_json = JSON.parse(request.body.read)\n\n  # Verify the event by fetching it from Stripe\n  event = Stripe::Event.retrieve(event_json[\u0026quot;id\u0026quot;])\n\n  # Do something with event\n\n  status 200\nend\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_customer_create_trial"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nStripe::Customer.create(\n  :card =\u0026gt; token, # obtained from Stripe.js\n  :plan =\u0026gt; \u0026quot;basic_monthly\u0026quot;,\n  :email =\u0026gt; \u0026quot;payinguser@example.com\u0026quot;\n  :trial_end =\u0026gt; 1393407413\n)\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_subscription_trial_end"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncustomer = Stripe::Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\nsubscription = customer.subscriptions.retrieve(\u0026quot;sub_49ty4767H20z6a\u0026quot;)\nsubscription.trial_end = \u0026quot;now\u0026quot;\nsubscription.save\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_change_plan"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncustomer = Stripe::Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\nsubscription = customer.subscriptions.retrieve(\u0026quot;sub_3R3PlB2YlJe84a\u0026quot;)\nsubscription.plan = \u0026quot;premium_monthly\u0026quot;\nsubscription.save\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_prorate_false"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncustomer = Stripe::Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\nsubscription = customer.subscriptions.retrieve(\u0026quot;sub_3R3PlB2YlJe84a\u0026quot;)\nsubscription.plan = \u0026quot;premium_monthly\u0026quot;\nsubscription.prorate = false\nsubscription.save\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_cancel_plan"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncustomer = Stripe::Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\ncustomer.subscriptions.retrieve(\u0026quot;sub_3R3PlB2YlJe84a\u0026quot;).delete\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_at_period_end"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncustomer = Stripe::Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\ncustomer.subscriptions.retrieve(\u0026quot;sub_3R3PlB2YlJe84a\u0026quot;).delete(:at_period_end =\u0026gt; true)\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_create_invoiceitem"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nStripe::InvoiceItem.create(\n  :customer =\u0026gt; \u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;,\n  :invoice =\u0026gt; \u0026quot;in_3ZClIXPhhwkNsp\u0026quot;\n  :amount =\u0026gt; 1000,\n  :currency =\u0026gt; \u0026quot;usd\u0026quot;,\n  :description =\u0026gt; \u0026quot;One-time setup fee\u0026quot;\n)\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_account_balance_create"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nStripe::Customer.create(\n  :card =\u0026gt; token, # obtained with Stripe.js\n  :plan =\u0026gt; \u0026quot;basic_monthly\u0026quot;,\n  :email =\u0026gt; \u0026quot;payinguser@example.com\u0026quot;,\n  :account_balance =\u0026gt; 1000\n)\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_account_balance_update"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncu = Stripe::Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\ncu.account_balance = 1000\ncu.save\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_coupon_customer_create"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nStripe::Customer.create(\n  :card =\u0026gt; token,\n  :plan =\u0026gt; \u0026quot;basic_monthly\u0026quot;,\n  :email =\u0026gt; \u0026quot;payinguser@example.com\u0026quot;,\n  :coupon =\u0026gt; \u0026quot;coupon_ID\u0026quot;\n)\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_coupon_customer_update"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncu = Stripe::Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\ncu.coupon = \u0026quot;coupon_ID\u0026quot;\ncu.save\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_set_quantity"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nStripe::Customer.create(\n  :card =\u0026gt; token,\n  :plan =\u0026gt; \u0026quot;basic_monthly\u0026quot;,\n  :email =\u0026gt; \u0026quot;payinguser@example.com\u0026quot;,\n  :quantity =\u0026gt; 5\n)\u003C/span\u003E";
+              APIValues["ruby"]["guide_subscriptions_create_subscription"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncustomer = Stripe::Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\ncustomer.subscriptions.create(:plan =\u0026gt; \u0026quot;basic_monthly\u0026quot;)\u003C/span\u003E";
+          APIValues["python"] = {};
+              APIValues["python"]["guide_subscriptions_customer_create"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nstripe.Customer.create(\n  card=token, # obtained from Stripe.js\n  plan=\u0026quot;basic_monthly\u0026quot;,\n  email=\u0026quot;payinguser@example.com\u0026quot;\n)\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_webhook_simple"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nimport json\nfrom django.http import HttpResponse\n\n# Using Django\ndef my_webhook_view(request):\n  # Retrieve the request\u0026#39;s body and parse it as JSON\n  event_json = json.loads(request.body)\n\n  # Do something with event_json\n\n  return HttpResponse(status=200)\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_webhook"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nimport json\nfrom django.http import HttpResponse\n\n# Using Django\ndef my_webhook_view(request):\n  # Retrieve the request\u0026#39;s body and parse it as JSON\n  event_json = json.load(request.body)\n\n  # Verify the event by fetching it from Stripe\n  event = stripe.Event.retrieve(event_json[\u0026quot;id\u0026quot;])\n\n  # Do something with event\n\n  return HttpResponse(status=200)\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_customer_create_trial"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nstripe.Customer.create(\n  card=token, # obtained from Stripe.js\n  plan=\u0026quot;basic_monthly\u0026quot;,\n  email=\u0026quot;payinguser@example.com\u0026quot;,\n  trial_end=1393407413\n)\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_subscription_trial_end"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncustomer = stripe.Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\nsubscription = customer.subscriptions.retrieve(\u0026quot;sub_49ty4767H20z6a\u0026quot;)\nsubscription.trial_end = \u0026quot;now\u0026quot;\nsubscription.save()\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_change_plan"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncustomer = stripe.Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\nsubscription = customer.subscriptions.retrieve(\u0026quot;sub_3R3PlB2YlJe84a\u0026quot;)\nsubscription.plan = \u0026quot;premium_monthly\u0026quot;\nsubscription.save()\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_prorate_false"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncustomer = stripe.Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\nsubscription = customer.subscriptions.retrieve(\u0026quot;sub_3R3PlB2YlJe84a\u0026quot;)\nsubscription.plan = \u0026quot;premium_monthly\u0026quot;\nsubscription.prorate = false\nsubscription.save()\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_cancel_plan"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncustomer = stripe.Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\ncustomer.subscriptions.retrieve(\u0026quot;sub_3R3PlB2YlJe84a\u0026quot;).delete()\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_at_period_end"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncustomer = stripe.Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\ncustomer.subscriptions.retrieve(\u0026quot;sub_3R3PlB2YlJe84a\u0026quot;).delete(at_period_end=True)\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_create_invoiceitem"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nstripe.InvoiceItem.create(\n  customer=\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;,\n  invoice=\u0026quot;in_3ZClIXPhhwkNsp\u0026quot;\n  amount=1000,\n  currency=\u0026quot;usd\u0026quot;,\n  description=\u0026quot;One-time setup fee\u0026quot;\n)\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_account_balance_create"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nstripe.Customer.create(\n  card=token, # obtained with Stripe.js\n  plan=\u0026quot;basic_monthly\u0026quot;,\n  email=\u0026quot;payinguser@example.com\u0026quot;,\n  account_balance=1000\n)\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_account_balance_update"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncu = stripe.Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\ncu.account_balance = 1000\ncu.save()\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_coupon_customer_create"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nstripe.Customer.create(\n  card=token,\n  plan=\u0026quot;basic_monthly\u0026quot;,\n  email=\u0026quot;payinguser@example.com\u0026quot;,\n  coupon=\u0026quot;coupon_ID\u0026quot;\n)\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_coupon_customer_update"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncu = stripe.Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\ncu.coupon = \u0026quot;coupon_ID\u0026quot;\ncu.save()\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_set_quantity"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\nstripe.Customer.create(\n  card=token,\n  plan=\u0026quot;basic_monthly\u0026quot;,\n  email=\u0026quot;payinguser@example.com\u0026quot;,\n  quantity=5\n)\u003C/span\u003E";
+              APIValues["python"]["guide_subscriptions_create_subscription"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\ncustomer = stripe.Customer.retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;)\ncustomer.subscriptions.create(plan=\u0026quot;basic_monthly\u0026quot;)\u003C/span\u003E";
+          APIValues["php"] = {};
+              APIValues["php"]["guide_subscriptions_customer_create"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n$customer = Stripe_Customer::create(array(\n  \u0026quot;card\u0026quot; =\u0026gt; $token, // obtained from Stripe.js\n  \u0026quot;plan\u0026quot; =\u0026gt; \u0026quot;basic_monthly\u0026quot;,\n  \u0026quot;email\u0026quot; =\u0026gt; \u0026quot;payinguser@example.com\u0026quot;\n));\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_webhook_simple"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n// Retrieve the request\u0026#39;s body and parse it as JSON\n$input = @file_get_contents(\u0026quot;php://input\u0026quot;);\n$event_json = json_decode($input);\n\n// Do something with $event_json\n\nhttp_response_code(200); // PHP 5.4 or greater\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_webhook"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n// Retrieve the request\u0026#39;s body and parse it as JSON\n$input = @file_get_contents(\u0026quot;php://input\u0026quot;);\n$event_json = json_decode($input);\n\n// Verify the event by fetching it from Stripe\n$event = Stripe_Event::retrieve($event_json[\u0026quot;id\u0026quot;]);\n\n// Do something with $event\n\nhttp_response_code(200); // PHP 5.4 or greater\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_customer_create_trial"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n$customer = Stripe_Customer::create(array(\n  \u0026quot;card\u0026quot; =\u0026gt; $token, // obtained from Stripe.js\n  \u0026quot;plan\u0026quot; =\u0026gt; \u0026quot;basic_monthly\u0026quot;,\n  \u0026quot;email\u0026quot; =\u0026gt; \u0026quot;payinguser@example.com\u0026quot;,\n  \u0026quot;trial_end\u0026quot; =\u0026gt; 1393407413\n));\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_subscription_trial_end"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n$cu = Stripe_Customer::retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;);\n$subscription = $cu-\u0026gt;subscriptions-\u0026gt;retrieve(\u0026quot;sub_49ty4767H20z6a\u0026quot;);\n$subscription-\u0026gt;trial_end = \u0026quot;now\u0026quot;;\n$subscription-\u0026gt;save();\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_change_plan"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n$cu = Stripe_Customer::retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;);\n$subscription = $cu-\u0026gt;subscriptions-\u0026gt;retrieve(\u0026quot;sub_3R3PlB2YlJe84a\u0026quot;);\n$subscription-\u0026gt;plan = \u0026quot;premium_monthly\u0026quot;;\n$subscription-\u0026gt;save();\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_prorate_false"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n$customer = Stripe_Customer::retrieve(\u0026#39;cus_3R1W8PG2DmsmM9\u0026#39;);\n$subscription = $customer-\u0026gt;subscriptions-\u0026gt;retrieve(\u0026#39;sub_3R3PlB2YlJe84a\u0026#39;);\n$subscription-\u0026gt;plan = \u0026#39;premium_monthly\u0026#39;;\n$subscription-\u0026gt;prorate = false;\n$subscription-\u0026gt;save();\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_cancel_plan"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n$customer = Stripe_Customer::retrieve(\u0026#39;cus_3R1W8PG2DmsmM9\u0026#39;);\n$subscription = $customer-\u0026gt;subscriptions-\u0026gt;retrieve(\u0026#39;sub_3R3PlB2YlJe84a\u0026#39;);\n$subscription-\u0026gt;cancel();\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_at_period_end"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n$customer = Stripe_Customer::retrieve(\u0026#39;cus_3R1W8PG2DmsmM9\u0026#39;);\n$subscription = $customer-\u0026gt;subscriptions-\u0026gt;retrieve(\u0026#39;sub_3R3PlB2YlJe84a\u0026#39;);\n$subscription-\u0026gt;cancel(array(\u0026#39;at_period_end\u0026#39; =\u0026gt; true));\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_create_invoiceitem"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nStripe_InvoiceItem::create(array(\n  \u0026quot;customer\u0026quot; =\u0026gt; \u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;,\n  \u0026quot;invoice\u0026quot; =\u0026gt; \u0026quot;in_3ZClIXPhhwkNsp\u0026quot;,\n  \u0026quot;amount\u0026quot; =\u0026gt; 1000,\n  \u0026quot;currency\u0026quot; =\u0026gt; \u0026quot;usd\u0026quot;,\n  \u0026quot;description\u0026quot; =\u0026gt; \u0026quot;One-time setup fee\u0026quot;\n));\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_account_balance_create"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n$customer = Stripe_Customer::create(array(\n  \u0026quot;card\u0026quot; =\u0026gt; $token,\n  \u0026quot;plan\u0026quot; =\u0026gt; \u0026quot;basic_monthly\u0026quot;,\n  \u0026quot;email\u0026quot; =\u0026gt; \u0026quot;payinguser@example.com\u0026quot;,\n  \u0026quot;account_balance\u0026quot; =\u0026gt; 1000\n));\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_account_balance_update"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n$cu = Stripe_Customer::retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;);\n$cu-\u0026gt;account_balance = 1000;\n$cu-\u0026gt;save();\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_coupon_customer_create"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nStripe_Customer::create(array(\n  \u0026quot;card\u0026quot; =\u0026gt; $token,\n  \u0026quot;plan\u0026quot; =\u0026gt; \u0026quot;basic_monthly\u0026quot;,\n  \u0026quot;email\u0026quot; =\u0026gt; \u0026quot;payinguser@example.com\u0026quot;,\n  \u0026quot;coupon\u0026quot; =\u0026gt; \u0026quot;coupon_ID\u0026quot;\n));\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_coupon_customer_update"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n$cu = Stripe_Customer::retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;);\n$cu-\u0026gt;coupon = \u0026quot;coupon_ID\u0026quot;;\n$cu-\u0026gt;save();\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_set_quantity"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nStripe_Customer::create(array(\n  \u0026quot;card\u0026quot; =\u0026gt; $token,\n  \u0026quot;plan\u0026quot; =\u0026gt; \u0026quot;basic_monthly\u0026quot;,\n  \u0026quot;email\u0026quot; =\u0026gt; \u0026quot;payinguser@example.com\u0026quot;,\n  \u0026quot;quantity\u0026quot; =\u0026gt; 5\n));\u003C/span\u003E";
+              APIValues["php"]["guide_subscriptions_create_subscription"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n$cu = Stripe_Customer::retrieve(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;);\n$cu-\u0026gt;subscriptions-\u0026gt;create(array(\u0026quot;plan\u0026quot; =\u0026gt; \u0026quot;basic_monthly\u0026quot;));\u003C/span\u003E";
+          APIValues["node"] = {};
+              APIValues["node"]["guide_subscriptions_customer_create"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nstripe.customers.create({\n  card: token, // obtained with Stripe.js\n  plan: \u0026quot;basic_monthly\u0026quot;,\n  email: \u0026quot;payinguser@example.com\u0026quot;\n}, function(err, customer) {\n  // asynchronously called\n});\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_webhook_simple"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n// Using Express\napp.post(\u0026quot;/my/webhook/url\u0026quot;, function(request, response) {\n  // Retrieve the request\u0026#39;s body and parse it as JSON\n  var event_json = JSON.parse(request.body);\n\n  // Do something with event_json\n\n  response.send(200);\n});\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_webhook"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n// Using Express\napp.post(\u0026quot;/my/webhook/url\u0026quot;, function(request, response) {\n  // Retrieve the request\u0026#39;s body and parse it as JSON\n  var event_json = JSON.parse(request.body);\n\n  // Verify the event by fetching it from Stripe\n  stripe.events.retrieve(event_json.id, function(err, event) {\n    // Do something with event\n\n    response.send(200);\n  });\n});\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_customer_create_trial"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nstripe.customers.create({\n  card: token, // obtained with Stripe.js\n  plan: \u0026quot;basic_monthly\u0026quot;,\n  email: \u0026quot;payinguser@example.com\u0026quot;,\n  trial_end: 1393407413\n}, function(err, customer) {\n  // asynchronously called\n});\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_subscription_trial_end"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nstripe.customers.updateSubscription(\n  \u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;,\n  \u0026quot;sub_49ty4767H20z6a\u0026quot;,\n  { trial_end: \u0026quot;now\u0026quot; },\n  function(err, subscription) {\n    // asynchronously called\n  }\n);\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_change_plan"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nstripe.customers.updateSubscription(\n  \u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;,\n  \u0026quot;sub_3R3PlB2YlJe84a\u0026quot;,\n  { plan: \u0026quot;premium_monthly\u0026quot; },\n  function(err, subscription) {\n    // asynchronously called\n  }\n);\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_prorate_false"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nstripe.customers.updateSubscription(\n  \u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;,\n  \u0026quot;sub_3R3PlB2YlJe84a\u0026quot;,\n  {\n    plan: \u0026quot;premium_monthly\u0026quot;,\n    prorate: false\n  },\n  function(err, subscription) {\n    // asynchronously called\n  }\n);\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_cancel_plan"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nstripe.customers.cancelSubscription(\n  \u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;,\n  \u0026quot;sub_3R3PlB2YlJe84a\u0026quot;,\n  function(err, confirmation) {\n    // asynchronously called\n  }\n);\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_at_period_end"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nstripe.customers.cancelSubscription(\n  \u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;,\n  \u0026quot;sub_3R3PlB2YlJe84a\u0026quot;,\n  { at_period_end: true },\n  function(err, confirmation) {\n    // asynchronously called\n  }\n);\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_create_invoiceitem"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nstripe.invoiceItems.create({\n  customer: \u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;,\n  invoice: \u0026quot;in_3ZClIXPhhwkNsp\u0026quot;\n  amount: 1000,\n  currency: \u0026quot;usd\u0026quot;,\n  description: \u0026quot;One-time setup fee\u0026quot;\n}, function(err, invoiceItem) {\n  // asynchronously called\n});\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_account_balance_create"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nstripe.customers.create({\n  card: token,\n  plan: \u0026quot;basic_monthly\u0026quot;,\n  email: \u0026quot;payinguser@example.com\u0026quot;,\n  account_balance: 1000\n}, function(err, customer) {\n  // asynchronously called\n});\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_account_balance_update"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nstripe.customers.update(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;, {\n  account_balance: 1000\n}, function(err, customer) {\n  // asynchronously called\n});\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_coupon_customer_create"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nstripe.customers.create({\n  card: token,\n  plan: \u0026quot;basic_monthly\u0026quot;,\n  email: \u0026quot;payinguser@example.com\u0026quot;,\n  coupon: \u0026quot;coupon_ID\u0026quot;\n}, function(err, customer) {\n  // asynchronously called\n});\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_coupon_customer_update"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nstripe.customers.update(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;, {\n  coupon: \u0026quot;coupon_ID\u0026quot;\n}, function(err, customer) {\n  // asynchronously called\n});\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_set_quantity"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nstripe.customers.create({\n  card: token,\n  plan: \u0026quot;basic_monthly\u0026quot;,\n  email: \u0026quot;payinguser@example.com\u0026quot;,\n  quantity: 5\n}, function(err, customer) {\n  // asynchronously called\n});\u003C/span\u003E";
+              APIValues["node"]["guide_subscriptions_create_subscription"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\nstripe.customers.createSubscription(\u0026quot;cus_3R1W8PG2DmsmM9\u0026quot;, {\n  plan: \u0026quot;basic_monthly\u0026quot;\n}, function(err, subscription) {\n  // asynchronously called\n});\u003C/span\u003E";
+  </script>
+
+
+  <script src="../../assets/documentation-6a120856de81b5511bf1790365f19166.js"></script>
+  <script src="../../assets/highlight.pack-8bd9d9dd93b5ef1f95e855d7641494d2.js"></script>
+<script src="../../assets/highlighter-1268244f129b69592ca48d0f0f198cac.js"></script>
+
+  <script type="text/javascript">
+    Analytics.page("docs");
+  </script>
+</body>
+
+<!-- Mirrored from stripe.com/docs/guides/subscriptions by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:08 GMT -->
+</html>

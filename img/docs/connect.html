@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stripe.com/docs/connect by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Stripe Connect Overview</title>
+    <link rel="stylesheet" type="text/css" href="../assets/site-ea99019a1bc27872a48d1149a4785b01.css" media="screen" />
+    <script type="text/javascript">
+        var _sf_startpt=(new Date()).getTime()
+        var APIValues = {};
+    </script>
+    <script type="application/json" id="mixpanel_config">{&quot;identifier&quot;:&quot;eb71b6171a4f7ed97de9b7a0395b7ca5&quot;}</script>
+<script type="application/json" id="analytics_config">{}</script>
+<script src="../../www.googleadservices.com/pagead/f.txt"></script>
+<script src="../assets/external_analytics-a9e3d39cd6110aa8c184d9c1f2e5777e.js"></script>
+<script src="../assets/qframe-cb903dc9166e266dc7d9f11d44f5e81a.js"></script>
+
+    <link rel="shortcut icon" href="https://stripe.com/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="/assets/html5shiv-17761200a17ebcb716dda86cca6d2472.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../../use.typekit.net/gbh7uto.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    
+</head>
+<body id="documentation">
+
+  <div id="header">
+    <h1><a href="https://stripe.com/">Stripe</a></h1>
+    <div class="navigation">
+    <div class="signin"><a id='signin' href="https://dashboard.stripe.com/login"><span>Sign In</span></a></div>
+
+  <ul class="global">
+    <li><a href="https://stripe.com/docs" class="selected">Documentation</a></li>
+    <li><a href="https://support.stripe.com/">Help &amp; Support</a></li>
+  </ul>
+</div>
+
+  </div><!-- #header -->
+
+  <section id="doc">
+
+    <nav>
+
+      <h1 class="getting-started">Documentation</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/docs">Getting Started</a>
+        </li>
+          <li class="unselected sub">
+            <a href="tutorials/checkout.html">Embedded Form</a>
+          </li>
+          <li class="unselected sub">
+            <a href="tutorials/forms.html">Custom Forms</a>
+          </li>
+          <li class="unselected sub">
+            <a href="mobile.html">Mobile Apps</a>
+          </li>
+
+        <li class="unselected">
+          <a href="tutorials/charges.html">Charging Cards</a>
+        </li>
+
+        <li class="unselected">
+          <a href="tutorials/sending-transfers.html">Sending Transfers</a>
+        </li>
+
+        <li class="unselected">
+          <a href="tutorials/dashboard.html">Your Account</a>
+        </li>
+      </ul>
+
+      <h1 class="references">References</h1>
+      <ul>
+        <li class="unselected">
+          <a href="stripe.html">Stripe.js</a>
+        </li>
+        <li class="unselected">
+          <a href="checkout.html">Checkout</a>
+        </li>
+        <li class="unselected">
+          <a href="webhooks.html">Webhooks</a>
+        </li>
+        <li class="unselected">
+          <a href="fraud.html">Fraud Protection</a>
+        </li>
+        <li class="unselected">
+          <a href="testing.html">Testing</a>
+        </li>
+        <li class="unselected">
+          <a href="examples.html">Examples</a>
+        </li>
+        <li class="unselected">
+          <a href="upgrades.html">API Upgrades</a>
+        </li>
+        <li class="unselected">
+          <a href="libraries.html">API Libraries</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/file-upload.html">File Upload Guide</a>
+        </li>
+        <li class="unselected">
+          <a href="api.html" class="external" target="_blank">
+            Full API Reference
+          </a>
+        </li>
+      </ul>
+
+      <h1 class="subscriptions">Subscriptions</h1>
+      <ul>
+        <li class="unselected">
+          <a href="subscriptions.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="tutorials/subscriptions.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/subscriptions.html">Integration Guide</a>
+        </li>
+      </ul>
+
+      <h1 class="connect">Connect</h1>
+      <ul>
+        <li class="selected">
+          <a href="connect.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/getting-started.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/oauth.html">Integrating OAuth</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/collecting-fees.html">Collecting Fees</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/shared-customers.html">Shared Customers</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/reference.html">Reference</a>
+        </li>
+      </ul>
+
+      <h1 class="disputes">Disputes</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes-overview">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/dispute-evidence.html">Submitting Evidence</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/dispute-types">Dispute Types</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes">FAQ</a>
+        </li>
+      </ul>
+
+
+      <h1 class="faq"><abbr title="Frequently Asked Questions">FAQ</abbr></h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/transfers">Getting Paid</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/ssl">SSL/TLS</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/security">Security</a>
+        </li>
+      </ul>
+
+      <h1 class="more">More</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/contact">Contact</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/global">Global Users</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/gallery">Gallery</a>
+        </li>
+        <li class="last unselected">
+          <a href="integrations.html">Integrations</a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <section id="content">
+      <section id="details">
+
+  <header>
+    <h1>Stripe Connect Overview</h1>
+    <p>
+      Stripe applications make it easy for developers to integrate their services with&nbsp;Stripe.
+      If you need help, check out our answers to <a href="https://support.stripe.com/">common questions</a> or chat live with other developers in #stripe on freenode.
+
+    </p>
+  </header>
+
+  <article>
+  <aside class="intro note">
+    <h1>Getting started</h1>
+    <p>
+    If you'd like to jump right in, see our <a href="connect/oauth.html">Getting Started</a> guide.
+    </p>
+  </aside>
+
+  <p>With <a href="https://stripe.com/connect">Stripe Connect</a>, built on <a href="http://oauth.net/2/">OAuth 2.0</a>, you can now get access to your users' Stripe accounts. This enables two important use cases:
+  </p>
+
+  <p>
+    <ul>
+      <li><a href="#payments">Payments for your users</a></li>
+      <li><a href="#data">Full access to Stripe data</a></li>
+    </ul>
+  </p>
+
+  <h1 id="payments">Payments for your users</h1>
+
+  <p>If you're a platform, store builder, invoicing system, or anything else that helps users get paid, you can let your users accept credit cards instantly by having them connect or create a Stripe account.</p>
+
+  <p>You charge your user's customers directly and we deposit the payments into your user's Stripe account, minus Stripe fees and your optional <a href="#collecting-fees">application fee</a>. Stripe will also handle transferring funds to your seller's bank account.</p>
+
+  <h2 id="payments-flow">Flow</h2>
+
+  <p>Unlike most OAuth implementations (like Facebook Connect or Sign In with Twitter), we've seamlessly added the process of creating a Stripe account right into our authorization flow so you won't have to worry about whether or not your users have Stripe accounts already.</p>
+
+  <style>
+    div.screenshots {
+      padding: 20px 20px 0;
+    }
+    div.screenshots img {
+      display: block;
+      margin: 0 auto;
+
+      border-radius: 3px;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.1),
+                  0 2px 3px 0 rgba(0,0,0,0.3);
+    }
+    div.screenshots p {
+      text-align: center;
+      color: #888;
+      padding-top: 15px;
+    }
+  </style>
+
+  <div class="screenshots clearfix">
+    <div style="width: 49%; float: left;">
+      <a href="../img/documentation/oauth-authorize-screen.png" class="zoom" maxSize="868x688"><img src="../img/documentation/oauth-authorize-thumb.png" width="255" height="202"></a>
+      <p>The user is logged in, and can connect directly.</p>
+    </div>
+    <div style="width: 49%; float: right;">
+      <a href="../img/documentation/oauth-register-screen.png" class="zoom" maxSize="868x688"><img src="../img/documentation/oauth-register-thumb.png"  width="255" height="202"></a>
+      <p>The user needs to create an account.</p>
+    </div>
+  </div>
+
+  <p></p>
+  <p>When your users land back on your site, their account is ready to accept credit card payments. You can also retrieve their account status at any time with the <a href="connect/getting-started.html#account-information">account API resource</a>.</p>
+
+  <h2 id="prefill-info">Pre-filling information</h2>
+
+  <p>If your user needs to set up a new account with Stripe, you can provide the best possible user experience by <a href="connect/reference.html#get-authorize-request">pre-filling</a> the account form fields with information you already have, like email and name.</p>
+
+  <p>Pre-filling has no effect if your user already has an existing Stripe account.</p>
+
+  <h2 id="charges-recurring">Charges and recurring billing</h2>
+
+  <p>After your user connects, you can <a href="tutorials/charges.html">charge credit cards</a>, <a href="tutorials/subscriptions.html">set up recurring billing</a>, and take advantage of the rest of <a href="api.html">Stripe's full API</a> on behalf of your user.</p>
+
+  <p>Since the charge is made on your user's Stripe account, money will be deposited directly into their bank account. You don't have to worry about aggregation restrictions, paying your users, dealing with chargebacks, or any other operational issues that typically arise when facilitating payments on behalf of others.</p>
+
+  <h2 id="collecting-fees">Collecting transaction fees</h2>
+
+  <p>Collecting a fee on each transaction is as easy as passing <a href="connect/collecting-fees.html">an extra parameter</a> to the charge creation API request. The fees will be deposited into your Stripe account (to be deposited on a
+    2-day rolling schedule).</p>
+
+  <h2 id="shared-customers">Shared customers across all of your users</h2>
+
+  <p>For some types of applications, like marketplaces, it's crucial to be able to reuse customer payment information across all of your sellers. You'll easily be able to do this by <a href="connect/shared-customers.html#storing-customers">storing</a> all of the payment data on your application's Stripe account, and <a href="connect/shared-customers.html#making-a-charge">accessing</a> it when you're ready to make a charge.
+
+  <h1 id="data">Full access to Stripe data</h1>
+
+  <p>
+    If you're building an analytics service, accounting software, CRM system, or anything that builds on top of financial data, you can easily let your users share their Stripe data with you in just a couple of clicks.
+  </p>
+
+  <h2 id="data-flow">Flow</h2>
+
+  <p>
+    Read-only scoped applications will by default show a Stripe Connect login screen instead of an account form when your users land on our site (presumably, your users will already own existing Stripe accounts). Your users will only need to click "Authorize" and confirm their account credentials.
+  </p>
+
+  <p>
+    If they don't own an existing Stripe account, they'll always have the option to create one right in the authorization flow, or you can force showing the account application by explicitly passing the <code>stripe_landing=register</code> <a href="connect/reference.html#get-authorize">parameter</a>.
+  </p>
+
+  <div class="clearfix screenshots">
+    <div>
+      <a href="../img/documentation/oauth-login-screen.png" class="zoom" maxSize="868x688"><img src="../img/documentation/oauth-login-thumb.png" width="255" height="202" /></a>
+      <p></p>
+    </div>
+  </div>
+
+  <h2 id="full-access">Full access to Stripe data</h2>
+
+  <p>After your user has successfully given you access to their Stripe account, you'll be able to pull any data you'd like from the <a href="api.html">Stripe API</a>.</p>
+
+  <p>You'll also receive all of your users' webhooks at a special application <a href="connect/getting-started.html#webhooks">webhook url</a> so you can keep up to date.</p>
+
+  </article>
+
+  <footer>
+
+    <section id="next">
+      <h1>Next steps</h1>
+      <p>
+        Sound like what you're looking for? Take a look at our Getting Started guide, where we'll guide you through building your first application.
+      </p>
+      <ul>
+        <li><a href="connect/getting-started.html">Getting Started</a></li>
+        <li><a href="https://stripe.com/connect/terms">Connect Terms of Service</a></li>
+      </ul>
+    </section>
+
+    <section id="questions">
+      <h1>Questions?</h1>
+      <p>We're always happy to help with code or other questions you might have! Check out our answers to <a href="https://support.stripe.com/">common questions</a> or chat live with other developers in #stripe on freenode.</p>
+
+    </section>
+
+  </footer>
+
+</section>
+
+
+    </section>
+
+  </section><!-- #documentation -->
+
+  <div id="footer">
+    <div class="country-dropdown-view">
+        <a class="select">
+            <span>
+                <img src="../img/flags/us.png" width="23" height="17" data-hires="true" />
+                <strong>United States</strong>
+            </span>
+        </a>
+
+        <div class="popover">
+            <div class="arrow"></div>
+            <h4>Select your Country</h4>
+            <ul>
+                    <li>
+                        <a href="https://stripe.com/country?country=AU&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/au.png" width="23" height="17" data-hires="true" />
+                            <span>Australia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CA&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/ca.png" width="23" height="17" data-hires="true" />
+                            <span>Canada</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=GB&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/gb.png" width="23" height="17" data-hires="true" />
+                            <span>United Kingdom</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IE&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/ie.png" width="23" height="17" data-hires="true" />
+                            <span>Ireland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=US&amp;redirect=/docs/connect" class="selected">
+                            <img src="../img/flags/us.png" width="23" height="17" data-hires="true" />
+                            <span>United States</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=AT&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/at.png" width="23" height="17" data-hires="true" />
+                            <span>Austria</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=BE&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/be.png" width="23" height="17" data-hires="true" />
+                            <span>Belgium</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DK&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/dk.png" width="23" height="17" data-hires="true" />
+                            <span>Denmark</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FI&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/fi.png" width="23" height="17" data-hires="true" />
+                            <span>Finland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FR&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/fr.png" width="23" height="17" data-hires="true" />
+                            <span>France</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DE&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/de.png" width="23" height="17" data-hires="true" />
+                            <span>Germany</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IT&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/it.png" width="23" height="17" data-hires="true" />
+                            <span>Italy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=LU&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/lu.png" width="23" height="17" data-hires="true" />
+                            <span>Luxembourg</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NL&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/nl.png" width="23" height="17" data-hires="true" />
+                            <span>Netherlands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NO&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/no.png" width="23" height="17" data-hires="true" />
+                            <span>Norway</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=ES&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/es.png" width="23" height="17" data-hires="true" />
+                            <span>Spain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=SE&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/se.png" width="23" height="17" data-hires="true" />
+                            <span>Sweden</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CH&amp;redirect=/docs/connect" >
+                            <img src="../img/flags/ch.png" width="23" height="17" data-hires="true" />
+                            <span>Switzerland</span>
+                        </a>
+                    </li>
+          </ul>
+        </div>
+    </div>
+
+
+    <p><a href="https://stripe.com/">&copy; Stripe</a></p>
+
+    <ul>
+        <li><a href="https://status.stripe.com/"><span>System Status</span></a></li>
+        <li><a href="https://stripe.com/about">About</a></li>
+        <li><a href="https://stripe.com/blog"><span>Blog</span></a></li>
+        <li><a href="https://stripe.com/jobs"><span>Jobs</span></a></li>
+        <li><a href="http://twitter.com/stripe">Twitter</a></li>
+    </ul>
+    <ul class="lesser">
+        <li><a href="https://stripe.com/terms">Terms of Service</a></li>
+        <li><a href="https://stripe.com/privacy">Privacy Policy</a></li>
+    </ul>
+</div>
+<div class="country-dropdown-overlay"></div>
+
+    <script src="../assets/jquery-47d53801b9f61ca8a21dcc2571aeb3ec.js"></script>
+    <script src="../assets/shared-3abadcaa3af6e785a085062e45894014.js"></script>
+
+<script src="../assets/footer_analytics-6e8fc3677422b1ab0ef7aca057103605.js"></script>
+
+<noscript>
+  <div style="display:inline;">
+  <img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1008370075/?value=0&amp;guid=ON&amp;script=0"/>
+  </div>
+</noscript>
+
+
+    <script src="../assets/zoom-3a00e8ab5b6e3ee875d7dc1bbfe183c3.js"></script>
+
+
+  <script src="../assets/documentation-6a120856de81b5511bf1790365f19166.js"></script>
+  <script src="../assets/highlight.pack-8bd9d9dd93b5ef1f95e855d7641494d2.js"></script>
+<script src="../assets/highlighter-1268244f129b69592ca48d0f0f198cac.js"></script>
+
+  <script type="text/javascript">
+    Analytics.page("docs");
+  </script>
+</body>
+
+<!-- Mirrored from stripe.com/docs/connect by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:13 GMT -->
+</html>

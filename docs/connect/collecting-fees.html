@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stripe.com/docs/connect/collecting-fees by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Collecting Fees</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/site-ea99019a1bc27872a48d1149a4785b01.css" media="screen" />
+    <script type="text/javascript">
+        var _sf_startpt=(new Date()).getTime()
+        var APIValues = {};
+    </script>
+    <script type="application/json" id="mixpanel_config">{&quot;identifier&quot;:&quot;eb71b6171a4f7ed97de9b7a0395b7ca5&quot;}</script>
+<script type="application/json" id="analytics_config">{}</script>
+<script src="../../../www.googleadservices.com/pagead/f.txt"></script>
+<script src="../../assets/external_analytics-a9e3d39cd6110aa8c184d9c1f2e5777e.js"></script>
+<script src="../../assets/qframe-cb903dc9166e266dc7d9f11d44f5e81a.js"></script>
+
+    <link rel="shortcut icon" href="https://stripe.com/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="/assets/html5shiv-17761200a17ebcb716dda86cca6d2472.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../../../use.typekit.net/gbh7uto.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    
+</head>
+<body id="documentation">
+
+  <div id="header">
+    <h1><a href="https://stripe.com/">Stripe</a></h1>
+    <div class="navigation">
+    <div class="signin"><a id='signin' href="https://dashboard.stripe.com/login"><span>Sign In</span></a></div>
+
+  <ul class="global">
+    <li><a href="https://stripe.com/docs" class="selected">Documentation</a></li>
+    <li><a href="https://support.stripe.com/">Help &amp; Support</a></li>
+  </ul>
+</div>
+
+  </div><!-- #header -->
+
+  <section id="doc">
+
+    <nav>
+
+      <h1 class="getting-started">Documentation</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/docs">Getting Started</a>
+        </li>
+          <li class="unselected sub">
+            <a href="../tutorials/checkout.html">Embedded Form</a>
+          </li>
+          <li class="unselected sub">
+            <a href="../tutorials/forms.html">Custom Forms</a>
+          </li>
+          <li class="unselected sub">
+            <a href="../mobile.html">Mobile Apps</a>
+          </li>
+
+        <li class="unselected">
+          <a href="../tutorials/charges.html">Charging Cards</a>
+        </li>
+
+        <li class="unselected">
+          <a href="../tutorials/sending-transfers.html">Sending Transfers</a>
+        </li>
+
+        <li class="unselected">
+          <a href="../tutorials/dashboard.html">Your Account</a>
+        </li>
+      </ul>
+
+      <h1 class="references">References</h1>
+      <ul>
+        <li class="unselected">
+          <a href="../stripe.html">Stripe.js</a>
+        </li>
+        <li class="unselected">
+          <a href="../checkout.html">Checkout</a>
+        </li>
+        <li class="unselected">
+          <a href="../webhooks.html">Webhooks</a>
+        </li>
+        <li class="unselected">
+          <a href="../fraud.html">Fraud Protection</a>
+        </li>
+        <li class="unselected">
+          <a href="../testing.html">Testing</a>
+        </li>
+        <li class="unselected">
+          <a href="../examples.html">Examples</a>
+        </li>
+        <li class="unselected">
+          <a href="../upgrades.html">API Upgrades</a>
+        </li>
+        <li class="unselected">
+          <a href="../libraries.html">API Libraries</a>
+        </li>
+        <li class="unselected">
+          <a href="../guides/file-upload.html">File Upload Guide</a>
+        </li>
+        <li class="unselected">
+          <a href="../api.html" class="external" target="_blank">
+            Full API Reference
+          </a>
+        </li>
+      </ul>
+
+      <h1 class="subscriptions">Subscriptions</h1>
+      <ul>
+        <li class="unselected">
+          <a href="../subscriptions.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="../tutorials/subscriptions.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="../guides/subscriptions.html">Integration Guide</a>
+        </li>
+      </ul>
+
+      <h1 class="connect">Connect</h1>
+      <ul>
+        <li class="unselected">
+          <a href="../connect.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="getting-started.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="oauth.html">Integrating OAuth</a>
+        </li>
+        <li class="selected">
+          <a href="collecting-fees.html">Collecting Fees</a>
+        </li>
+        <li class="unselected">
+          <a href="shared-customers.html">Shared Customers</a>
+        </li>
+        <li class="unselected">
+          <a href="reference.html">Reference</a>
+        </li>
+      </ul>
+
+      <h1 class="disputes">Disputes</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes-overview">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="../guides/dispute-evidence.html">Submitting Evidence</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/dispute-types">Dispute Types</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes">FAQ</a>
+        </li>
+      </ul>
+
+
+      <h1 class="faq"><abbr title="Frequently Asked Questions">FAQ</abbr></h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/transfers">Getting Paid</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/ssl">SSL/TLS</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/security">Security</a>
+        </li>
+      </ul>
+
+      <h1 class="more">More</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/contact">Contact</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/global">Global Users</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/gallery">Gallery</a>
+        </li>
+        <li class="last unselected">
+          <a href="../integrations.html">Integrations</a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <section id="content">
+      <section id="details">
+
+    <header>
+        <h1>Collecting Transaction Fees</h1>
+        <p>
+          With <a href="../connect.html">Stripe Connect</a>, you can collect a transaction fee from your users every time you make a charge on their behalf.
+          If you need help, check out our answers to <a href="https://support.stripe.com/">common questions</a> or chat live with other developers in #stripe on freenode.
+
+        </p>
+    </header>
+
+    <article>
+
+    <aside class="intro note">
+      <h1>Stripe Connect</h1>
+      <p>Don't know much about Stripe Connect yet? Check out the <a href="../connect.html">overview</a> or <a href="getting-started.html">Getting Started guide</a>.
+      </p>
+    </aside>
+
+    <h1 id='charges'>On once-off charges</h1>
+
+    <p>
+    To charge a fee on top of Stripe's fees for a once-off charge, all you need to do is pass in the optional <code>application_fee</code> parameter (in cents) when <a href="../api.html#create_charge">creating the charge</a>.</p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <a href="https://stripe.com/docs/connect/.">ruby</a>
+        <a href="https://stripe.com/docs/connect/.">python</a>
+        <a href="https://stripe.com/docs/connect/.">php</a>
+        <a href="https://stripe.com/docs/connect/.">node</a>
+      </nav>
+      <div class="terminal-wrap" data-action="tutorial_application_fee">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>
+    The resulting charge's <a href="../api.html#retrieve_balance_transaction">balance transaction</a> will include a detailed fee breakdown:
+    </p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+      <pre><code><span class="highlight_js json">{
+  &quot;object&quot;: &quot;balance_transaction&quot;,
+  &quot;type&quot;: &quot;charge&quot;,
+  &quot;amount&quot;: 1000,
+  &quot;currency&quot;: &quot;usd&quot;,
+  &quot;fee&quot;: 182,
+  ...
+  &quot;fee_details&quot;: [
+    {
+      &quot;type&quot;: &quot;stripe_fee&quot;,
+      &quot;amount&quot;: 59,
+      &quot;application&quot;: null,
+      &quot;currency&quot;: &quot;usd&quot;
+    },
+    {
+      &quot;type&quot;: &quot;application_fee&quot;,
+      &quot;amount&quot;: 123,
+      &quot;application&quot;: &quot;ca_32D88BD1qLklliziD7gYQvctJIhWBSQ7&quot;,
+      &quot;currency&quot;: &quot;usd&quot;
+    }
+  ]
+}</span></code><pre>
+       </div>
+    </section>
+
+    <p>
+    Notes:
+    <ul>
+      <li>The <code>ACCESS_TOKEN</code> must be an OAuth key received through the <a href="oauth.html">Stripe Connect flow</a>, <strong>not a secret key</strong>.</li>
+      <li>The <code>application_fee</code> parameter must be a positive integer.</li>
+      <li>An <code>application_fee</code> will be capped at the total transaction amount minus any Stripe fees&mdash;no error will be thrown for <code>application_fee</code>s that are automatically capped.</li>
+    </ul>
+    </p>
+
+    <h1 id='subscriptions'>On subscriptions</h1>
+
+    <p>
+      When creating or updating a subscription, you can specify an <code>application_fee_percent</code> parameter as an integer between 1 and 100. Each billing period, we'll take that percentage off the final invoice amount (including any bundled invoice items, discounts, or account balance adjustments) as an fee for your application, on top of any Stripe fees charged.
+    </p>
+
+    <p>
+      For example, in a scenario where: the subscription per billing cycle is $100, there's a $10 invoice item and 50% coupon on the invoice, and the <code>application_fee_percent</code> is 10%, the total application fee taken will be $5.50 (($100 + $10) * 50% * 10%).
+    </p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <a href="https://stripe.com/docs/connect/.">ruby</a>
+        <a href="https://stripe.com/docs/connect/.">python</a>
+        <a href="https://stripe.com/docs/connect/.">php</a>
+        <a href="https://stripe.com/docs/connect/.">node</a>
+      </nav>
+      <div class="terminal-wrap" data-action="tutorial_application_fee_subscriptions">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <h2>Prorations and Invoice Items</h2>
+
+    <p>
+      Invoices created out-of-band of a subscription billing period will not have the <code>application_fee_percent</code> applied to them. This includes proration invoice items that are immediately invoiced&mdash;you'll need to set an <code>application_fee</code> on the invoice directly for the application fee amount you'd like to charge (see below).
+    </p>
+
+    <p>
+      If you're not planning to create any extra invoices, prorations will be automatically bundled into the next billing cycle and will automatically inherit the <code>application_fee_percent</code> set on the updated subscription.
+    </p>
+
+    <h2>Invoices</h2>
+
+    <p>
+      If you'd like to charge a flat or dynamic fee, or otherwise any fee that can't be automatically calculated with <code>application_fee_percent</code>, you can add an <code>application_fee</code> directly on the invoice (usually upon getting an <code>invoice.created</code> webhook, although you can create an invoice for pending invoice items and set an application fee on it).
+    </p>
+
+    <section class="code-example">
+      <nav class="lang-control">
+        <a href="https://stripe.com/docs/connect/.">ruby</a>
+        <a href="https://stripe.com/docs/connect/.">python</a>
+        <a href="https://stripe.com/docs/connect/.">php</a>
+        <a href="https://stripe.com/docs/connect/.">node</a>
+      </nav>
+      <div class="terminal-wrap" data-action="tutorial_application_fee_invoices">
+        <pre><code><div class="terminal"></div></code></pre>
+      </div>
+    </section>
+
+    <p>
+      The <code>application_fee</code> set will override any application fee amount calculated with <code>application_fee_percent</code>, and will be capped if it ends up exceeding the amount of the final charge created.
+    </p>
+
+
+    <h2>Permissions</h2>
+      <p>
+        You cannot update or cancel a subscription that was not created by your application. You also can't add an <code>application_fee</code> to an invoice that was not created by your application or that contains invoice items belonging to another application.
+      </p>
+
+    <h1 id='flow-of-funds'>Flow of Funds</h1>
+
+    <aside class="content note">
+      <h1>No additional fees</h1>
+      <p>There is no additional Stripe fee to collect application fees.
+      </p>
+    </aside>
+
+    <p>
+      When you specify an application fee on a charge (either by creating the charge, or through recurring billing), the fee amount will be transferred to your (the application owner's) Stripe account. The charge amount, less Stripe fees and application fees, will be deposited into the connected user's account.
+    </p>
+
+    <p>
+      For example, if a charge amount of $10 was made (as in the example above), $1.23 will be transferred to your account, and $8.18 cents ($10 - $0.59 - $1.23) will be transferred to your user's account.
+    </p>
+
+    <h2>Transfers</h2>
+
+    <p>Any application fees earned will show in the Stripe account that created the application. They are transferred on the normal <a href="https://stripe.com/us/help/pricing#payouts">2-day rolling basis</a> as regular Stripe charges, and are viewable in the <a href="https://dashboard.stripe.com/applications/fees">Collected Fees</a> section of the dashboard.</p>
+
+    <h1 id='refunding-fees'>Refunding Fees</h1>
+
+    <p>
+      When a charge is refunded, the end customer will always be refunded the full amount of the charge. Stripe will never automatically refund the application fee&mdash;you must explicitly refund the application fee, or your connected user (the account the charge was created on) will eat the cost of the fee.
+    </p>
+
+    <p>You can refund application fees incurred by your application in several ways:</p>
+    <ul>
+      <li>From the <a href="https://dashboard.stripe.com/applications/fees">dashboard</a>.</li>
+      <li>Upon <a href="../api.html#create_refund">refunding a charge</a> (passing <code>refund_application_fee</code> will refund the application fee proportional to the amount of the charge refunded, as of <a href="../upgrades.html#2013-12-03">December 3, 2013</a>).</li>
+      <li>Using the <a href="../api.html#application_fees">application fees API</a>.</li>
+    </ul>
+    </article>
+</section>
+
+
+    </section>
+
+  </section><!-- #documentation -->
+
+  <div id="footer">
+    <div class="country-dropdown-view">
+        <a class="select">
+            <span>
+                <img src="../../img/flags/us.png" width="23" height="17" data-hires="true" />
+                <strong>United States</strong>
+            </span>
+        </a>
+
+        <div class="popover">
+            <div class="arrow"></div>
+            <h4>Select your Country</h4>
+            <ul>
+                    <li>
+                        <a href="https://stripe.com/country?country=AU&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/au.png" width="23" height="17" data-hires="true" />
+                            <span>Australia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CA&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/ca.png" width="23" height="17" data-hires="true" />
+                            <span>Canada</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=GB&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/gb.png" width="23" height="17" data-hires="true" />
+                            <span>United Kingdom</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IE&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/ie.png" width="23" height="17" data-hires="true" />
+                            <span>Ireland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=US&amp;redirect=/docs/connect/collecting-fees" class="selected">
+                            <img src="../../img/flags/us.png" width="23" height="17" data-hires="true" />
+                            <span>United States</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=AT&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/at.png" width="23" height="17" data-hires="true" />
+                            <span>Austria</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=BE&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/be.png" width="23" height="17" data-hires="true" />
+                            <span>Belgium</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DK&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/dk.png" width="23" height="17" data-hires="true" />
+                            <span>Denmark</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FI&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/fi.png" width="23" height="17" data-hires="true" />
+                            <span>Finland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FR&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/fr.png" width="23" height="17" data-hires="true" />
+                            <span>France</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DE&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/de.png" width="23" height="17" data-hires="true" />
+                            <span>Germany</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IT&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/it.png" width="23" height="17" data-hires="true" />
+                            <span>Italy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=LU&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/lu.png" width="23" height="17" data-hires="true" />
+                            <span>Luxembourg</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NL&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/nl.png" width="23" height="17" data-hires="true" />
+                            <span>Netherlands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NO&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/no.png" width="23" height="17" data-hires="true" />
+                            <span>Norway</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=ES&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/es.png" width="23" height="17" data-hires="true" />
+                            <span>Spain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=SE&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/se.png" width="23" height="17" data-hires="true" />
+                            <span>Sweden</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CH&amp;redirect=/docs/connect/collecting-fees" >
+                            <img src="../../img/flags/ch.png" width="23" height="17" data-hires="true" />
+                            <span>Switzerland</span>
+                        </a>
+                    </li>
+          </ul>
+        </div>
+    </div>
+
+
+    <p><a href="https://stripe.com/">&copy; Stripe</a></p>
+
+    <ul>
+        <li><a href="https://status.stripe.com/"><span>System Status</span></a></li>
+        <li><a href="https://stripe.com/about">About</a></li>
+        <li><a href="https://stripe.com/blog"><span>Blog</span></a></li>
+        <li><a href="https://stripe.com/jobs"><span>Jobs</span></a></li>
+        <li><a href="http://twitter.com/stripe">Twitter</a></li>
+    </ul>
+    <ul class="lesser">
+        <li><a href="https://stripe.com/terms">Terms of Service</a></li>
+        <li><a href="https://stripe.com/privacy">Privacy Policy</a></li>
+    </ul>
+</div>
+<div class="country-dropdown-overlay"></div>
+
+    <script src="../../assets/jquery-47d53801b9f61ca8a21dcc2571aeb3ec.js"></script>
+    <script src="../../assets/shared-3abadcaa3af6e785a085062e45894014.js"></script>
+
+<script src="../../assets/footer_analytics-6e8fc3677422b1ab0ef7aca057103605.js"></script>
+
+<noscript>
+  <div style="display:inline;">
+  <img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1008370075/?value=0&amp;guid=ON&amp;script=0"/>
+  </div>
+</noscript>
+
+
+    <script src="../../assets/tutorial-157e244e708a25090e620c16535e5350.js"></script>
+  <script type="text/javascript">
+      var APIValues = {};
+          APIValues["ruby"] = {};
+              APIValues["ruby"]["tutorial_application_fee"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Get the credit card details submitted by the form\ntoken = params[:stripeToken]\n\n# Create the charge on Stripe\u0026#39;s servers - this will charge the user\u0026#39;s card\ncharge = Stripe::Charge.create({\n    :amount =\u0026gt; 1000, # amount in cents\n    :currency =\u0026gt; \u0026quot;usd\u0026quot;,\n    :card =\u0026gt; token,\n    :description =\u0026gt; \u0026quot;payinguser@example.com\u0026quot;,\n    :application_fee =\u0026gt; 123 # amount in cents\n  },\n  ACCESS_TOKEN # user\u0026#39;s access token from the Stripe Connect flow\n)\u003C/span\u003E";
+              APIValues["ruby"]["tutorial_application_fee_subscriptions"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Update the customer\u0026#39;s subscription with an application_fee_percent\ncustomer.update_subscription({\n    :application_fee_percent =\u0026gt; 20 # 20% application fee\n  },\n  ACCESS_TOKEN # user\u0026#39;s access token from the Stripe Connect flow\n)\u003C/span\u003E";
+              APIValues["ruby"]["tutorial_application_fee_invoices"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Update the invoice with an application_fee to be applied when the\n# invoice is paid\ninvoice.application_fee = 100 # amount in cents\ninvoice.save\u003C/span\u003E";
+          APIValues["python"] = {};
+              APIValues["python"]["tutorial_application_fee"] = "\u003Cspan class=\"highlight_js python\"\u003E# Get the credit card details submitted by the form\ntoken = request.POST[\u0026#39;stripeToken\u0026#39;]\n\n# Create the charge on Stripe\u0026#39;s servers - this will charge the user\u0026#39;s card\ncharge = stripe.Charge.create(\n  amount=1000, # amount in cents\n  currency=\u0026quot;usd\u0026quot;,\n  card=token,\n  description=\u0026quot;payinguser@example.com\u0026quot;,\n  application_fee=123, # amount in cents\n  api_key=ACCESS_TOKEN # user\u0026#39;s access token from the Stripe Connect flow\n)\u003C/span\u003E";
+              APIValues["python"]["tutorial_application_fee_subscriptions"] = "\u003Cspan class=\"highlight_js python\"\u003E# Update the customer\u0026#39;s subscription with an application_fee_percent\ncustomer.update_subscription(\n  application_fee_percent=20 # 20% application fee\n  api_key=ACCESS_TOKEN # user\u0026#39;s access token from the Stripe Connect flow\n)\u003C/span\u003E";
+              APIValues["python"]["tutorial_application_fee_invoices"] = "\u003Cspan class=\"highlight_js python\"\u003E# Update the invoice with an application_fee to be applied when the\n# invoice is paid\ninvoice.application_fee = 100 # amount in cents\ninvoice.save()\u003C/span\u003E";
+          APIValues["php"] = {};
+              APIValues["php"]["tutorial_application_fee"] = "\u003Cspan class=\"highlight_js php\"\u003E// Get the credit card details submitted by the form\n$token = $_POST[\u0026#39;stripeToken\u0026#39;];\n\n// Create the charge on Stripe\u0026#39;s servers - this will charge the user\u0026#39;s card\n$charge = Stripe_Charge::create(array(\n  \u0026quot;amount\u0026quot; =\u0026gt; 1000, // amount in cents\n  \u0026quot;currency\u0026quot; =\u0026gt; \u0026quot;usd\u0026quot;,\n  \u0026quot;card\u0026quot; =\u0026gt; $token,\n  \u0026quot;description\u0026quot; =\u0026gt; \u0026quot;payinguser@example.com\u0026quot;,\n  \u0026quot;application_fee\u0026quot; =\u0026gt; 123 // amount in cents\n  ),\n  ACCESS_TOKEN // user\u0026#39;s access token from the Stripe Connect flow\n);\u003C/span\u003E";
+              APIValues["php"]["tutorial_application_fee_subscriptions"] = "\u003Cspan class=\"highlight_js php\"\u003E// Update the customer\u0026#39;s subscription with an application_fee_percent\n$customer.update_subscription(array(\n  \u0026quot;application_fee_percent\u0026quot; =\u0026gt; 20 // 20% application fee\n  ),\n  ACCESS_TOKEN // user\u0026#39;s access token from the Stripe Connect flow\n);\u003C/span\u003E";
+              APIValues["php"]["tutorial_application_fee_invoices"] = "\u003Cspan class=\"highlight_js php\"\u003E// Update the invoice with an application_fee to be applied when the\n// invoice is paid\n$invoice-\u0026gt;application_fee = 100; // amount in cents\n$invoice-\u0026gt;save();\u003C/span\u003E";
+          APIValues["node"] = {};
+              APIValues["node"]["tutorial_application_fee"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Get the credit card details submitted by the form\nvar token = request.body.stripeToken;\n\n// Create the charge on Stripe\u0026#39;s servers - this will charge the user\u0026#39;s card\nstripe.charges.create(\n  {\n    amount: 1000, // amount in cents\n    currency: \u0026quot;usd\u0026quot;,\n    card: $token,\n    description: \u0026quot;payinguser@example.com\u0026quot;,\n    application_fee: 123 // amount in cents\n  },\n  ACCESS_TOKEN, // user\u0026#39;s access token from the Stripe Connect flow\n  function(err, charge) {\n    // check for `err`\n    // do something with `charge`\n  }\n);\u003C/span\u003E";
+              APIValues["node"]["tutorial_application_fee_subscriptions"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Update the customer\u0026#39;s subscription with an application_fee_percent\nstripe.customers.updateSubscription(\n  customerId,\n  {\n    application_fee_percent: 20 // 20% application fee\n  ),\n  ACCESS_TOKEN, // user\u0026#39;s access token from the Stripe Connect flow\n  function(err, customer) {\n    // check for `err`\n    // do something with `customer`\n  }\n);\u003C/span\u003E";
+              APIValues["node"]["tutorial_application_fee_invoices"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Update the invoice with an application_fee to be applied when the\n// invoice is paid\nstripe.invoices.update(\n  invoiceId,\n  { application_fee: 100 },\n  ACCESS_TOKEN,\n  function(err, invoice) {}\n);\u003C/span\u003E";
+  </script>
+
+
+  <script src="../../assets/documentation-6a120856de81b5511bf1790365f19166.js"></script>
+  <script src="../../assets/highlight.pack-8bd9d9dd93b5ef1f95e855d7641494d2.js"></script>
+<script src="../../assets/highlighter-1268244f129b69592ca48d0f0f198cac.js"></script>
+
+  <script type="text/javascript">
+    Analytics.page("docs");
+  </script>
+</body>
+
+<!-- Mirrored from stripe.com/docs/connect/collecting-fees by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:13 GMT -->
+</html>
