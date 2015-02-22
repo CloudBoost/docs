@@ -1,0 +1,61 @@
+{
+	"sidebar": [
+		{
+			"ref-title": "Overview",
+			"list": [
+				{
+					"name": "Introduction",
+					"id": "Introduction",
+					"children": []
+				},
+				{
+					"name": "Dependencies",
+					"id": "Dependencies",
+					"children": []
+				},
+				{
+					"name": "Apps",
+					"id": "Apps",
+					"children": []
+				}
+			]
+		},
+		{
+			"ref-title": "Objects",
+			"list": [
+				{
+					"name": "Global",
+					"id": "Global",
+					"children": []
+				},
+				{
+					"name": "CloudApp",
+					"id": "CloudApp",
+					"children": [
+						{
+							"name": "CloudApp.init()",
+							"id": "CloudApp-init"
+						}
+					]
+				},
+				{
+					"name": "CloudObject",
+					"id": "CloudObject",
+					"children": []
+				}
+			]
+		}
+		
+	],
+	"method": [
+		{
+			"name": ,
+			"method-description": ,
+			"method-example": {
+				"heading": ,
+				"code": 
+			}
+
+		}
+	]
+}

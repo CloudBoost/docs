@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stripe.com/docs/examples by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Examples</title>
+    <link rel="stylesheet" type="text/css" href="../assets/site-ea99019a1bc27872a48d1149a4785b01.css" media="screen" />
+    <script type="text/javascript">
+        var _sf_startpt=(new Date()).getTime()
+        var APIValues = {};
+    </script>
+    <script type="application/json" id="mixpanel_config">{&quot;identifier&quot;:&quot;eb71b6171a4f7ed97de9b7a0395b7ca5&quot;}</script>
+<script type="application/json" id="analytics_config">{}</script>
+<script src="../../www.googleadservices.com/pagead/f.txt"></script>
+<script src="../assets/external_analytics-a9e3d39cd6110aa8c184d9c1f2e5777e.js"></script>
+<script src="../assets/qframe-cb903dc9166e266dc7d9f11d44f5e81a.js"></script>
+
+    <link rel="shortcut icon" href="https://stripe.com/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="/assets/html5shiv-17761200a17ebcb716dda86cca6d2472.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../../use.typekit.net/gbh7uto.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    
+</head>
+<body id="documentation">
+
+  <div id="header">
+    <h1><a href="https://stripe.com/">Stripe</a></h1>
+    <div class="navigation">
+    <div class="signin"><a id='signin' href="https://dashboard.stripe.com/login"><span>Sign In</span></a></div>
+
+  <ul class="global">
+    <li><a href="https://stripe.com/docs" class="selected">Documentation</a></li>
+    <li><a href="https://support.stripe.com/">Help &amp; Support</a></li>
+  </ul>
+</div>
+
+  </div><!-- #header -->
+
+  <section id="doc">
+
+    <nav>
+
+      <h1 class="getting-started">Documentation</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/docs">Getting Started</a>
+        </li>
+          <li class="unselected sub">
+            <a href="tutorials/checkout.html">Embedded Form</a>
+          </li>
+          <li class="unselected sub">
+            <a href="tutorials/forms.html">Custom Forms</a>
+          </li>
+          <li class="unselected sub">
+            <a href="mobile.html">Mobile Apps</a>
+          </li>
+
+        <li class="unselected">
+          <a href="tutorials/charges.html">Charging Cards</a>
+        </li>
+
+        <li class="unselected">
+          <a href="tutorials/sending-transfers.html">Sending Transfers</a>
+        </li>
+
+        <li class="unselected">
+          <a href="tutorials/dashboard.html">Your Account</a>
+        </li>
+      </ul>
+
+      <h1 class="references">References</h1>
+      <ul>
+        <li class="unselected">
+          <a href="stripe.html">Stripe.js</a>
+        </li>
+        <li class="unselected">
+          <a href="checkout.html">Checkout</a>
+        </li>
+        <li class="unselected">
+          <a href="webhooks.html">Webhooks</a>
+        </li>
+        <li class="unselected">
+          <a href="fraud.html">Fraud Protection</a>
+        </li>
+        <li class="unselected">
+          <a href="testing.html">Testing</a>
+        </li>
+        <li class="selected">
+          <a href="examples.html">Examples</a>
+        </li>
+        <li class="unselected">
+          <a href="upgrades.html">API Upgrades</a>
+        </li>
+        <li class="unselected">
+          <a href="libraries.html">API Libraries</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/file-upload.html">File Upload Guide</a>
+        </li>
+        <li class="unselected">
+          <a href="api.html" class="external" target="_blank">
+            Full API Reference
+          </a>
+        </li>
+      </ul>
+
+      <h1 class="subscriptions">Subscriptions</h1>
+      <ul>
+        <li class="unselected">
+          <a href="subscriptions.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="tutorials/subscriptions.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/subscriptions.html">Integration Guide</a>
+        </li>
+      </ul>
+
+      <h1 class="connect">Connect</h1>
+      <ul>
+        <li class="unselected">
+          <a href="connect.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/getting-started.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/oauth.html">Integrating OAuth</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/collecting-fees.html">Collecting Fees</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/shared-customers.html">Shared Customers</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/reference.html">Reference</a>
+        </li>
+      </ul>
+
+      <h1 class="disputes">Disputes</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes-overview">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/dispute-evidence.html">Submitting Evidence</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/dispute-types">Dispute Types</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes">FAQ</a>
+        </li>
+      </ul>
+
+
+      <h1 class="faq"><abbr title="Frequently Asked Questions">FAQ</abbr></h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/transfers">Getting Paid</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/ssl">SSL/TLS</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/security">Security</a>
+        </li>
+      </ul>
+
+      <h1 class="more">More</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/contact">Contact</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/global">Global Users</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/gallery">Gallery</a>
+        </li>
+        <li class="last unselected">
+          <a href="integrations.html">Integrations</a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <section id="content">
+      <section id="details">
+
+    <header>
+        <h1>Examples</h1>
+
+        <p>Here are some sample Stripe integrations.
+          If you'd like to share your own example, just
+          <a href="https://support.stripe.com/email">let us know</a>.</p>
+
+    </header>
+<article>
+    <ul>
+      <li>A tutorial from start to finish on <a href="http://www.larryullman.com/series/processing-payments-with-stripe/">setting up Stripe</a> by Larry Ullman.</li>
+      <li>Basic <a href="https://gist.github.com/1750368">sample checkout page</a> using Stripe.js and jQuery validate.</li>
+      <li>Simple <a href="https://github.com/myg0v/Simple-Bootstrap-Stripe-Payment-Form">payment form</a> built with Bootstrap.</li>
+      <li>Check out the <a href="http://railscasts.com/episodes/288-billing-with-stripe">Billing With Stripe</a> screencast from RailsCasts.</li>
+      <li>A tutorial for <a href="http://www.munocreative.com/nerd-notes/winvoice">setting up Stripe Connect</a> in Rails by Ruben Pierre-Antoine.</li>
+      <li>Sample Rails applications
+        <ul>
+          <li>monospace-rails: <a href="https://github.com/stripe/monospace-rails">GitHub source</a> and <a href="https://monospace-rails.heroku.com/">demo</a>.</li>
+          <li>rails-stripe-connect-example: <a href="https://github.com/rfunduk/rails-stripe-connect-example">GitHub source</a>.</li>
+          <li>Rails Subscription/Membership/SaaS Site from RailsApps: <a href="http://railsapps.github.io/rails-stripe-membership-saas/">GitHub source</a>.</li>
+        </ul>
+      </li>
+      <li>Sample Django applications
+        <ul>
+          <li>monospace-django: <a href="https://github.com/stripe/monospace-django">GitHub source</a>.</li>
+          <li>django-zebra: <a href="https://github.com/GoodCloud/django-zebra">GitHub source</a>.</li>
+          <li>django-stripe-payments: <a href="https://github.com/eldarion/django-stripe-payments">GitHub source</a>.</li>
+          <li>stripe-potato-demo: <a href="https://github.com/potatolondon/stripe-potato-demo">GitHub source</a> (using <a href="https://github.com/eldarion/django-stripe-payments">django-stripe-payments</a> and
+              <a href="checkout.html">Stripe Checkout</a>, from <a href="http://p.ota.to/">Potato London</a>).</li>
+        </ul>
+      </li>
+      <li><a href="https://gist.github.com/1750375">Simple PHP example</a> using Stripe.js</li>
+      <li>A 7-part <a href="https://github.com/stripe/wilde-things">PHP integration tutorial</a> covering single payments, subscriptions, and webhooks.</li>
+      <li><a href="https://github.com/chadsmith/OpenVBX-Plugin-Stripe">OpenVBX plugin</a> with the Stripe PHP library, thanks to chadsmith.</li>
+      <li>Sample <a href="https://github.com/zapier/stripeboard">Stripe dashboard</a> from the team at <a href="https://zapier.com/">Zapier</a>.</li>
+      <li>Accept payments within a <a href="http://wufoo.com/payments/stripe/">Wufoo form</a> with Stripe Connect.</li>
+      <li><a href="https://www.masteringmodernpayments.com/">Mastering Modern Payments - Using Stripe with Rails</a> (fee applies) - an e-book and code samples by <a href="https://twitter.com/zrail">Pete Keen</a>.</li>
+      <li>A simple <a href="https://github.com/drone/go.stripe/tree/master/examples">Go web application</a> with Stripe.js and Stripe Checkout examples using the <a href="https://github.com/drone/go.stripe">go.stripe</a> package.</li>
+      <li>Sample Node Applications
+        <ul>
+          <li><a href="https://github.com/mjhea0/node-stripe-charge">Accepting one-time charges</a> using Node and Express by <a href="http://www.mherman.org/">Michael Herman</a>.</li>
+          <li><a href="https://github.com/eddywashere/node-stripe-membership-saas">Subscriptions</a> using Node by <a href="https://github.com/eddywashere">Eddy Hernandez</a>.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>If you’re using <a href="webhooks.html">webhooks</a>, you might find these examples and tutorials handy:</p>
+    <ul>
+      <li><a href="https://github.com/integrallis/stripe_event">stripe_event</a>: a Rails gem to handle webhooks, thanks to Danny Whalen.</li>
+      <li><a href="https://github.com/boucher/stripe-webhook-mailer">Webhook example</a> for emailing users when they pay via an invoice.</li>
+      <li><a href="https://www.petekeen.net/stripe-webhook-event-cheatsheet">Webhook event cheatsheet</a> by <a href="https://www.petekeen.net/">Pete Keen</a>.</li>
+      <li>A tutorial on <a href="http://imzank.com/2012/11/how-to-use-stripe-com-to-email-your-customers/">using webhooks to email your customers</a> by Zank.</a></li>
+    </ul>
+
+    <p>Implemented your own library or an example you'd like to
+    share? <a href="https://support.stripe.com/email">Send us a link</a> to
+    your code and we'll be happy to add it to the list!</p></article>
+</section>
+
+    </section>
+
+  </section><!-- #documentation -->
+
+  <div id="footer">
+    <div class="country-dropdown-view">
+        <a class="select">
+            <span>
+                <img src="../img/flags/us.png" width="23" height="17" data-hires="true" />
+                <strong>United States</strong>
+            </span>
+        </a>
+
+        <div class="popover">
+            <div class="arrow"></div>
+            <h4>Select your Country</h4>
+            <ul>
+                    <li>
+                        <a href="https://stripe.com/country?country=AU&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/au.png" width="23" height="17" data-hires="true" />
+                            <span>Australia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CA&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/ca.png" width="23" height="17" data-hires="true" />
+                            <span>Canada</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=GB&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/gb.png" width="23" height="17" data-hires="true" />
+                            <span>United Kingdom</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IE&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/ie.png" width="23" height="17" data-hires="true" />
+                            <span>Ireland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=US&amp;redirect=/docs/examples" class="selected">
+                            <img src="../img/flags/us.png" width="23" height="17" data-hires="true" />
+                            <span>United States</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=AT&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/at.png" width="23" height="17" data-hires="true" />
+                            <span>Austria</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=BE&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/be.png" width="23" height="17" data-hires="true" />
+                            <span>Belgium</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DK&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/dk.png" width="23" height="17" data-hires="true" />
+                            <span>Denmark</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FI&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/fi.png" width="23" height="17" data-hires="true" />
+                            <span>Finland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FR&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/fr.png" width="23" height="17" data-hires="true" />
+                            <span>France</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DE&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/de.png" width="23" height="17" data-hires="true" />
+                            <span>Germany</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IT&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/it.png" width="23" height="17" data-hires="true" />
+                            <span>Italy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=LU&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/lu.png" width="23" height="17" data-hires="true" />
+                            <span>Luxembourg</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NL&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/nl.png" width="23" height="17" data-hires="true" />
+                            <span>Netherlands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NO&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/no.png" width="23" height="17" data-hires="true" />
+                            <span>Norway</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=ES&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/es.png" width="23" height="17" data-hires="true" />
+                            <span>Spain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=SE&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/se.png" width="23" height="17" data-hires="true" />
+                            <span>Sweden</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CH&amp;redirect=/docs/examples" >
+                            <img src="../img/flags/ch.png" width="23" height="17" data-hires="true" />
+                            <span>Switzerland</span>
+                        </a>
+                    </li>
+          </ul>
+        </div>
+    </div>
+
+
+    <p><a href="https://stripe.com/">&copy; Stripe</a></p>
+
+    <ul>
+        <li><a href="https://status.stripe.com/"><span>System Status</span></a></li>
+        <li><a href="https://stripe.com/about">About</a></li>
+        <li><a href="https://stripe.com/blog"><span>Blog</span></a></li>
+        <li><a href="https://stripe.com/jobs"><span>Jobs</span></a></li>
+        <li><a href="http://twitter.com/stripe">Twitter</a></li>
+    </ul>
+    <ul class="lesser">
+        <li><a href="https://stripe.com/terms">Terms of Service</a></li>
+        <li><a href="https://stripe.com/privacy">Privacy Policy</a></li>
+    </ul>
+</div>
+<div class="country-dropdown-overlay"></div>
+
+    <script src="../assets/jquery-47d53801b9f61ca8a21dcc2571aeb3ec.js"></script>
+    <script src="../assets/shared-3abadcaa3af6e785a085062e45894014.js"></script>
+
+<script src="../assets/footer_analytics-6e8fc3677422b1ab0ef7aca057103605.js"></script>
+
+<noscript>
+  <div style="display:inline;">
+  <img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1008370075/?value=0&amp;guid=ON&amp;script=0"/>
+  </div>
+</noscript>
+
+
+  
+
+  <script src="../assets/documentation-6a120856de81b5511bf1790365f19166.js"></script>
+  <script src="../assets/highlight.pack-8bd9d9dd93b5ef1f95e855d7641494d2.js"></script>
+<script src="../assets/highlighter-1268244f129b69592ca48d0f0f198cac.js"></script>
+
+  <script type="text/javascript">
+    Analytics.page("docs");
+  </script>
+</body>
+
+<!-- Mirrored from stripe.com/docs/examples by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:07 GMT -->
+</html>

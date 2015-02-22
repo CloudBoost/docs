@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stripe.com/docs/fraud by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Fraud Protection</title>
+    <link rel="stylesheet" type="text/css" href="../assets/site-ea99019a1bc27872a48d1149a4785b01.css" media="screen" />
+    <script type="text/javascript">
+        var _sf_startpt=(new Date()).getTime()
+        var APIValues = {};
+    </script>
+    <script type="application/json" id="mixpanel_config">{&quot;identifier&quot;:&quot;eb71b6171a4f7ed97de9b7a0395b7ca5&quot;}</script>
+<script type="application/json" id="analytics_config">{}</script>
+<script src="../../www.googleadservices.com/pagead/f.txt"></script>
+<script src="../assets/external_analytics-a9e3d39cd6110aa8c184d9c1f2e5777e.js"></script>
+<script src="../assets/qframe-cb903dc9166e266dc7d9f11d44f5e81a.js"></script>
+
+    <link rel="shortcut icon" href="https://stripe.com/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="/assets/html5shiv-17761200a17ebcb716dda86cca6d2472.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../../use.typekit.net/gbh7uto.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    
+</head>
+<body id="documentation">
+
+  <div id="header">
+    <h1><a href="https://stripe.com/">Stripe</a></h1>
+    <div class="navigation">
+    <div class="signin"><a id='signin' href="https://dashboard.stripe.com/login"><span>Sign In</span></a></div>
+
+  <ul class="global">
+    <li><a href="https://stripe.com/docs" class="selected">Documentation</a></li>
+    <li><a href="https://support.stripe.com/">Help &amp; Support</a></li>
+  </ul>
+</div>
+
+  </div><!-- #header -->
+
+  <section id="doc">
+
+    <nav>
+
+      <h1 class="getting-started">Documentation</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/docs">Getting Started</a>
+        </li>
+          <li class="unselected sub">
+            <a href="tutorials/checkout.html">Embedded Form</a>
+          </li>
+          <li class="unselected sub">
+            <a href="tutorials/forms.html">Custom Forms</a>
+          </li>
+          <li class="unselected sub">
+            <a href="mobile.html">Mobile Apps</a>
+          </li>
+
+        <li class="unselected">
+          <a href="tutorials/charges.html">Charging Cards</a>
+        </li>
+
+        <li class="unselected">
+          <a href="tutorials/sending-transfers.html">Sending Transfers</a>
+        </li>
+
+        <li class="unselected">
+          <a href="tutorials/dashboard.html">Your Account</a>
+        </li>
+      </ul>
+
+      <h1 class="references">References</h1>
+      <ul>
+        <li class="unselected">
+          <a href="stripe.html">Stripe.js</a>
+        </li>
+        <li class="unselected">
+          <a href="checkout.html">Checkout</a>
+        </li>
+        <li class="unselected">
+          <a href="webhooks.html">Webhooks</a>
+        </li>
+        <li class="selected">
+          <a href="fraud.html">Fraud Protection</a>
+        </li>
+        <li class="unselected">
+          <a href="testing.html">Testing</a>
+        </li>
+        <li class="unselected">
+          <a href="examples.html">Examples</a>
+        </li>
+        <li class="unselected">
+          <a href="upgrades.html">API Upgrades</a>
+        </li>
+        <li class="unselected">
+          <a href="libraries.html">API Libraries</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/file-upload.html">File Upload Guide</a>
+        </li>
+        <li class="unselected">
+          <a href="api.html" class="external" target="_blank">
+            Full API Reference
+          </a>
+        </li>
+      </ul>
+
+      <h1 class="subscriptions">Subscriptions</h1>
+      <ul>
+        <li class="unselected">
+          <a href="subscriptions.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="tutorials/subscriptions.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/subscriptions.html">Integration Guide</a>
+        </li>
+      </ul>
+
+      <h1 class="connect">Connect</h1>
+      <ul>
+        <li class="unselected">
+          <a href="connect.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/getting-started.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/oauth.html">Integrating OAuth</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/collecting-fees.html">Collecting Fees</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/shared-customers.html">Shared Customers</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/reference.html">Reference</a>
+        </li>
+      </ul>
+
+      <h1 class="disputes">Disputes</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes-overview">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/dispute-evidence.html">Submitting Evidence</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/dispute-types">Dispute Types</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes">FAQ</a>
+        </li>
+      </ul>
+
+
+      <h1 class="faq"><abbr title="Frequently Asked Questions">FAQ</abbr></h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/transfers">Getting Paid</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/ssl">SSL/TLS</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/security">Security</a>
+        </li>
+      </ul>
+
+      <h1 class="more">More</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/contact">Contact</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/global">Global Users</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/gallery">Gallery</a>
+        </li>
+        <li class="last unselected">
+          <a href="integrations.html">Integrations</a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <section id="content">
+      <section id="details">
+
+  <header>
+    <h1>Fraud Protection</h1>
+    <p>
+      Stripe offers integrated, automatic fraud protection for users of Stripe.js and Checkout.
+    </p>
+  </header>
+
+  <article>
+
+  <p>If you use Stripe.js or Checkout, Stripe automatically evaluates charges for
+  fraud risk and blocks those we believe are fraudulent. This process is
+  automatic and does not require any extra integration work, but you can
+  improve the accuracy of our assessments by letting us know if you believe a
+  charge is fraudulent or legitimate. (If you are unfamiliar with how fraud
+  can affect your business, or with the dispute process, see our support page
+  on <a href="https://support.stripe.com/questions/avoiding-fraud-and-disputes">avoiding fraud and disputes</a>.)</p>
+
+<h1 id="getting-information-on-stripe-fraud">Getting information on charges Stripe thinks are fraudulent</h1>
+
+<p>If Stripe believes a payment is fraudulent, we will block the charge
+creation attempt. The error hash returned by the API will have a
+<code>decline_code</code> key with a value of <code>fraudulent</code>:</p>
+<section class="code-example">
+<div class="terminal-wrap">
+<pre><code><span class="highlight_js bash">curl <span class='string'>https://api.stripe.com/v1/charges</span> \
+   -u <span class='string'>sk_test_BQokikJOvBiI2HlWgH4olfQ2</span>: \
+   -d <span class='keyword'>card</span>=<span class='string'>tok_51ZM3BwtekpEyl</span> \
+   -d <span class='keyword'>amount</span>=<span class='string'>2000</span> \
+   -d <span class='keyword'>currency</span>=<span class='string'>usd</span>
+</span></pre></code>
+<pre><code><span class="highlight_js javascript">{
+  &quot;error&quot;: {
+    &quot;message&quot;: &quot;Your card was declined.&quot;,
+    &quot;type&quot;: &quot;card_error&quot;,
+    &quot;code&quot;: &quot;card_declined&quot;,
+    &quot;decline_code&quot;: &quot;fraudulent&quot;,
+    &quot;charge&quot;: &quot;ch_5IZNUkTDe6ir9d&quot;
+  }
+}</span>
+</code></pre>
+</div></section>
+
+<p>Furthermore, the charge's <code>fraud_details</code> hash  will have a
+<code>stripe_report</code> key with a value of <code>fraudulent</code>:</p>
+<section class="code-example">
+<div class="terminal-wrap">
+<pre><code><span class="highlight_js bash">curl <span class='string'>https://api.stripe.com/v1/charges/ch_51ZhLzPgyOpiIo</span> \
+   -u <span class='string'>sk_test_BQokikJOvBiI2HlWgH4olfQ2</span>:
+</span></pre></code>
+<pre><code><span class="highlight_js javascript">{
+  ...
+  &quot;statement_description&quot;: null,
+  &quot;fraud_details&quot;: {
+    &quot;stripe_report&quot;: &quot;fraudulent&quot;,
+  },
+  &quot;receipt_email&quot;: null,
+  ...
+}</span>
+</code></pre>
+</div></section>
+
+<p>Payments blocked by Stripe are also indicated as such in the dashboard.
+Stripe evaluates fraud risk using machine learning algorithms that predict
+what is fraudulent based on your charge and dispute history. You will not see
+risk assessments (in the dashboard or in the API) until you have accumulated
+enough volume for our algorithms to give you relevant results. This will
+happen automatically.</p>
+
+<p>Note that testmode charges (other than those using test card numbers
+intended to simulate CVC or AVS mismatches) will not trigger our fraud
+controls.</p>
+
+<h1 id="reporting-fraud">Reporting a charge as fraudulent</h1>
+
+<p>If you believe a charge is fraudulent and Stripe did not block it, you
+should refund it and let Stripe know. We will use the information to improve
+our fraud detection algorithms. You can "report and refund" a fraudulent
+payment from the dashboard by clicking the "Report fraudulent payment" link
+when viewing the payment. Alternatively, you can use the API.</p>
+
+<section class="code-example">
+  <nav class="lang-control">
+    <a href="https://stripe.com/docs/.">ruby</a>
+    <a href="https://stripe.com/docs/.">python</a>
+    <a href="https://stripe.com/docs/.">php</a>
+    <a href="https://stripe.com/docs/.">node</a>
+  </nav>
+  <div class="terminal-wrap" data-action="tutorial_mark_as_fraudulent">
+    <pre><code><div class="terminal"></div></code></pre>
+  </div>
+</section>
+
+<h1 id="reporting-safe">Reporting a charge as safe</h1>
+
+<p>If a charge has been declined and you know that it was made legitimately
+(for example, you may have a long-standing relationship with the customer), you
+can check if Stripe blocked it because we believed it was fraudulent. If so,
+you can mark the charge as safe&mdash;this will allow you to retry the charge,
+and it will also improve Stripe's assessments in the future. You can see which
+payments Stripe has declined in the dashboard and mark them as safe there, or
+you can use the API.</p>
+
+<section class="code-example">
+  <nav class="lang-control">
+    <a href="https://stripe.com/docs/.">ruby</a>
+    <a href="https://stripe.com/docs/.">python</a>
+    <a href="https://stripe.com/docs/.">php</a>
+    <a href="https://stripe.com/docs/.">node</a>
+  </nav>
+  <div class="terminal-wrap" data-action="tutorial_mark_as_safe">
+    <pre><code><div class="terminal"></div></code></pre>
+  </div>
+</section>
+
+<h1 id="sending-info">Improving fraud detection</h1>
+
+<p>Besides marking charges as <code>fraudulent</code> or <code>safe</code>, you
+can improve Stripe's risk assessments by sending us as much information as
+possible about each charge. For example, billing addresses, which you can
+capture with Stripe.js, often provide hints as to the legitimacy of a
+transaction. If you ship physical goods, sending us shipping addresses will
+also help. If you have any other data that you think might be indicative of
+fraud, including it in the <code>metadata</code> for your charges will allow it
+to be incorporated into our models. For more information, see the documentation
+for creating and updating charges (links below).</p>
+
+<p>Stripe <a href="checkout.html">Checkout</a> automatically captures a number
+of parameters that we know to be highly suggestive of fraud. Using Checkout
+provides the highest level of fraud protection from Stripe.</p>
+
+<h1>More information</h1>
+  <ul>
+    <li><a href="api.html#create_charge">Creating charges</a></li>
+    <li><a href="api.html#update_charge">Updating charges</a></li>
+    <li><a href="https://support.stripe.com/questions/avoiding-fraud-and-disputes">Avoiding fraud and disputes</a></li>
+  </ul>
+
+</article>
+
+</section>
+
+
+    </section>
+
+  </section><!-- #documentation -->
+
+  <div id="footer">
+    <div class="country-dropdown-view">
+        <a class="select">
+            <span>
+                <img src="../img/flags/us.png" width="23" height="17" data-hires="true" />
+                <strong>United States</strong>
+            </span>
+        </a>
+
+        <div class="popover">
+            <div class="arrow"></div>
+            <h4>Select your Country</h4>
+            <ul>
+                    <li>
+                        <a href="https://stripe.com/country?country=AU&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/au.png" width="23" height="17" data-hires="true" />
+                            <span>Australia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CA&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/ca.png" width="23" height="17" data-hires="true" />
+                            <span>Canada</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=GB&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/gb.png" width="23" height="17" data-hires="true" />
+                            <span>United Kingdom</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IE&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/ie.png" width="23" height="17" data-hires="true" />
+                            <span>Ireland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=US&amp;redirect=/docs/fraud" class="selected">
+                            <img src="../img/flags/us.png" width="23" height="17" data-hires="true" />
+                            <span>United States</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=AT&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/at.png" width="23" height="17" data-hires="true" />
+                            <span>Austria</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=BE&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/be.png" width="23" height="17" data-hires="true" />
+                            <span>Belgium</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DK&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/dk.png" width="23" height="17" data-hires="true" />
+                            <span>Denmark</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FI&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/fi.png" width="23" height="17" data-hires="true" />
+                            <span>Finland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FR&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/fr.png" width="23" height="17" data-hires="true" />
+                            <span>France</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DE&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/de.png" width="23" height="17" data-hires="true" />
+                            <span>Germany</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IT&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/it.png" width="23" height="17" data-hires="true" />
+                            <span>Italy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=LU&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/lu.png" width="23" height="17" data-hires="true" />
+                            <span>Luxembourg</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NL&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/nl.png" width="23" height="17" data-hires="true" />
+                            <span>Netherlands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NO&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/no.png" width="23" height="17" data-hires="true" />
+                            <span>Norway</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=ES&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/es.png" width="23" height="17" data-hires="true" />
+                            <span>Spain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=SE&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/se.png" width="23" height="17" data-hires="true" />
+                            <span>Sweden</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CH&amp;redirect=/docs/fraud" >
+                            <img src="../img/flags/ch.png" width="23" height="17" data-hires="true" />
+                            <span>Switzerland</span>
+                        </a>
+                    </li>
+          </ul>
+        </div>
+    </div>
+
+
+    <p><a href="https://stripe.com/">&copy; Stripe</a></p>
+
+    <ul>
+        <li><a href="https://status.stripe.com/"><span>System Status</span></a></li>
+        <li><a href="https://stripe.com/about">About</a></li>
+        <li><a href="https://stripe.com/blog"><span>Blog</span></a></li>
+        <li><a href="https://stripe.com/jobs"><span>Jobs</span></a></li>
+        <li><a href="http://twitter.com/stripe">Twitter</a></li>
+    </ul>
+    <ul class="lesser">
+        <li><a href="https://stripe.com/terms">Terms of Service</a></li>
+        <li><a href="https://stripe.com/privacy">Privacy Policy</a></li>
+    </ul>
+</div>
+<div class="country-dropdown-overlay"></div>
+
+    <script src="../assets/jquery-47d53801b9f61ca8a21dcc2571aeb3ec.js"></script>
+    <script src="../assets/shared-3abadcaa3af6e785a085062e45894014.js"></script>
+
+<script src="../assets/footer_analytics-6e8fc3677422b1ab0ef7aca057103605.js"></script>
+
+<noscript>
+  <div style="display:inline;">
+  <img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1008370075/?value=0&amp;guid=ON&amp;script=0"/>
+  </div>
+</noscript>
+
+
+    <script src="../assets/tutorial-157e244e708a25090e620c16535e5350.js"></script>
+  <script type="text/javascript">
+      var APIValues = {};
+        APIValues["ruby"] = {};
+            APIValues["ruby"]["tutorial_mark_as_fraudulent"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\n# If you haven\u0026#39;t refunded the charge, you can do so and let Stripe\n# know it was fraudulent in one step.\ncharge = Stripe::Charge.retrieve(charge_id)\ncharge.refunds.create(reason: \u0026#39;fraudulent\u0026#39;)\n\n# If you already refunded the charge (without specifying the\n# \u0026#39;fraudulent\u0026#39; reason), you can still let us know it was fraudulent.\nrefunded_charge = Stripe::Charge.retrieve(refunded_charge_id)\nrefunded_charge.mark_as_fraudulent\u003C/span\u003E";
+            APIValues["ruby"]["tutorial_mark_as_safe"] = "\u003Cspan class=\"highlight_js ruby\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nStripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\n# Retrieve the charge and check if Stripe thought it was\n# fraudulent.\ncharge = Stripe::Charge.retrieve(charge_id)\n\n# If Stripe declined the charge due to fraud risk but you know the payment\n# was legitimate, you can mark it as safe and then retry.\nif charge.fraud_details[\u0026#39;stripe_report\u0026#39;] == \u0026#39;fraudulent\u0026#39;\n  charge.mark_as_safe\n  # ...retry the payment\nend\u003C/span\u003E";
+        APIValues["python"] = {};
+            APIValues["python"]["tutorial_mark_as_fraudulent"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\n# If you haven\u0026#39;t refunded the charge, you can do so and let Stripe\n# know it was fraudulent in one step.\ncharge = stripe.Charge.retrieve(charge_id)\ncharge.refunds.create(reason=\u0026#39;fraudulent\u0026#39;)\n\n# If you already refunded the charge (without specifying the\n# \u0026#39;fraudulent\u0026#39; reason), you can still let us know it was fraudulent.\nrefunded_charge = stripe.Charge.retrieve(refunded_charge_id)\nrefunded_charge.mark_as_fraudulent()\u003C/span\u003E";
+            APIValues["python"]["tutorial_mark_as_safe"] = "\u003Cspan class=\"highlight_js python\"\u003E# Set your secret key: remember to change this to your live secret key in production\n# See your keys here https://dashboard.stripe.com/account\nstripe.api_key = \u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;\n\n# Retrieve the charge and check if Stripe thought it was\n# fraudulent.\ncharge = stripe.Charge.retrieve(charge_id)\n\n# If Stripe declined the charge due to fraud risk but you know the payment\n# was legitimate, you can mark it as safe and then retry.\nif charge.fraud_details.get(\u0026#39;user_report\u0026#39;, None) == \u0026#39;fraudulent\u0026#39;\n  charge.mark_as_safe()\n  # ...retry the payment\nend\u003C/span\u003E";
+        APIValues["php"] = {};
+            APIValues["php"]["tutorial_mark_as_fraudulent"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n// If you haven\u0026#39;t refunded the charge, you can do so and let Stripe\n// know it was fraudulent in one step.\n$charge = Stripe_Charge::retrieve($charge_id);\n$charge-\u0026gt;refunds-\u0026gt;create(array(\u0026quot;reason\u0026quot; =\u0026gt; \u0026quot;fraudulent\u0026quot;));\n\n// If you already refunded the charge (without specifying the\n// \u0026#39;fraudulent\u0026#39; reason), you can still let us know it was fraudulent.\n$refunded_charge = Stripe_Charge::retrieve($refunded_charge_id)\n$refunded_charge-\u0026gt;markAsFraudulent()\u003C/span\u003E";
+            APIValues["php"]["tutorial_mark_as_safe"] = "\u003Cspan class=\"highlight_js php\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nStripe::setApiKey(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n// Retrieve the charge and check if Stripe thought it was\n// fraudulent.\n$charge = Stripe_Charge::retrieve($charge_id)\n\n// If Stripe declined the charge due to fraud risk but you know the payment\n// was legitimate, you can mark it as safe and then retry.\nif ($charge[\u0026#39;fraud_details\u0026#39;][\u0026#39;stripe_report\u0026#39;] == \u0026#39;fraudulent\u0026#39;) {\n  $charge-\u0026gt;markAsSafe();\n  // ...retry the payment\n}\u003C/span\u003E";
+        APIValues["node"] = {};
+            APIValues["node"]["tutorial_mark_as_fraudulent"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n// If you haven\u0026#39;t refunded the charge, you can do so and let Stripe\n// know it was fraudulent in one step.\nstripe.charges.createRefund(\n  charge_id, {\u0026quot;reason\u0026quot;: \u0026quot;fraudulent\u0026quot;})\n\n// If you already refunded the charge (without specifying the\n// \u0026#39;fraudulent\u0026#39; reason), you can still let us know it was fraudulent.\nstripe.charges.markAsFraudulent(charge_id);\u003C/span\u003E";
+            APIValues["node"]["tutorial_mark_as_safe"] = "\u003Cspan class=\"highlight_js javascript\"\u003E// Set your secret key: remember to change this to your live secret key in production\n// See your keys here https://dashboard.stripe.com/account\nvar stripe = require(\u0026quot;stripe\u0026quot;)(\u0026quot;sk_test_BQokikJOvBiI2HlWgH4olfQ2\u0026quot;);\n\n// Retrieve the charge and check if Stripe thought it was\n// fraudulent.\nstripe.charges.retrieve(charge_id, {},\n  function(err, charge) {\n  // If Stripe declined the charge due to fraud risk but you know the payment\n  // was legitimate, you can mark it as safe and then retry.\n  if(charge[\u0026#39;fraud_details\u0026#39;][\u0026#39;stripe_report\u0026#39;] == \u0026#39;fraudulent\u0026#39;) {\n    stripe.charges.markAsSafe(charge_id);\n    // ...retry the payment\n  }\n});\u003C/span\u003E";
+  </script>
+
+
+  <script src="../assets/documentation-6a120856de81b5511bf1790365f19166.js"></script>
+  <script src="../assets/highlight.pack-8bd9d9dd93b5ef1f95e855d7641494d2.js"></script>
+<script src="../assets/highlighter-1268244f129b69592ca48d0f0f198cac.js"></script>
+
+  <script type="text/javascript">
+    Analytics.page("docs");
+  </script>
+</body>
+
+<!-- Mirrored from stripe.com/docs/fraud by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:07 GMT -->
+</html>

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stripe.com/docs/libraries by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>API Libraries</title>
+    <link rel="stylesheet" type="text/css" href="../assets/site-ea99019a1bc27872a48d1149a4785b01.css" media="screen" />
+    <script type="text/javascript">
+        var _sf_startpt=(new Date()).getTime()
+        var APIValues = {};
+    </script>
+    <script type="application/json" id="mixpanel_config">{&quot;identifier&quot;:&quot;eb71b6171a4f7ed97de9b7a0395b7ca5&quot;}</script>
+<script type="application/json" id="analytics_config">{}</script>
+<script src="../../www.googleadservices.com/pagead/f.txt"></script>
+<script src="../assets/external_analytics-a9e3d39cd6110aa8c184d9c1f2e5777e.js"></script>
+<script src="../assets/qframe-cb903dc9166e266dc7d9f11d44f5e81a.js"></script>
+
+    <link rel="shortcut icon" href="https://stripe.com/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="/assets/html5shiv-17761200a17ebcb716dda86cca6d2472.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../../use.typekit.net/gbh7uto.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    
+</head>
+<body id="documentation">
+
+  <div id="header">
+    <h1><a href="https://stripe.com/">Stripe</a></h1>
+    <div class="navigation">
+    <div class="signin"><a id='signin' href="https://dashboard.stripe.com/login"><span>Sign In</span></a></div>
+
+  <ul class="global">
+    <li><a href="https://stripe.com/docs" class="selected">Documentation</a></li>
+    <li><a href="https://support.stripe.com/">Help &amp; Support</a></li>
+  </ul>
+</div>
+
+  </div><!-- #header -->
+
+  <section id="doc">
+
+    <nav>
+
+      <h1 class="getting-started">Documentation</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/docs">Getting Started</a>
+        </li>
+          <li class="unselected sub">
+            <a href="tutorials/checkout.html">Embedded Form</a>
+          </li>
+          <li class="unselected sub">
+            <a href="tutorials/forms.html">Custom Forms</a>
+          </li>
+          <li class="unselected sub">
+            <a href="mobile.html">Mobile Apps</a>
+          </li>
+
+        <li class="unselected">
+          <a href="tutorials/charges.html">Charging Cards</a>
+        </li>
+
+        <li class="unselected">
+          <a href="tutorials/sending-transfers.html">Sending Transfers</a>
+        </li>
+
+        <li class="unselected">
+          <a href="tutorials/dashboard.html">Your Account</a>
+        </li>
+      </ul>
+
+      <h1 class="references">References</h1>
+      <ul>
+        <li class="unselected">
+          <a href="stripe.html">Stripe.js</a>
+        </li>
+        <li class="unselected">
+          <a href="checkout.html">Checkout</a>
+        </li>
+        <li class="unselected">
+          <a href="webhooks.html">Webhooks</a>
+        </li>
+        <li class="unselected">
+          <a href="fraud.html">Fraud Protection</a>
+        </li>
+        <li class="unselected">
+          <a href="testing.html">Testing</a>
+        </li>
+        <li class="unselected">
+          <a href="examples.html">Examples</a>
+        </li>
+        <li class="unselected">
+          <a href="upgrades.html">API Upgrades</a>
+        </li>
+        <li class="selected">
+          <a href="libraries.html">API Libraries</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/file-upload.html">File Upload Guide</a>
+        </li>
+        <li class="unselected">
+          <a href="api.html" class="external" target="_blank">
+            Full API Reference
+          </a>
+        </li>
+      </ul>
+
+      <h1 class="subscriptions">Subscriptions</h1>
+      <ul>
+        <li class="unselected">
+          <a href="subscriptions.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="tutorials/subscriptions.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/subscriptions.html">Integration Guide</a>
+        </li>
+      </ul>
+
+      <h1 class="connect">Connect</h1>
+      <ul>
+        <li class="unselected">
+          <a href="connect.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/getting-started.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/oauth.html">Integrating OAuth</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/collecting-fees.html">Collecting Fees</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/shared-customers.html">Shared Customers</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/reference.html">Reference</a>
+        </li>
+      </ul>
+
+      <h1 class="disputes">Disputes</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes-overview">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/dispute-evidence.html">Submitting Evidence</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/dispute-types">Dispute Types</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes">FAQ</a>
+        </li>
+      </ul>
+
+
+      <h1 class="faq"><abbr title="Frequently Asked Questions">FAQ</abbr></h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/transfers">Getting Paid</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/ssl">SSL/TLS</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/security">Security</a>
+        </li>
+      </ul>
+
+      <h1 class="more">More</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/contact">Contact</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/global">Global Users</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/gallery">Gallery</a>
+        </li>
+        <li class="last unselected">
+          <a href="integrations.html">Integrations</a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <section id="content">
+      <section id="details">
+
+    <header>
+        <h1>API Libraries</h1>
+
+        <p>We work hard to keep our underlying <a href="api/curl.html">HTTP API</a>
+          simple, but there are also lots of pre-built libraries for interacting with Stripe.
+          If you write your own library and would like us to link to it,
+          just <a href="mailto:docs@stripe.com">let us know</a>.</p>
+
+    </header>
+
+    <article>
+
+    <h1 id="python-library">Python</h1>
+    <p>Available through pip:</p>
+
+
+<section class="code-example">
+<div class="terminal-wrap nolines">
+<pre><code><span class="highlight_js bash">sudo pip install --upgrade stripe</span></code></pre>
+</div>
+</section>
+
+    <p>If your system doesn't have pip, you can also use easy_install:</p>
+
+    <section class="code-example">
+    <div class="terminal-wrap nolines">
+<pre><code><span class="highlight_js bash">sudo easy_install --upgrade stripe</span></code></pre>
+  </div>
+  </section>
+
+    <p>
+      Check out the <a href="api/python.html">Python API docs</a>, or see the source on <a href="https://github.com/stripe/stripe-python">GitHub</a>.
+      You can also find the Stripe package on <a href="http://pypi.python.org/pypi/stripe/">PyPI</a>.
+    </p>
+
+    <h1 id="ruby-library">Ruby</h1>
+    <p>Available as a gem:</p>
+
+<section class="code-example">
+<div class="terminal-wrap nolines">
+<pre><code><span class="ruby-prompt"></span><span class="highlight_js bash">sudo gem install stripe</span></code></pre>
+</div>
+</section>
+
+    <p>If you use bundler, you can use this line:</p>
+
+<section class="code-example">
+<div class="terminal-wrap nolines">
+<pre><code><span class="ruby-prompt"></span><span class="highlight_js bash">gem &#39;stripe&#39;, :git =&gt; &#39;https://github.com/stripe/stripe-ruby&#39;</span></code></pre>
+</div>
+</section>
+
+    <p>Check out the <a href="api/ruby.html">Ruby API docs</a>, or see the source on <a href="https://github.com/stripe/stripe-ruby">GitHub</a>.</p>
+
+    <h1 id="php-library">PHP</h1>
+
+    <p>For Composer, add <em>"stripe/stripe-php"</em> to your <em>composer.json</em> file:</p>
+
+<section class="code-example">
+<div class="terminal-wrap nolines">
+<pre><code><span class="highlight_js javascript">{
+  &quot;require&quot;: {
+    &quot;stripe/stripe-php&quot;: &quot;1.*&quot;
+  }
+}</span></code></pre>
+</div>
+</section>
+
+    <p>Alternatively, <a href="https://github.com/stripe/stripe-php/releases">download the source directly</a>..</p>
+    <p>Check out the <a href="api/php.html">PHP API docs</a>, or see the source on <a href="https://github.com/stripe/stripe-php">GitHub</a>.</p>
+
+    <h1 id="java-library">Java</h1>
+    <p>For Maven, add the following dependency to your POM:</p>
+
+<section class="code-example">
+<div class="terminal-wrap">
+<pre><code><span class="highlight_js bash">&lt;dependency&gt;
+  &lt;groupId&gt;com.stripe&lt;/groupId&gt;
+  &lt;artifactId&gt;stripe-java&lt;/artifactId&gt;
+  &lt;version&gt;1.25.0&lt;/version&gt;
+&lt;/dependency&gt;</span></code></pre>
+</div>
+</section>
+
+    <p>In other environments, manually install the following JARs:</p>
+    <ul>
+        <li>The Stripe JAR from <a href="https://github.com/stripe/stripe-java/releases/latest">our github release page</a>.</li>
+        <li>Google Gson from <a href="http://google-gson.googlecode.com/files/google-gson-2.2.4-release.zip">google-gson-2.2.4-release.zip</a>.</li>
+    </ul>
+    <p>Check out the <a href="api/java.html">Java API docs</a>, or see the source on <a href="https://github.com/stripe/stripe-java">GitHub</a>.</p>
+
+    <h1 id="node-library">Node.js</h1>
+    <p>Install via npm:</p>
+
+<section class="code-example">
+<div class="terminal-wrap">
+<pre><code><span class="highlight_js text">npm install stripe</span></code></pre>
+</div>
+</section>
+
+    <p>Check out the <a href="api/node.html">node.js API Docs</a>, or see the source on <a href="https://github.com/stripe/stripe-node">GitHub</a>.</p>
+
+    <h1 id="go-library">Go</h1>
+    <p>Install via go:</p>
+
+<section class="code-example">
+<div class="terminal-wrap">
+<pre><code><span class="highlight_js text">go get github.com/stripe/stripe-go</span></code></pre>
+</div>
+</section>
+
+    <p>Then simply import the package:</p>
+
+<section class="code-example">
+<div class="terminal-wrap">
+<pre><code><span class="highlight_js go">import (
+    &quot;github.com/stripe/stripe-go&quot;
+)</span></code></pre>
+</div>
+</section>
+<p>For more details, check out the <a href="api/go.html">Go API docs</a> and <a href="http://godoc.org/github.com/stripe/stripe-go">GoDoc</a>,
+    or see the source on <a href="https://github.com/stripe/stripe-go">GitHub</a>.</p>
+
+    <h1 id="ios-library">iOS</h1>
+    <p>Check out our <a href="mobile/ios.html">iOS documentation</a>.</p>
+
+    <a name="community"></a>
+    <h1 id="third-party">Community Libraries</h1>
+    <p>There are a lot of community-supported libraries for Stripe; we've listed some of them below. (Please get in touch if we're missing any!)</p>
+    <ul>
+      <li>Ruby
+        <ul>
+          <li><a href="https://github.com/Shopify/active_merchant">ActiveMerchant</a> by <a href="https://github.com/boucher">Ross Boucher</a> and <a href="https://github.com/gdb">Greg Brockman</a>.</li>
+          <li><a href="https://github.com/spree/spree">Spree</a> by <a href="https://github.com/gdb">Greg Brockman</a>.</li>
+          <li><a href="http://www.payola.io/">Payola</a>, a Rails engine by <a href="https://www.petekeen.net/">Pete Keen</a>.</li>
+        </ul>
+      </li>
+      <li>PHP
+        <ul>
+          <li><a href="https://github.com/jeremyharris/stripe">CakePHP Plugin</a> by <a href="https://twitter.com/#!/_jeremyharris">Jeremy Harris</a>.</li>
+          <li><a href="https://github.com/chronon/CakePHP-StripeComponent-Plugin">CakePHP-StripeComponent Plugin</a> by <a href="http://chronon.com/">Gregory Gaskill</a>.</li>
+          <li><a href="https://github.com/jnbdz/kohana-stripe">Kohana Stripe</a> by <a href="https://github.com/jnbdz">Jean-Nicolas Boulay Desjardins</a>.</li>
+          <li><a href="http://laravel.com/docs/4.2/billing">Laravel: Cashier</a> by <a href="http://laravel.com/">Laravel</a>.</li>
+          <li><a href="https://github.com/onassar/PHP-StripeOAuth">PHP-StripeOAuth</a> by <a href="https://github.com/onassar">Oliver Nassar</a>.</li>
+          <li><a href="https://cartalyst.com/manual/stripe">Stripe</a> by <a href="https://cartalyst.com/">Cartalyst</a>.</li>
+        </ul>
+      </li>
+      <li>C#
+        <ul>
+          <li><a href="https://github.com/xamarin/XamarinStripe">XamarinStripe</a> by the people at Xamarin.</li>
+          <li><a href="https://github.com/jaymedavis/stripe.net">Stripe.NET</a> by Jayme Davis.</li>
+          <li><a href="https://github.com/ServiceStack/Stripe">ServiceStack.Stripe</a> by <a href="https://servicestack.net/">TeamServiceStack</a></li>
+        </ul>
+      </li>
+      <li>ColdFusion
+        <ul>
+          <li><a href="https://github.com/philcruz/stripe.cfc">Stripe.cfc</a> by <a href="https://github.com/philcruz">Phil Cruz</a>.</li>
+          <li><a href="https://github.com/jeisenlo/ColdFusion-Stripe-CFC">Coldfusion-Stripe-CFC</a> by <a href="https://github.com/jeisenlo">James Eisenlohr</a>.</li>
+          <li><a href="https://www.github.com/ghidinelli/cfpayment">CFPayment</a> by <a href="https://github.com/ghidinelli">Brian Ghidinelli</a>.</li>
+        </ul>
+      </li>
+      <li>Perl
+        <ul>
+          <li><a href="https://github.com/lukec/stripe-perl">Stripe Perl</a> by <a href="http://awesnob.com/">Luke Closs</a>.</li>
+          <li><a href="https://github.com/aquaron/Business-Stripe">Business-Stripe</a> by <a href="https://github.com/pham">Paul Pham</a>.</li>
+        </ul>
+      </li>
+      <li>Clojure
+        <ul>
+          <li><a href="https://github.com/abengoa/clj-stripe">clj-stripe</a> by <a href="https://github.com/abengoa">Alberto Bengoa</a>.</li>
+          <li><a href="https://github.com/prachetasp/stripe-clojure">stripe-clojure</a> by <a href="https://github.com/prachetasp">Prachetas Prabhu</a>.</li>
+        </ul>
+      </li>
+      <li><a href="http://github.com/bendrucker/angular-stripe">Angular-Stripe</a> by <a href="http://bendrucker.me/">Ben Drucker</a>.</li>
+      <li><a href="https://github.com/antifuchs/cl-stripe/blob/master/cl-stripe.lisp">Common Lisp</a> by <a href="https://github.com/antifuchs">Andreas Fuchs</a>.</li>
+      <li><a href="https://github.com/michaelschade/hs-stripe">Haskell</a> by <a href="https://github.com/michaelschade">Michael Schade</a>.</li>
+      <li><a href="https://github.com/briancollins/stripe-ios">Objective-C</a> by <a href="https://github.com/briancollins">Brian Collins</a>.</li>
+      <li><a href="https://github.com/thiagolocatelli/android-stripe-connect">Android (Stripe Connect)</a> by <a href="https://github.com/thiagolocatelli">Thiago Locatelli</a>.</li>
+      <li><a href="http://smalltalkhub.com/#!/~pdebruic/Stripe">Smalltalk/Seaside</a> by <a href="https://github.com/pdebruic">Paul DeBruicker</a>.</li>
+      <li><a href="https://live.temboo.com/library/Library/Stripe/">Choreos</a> by <a href="https://live.temboo.com/">Temboo</a>.</li>
+      <li><a href="https://github.com/anurag/stripe-scala">Scala</a> by <a href="https://github.com/anurag">Anurag Goel</a>.</li>
+      <li><a href="https://github.com/kato-im/estripe">Erlang</a> by <a href="https://github.com/kato-im">Brad Thorson</a>.</li>
+      <li><a href="https://github.com/ArcBees/gwt-stripe">GWT</a> by <a href="https://github.com/ArcBees">ArcBees</a>.</li>
+      <li><a href="https://github.com/stripe-contrib/stripe-cli">Stripe-CLI</a> by <a href="https://github.com/OutlawAndy">Andy Cohen</a>.</li>
+      <li><a href="https://github.com/wsummerlin/stripe-lua">Stripe-Lua</a> by <a href="https://github.com/wsummerlin">Will Summerlin</a>.</li>
+      <li><a href="https://github.com/davidcaseria/StripeFire">StripeFire</a> by <a href="https://github.com/davidcaseria">David Caseria</a>.</li>
+      <li><a href="https://github.com/exitlive/stripe-dart">Stripe Dart</a> by Martin Flucka and Matias Meno at Exit Live.</li>
+    </ul>
+
+    <h1 id="third-party-plugins">Third Party Plugins</h1>
+    <p>Want to make an existing tool better with Stripe? Here are some plugins to help you get started without any programming needed:</p>
+    <ul>
+      <li><a href="http://www.sellxed.com/shop/en/aceshop-stripe-zahlungs-extension.html">AceShop</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+      <li><a href="http://www.sellxed.com/shop/en/commerce-seo-stripe-zahlungs-modul.html">commerce:SEO</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+      <li><a href="https://github.com/eldarion/django-stripe-payments">Django</a> by <a href="http://github.com/paltman">Patrick Altman</a>.</li>
+      <li><a href="https://github.com/pydanny/dj-stripe">DJ-Stripe</a> by <a href="https://github.com/pydanny">Daniel Greenfeld</a>.</li>
+      <li>
+        Drupal
+        <ul>
+          <li><a href="http://drupal.org/project/commerce_stripe">Commerce Stripe</a> for Drupal Commerce, by <a href="https://twitter.com/#!/ilarii">Ilari Mäkelä</a>.</li>
+          <li><a href="http://www.sellxed.com/shop/en/drupal-commerce-stripe-zahlungs-modul.html">Drupal Commerce</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+        </ul>
+      </li>
+      <li><a href="https://github.com/bnoguchi/everyauth">everyauth</a> by <a href="https://github.com/jzabel">Jeff Zabel</a>.</li>
+      <li><a href="http://www.sellxed.com/shop/en/gambio-stripe-zahlungs-modul.html">Gambio</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+      <li><a href="http://www.sellxed.com/shop/en/wordpress-jigoshop-stripe-zahlungs-plugin.html">JigoShop</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+      <li>
+        Joomla
+        <ul>
+          <li><a href="http://www.joobi.co/apps.html">Joobi eCommerce</a> by <a href="http://www.joobi.co/">Joobi</a>.</li>
+        </ul>
+      </li>
+      <li><a href="http://www.sellxed.com/shop/en/jtl-3-stripe-zahlungs-plugin.html">JTL</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+      <li><a href="http://www.appnitro.com/blog-accept-credit-card-payments-on-your-forms-using-stripe">Machform</a> by <a href="http://www.appnitro.com/">Appnitro Software</a>.</li>
+      <li>
+        Magento
+        <ul>
+          <li><a href="http://www.sellxed.com/shop/en/magento-stripe-zahlungs-extension.html">Magento</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+          <li><a href="http://www.intellectlabs.com/extensions/stripe-plus.html">Stripe Plus</a> by Matt Kammersell at <a href="http://www.intellectlabs.com/">intellect labs</a>.</li>
+          <li><a href="http://www.templatetag.com/stripe-for-magento/">Stripe for Magento</a> by <a href="http://www.templatetag.com/">Template Tag</a>.</li>
+          <li><a href="http://ecommerceevolved.co.uk/stripe-for-magento">Stripe for Magento</a> by <a href="http://www.radweb.co.uk/">Radweb</a>.</li>
+          <li><a href="http://store.cryozonic.com/magento-extensions/stripe-payments.html">Stripe Payments</a> by <a href="http://cryozonic.com/">Cryozonic</a>.</li>
+          <li><a href="http://store.cryozonic.com/magento-extensions/stripe-subscriptions.html">Stripe Subscriptions</a> by <a href="http://cryozonic.com/">Cryozonic</a>.</li>
+        </ul>
+      </li>
+      <li><a href="http://www.sellxed.com/shop/en/stripe-zahlungs-modul.html">MijoShop</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+      <li><a href="http://www.opencartx.com/stripe-payment-gateway">OpenCart</a> by <a href="http://www.getclearthinking.com/">Clear Thinking</a>.</li>
+      <li><a href="http://www.opencartx.com/stripe-transfers">OpenCart Stripe Transfers</a> by <a href="http://www.getclearthinking.com/">Clear Thinking</a>.</li>
+      <li><a href="http://www.sellxed.com/shop/en/opencart-stripe-zahlungs-extension.html">OpenCart</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+      <li><a href="http://www.sellxed.com/shop/en/oxid-esales-stripe-zahlungs-extension.html">Oxid eSales</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+      <li>
+        PrestaShop
+        <ul>
+          <li><a href="http://addons.prestashop.com/en/payments-gateways/5199-Stripe.html">PrestaShop</a> by Leighton Whiting.</li>
+          <li><a href="http://www.sellxed.com/shop/en/prestashop-stripe-zahlungs-modul.html">PrestaShop</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+          <li><a href="http://addons.prestashop.com/en/payments-gateways-prestashop-modules/17856-stripe-payment-pro-support-auth-and-capture.html">Stripe Payment Pro</a> by Sitender Rana.</li>
+          <li><a href="http://addons.prestashop.com/en/payments-gateways-prestashop-modules/14975-stripe-reloaded.html">Stripe Reloaded</a> by <a href="https://www.bellini-services.com/">Bellini Services</a>.</li>
+        </ul>
+      </li>
+      <li><a href="http://www.sellxed.com/shop/en/seo-mercari-stripe-zahlungs-modul.html">seo:Mercari</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+      <li><a href="http://www.sellxed.com/shop/en/shopware-stripe-zahlungs-plugin.html">Shopware</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+      <li><a href="http://plugins.telerik.com/plugin/stripe">Cordova plugin for Stripe</a> by <a href="http://www.telerik.com/">Telerik</a>.</li>
+      <li>
+        WHMCS
+        <ul>
+          <li><a href="http://www.wstripe.ca/">wStripe</a> by <a href="http://www.ckyhighstudios.com/">ckyhigh Studios</a>.</li>
+          <li><a href="https://www.whmcs.com/appstore/962/Stripe-WHMCS-Payment-Gateway.html">Stripe for WHMCS</a> by <a href="http://serverping.net/">ServerPing</a>.</li>
+        </ul>
+      </li>
+      <li>
+        WordPress
+        <ul>
+          <li><a href="http://www.gravityforms.com/add-ons/stripe/">Stripe Add-On</a> by <a href="http://www.gravityforms.com/">Gravity Forms</a>.</li>
+          <li><a href="https://diglabs.com/stripe/">Dig Labs plugin</a> by <a href="https://github.com/rcravens">Bob Cravens</a>.</li>
+          <li><a href="http://wordpress.org/extend/plugins/gravity-forms-stripe/">Gravity Forms + Stripe for WordPress</a> by <a href="http://naomicbush.com/">Naomi C. Bush</a>.</li>
+          <li><a href="https://memberful.com/help/integrate/services/wordpress/">Memberful</a> by <a href="https://memberful.com/">Memberful</a>.</li>
+          <li><a href="http://wordpress.org/plugins/super-stripe">Buy Now for Stripe</a> by <a href="http://blairwilliams.com/">Blair Williams</a>.</li>
+          <li><a href="http://www.memberpress.com/">MemberPress</a> by <a href="http://blairwilliams.com/">Blair Williams</a>.</li>
+          <li><a href="http://premium.wpmudev.org/project/e-commerce/">MarketPress eCommerce</a> by <a href="http://premium.wpmudev.org/">WPMU DEV</a>.</li>
+          <li><a href="http://wordpress.org/plugins/striper/">Striper for WooCommerce</a> by <a href="https://github.com/seanvoss/striper">Sean Voss</a>.</li>
+          <li><a href="http://www.woothemes.com/products/stripe/">Stripe</a> by <a href="http://www.woothemes.com/products/stripe/#">WooThemes</a>.</li>
+          <li><a href="http://cart66.com/">Cart66</a> by <a href="http://cart66.com/">Cart66</a>.</li>
+          <li><a href="https://wordpress.org/plugins/stripe/">Simple Stripe Checkout</a> by <a href="http://philderksen.com/">Phil Derksen</a>.</li>
+          <li><a href="http://wpstripe.net/">Simple Stripe Checkout Pro</a> by <a href="http://philderksen.com/">Phil Derksen</a>.</li>
+          <li><a href="http://www.wpeasycart.com/">WordPress EasyCart</a> by <a href="http://www.wpeasycart.com/">WP EasyCart</a>.</li>
+          <li><a href="https://wpfortify.com/">wpFortify</a> by <a href="http://est73.com/">Brian Ross</a>.</li>
+          <li><a href="http://www.sellxed.com/shop/en/wordpress-woocommerce-stripe-zahlungs-plugin.html">Wordpress WooCommerce</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+          <li><a href="http://www.sellxed.com/shop/en/wordpress-e-commerce-stripe-zahlungs-plugin.html">Wordpress E-Commerce</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+          <li><a href="http://wordpress.org/plugins/stripe-for-woocommerce/">Stripe for WooCommerce</a> by <a href="http://stephenzuniga.com/">Stephen Zuniga</a>.</li>
+        </ul>
+      </li>
+      <li><a href="http://www.sellxed.com/shop/en/xt-commerce-v-3-x-stripe-zahlungs-modul.html">xt:Commerce v3</a>/
+          <a href="http://www.sellxed.com/shop/en/xt-commerce-4-stripe-zahlungs-plugin.html">xt:Commerce v4</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+      <li><a hrefp"http://www.sellxed.com/shop/en/modified-shop-stripe-zahlungs-modul.html">xtcModified</a> by <a href="http://www.sellxed.com/">SellXed</a>.</li>
+      <li><a href="http://www.zenbership.com/eCommerce/Stripe">Zenbership</a> by <a href="http://www.ascadnetworks.com/">Ascad Networks</a>.</li>
+    </ul>
+
+    <p>Implemented your own library or an example you'd like to
+    share? <a href="https://support.stripe.com/email">Send a link</a>
+    to your code and we'll be happy to add it to the list!</p>
+
+  </article>
+</section>
+
+    </section>
+
+  </section><!-- #documentation -->
+
+  <div id="footer">
+    <div class="country-dropdown-view">
+        <a class="select">
+            <span>
+                <img src="../img/flags/us.png" width="23" height="17" data-hires="true" />
+                <strong>United States</strong>
+            </span>
+        </a>
+
+        <div class="popover">
+            <div class="arrow"></div>
+            <h4>Select your Country</h4>
+            <ul>
+                    <li>
+                        <a href="https://stripe.com/country?country=AU&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/au.png" width="23" height="17" data-hires="true" />
+                            <span>Australia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CA&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/ca.png" width="23" height="17" data-hires="true" />
+                            <span>Canada</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=GB&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/gb.png" width="23" height="17" data-hires="true" />
+                            <span>United Kingdom</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IE&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/ie.png" width="23" height="17" data-hires="true" />
+                            <span>Ireland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=US&amp;redirect=/docs/libraries" class="selected">
+                            <img src="../img/flags/us.png" width="23" height="17" data-hires="true" />
+                            <span>United States</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=AT&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/at.png" width="23" height="17" data-hires="true" />
+                            <span>Austria</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=BE&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/be.png" width="23" height="17" data-hires="true" />
+                            <span>Belgium</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DK&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/dk.png" width="23" height="17" data-hires="true" />
+                            <span>Denmark</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FI&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/fi.png" width="23" height="17" data-hires="true" />
+                            <span>Finland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FR&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/fr.png" width="23" height="17" data-hires="true" />
+                            <span>France</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DE&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/de.png" width="23" height="17" data-hires="true" />
+                            <span>Germany</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IT&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/it.png" width="23" height="17" data-hires="true" />
+                            <span>Italy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=LU&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/lu.png" width="23" height="17" data-hires="true" />
+                            <span>Luxembourg</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NL&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/nl.png" width="23" height="17" data-hires="true" />
+                            <span>Netherlands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NO&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/no.png" width="23" height="17" data-hires="true" />
+                            <span>Norway</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=ES&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/es.png" width="23" height="17" data-hires="true" />
+                            <span>Spain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=SE&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/se.png" width="23" height="17" data-hires="true" />
+                            <span>Sweden</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CH&amp;redirect=/docs/libraries" >
+                            <img src="../img/flags/ch.png" width="23" height="17" data-hires="true" />
+                            <span>Switzerland</span>
+                        </a>
+                    </li>
+          </ul>
+        </div>
+    </div>
+
+
+    <p><a href="https://stripe.com/">&copy; Stripe</a></p>
+
+    <ul>
+        <li><a href="https://status.stripe.com/"><span>System Status</span></a></li>
+        <li><a href="https://stripe.com/about">About</a></li>
+        <li><a href="https://stripe.com/blog"><span>Blog</span></a></li>
+        <li><a href="https://stripe.com/jobs"><span>Jobs</span></a></li>
+        <li><a href="http://twitter.com/stripe">Twitter</a></li>
+    </ul>
+    <ul class="lesser">
+        <li><a href="https://stripe.com/terms">Terms of Service</a></li>
+        <li><a href="https://stripe.com/privacy">Privacy Policy</a></li>
+    </ul>
+</div>
+<div class="country-dropdown-overlay"></div>
+
+    <script src="../assets/jquery-47d53801b9f61ca8a21dcc2571aeb3ec.js"></script>
+    <script src="../assets/shared-3abadcaa3af6e785a085062e45894014.js"></script>
+
+<script src="../assets/footer_analytics-6e8fc3677422b1ab0ef7aca057103605.js"></script>
+
+<noscript>
+  <div style="display:inline;">
+  <img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1008370075/?value=0&amp;guid=ON&amp;script=0"/>
+  </div>
+</noscript>
+
+
+  
+
+  <script src="../assets/documentation-6a120856de81b5511bf1790365f19166.js"></script>
+  <script src="../assets/highlight.pack-8bd9d9dd93b5ef1f95e855d7641494d2.js"></script>
+<script src="../assets/highlighter-1268244f129b69592ca48d0f0f198cac.js"></script>
+
+  <script type="text/javascript">
+    Analytics.page("docs");
+  </script>
+</body>
+
+<!-- Mirrored from stripe.com/docs/libraries by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:07 GMT -->
+</html>

@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stripe.com/docs/integrations by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Stripe Integrations</title>
+    <link rel="stylesheet" type="text/css" href="../assets/site-ea99019a1bc27872a48d1149a4785b01.css" media="screen" />
+    <script type="text/javascript">
+        var _sf_startpt=(new Date()).getTime()
+        var APIValues = {};
+    </script>
+    <script type="application/json" id="mixpanel_config">{&quot;identifier&quot;:&quot;eb71b6171a4f7ed97de9b7a0395b7ca5&quot;}</script>
+<script type="application/json" id="analytics_config">{}</script>
+<script src="../../www.googleadservices.com/pagead/f.txt"></script>
+<script src="../assets/external_analytics-a9e3d39cd6110aa8c184d9c1f2e5777e.js"></script>
+<script src="../assets/qframe-cb903dc9166e266dc7d9f11d44f5e81a.js"></script>
+
+    <link rel="shortcut icon" href="https://stripe.com/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="/assets/html5shiv-17761200a17ebcb716dda86cca6d2472.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../../use.typekit.net/gbh7uto.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+      <meta name="description" content="Stripe integrates with hundreds of third-party tools, from shopping carts and invoicing services to mobile card readers and CRMs." />
+
+</head>
+<body id="documentation">
+
+  <div id="header">
+    <h1><a href="https://stripe.com/">Stripe</a></h1>
+    <div class="navigation">
+    <div class="signin"><a id='signin' href="https://dashboard.stripe.com/login"><span>Sign In</span></a></div>
+
+  <ul class="global">
+    <li><a href="https://stripe.com/docs" class="selected">Documentation</a></li>
+    <li><a href="https://support.stripe.com/">Help &amp; Support</a></li>
+  </ul>
+</div>
+
+  </div><!-- #header -->
+
+  <section id="doc">
+
+    <nav>
+
+      <h1 class="getting-started">Documentation</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/docs">Getting Started</a>
+        </li>
+          <li class="unselected sub">
+            <a href="tutorials/checkout.html">Embedded Form</a>
+          </li>
+          <li class="unselected sub">
+            <a href="tutorials/forms.html">Custom Forms</a>
+          </li>
+          <li class="unselected sub">
+            <a href="mobile.html">Mobile Apps</a>
+          </li>
+
+        <li class="unselected">
+          <a href="tutorials/charges.html">Charging Cards</a>
+        </li>
+
+        <li class="unselected">
+          <a href="tutorials/sending-transfers.html">Sending Transfers</a>
+        </li>
+
+        <li class="unselected">
+          <a href="tutorials/dashboard.html">Your Account</a>
+        </li>
+      </ul>
+
+      <h1 class="references">References</h1>
+      <ul>
+        <li class="unselected">
+          <a href="stripe.html">Stripe.js</a>
+        </li>
+        <li class="unselected">
+          <a href="checkout.html">Checkout</a>
+        </li>
+        <li class="unselected">
+          <a href="webhooks.html">Webhooks</a>
+        </li>
+        <li class="unselected">
+          <a href="fraud.html">Fraud Protection</a>
+        </li>
+        <li class="unselected">
+          <a href="testing.html">Testing</a>
+        </li>
+        <li class="unselected">
+          <a href="examples.html">Examples</a>
+        </li>
+        <li class="unselected">
+          <a href="upgrades.html">API Upgrades</a>
+        </li>
+        <li class="unselected">
+          <a href="libraries.html">API Libraries</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/file-upload.html">File Upload Guide</a>
+        </li>
+        <li class="unselected">
+          <a href="api.html" class="external" target="_blank">
+            Full API Reference
+          </a>
+        </li>
+      </ul>
+
+      <h1 class="subscriptions">Subscriptions</h1>
+      <ul>
+        <li class="unselected">
+          <a href="subscriptions.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="tutorials/subscriptions.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/subscriptions.html">Integration Guide</a>
+        </li>
+      </ul>
+
+      <h1 class="connect">Connect</h1>
+      <ul>
+        <li class="unselected">
+          <a href="connect.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/getting-started.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/oauth.html">Integrating OAuth</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/collecting-fees.html">Collecting Fees</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/shared-customers.html">Shared Customers</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/reference.html">Reference</a>
+        </li>
+      </ul>
+
+      <h1 class="disputes">Disputes</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes-overview">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/dispute-evidence.html">Submitting Evidence</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/dispute-types">Dispute Types</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes">FAQ</a>
+        </li>
+      </ul>
+
+
+      <h1 class="faq"><abbr title="Frequently Asked Questions">FAQ</abbr></h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/transfers">Getting Paid</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/ssl">SSL/TLS</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/security">Security</a>
+        </li>
+      </ul>
+
+      <h1 class="more">More</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/contact">Contact</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/global">Global Users</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/gallery">Gallery</a>
+        </li>
+        <li class="last selected">
+          <a href="integrations.html">Integrations</a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <section id="content">
+      
+<section id="details">
+  <header>
+    <h1>Integrations</h1>
+
+    <p>It's easy to get started accepting payments with Stripe, but even easier to let someone else do it for you. Below are some of our favorite sites that let you accept and manage payments using Stripe.</p>
+  </header>
+
+  <article>
+    <h1 id="ecommerce">Ecommerce</h1>
+    <ul>
+      <li id="3dcart"><a href="http://www.3dcart.com/?utm_source=stripe&amp;utm_medium=directory&amp;utm_campaign=partner">3dcart</a> offers everything you need to sell online. 24x7 phone support, PCI Certified and no transaction fees.</li>
+
+      <li id="biddingforgood"><a href="https://www.biddingforgood.com/online-auction-services/">BiddingforGood</a> is a premier provider of auction and event management software for nonprofit fundraisers.</li>
+
+      <li id="big-cartel"><a href="http://bigcartel.com/">Big Cartel</a> provides you with your own independent store to sell your stuff online.</li>
+
+      <li id="bigcommerce"><a href="http://www.bigcommerce.com/">Bigcommerce</a> is the ecommerce software solution that gives you everything you need to sell online.</li>
+
+      <li id="buildinglink"><a href="http://www.buildinglink.com/">BuildingLink</a> provides a seamless platform for properties, now including handling of convenience payments.</li>
+
+      <li id="cartloom"><a href="http://cartloom.com/">Cartloom</a> lets you copy, paste and sell from your website.</li>
+
+      <li id="celery"><a href="https://www.trycelery.com/">Celery</a> lets makers easily take pre-orders for their products.</li>
+
+      <li id="contentshelf"><a href="http://www.contentshelf.com/">ContentShelf</a> is an ecommerce platform for selling and delivering digital content.</li>
+
+      <li id="corecommerce"><a href="http://www.corecommerce.com/">CoreCommerce</a> is an easy to use e-commerce shopping cart, perfect for selling online.</li>
+
+      <li id="create-net"><a href="http://help.create.net/entries/25464007-How-do-I-accept-payments-using-Stripe-">Create.net</a> helps your small business start its online sales success story with a powerful ecommerce store builder.</li>
+
+      <li id="ecwid"><a href="http://www.ecwid.com/">Ecwid</a> lets you easily create a powerful online store and add it to your existing website, blog and Facebook page.</li>
+
+      <li id="estoreify"><a href="https://estoreify.com/">Estoreify</a> is simplified, embeddable, white labeled ecommerce. Launch a full blown store in minutes!</li>
+
+      <li id="foxycart"><a href="http://www.foxycart.com/">FoxyCart</a> is a flexible, secure and powerful e-commerce platform.</li>
+
+      <li id="givingimpact"><a href="http://givingimpact.com/">Giving Impact</a> lets you create fully branded and integrated online fundraising solutions.</li>
+
+      <li id="gocart"><a href="http://gocartdv.com/">GoCart</a> is an easy to use, easy to customize, scalable and open source PHP shopping cart.</li>
+
+      <li id="goodsie"><a href="http://goodsie.com/">Goodsie</a> is an ecommerce solution that allows anyone to make a branded storefront.</li>
+
+      <li id="helium"><a href="http://gethelium.com/">Helium</a> lets you accept payments by credit card for anything you want to sell online.</li>
+
+      <li id="highwire"><a href="http://www.highwire.com/">Highwire</a> is a complete multi-channel e-commerce solution.</li>
+
+      <li id="lemonstand"><a href="http://lemonstand.com/">LemonStand</a> is the only eCommerce platform made for web developers.</li>
+
+      <li id="memberful"><a href="https://memberful.com/">Memberful</a> makes it easy to sell memberships online and charge for content.</li>
+
+      <li id="modest"><a href="http://modest.com/">Modest</a> is an easy to use commerce platform that brings a great mobile buying experience to your consumers.</li>
+
+      <li id="moltin"><a href="https://molt.in/">Moltin</a> is the only platform independent eCommerce solution.</li>
+
+      <li id="monetizejs"><a href="https://monetizejs.com/">MonetizeJS</a> is a modern payment platform for HTML5/client-side applications; no server required.</li>
+
+      <li id="moonclerk"><a href="http://www.moonclerk.com/">MoonClerk</a> lets you build a custom checkout experience for one-time and recurring payments.</li>
+
+      <li id="nuggetweb"><a href="http://nuggetweb.com/">NuggetWeb</a> is an e-commerce website provider for small and home-based businesses.</li>
+
+      <li id="orders2me"><a href="http://orders2.me/">Orders2.me</a> provides a web, mobile &amp; Facebook ordering system for restaurants.</li>
+
+      <li id="photobiz"><a href="http://www.photobiz.com/ecommerce">PhotoBiz</a> offers user-friendly websites, blogs, and ecommerce tools for visual artists &amp; small businesses.</li>
+
+      <li id="powerstores"><a href="http://www.powerstores.com/">Powerstores</a> will build you a beautiful ecommerce website which you can manage and update yourself.</li>
+
+      <li id="samcart"><a href="http://samcart.com/">SamCart</a> is the easiest way to sell your products online, boost conversions, and increase customer lifetime value.</li>
+
+      <li id="sendowl"><a href="http://www.sendowl.com/">SendOwl</a> is an ecommerce platform for selling digital goods, software and subscriptions.</li>
+
+      <li id="shopify"><a href="http://shopify.com/">Shopify</a> lets you easily build and run an online store.</li>
+
+      <li id="shoplocket"><a href="https://www.shoplocket.com/">ShopLocket</a> lets you sell things from your blog, from Twitter, or anywhere.</li>
+
+      <li id="snipcart"><a href="https://snipcart.com/">Snipcart</a> allows developers to bring a beautiful e-commerce experience to any site using simple HTML/JS.</li>
+
+      <li id="spiffy-stores"><a href="http://www.spiffystores.com/">Spiffy Stores</a> includes all the features you need to easily create an e-commerce store.</li>
+
+      <li id="squarespace"><a href="http://www.squarespace.com/">Squarespace</a> is an all-in-one platform for easily creating websites, blogs, galleries, and stores.</li>
+
+      <li id="skuiq"><a href="http://www.skuiq.com/">skuIQ</a> enables brick and mortar retailers to sync their online store with their in-store POS.</li>
+
+      <li id="storefrontsocial"><a href="http://storefrontsocial.com/">Storefront Social</a> lets retailers and merchants set up a shop on Facebook quickly and easily.</li>
+
+      <li id="talentlms"><a href="http://www.talentlms.com/">Talentlms</a> makes it easy to train online your people, partners and customers.</li>
+
+      <li id="thinkific"><a href="http://www.thinkific.com/">Thinkific</a> has everything you need to sell courses on your own web site.</li>
+
+      <li id="ultracart"><a href="http://www.ultracart.com/">UltraCart</a> is a complete e-commerce platform.</li>
+
+      <li id="volusion"><a href="http://www.volusion.com/">Volusion</a> is the leading ecommerce solution designed for the needs of small to medium-sized business owners.</li>
+
+      <li id="webs"><a href="http://www.webs.com/">Webs</a> helps you create a customized website with its easy to use builder and professionally designed templates.</li>
+
+      <li id="webstart"><a href="http://www.webstarts.com/">WebStarts</a> is everything you need to create your very own website or online store.</li>
+
+      <li id="weebly"><a href="http://www.weebly.com/features/#/commerce">Weebly</a> gives everyone a surprisingly easy way to create a unique site, blog or online store.</li>
+
+      <li id="yola"><a href="https://www.yola.com/">Yola</a> enables you to easily create a beautiful website with a fully featured online store.</li>
+
+      <li id="yovigo"><a href="https://yovigo.com/">Yovigo</a> is a free website builder that enables you to create online stores with easy-to-use apps &amp; themes.</li>
+
+      <li id="x-cart"><a href="http://www.x-cart.com/">X-Cart</a> offers a downloadable PHP eCommerce platform: PCI compliant, mobile-ready &amp; fully customizable.</li>
+
+    </ul>
+
+    <h1 id="invoicing">Invoicing</h1>
+    <ul>
+      <li id="accountingsuite"><a href="http://www.accountingsuite.com/">AccountingSuite</a> speeds "service-to-cash" cycles with recurring billing, project accounting and more.</li>
+
+      <li id="anchor"><a href="http://theanchorapp.com/">Anchor</a> is a free, self hosted invoicing and payments app that allows clients to pay invoices via Stripe.</li>
+
+      <li id="ballpark"><a href="http://www.getballpark.com/">Ballpark</a> is an online time tracking and invoicing software program.</li>
+
+      <li id="blinksale"><a href="http://www.blinksale.com/">Blinksale</a> lets you use your Stripe account to accept credit card payments through your Blinksale invoices.</li>
+
+      <li id="chargebee"><a href="http://www.chargebee.com/">ChargeBee</a> is an easy to use recurring billing and invoicing solution for online businesses.</li>
+
+      <li id="cheqbook"><a href="http://www.cheqbook.com/">Cheqbook</a> saves you time so you can grow your business with smarter accounting, invoicing, and billing.</li>
+
+      <li id="duet"><a href="http://duetapp.com/">Duet</a> is a self hosted project management &amp; invoicing tool, that integrates with Stripe for payments.</li>
+
+      <li id="expensify"><a href="https://www.expensify.com/">Expensify</a> captures your expenses and transforms them into beautiful branded invoices.</li>
+
+      <li id="fundinggates"><a href="https://www.fundinggates.com/">Funding Gates</a>' receivables manager helps make collections the easiest part of running your business.</li>
+
+      <li id="freeagent"><a href="http://www.freeagent.com/l/stripe">FreeAgent</a> offers accounting and invoicing designed specifically for small businesses and freelancers.</li>
+
+      <li id="freelancesuite"><a href="http://www.freelancesuite.com/">FreelanceSuite</a> is a clean and simple application for client, project, and billing management.</li>
+
+      <li id="freshbooks"><a href="http://www.freshbooks.com/stripe/?ref=10255">FreshBooks</a> enables you to invoice clients, track time &amp; run your small business in the cloud.</li>
+
+      <li id="godaddy"><a href="http://www.godaddy.com/accounting/accounting-software.aspx">GoDaddy</a> enables you to simplify your invoicing and bookkeeping.</li>
+
+      <li id="harvest"><a href="http://www.getharvest.com/">Harvest</a> offers simple time tracking, fast online invoicing, and powerful reporting software.</li>
+
+      <li id="hiveage"><a href="http://www.hiveage.com/">Hiveage</a> offers simple, powerful online billing for freelancers and small businesses.</li>
+
+      <li id="invoiceberry"><a href="http://www.invoiceberry.com/">Invoiceberry</a> helps you to create invoices and estimates online &amp; keep track of expenses and payments.</li>
+
+      <li id="invoicesherpa"><a href="http://www.invoicesherpa.com/">Invoice Sherpa</a> automates accounts receivable using your existing accounting software.</li>
+
+      <li id="kashflow"><a href="http://www.kashflow.com/">KashFlow</a> is simple, effective, small business accounting software that removes the hassle of doing books.</li>
+
+      <li id="minterapp"><a href="http://www.minterapp.com/">Minterapp</a> is an online invoicing &amp; time tracking software with detailed reports to understand your cash flow.</li>
+
+      <li id="octobat"><a href="http://www.octobat.com/">Octobat</a> automatically delivers invoices &amp; credit notes without a single line of code, and can also reduce churn.</li>
+
+      <li id="pancake"><a href="http://pancakeapp.com/">Pancake</a> is a self hosted time tracking and invoicing tool.</li>
+
+      <li id="paydirt"><a href="https://paydirtapp.com/">Paydirt</a> offers smart time tracking, easier invoicing, and online payments.</li>
+
+      <li id="paytango"><a href="https://www.paytango.com/">PayTango</a> automates invoice collection. No more chasing down customers or running to the bank.</li>
+
+      <li id="photobiz"><a href="http://www.photobiz.com/invoicing">PhotoBiz</a> lets you create customized invoices that work from any device.</li>
+
+      <li id="plasso-invoicing"><a href="https://plasso.co/">Plasso</a> enables you to create and send invoices to anyone with a few clicks.</li>
+
+      <li id="platypus"><a href="https://platypus.me/">Platypus</a> provides a painless platform for professional or personal website creation.</li>
+
+      <li id="quaderno"><a href="http://quaderno.io/">Quaderno</a> automatically sends an invoice every time a charge is made in Stripe, no code required.</li>
+
+      <li id="quickfile"><a href="http://www.quickfile.co.uk/">QuickFile</a> is a free online accounting service dedicated for small to medium sized businesses.</li>
+
+      <li id="quoterobot"><a href="http://quoterobot.com/">QuoteRobot</a> helps designers and developers send beautiful proposals and invoices in moments.<li>
+
+      <li id="ronin"><a href="http://www.roninapp.com/">Ronin</a> allows you to track time, invoices, estimates, payments and clients.</li>
+
+      <li id="servicejoy"><a href="http://servicejoy.com/">Servicejoy</a> lets you invoice online, send estimates, accept payments, manage tasks &amp; teams, and track inventory.</li>
+
+      <li id="ultradox"><a href="http://www.ultradox.com/apps/Invoicing_For_Stripe">Ultradox</a> handles VAT for your Stripe account and sends and tracks localized PDF invoices using Google Apps.</li>
+
+      <li id="wave"><a href="http://www.waveapps.com/payments/">Wave</a> builds invoicing tools that make it easy to bill your clients and get paid.</li>
+
+      <li id="xero"><a href="http://www.xero.com/campaign/stripe">Xero</a> lets you see your cashflow in real-time with online accounting, invoicing &amp; billing.</li>
+
+      <li id="yardbook"><a href="https://www.yardbook.com/">Yardbook</a> is a complete solution for landscaping businesses, from CRM to estimates and billing.</li>
+
+      <li id="zoho-invoice"><a href="https://www.zoho.com/invoice/">Zoho Invoice</a> is designed to help freelancers craft the perfect invoice, track payments and get paid online easily.</li>
+    </ul>
+
+    <h1 id="accounting">Accounting</h1>
+    <ul>
+      <li id="commercesync"><a href="https://stripe.commercesync.com/">Commerce Sync</a> enables you to connect your Stripe account to Xero and Quickbooks Online.</li>
+
+      <li id="cloudcartconnector"><a href="http://support.cloudcartconnector.com/hc/en-us/articles/203281875">Cloud Cart Connector</a> enables you to easily sync customers, products, and orders with QuickBooks Online.</li>
+
+      <li id="godaddy"><a href="http://www.godaddy.com/accounting/accounting-software.aspx">GoDaddy</a> enables you to connect your Stripe account to simplify bookkeeping.</li>
+
+      <li id="less"><a href="https://lessaccounting.com/">Less Accounting</a> is accounting software built for business owners who dislike bookkeeping.</li>
+
+      <li id="recognizedio"><a href="http://recognized.io/">Recognized.io</a> automates revenue recognition for SaaS billing.</li>
+
+      <li id="snapy"><a href="https://www.getsnapy.com/">Snapy</a> enables you to connect Stripe to QuickBooks Online and Xero.</li>
+
+      <li id="stripepipe"><a href="http://www.pennypipe.com/t/stripe">PennyPipe</a> lets you synchronize charges, refunds, and fees with Quickbooks, Xero and more.</li>
+
+      <li id="S2Q"><a href="http://integratemybooks.com/s2q">S2Q</a> is an easy way for you to import data from Stripe into QuickBooks Online.</li>
+
+      <li id="taxamo"><a href="http://www.taxamo.com/">Taxamo</a> is an end-to-end solution that instantly enables digital retailers to manage EU VAT compliance.</li>
+
+
+      <li id="zoho-books"><a href="https://www.zoho.com/books/">Zoho Books</a> is an intuitive accounting app to manage receivables and payables all in one place.</li>
+    </ul>
+
+    <h1 id="form-building">Form-building &amp; Software tools</h1>
+    <ul>
+      <li id="123contactform"><a href="http://www.123contactform.com/">123ContactForm</a> enables you to build any type of HTML web form.</li>
+
+      <li id="alareg"><a href="http://www.alareg.com/">a la Reg</a> lets you easily create custom branded forms to collect registration information and Stripe payments.</li>
+
+      <li id="bubble"><a href="http://www.bubble.is/">Bubble</a> is visual programming tool that enables you to build apps through its visual editor without writing code.</li>
+
+       <li id="cognito"><a href="https://www.cognitoforms.com/">Cognito Forms</a> makes it easy to collect information and payments without any coding or monthly plans.</li>
+
+      <li id="formcrafts-form"><a href="https://formcrafts.com/integrations/stripe">FormCrafts</a> is a drag-and-drop form builder to make gorgeous payment forms.</li>
+
+      <li id="formstack"><a href="http://www.formstack.com/">Formstack</a> lets you embed a payment form in your site.</li>
+
+      <li id="fluidreview"><a href="https://fluidreview.com/">FluidReview</a> allows you to collect and evaluate applications &amp; submissions completely online.</li>
+
+      <li id="jotform"><a href="http://www.jotform.com/">JotForm</a> helps you create &amp; publish online forms without writing a single line of code.</li>
+
+      <li id="ninjaforms"><a href="http://ninjaforms.com/">Ninja Forms</a> is the easiest and most flexible WordPress form creation plugin.</li>
+
+      <li id="payzoio"><a href="https://www.payzo.io/">Payzo.io</a> allows you to accept card payments with zero coding with a hosted payment form.</li>
+
+      <li id="plasso-form"><a href="https://plasso.co/">Plasso</a> makes accepting and making payments quick &amp; easy.</li>
+
+      <li id="seamless-docs"><a href="https://seamlessdocs.com/">SeamlessDocs</a> lets you build great forms and collect eSignatures.</li>
+
+      <li id="sign-up-forms"><a href="https://www.signupforms.com/">Sign Up Forms</a> lets you build and manage registration forms.</li>
+
+      <li id="stamplay"><a href="https://stamplay.com/">Stamplay</a> makes it easy for anyone to build and start making money with an app within minutes.</li>
+
+      <li id="typeform"><a href="http://www.typeform.com/">Typeform</a> lets you build beautiful, cross-platform online forms &amp; surveys offering great completion rates.</li>
+
+      <li id="wufoo"><a href="http://www.wufoo.com/">Wufoo</a> is a web application that lets you build online forms.</li>
+    </ul>
+
+    <h1 id="analytics">Analytics</h1>
+    <ul>
+      <li id="abacus"><a href="http://abacusmetrics.com/">Abacus Metrics</a> lets you instantly see the most important metrics for your SaaS business.</li>
+
+      <li id="baremetrics"><a href="https://baremetrics.io/">Baremetrics</a> gives you one-click access to dozens of metrics for your Stripe account.</li>
+
+      <li id="chartmogul"><a href="http://chartmogul.com/">ChartMogul</a> is a one click, real time subscription analytics platform for subscription businesses using Stripe.</li>
+
+      <li id="datahero"><a href="http://www.datahero.com/">Datahero</a> lets you easily access, analyze and visualize your Stripe data.</li>
+
+      <li id="firstofficer"><a href="https://www.firstofficer.io/">FirstOfficer</a> gives you one-click access to SaaS metrics and strategic insights.</li>
+
+      <li id="getmetrics"><a href="https://getmetrics.io/">getMetrics</a> provides metrics and instant notifications for your Stripe account.</li>
+
+      <li id="hookfeed"><a href="http://hookfeed.com/?utm_source=stripe&amp;utm_medium=referral&amp;utm_campaign=integrations&amp;utm_content=analytics">HookFeed</a> delivers customizable alerts and daily/weekly analytics to your team.</li>
+
+      <li id="intercom"><a href="https://intercom.io/">Intercom</a> helps you understand and automate communication with your users.</li>
+
+      <li id="keen-io"><a href="https://keen.io/blog/48628875285/integrate-stripe-and-keen-io-in-60-seconds">Keen IO</a> provides an API-based backend that lets you build analytics applications and dashboards at scale.</li>
+
+      <li id="linelytics"><a href="https://linelytics.com/">LineLytics</a> offers live, up-to-date, reporting on your Stripe account.</li>
+
+      <li id="nurego-analytics"><a href="http://www.nurego.com/">Nurego</a> provides subscriber segmentation and subscription/SaaS metrics.</li>
+
+      <li id="preact"><a href="http://www.preact.io/">Preact</a> presents actionable user behavior insights directly within leading CRMs.</li>
+
+      <li id="putler"><a href="http://www.putler.com/">Putler</a> is a unique sales and analytics app that provides an x-ray of your business.</li>
+
+      <li id="saas-metrics"><a href="http://www.saas-metrics.com/">SaaS Metrics</a> provides actionable insights to grow your business and increase your recurring revenue.</li>
+
+      <li id="sumall"><a href="https://sumall.com/">SumAll</a> connects all of your services to see a complete view of your business.</li>
+
+      <li id="target-revenue"><a href="http://www.targetrevenue.com/">Target Revenue</a> tracks your month over month target revenue and notifies you if you are off track.</li>
+
+      <li id="tender"><a href="https://www.tender.io/">Tender</a> offers email PDF invoices, history widget, dunning and metrics for Stripe users.</li>
+
+      <li id="visible"><a href="https://visible.vc/">Visible</a> makes it easy to update your investors with your company metrics.</li>
+
+      <li id="woopra"><a href="https://www.woopra.com/appconnect/stripe">Woopra</a> offers real-time analytics delivering a comprehensive view of customers to create better experiences.</li>
+    </ul>
+
+    <h1 id="recurring-payments">Recurring Payments</h1>
+    <ul>
+      <li id="chargebee"><a href="http://chargebee.com/">ChargeBee</a> delivers easy to manage recurring billing with complete customization features.</li>
+
+      <li id="chargify"><a href="http://chargify.com/">Chargify</a> lets you easily manage your recurring revenue business.</li>
+
+      <li id="chargerabbit"><a href="https://chargerabbit.com/">Charge Rabbit</a> provides easy memberships and subscriptions for Shopify stores.</li>
+
+      <li id="formcrafts-recurring"><a href="https://formcrafts.com/integrations/stripe">FormCrafts</a> helps you create gorgeous subscription forms with a drag-and-drop interface.</li>
+
+      <li id="killbill"><a href="http://killbill.io/">Kill Bill</a> is an open-source platform for subscription billing and payments.</li>
+
+      <li id="memberful"><a href="http://memberful.com/">Memberful</a> enables you to start selling monthly or yearly memberships in minutes.</li>
+
+      <li id="moonclerk"><a href="http://moonclerk.com/">MoonClerk</a> lets you easily set up recurring payments with no coding required.</li>
+
+      <li id="nurego-recurring"><a href="http://www.nurego.com/">Nurego</a> provides price plan management enabling you to package and A/B test segment-specific price plans.</li>
+
+      <li id="paywhirl"><a href="https://paywhirl.com/">Paywhirl</a> is a recurring payments widget which makes it easy to create &amp; process subscriptions.</li>
+
+      <li id="plasso-recurring"><a href="https://plasso.co/">Plasso</a> helps you create subscriptions and charge your members on a recurring basis.</li>
+
+      <li id="recharge-recurring"><a href="http://www.rechargeapps.com/">ReCharge</a> is a recurring billing management solution for Shopify.</li>
+
+      <li id="recurly"><a href="https://recurly.com/">Recurly</a> offers smart, easy to manage recurring billing that cuts credit card declines up to 27%.</li>
+
+      <li id="zoho-subs"><a href="https://www.zoho.com/subscriptions/">Zoho Subscriptions</a> is a recurring billing and subscription management app designed for small businesses.</li>
+
+      <li id="zuora"><a href="https://www.zuora.com/what-is-zuora/">Zuora</a> provides a subscription billing and recurring payments solution.</li>
+
+    </ul>
+
+    <h1 id="notifications">Notifications</h1>
+    <ul>
+      <li id="expiry"><a href="https://expiry.io/">Expiry</a> will reduce your churn rate by avoiding failed payments.</li>
+
+      <li id="glip"><a href="https://glip.com/">Glip</a> is a real-time group and video chat service that lets you see documents, messages &amp; payments in one place.</li>
+
+      <li id="hookfeed"><a href="http://hookfeed.com/?utm_source=stripe&amp;utm_medium=referral&amp;utm_campaign=integrations&amp;utm_content=dunning">HookFeed</a> will email you about important Stripe events like canceled subscriptions and failed payments.</li>
+
+      <li id="ifttt"><a href="https://ifttt.com/stripe/">IFTTT</a> enables you to connect events that happen in Stripe to hundreds of different services.</li>
+
+      <li id="quip"><a href="https://quip.com/">Quip</a> combines messaging and documents in one place.</li>
+
+      <li id="slack"><a href="https://slack.com/">Slack</a> brings all your communication together in one place.</li>
+
+      <li id="zapier"><a href="https://zapier.com/zapbook/stripe/">Zapier</a> enables you to connect Stripe to hundreds of other web services including MailChimp, Xero &amp; more.</li>
+
+    </ul>
+
+    <h1 id="booking-ticketing">Booking &amp; Ticketing</h1>
+    <ul>
+      <li id="acuity"><a href="https://acuityscheduling.com/">Acuity Scheduling</a> allows you to offer appointment and class scheduling directly from your own website.</li>
+
+      <li id="alf"><a href="http://alf.io/">Alf.io</a> is an open-source ticket reservation system for conferences.</li>
+
+      <li id="attendstar"><a href="http://www.attendstar.com/">AttendStar</a> is an online ticketing and promotion company for concerts and events.</li>
+
+      <li id="bookeo"><a href="http://www.bookeo.com/">Bookeo</a> is a commission free scheduling and reservation system for appointments, classes, tours &amp; activities.</li>
+
+      <li id="bookingbug"><a href="http://www.bookingbug.com/">BookingBug</a> is the complete online scheduling and appointment booking platform for all businesses. </li>
+
+      <li id="bookitbee"><a href="http://www.bookitbee.com/">Bookitbee</a> is an easy ticketing and event registration system with great support.</li>
+
+      <li id="bookster"><a href="http://www.booksterhq.com/">Bookster</a> is the ultimate toolbox for taking payments and managing bookings for your holiday rental business.</li>
+
+      <li id="checkfront"><a href="http://www.checkfront.com/">Checkfront</a> helps you collect and manage information from your customers for upcoming events.</li>
+
+      <li id="eply"><a href="http://www.eply.com/">ePly</a> an event registration system that helps events succeed and makes event planners look good.</li>
+
+      <li id="evenium"><a href="http://evenium.net/">Evenium</a> is a complete ticketing platform, with $1 flat fee, fully integrated into an awesome interactive app.</li>
+
+      <li id="eventbee"><a href="http://www.eventbee.com/">Eventbee</a> is an innovative online ticketing system with a $1 flat fee per ticket pricing model.</li>
+
+      <li id="eventcube"><a href="http://www.eventcube.io/">eventcube</a> is a white-label online event registration and ticketing software solution.</li>
+
+      <li id="fullslate"><a href="http://fullslate.com/">Full Slate</a> an Intuit company, helps service businesses fill their appointment books online.</li>
+
+      <li id="getinvited"><a href="http://getinvited.to/">Get Invited</a> is a beautifully designed and easy to use, social event registration service for all kinds of events.</li>
+
+      <li id="gorilladesk"><a href="http://gorilladesk.com/">GorillaDesk</a> offers job scheduling, invoicing, mapping and automation for field service businesses.</li>
+
+      <li id="innstyle"><a href="https://innstyle.co.uk/">Inn Style</a> is a slick and simple booking system for all kinds of accommodation owners.</li>
+
+      <li id="kazoova"><a href="http://kazoova.com/">Kazoova</a> is a marketplace for specialist activities, allowing organisers to list and book their classes and events.</li>
+
+      <li id="martialytics"><a href="https://www.martialytics.com/">Martialytics</a> is the simplest software for managing your martial arts business.</li>
+
+      <li id="mitingu"><a href="http://www.mitingu.com/">Mitingu</a> is an event registration platform focused on driving event signups and attendee engagement.</li>
+
+      <li id="nutickets"><a href="http://www.nutickets.com/">Nutickets</a> is an innovative event ticketing and management platform for all your event needs.</li>
+
+      <li id="picatic"><a href="https://www.picatic.com/">Picatic</a> helps people run successful events at a cost determined by you.</li>
+
+      <li id="rezdy"><a href="http://www.rezdy.com/">Rezdy</a> is a commission free booking platform for tour and activity operators.</li>
+
+      <li id="rhino-reg"><a href="http://www.rhinoreg.com/"</a>Rhino Reg</a> is a user friendly and cost effective event registration software.</li>
+
+      <li id="schedulicity"><a href="https://www.schedulicity.com/">Schedulicity</a> makes it easy to schedule appointments online with your customers.</li>
+
+      <li id="schedulista"><a href="http://www.schedulista.com/">Schedulista</a> is the easiest way to accept and schedule appointments online.</li>
+
+      <li id="skeddabooking"><a href="http://www.skedda.com/">Skedda Bookings</a> is a booking system for venues. Easily manage your studios, courts, rooms or any space.</li>
+
+      <li id="studiobookings"><a href="http://www.studiobookingsonline.com/">Studio Bookings Online</a> enables owners to manage their studio space and membership online.</li>
+
+      <li id="summitevergreen"><a href="http://summitevergreen.com/">Summit Evergreen</a> helps you build high-value online courses in minutes — with no technical headaches.</li>
+
+      <li id="ticketbase"><a href="https://www.ticketbase.com/">Ticketbase</a> offers ticketing with a wonderful checkout process that's beautiful and easy to use.</li>
+
+      <li id="ticketboothaustrlia"><a href="http://ticketing.ticketbooth.com.au/">Ticketbooth Australia</a> provides an event ticketing platform that is revolutionising the events industry.</li>
+
+      <li id="ticketbud"><a href="https://www.ticketbud.com/">Ticketbud</a> offers a self-service event management and registration service.</li>
+
+      <li id="ticketinghub"><a href="https://www.ticketinghub.com/">TicketingHub</a> is an online and offline ticketing platform with a mPOS solution for attractions and tours.</li>
+
+      <li id="ticketsocket"><a href="http://www.ticketsocket.com/">TicketSocket</a> is a developer-centric white-label ticketing &amp; registration framework.</li>
+
+      <li id="ticketspice"><a href="http://www.ticketspice.com/">TicketSpice</a> allows you to sell tickets and create barcode tickets for your event.</li>
+
+      <li id="tickettailor"><a href="https://www.tickettailor.com/">Ticket Tailor</a> is a pay-monthly ticketing solution with no per-ticket fees.</li>
+
+      <li id="tito"><a href="https://tito.io/">Tito</a> builds simple and powerful event software.</li>
+
+      <li id="tripleseat"><a href="http://www.tripleseat.com/">Tripleseat</a> is the event management solution for restaurants, banquet facilities, and catering operations.</li>
+
+      <li id="vacationlabs"><a href="http://www.vacationlabs.com/">Vacation Labs</a> is a powerful online and offline booking platform for tour and activity operators.</li>
+  </ul>
+
+  <h1 id="fundraising">Fundraising &amp; Marketplaces</h1>
+  <ul>
+    <li id="betrspot"><a href="http://www.betrspot.com/">BetrSpot</a> is an app that creates micro-real estate marketplaces in crowded first-come, first-served environments.</li>
+
+    <li id="donately"><a href="http://donate.ly/">Donately</a> helps organizations raise more money with less effort.</li>
+
+    <li id="donorbox"><a href="https://donorbox.org/">DonorBox</a> lets you start accepting online donations in minutes.</li>
+
+    <li id="kindful"><a href="http://www.kindful.com/">Kindful</a> is a one stop shop for all things online fundraising.</li>
+
+    <li id="karma411"><a href="http://www.karma411.com/">Karma411</a> provides online social fundraising solutions for nonprofits.</li>
+
+    <li id="nationbuilder"><a href="http://nationbuilder.com/create?recruiter_id=590231">NationBuilder</a> provides infrastructure for a world of creators.</li>
+
+    <li id="raisingit"><a href="http://www.raisingit.com/">Raising IT</a> provides a platform that makes integrated digital engagement and fundraising easy for non-profits.</li>
+
+    <li id="razoo"><a href="http://www.razoo.com/">Razoo</a> helps you raise money online for your nonprofit or charity.</li>
+
+    <li id="rocketfuel"><a href="https://rocketfuelhq.com/">Rocketfuel</a> is a dynamic crowdfunding platform that can help your favorite artists take off.</li>
+
+    <li id="txt2give"><a href="http://www.txt2give.co/">Txt2Give</a> lets you receive donations through text message.</li>
+
+    <li id="unityaid"><a href="https://www.unityaid.com/">Unityaid</a> provides everything you need to start raising funds online – today.</a></li>
+
+  </ul>
+
+  <h1 id="email-marketing-dunning">Email Marketing &amp; Dunning</h1>
+<ul>
+  <li id="churnbuster"><a href="http://churnbuster.io/">Churnbuster</a> saves you money every month by ensuring your customers update their payment information.</li>
+
+  <li id="declinery"><a href="https://declinery.com/">Declinery</a> helps your subscription business recover lost revenue from failed Stripe payments and lower churn rate.</li>
+
+  <li id="drip"><a href="https://www.getdrip.com/">Drip</a> is lightweight marketing automation that allows you to craft every email to your leads and users.</li>
+
+  <li id="email-hooks"><a href="http://emailhooks.co/">Email Hooks</a> makes it simple to send templated emails with dynamic variables triggered by Stripe events.</li>
+
+  <li id="expiry"><a href="https://expiry.io/">Expiry</a> will reduce your churn rate by avoiding failed payments.</li>
+
+  <li id="ininbox"><a href="http://www.ininbox.com/partnerships/stripe">INinbox</a> lets you create and send better email newsletters from anywhere.</li>
+
+  <li id="instantdunning"><a href="https://instantdunning.com/">Instant Dunning</a> lets you email delinquent customers and request that they update their billing information.<li>
+
+  <li id="klaviyo"><a href="http://www.klaviyo.com/">Klaviyo</a> lets you send personalized and targeted emails by integrating data from your tools and website.</li>
+
+  <li id="mailsquad"><a href="https://mailsquad.com/">MailSquad</a> helps agencies and web pros monetize their email marketing services with a white label solution.<li>
+
+  <li id="nurego-dunning"><a href="http://www.nurego.com/">Nurego</a> offers centralized communications, from welcome emails to dunning and upselling messages.<li>
+
+  <li id="sendwithus"><a href="https://www.sendwithus.com/stripe">sendwithus</a> send payment receipts, trial expiration alerts, and dunning emails in 5 minutes.</li>
+
+  <li id="bestunning"><a href="https://bestunning.net/">BeStunning</a> is the best way to stop churn due to failed payments, with complete customer lifecycle communication.</li>
+
+
+</ul>
+
+  <h1 id="card-readers">Mobile &amp; Card readers</h1>
+  <ul>
+    <li id="big-cartel-checkout"><a href="http://bigcartel.com/checkout-app">Big Cartel Checkout</a> enables you to process credit card payments and send receipts right from your iOS device.</li>
+
+    <li id="cardflight"><a href="https://getcardflight.com/">CardFlight</a> provides encrypted card readers and mobile SDKs to accept swiped payments in your mobile app.</li>
+
+    <li id="chrrp"><a href="https://itunes.apple.com/us/app/chrrp/id731623802?mt=8">Chrrp</a> alerts you via your mobile app when a customer signs up or makes a payment.</li>
+
+    <li id="control"><a href="https://www.getcontrol.co/mobile-app">Control</a> lets you accept mobile payments via a card-reader and manage your Stripe account for <a href="https://itunes.apple.com/us/app/pay-pad-for-stripe-for-iphone/id558387939?ls=1">iOS</a> and <a href="https://play.google.com/store/apps/details?id=co.getcontrol">Android</a>.</li>
+
+    <li id="innerfence"><a href="http://www.innerfence.com/stripe-mobile-app-card-reader">Innerfence</a> makes it easy to accept face-to-face payments with your Stripe account.</li>
+
+    <li id="paid"><a href="http://paidhq.com/">Paid</a> is the easiest and fastest way to check on your Stripe account on iOS.</li>
+
+    <li id="payapp"><a href="https://payapp.io/">PayApp</a> enables merchants to accept payments on their mobile smartphones with your Stripe account for free.</li>
+
+    <li id="payment"><a href="http://paidhq.com/payment">Payment for Stripe</a> lets you collect payments on iOS via your Stripe Connect account.</li>
+
+    <li id="photobiz"><a href="http://www.photobiz.com/pointofsale">PhotoBiz</a> allows you to close sales anywhere using your mobile device.</li>
+
+    <li id="rhombus"><a href="https://www.getrhombus.com/">Rhombus</a> is the best way to receive payments via text messaging.</li>
+
+    <li id="shiba"><a href="https://play.google.com/store/apps/details?id=com.nl.shiba">Shiba</a> is the best way to manage your Stripe payments on the go via your Android device.</li>
+
+    <li id="tap-tap"><a href="https://play.google.com/store/apps/details?id=au.com.bellsolutions.android.xact">TapTap</a> allows you to accept payments via Stripe from payWave or PayPass cards with Android's NFC reader.</li>
+
+    <li id="zing"><a href="http://zing.co/">Zing</a> is a point of sale system that also helps you track inventory, run sales reports, and integrate to other systems.</li>
+
+  </ul>
+
+  <h1 id="pos-systems">POS Systems</h1>
+  <ul>
+    <li id="cleancloud"><a href="https://cleancloudapp.com/">CleanCloud</a> is cloud based POS software for dry cleaners that works on any device.</li>
+
+    <li id="dinamikos"><a href="http://dinamikos.com/stripe.py">Dinamikos Technology</a> lets you connect Verifone point-of-sale terminals to your Stripe account.</li>
+
+    <li id="leaf"><a href="https://leaf.me/">Leaf</a> offers a fully tailored POS customized to fit your business.</li>
+
+    <li id="zingcheckout"><a href="http://zing.co/point-of-sale/">Zing Register</a> is an iPad POS with built-in ecommerce, email marketing, and accounting integrations.</li>
+
+</ul>
+
+
+<h1 id="inventory-management">Inventory Management</h1>
+<ul>
+  <li id="accountingsuite"><a href="http://www.accountingsuite.com/">AccountingSuite</a> lets you "track your stuff" across multiple warehouses, locations, projects, and product lines.</li>
+
+  <li id="lettuce"><a href="https://www.lettuceapps.com/">Lettuce</a> is a powerful online order &amp; inventory management solution for eCommerce &amp; wholesale.</li>
+
+  <li id="stitch"><a href="http://www.stitchlabs.com/?rc=stripe">Stitch</a> helps you manage inventory across multiple sales channels.</li>
+
+  <li id="maxpanda"><a href="http://www.maxpanda.net/">Maxpanda CMMS</a> provides work order maintenance management software that’s simple yet perfect.</li>
+
+  <li id="photobiz"><a href="http://www.photobiz.com/ecommerce">PhotoBiz</a> lets you manage your inventory quickly and easily.</li>
+
+</ul>
+
+<h1 id="referral-marketing">Referral Marketing</h1>
+<ul>
+  <li id="ambassador"><a href="http://marketing.getambassador.com/">Ambassador</a> enables companies to easily track &amp; manage referral, partner and affiliate programs.</li>
+
+  <li id="leaddyno"><a href="http://www.leaddyno.com/">LeadDyno</a> makes affiliate tracking easy with "one-click social sharing" and an affiliate dashboard for your partners.</li>
+
+  <li id="referral-saasquatch"><a href="http://referralsaasquatch.com/stripe-integration">Referral SaaSquatch</a> lets you quickly launch a powerful customer referral program for your subscription service.</li>
+
+  <li id="steamads"><a href="http://steamads.com/">SteamAds</a> is a fully hosted and managed solution to get your own affiliate campaign.</li>
+</ul>
+
+<h1 id="financing">Financing</h1>
+<ul>
+  <li id="kabbage"><a href="https://www.kabbage.com/plp/stripelp">Kabbage</a> offers fast and flexible funding up to $50K, in less than 7 minutes.</li>
+</ul>
+
+<h1 id="shipping">Shipping</h1>
+<ul>
+  <li id="shiprobot"><a href="https://shiprobot.com/">ShipRobot</a> lets you create and print shipping labels for all your orders with one solution.</li>
+</ul>
+
+<h1 id="electronic-signature">Electronic Signature</h1>
+<ul>
+  <li id="right-signature"><a href="https://rightsignature.com/p/str1">RightSignature</a> is the easiest, fastest way to get documents filled out and signed online.</li>
+</ul>
+
+<h1 id="crm">CRM</h1>
+<ul>
+  <li id="agilecrm"><a href="https://www.agilecrm.com/stripe?utm_source=stripe&amp;utm_medium=website&amp;utm_campaign=integration">Agile</a> is an all-in-one CRM with contact management, marketing automation, web analytics, email, and more.</li>
+
+   <li id="chargedesk"><a href="https://chargedesk.com/integrate/stripe/zendesk">Chargedesk</a> enables you to manage your customers & payments inside Zendesk tickets.</li>
+
+
+  <li id="kindful2"><a href="https://www.kindful.com/">Kindful</a> is a delightful CRM that makes building relationships fun again.</li>
+
+  <li id="memberfindme"><a href="http://memberfind.me/">MemberFindMe</a> is a membership, donation and event management system for
+groups and organizations.</li>
+</ul>
+
+<h1 id="transaction-monitoring">Transaction Monitoring</h1>
+<ul>
+  <li id="behaviosec"><a href="http://www.behaviosec.com/">Behaviosec</a> verifies the correct person is accessing an account by monitoring the user’s behavior.</li>
+
+  <li id="merchant-protector"><a href="https://www.merchantprotector.net/">Merchant Protector</a> helps online merchants prevent fraud.</li>
+
+  <li id="riskified"><a href="http://www.riskified.com/">Riskified</a> is a turnkey risk management solution which will review, approve and guarantee transactions.</li>
+</ul>
+
+<h1 id="user-management">User Management</h1>
+<ul>
+  <li id="user-app"><a href="https://www.userapp.io/">UserApp</a> provides user management functionality that results in faster development, faster revenue &amp; more users.</li>
+</ul>
+
+<h1 id="gift-certificates">Gift Certificates</h1>
+<ul>
+  <li id="gift-card-cafe"><a href="http://www.thegiftcardcafe.com/affiliateLink.php?affID=324">The Gift Card Cafe</a> lets you easily add gift cards or instant printable gift certificates sales to your website.</li>
+</ul>
+
+
+<p>Built your own? <a href="https://support.stripe.com/email">Get in touch</a> and we'll be happy to add it to the list!</p>
+  </article>
+</section>
+
+    </section>
+
+  </section><!-- #documentation -->
+
+  <div id="footer">
+    <div class="country-dropdown-view">
+        <a class="select">
+            <span>
+                <img src="../img/flags/us.png" width="23" height="17" data-hires="true" />
+                <strong>United States</strong>
+            </span>
+        </a>
+
+        <div class="popover">
+            <div class="arrow"></div>
+            <h4>Select your Country</h4>
+            <ul>
+                    <li>
+                        <a href="https://stripe.com/country?country=AU&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/au.png" width="23" height="17" data-hires="true" />
+                            <span>Australia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CA&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/ca.png" width="23" height="17" data-hires="true" />
+                            <span>Canada</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=GB&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/gb.png" width="23" height="17" data-hires="true" />
+                            <span>United Kingdom</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IE&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/ie.png" width="23" height="17" data-hires="true" />
+                            <span>Ireland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=US&amp;redirect=/docs/integrations" class="selected">
+                            <img src="../img/flags/us.png" width="23" height="17" data-hires="true" />
+                            <span>United States</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=AT&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/at.png" width="23" height="17" data-hires="true" />
+                            <span>Austria</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=BE&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/be.png" width="23" height="17" data-hires="true" />
+                            <span>Belgium</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DK&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/dk.png" width="23" height="17" data-hires="true" />
+                            <span>Denmark</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FI&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/fi.png" width="23" height="17" data-hires="true" />
+                            <span>Finland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FR&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/fr.png" width="23" height="17" data-hires="true" />
+                            <span>France</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DE&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/de.png" width="23" height="17" data-hires="true" />
+                            <span>Germany</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IT&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/it.png" width="23" height="17" data-hires="true" />
+                            <span>Italy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=LU&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/lu.png" width="23" height="17" data-hires="true" />
+                            <span>Luxembourg</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NL&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/nl.png" width="23" height="17" data-hires="true" />
+                            <span>Netherlands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NO&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/no.png" width="23" height="17" data-hires="true" />
+                            <span>Norway</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=ES&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/es.png" width="23" height="17" data-hires="true" />
+                            <span>Spain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=SE&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/se.png" width="23" height="17" data-hires="true" />
+                            <span>Sweden</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CH&amp;redirect=/docs/integrations" >
+                            <img src="../img/flags/ch.png" width="23" height="17" data-hires="true" />
+                            <span>Switzerland</span>
+                        </a>
+                    </li>
+          </ul>
+        </div>
+    </div>
+
+
+    <p><a href="https://stripe.com/">&copy; Stripe</a></p>
+
+    <ul>
+        <li><a href="https://status.stripe.com/"><span>System Status</span></a></li>
+        <li><a href="https://stripe.com/about">About</a></li>
+        <li><a href="https://stripe.com/blog"><span>Blog</span></a></li>
+        <li><a href="https://stripe.com/jobs"><span>Jobs</span></a></li>
+        <li><a href="http://twitter.com/stripe">Twitter</a></li>
+    </ul>
+    <ul class="lesser">
+        <li><a href="https://stripe.com/terms">Terms of Service</a></li>
+        <li><a href="https://stripe.com/privacy">Privacy Policy</a></li>
+    </ul>
+</div>
+<div class="country-dropdown-overlay"></div>
+
+    <script src="../assets/jquery-47d53801b9f61ca8a21dcc2571aeb3ec.js"></script>
+    <script src="../assets/shared-3abadcaa3af6e785a085062e45894014.js"></script>
+
+<script src="../assets/footer_analytics-6e8fc3677422b1ab0ef7aca057103605.js"></script>
+
+<noscript>
+  <div style="display:inline;">
+  <img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1008370075/?value=0&amp;guid=ON&amp;script=0"/>
+  </div>
+</noscript>
+
+
+  
+
+  <script src="../assets/documentation-6a120856de81b5511bf1790365f19166.js"></script>
+  <script src="../assets/highlight.pack-8bd9d9dd93b5ef1f95e855d7641494d2.js"></script>
+<script src="../assets/highlighter-1268244f129b69592ca48d0f0f198cac.js"></script>
+
+  <script type="text/javascript">
+    Analytics.page("docs");
+  </script>
+</body>
+
+<!-- Mirrored from stripe.com/docs/integrations by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:13 GMT -->
+</html>

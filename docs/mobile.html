@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stripe.com/docs/mobile by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Mobile Libraries</title>
+    <link rel="stylesheet" type="text/css" href="../assets/site-ea99019a1bc27872a48d1149a4785b01.css" media="screen" />
+    <script type="text/javascript">
+        var _sf_startpt=(new Date()).getTime()
+        var APIValues = {};
+    </script>
+    <script type="application/json" id="mixpanel_config">{&quot;identifier&quot;:&quot;eb71b6171a4f7ed97de9b7a0395b7ca5&quot;}</script>
+<script type="application/json" id="analytics_config">{}</script>
+<script src="../../www.googleadservices.com/pagead/f.txt"></script>
+<script src="../assets/external_analytics-a9e3d39cd6110aa8c184d9c1f2e5777e.js"></script>
+<script src="../assets/qframe-cb903dc9166e266dc7d9f11d44f5e81a.js"></script>
+
+    <link rel="shortcut icon" href="https://stripe.com/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="/assets/html5shiv-17761200a17ebcb716dda86cca6d2472.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../../use.typekit.net/gbh7uto.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    
+</head>
+<body id="documentation">
+
+  <div id="header">
+    <h1><a href="https://stripe.com/">Stripe</a></h1>
+    <div class="navigation">
+    <div class="signin"><a id='signin' href="https://dashboard.stripe.com/login"><span>Sign In</span></a></div>
+
+  <ul class="global">
+    <li><a href="https://stripe.com/docs" class="selected">Documentation</a></li>
+    <li><a href="https://support.stripe.com/">Help &amp; Support</a></li>
+  </ul>
+</div>
+
+  </div><!-- #header -->
+
+  <section id="doc">
+
+    <nav>
+
+      <h1 class="getting-started">Documentation</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/docs">Getting Started</a>
+        </li>
+          <li class="unselected sub">
+            <a href="tutorials/checkout.html">Embedded Form</a>
+          </li>
+          <li class="unselected sub">
+            <a href="tutorials/forms.html">Custom Forms</a>
+          </li>
+          <li class="selected sub">
+            <a href="mobile.html">Mobile Apps</a>
+          </li>
+
+        <li class="unselected">
+          <a href="tutorials/charges.html">Charging Cards</a>
+        </li>
+
+        <li class="unselected">
+          <a href="tutorials/sending-transfers.html">Sending Transfers</a>
+        </li>
+
+        <li class="unselected">
+          <a href="tutorials/dashboard.html">Your Account</a>
+        </li>
+      </ul>
+
+      <h1 class="references">References</h1>
+      <ul>
+        <li class="unselected">
+          <a href="stripe.html">Stripe.js</a>
+        </li>
+        <li class="unselected">
+          <a href="checkout.html">Checkout</a>
+        </li>
+        <li class="unselected">
+          <a href="webhooks.html">Webhooks</a>
+        </li>
+        <li class="unselected">
+          <a href="fraud.html">Fraud Protection</a>
+        </li>
+        <li class="unselected">
+          <a href="testing.html">Testing</a>
+        </li>
+        <li class="unselected">
+          <a href="examples.html">Examples</a>
+        </li>
+        <li class="unselected">
+          <a href="upgrades.html">API Upgrades</a>
+        </li>
+        <li class="unselected">
+          <a href="libraries.html">API Libraries</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/file-upload.html">File Upload Guide</a>
+        </li>
+        <li class="unselected">
+          <a href="api.html" class="external" target="_blank">
+            Full API Reference
+          </a>
+        </li>
+      </ul>
+
+      <h1 class="subscriptions">Subscriptions</h1>
+      <ul>
+        <li class="unselected">
+          <a href="subscriptions.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="tutorials/subscriptions.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/subscriptions.html">Integration Guide</a>
+        </li>
+      </ul>
+
+      <h1 class="connect">Connect</h1>
+      <ul>
+        <li class="unselected">
+          <a href="connect.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/getting-started.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/oauth.html">Integrating OAuth</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/collecting-fees.html">Collecting Fees</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/shared-customers.html">Shared Customers</a>
+        </li>
+        <li class="unselected">
+          <a href="connect/reference.html">Reference</a>
+        </li>
+      </ul>
+
+      <h1 class="disputes">Disputes</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes-overview">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="guides/dispute-evidence.html">Submitting Evidence</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/dispute-types">Dispute Types</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes">FAQ</a>
+        </li>
+      </ul>
+
+
+      <h1 class="faq"><abbr title="Frequently Asked Questions">FAQ</abbr></h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/transfers">Getting Paid</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/ssl">SSL/TLS</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/security">Security</a>
+        </li>
+      </ul>
+
+      <h1 class="more">More</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/contact">Contact</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/global">Global Users</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/gallery">Gallery</a>
+        </li>
+        <li class="last unselected">
+          <a href="integrations.html">Integrations</a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <section id="content">
+      <section id="details">
+  <header>
+    <h1>Mobile Libraries</h1>
+    <p>
+      Stripe has native libraries to let you accept payments in your iOS and Android applications.
+      If you need help, check out our answers to <a href="https://support.stripe.com/">common questions</a> or chat live with other developers in #stripe on freenode.
+
+    </p>
+  </header>
+
+  <article id="mobile">
+
+    <p>
+      Our native libraries for Android and iOS lets you collect credit card information without having to deal with sensitive data passing through your servers.
+    </p>
+
+    <hr />
+
+    <div class="platforms">
+      <div class="ios">
+        <h2>iOS</h2>
+        <p>
+          Our iOS libraries let you easily collect and process your customers' payment information. They also seamlessly integrate with Apple Pay, Apple's integrated payment framework. They remain backwards-compatible to iOS 5.0.
+        </p>
+        <ul>
+          <li><a href="mobile/ios.html" class="arrow">View guide</a></li>
+          <li><a href="https://github.com/stripe/stripe-ios" class="arrow">View on GitHub</a></li>
+        </ul>
+      </div>
+
+      <div class="android">
+        <h2>Android</h2>
+         <p>
+          We support Android from version 4 and up. The library also comes with a set of validation helpers to help you build payment forms.
+        </p>
+        <ul>
+          <li><a href="mobile/android.html" class="arrow">View guide</a></li>
+          <li><a href="https://github.com/stripe/stripe-android" class="arrow">View on GitHub</a></li>
+        </ul>
+       </div>
+    </div>
+
+    <hr />
+
+    <div class="more">
+      <h2>Mobile Web</h2>
+      <p>
+        Checkout supports Mobile Safari and Android's browser with a specially customized flow for mobile devices. Once you've included the
+        Checkout on your website, customers on mobile devices will automatically see a tailored experience.
+        <a href="tutorials/checkout.html" class="arrow">Learn more</a>
+      </p>
+
+      <h2>Questions?</h2>
+      <p>We're always happy to help with code or other questions you might have! Check out our answers to <a href="https://support.stripe.com/">common questions</a> or chat live with other developers in #stripe on freenode.</p>
+
+    </div>
+  </article>
+</section>
+
+    </section>
+
+  </section><!-- #documentation -->
+
+  <div id="footer">
+    <div class="country-dropdown-view">
+        <a class="select">
+            <span>
+                <img src="../img/flags/us.png" width="23" height="17" data-hires="true" />
+                <strong>United States</strong>
+            </span>
+        </a>
+
+        <div class="popover">
+            <div class="arrow"></div>
+            <h4>Select your Country</h4>
+            <ul>
+                    <li>
+                        <a href="https://stripe.com/country?country=AU&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/au.png" width="23" height="17" data-hires="true" />
+                            <span>Australia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CA&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/ca.png" width="23" height="17" data-hires="true" />
+                            <span>Canada</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=GB&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/gb.png" width="23" height="17" data-hires="true" />
+                            <span>United Kingdom</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IE&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/ie.png" width="23" height="17" data-hires="true" />
+                            <span>Ireland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=US&amp;redirect=/docs/mobile" class="selected">
+                            <img src="../img/flags/us.png" width="23" height="17" data-hires="true" />
+                            <span>United States</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=AT&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/at.png" width="23" height="17" data-hires="true" />
+                            <span>Austria</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=BE&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/be.png" width="23" height="17" data-hires="true" />
+                            <span>Belgium</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DK&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/dk.png" width="23" height="17" data-hires="true" />
+                            <span>Denmark</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FI&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/fi.png" width="23" height="17" data-hires="true" />
+                            <span>Finland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FR&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/fr.png" width="23" height="17" data-hires="true" />
+                            <span>France</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DE&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/de.png" width="23" height="17" data-hires="true" />
+                            <span>Germany</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IT&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/it.png" width="23" height="17" data-hires="true" />
+                            <span>Italy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=LU&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/lu.png" width="23" height="17" data-hires="true" />
+                            <span>Luxembourg</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NL&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/nl.png" width="23" height="17" data-hires="true" />
+                            <span>Netherlands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NO&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/no.png" width="23" height="17" data-hires="true" />
+                            <span>Norway</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=ES&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/es.png" width="23" height="17" data-hires="true" />
+                            <span>Spain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=SE&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/se.png" width="23" height="17" data-hires="true" />
+                            <span>Sweden</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CH&amp;redirect=/docs/mobile" >
+                            <img src="../img/flags/ch.png" width="23" height="17" data-hires="true" />
+                            <span>Switzerland</span>
+                        </a>
+                    </li>
+          </ul>
+        </div>
+    </div>
+
+
+    <p><a href="https://stripe.com/">&copy; Stripe</a></p>
+
+    <ul>
+        <li><a href="https://status.stripe.com/"><span>System Status</span></a></li>
+        <li><a href="https://stripe.com/about">About</a></li>
+        <li><a href="https://stripe.com/blog"><span>Blog</span></a></li>
+        <li><a href="https://stripe.com/jobs"><span>Jobs</span></a></li>
+        <li><a href="http://twitter.com/stripe">Twitter</a></li>
+    </ul>
+    <ul class="lesser">
+        <li><a href="https://stripe.com/terms">Terms of Service</a></li>
+        <li><a href="https://stripe.com/privacy">Privacy Policy</a></li>
+    </ul>
+</div>
+<div class="country-dropdown-overlay"></div>
+
+    <script src="../assets/jquery-47d53801b9f61ca8a21dcc2571aeb3ec.js"></script>
+    <script src="../assets/shared-3abadcaa3af6e785a085062e45894014.js"></script>
+
+<script src="../assets/footer_analytics-6e8fc3677422b1ab0ef7aca057103605.js"></script>
+
+<noscript>
+  <div style="display:inline;">
+  <img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1008370075/?value=0&amp;guid=ON&amp;script=0"/>
+  </div>
+</noscript>
+
+
+  
+
+  <script src="../assets/documentation-6a120856de81b5511bf1790365f19166.js"></script>
+  <script src="../assets/highlight.pack-8bd9d9dd93b5ef1f95e855d7641494d2.js"></script>
+<script src="../assets/highlighter-1268244f129b69592ca48d0f0f198cac.js"></script>
+
+  <script type="text/javascript">
+    Analytics.page("docs");
+  </script>
+</body>
+
+<!-- Mirrored from stripe.com/docs/mobile by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:04 GMT -->
+</html>

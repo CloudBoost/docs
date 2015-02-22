@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stripe.com/docs/mobile/android by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Android Integration</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/site-ea99019a1bc27872a48d1149a4785b01.css" media="screen" />
+    <script type="text/javascript">
+        var _sf_startpt=(new Date()).getTime()
+        var APIValues = {};
+    </script>
+    <script type="application/json" id="mixpanel_config">{&quot;identifier&quot;:&quot;eb71b6171a4f7ed97de9b7a0395b7ca5&quot;}</script>
+<script type="application/json" id="analytics_config">{}</script>
+<script src="../../../www.googleadservices.com/pagead/f.txt"></script>
+<script src="../../assets/external_analytics-a9e3d39cd6110aa8c184d9c1f2e5777e.js"></script>
+<script src="../../assets/qframe-cb903dc9166e266dc7d9f11d44f5e81a.js"></script>
+
+    <link rel="shortcut icon" href="https://stripe.com/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="/assets/html5shiv-17761200a17ebcb716dda86cca6d2472.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../../../use.typekit.net/gbh7uto.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    
+</head>
+<body id="documentation">
+
+  <div id="header">
+    <h1><a href="https://stripe.com/">Stripe</a></h1>
+    <div class="navigation">
+    <div class="signin"><a id='signin' href="https://dashboard.stripe.com/login"><span>Sign In</span></a></div>
+
+  <ul class="global">
+    <li><a href="https://stripe.com/docs" class="selected">Documentation</a></li>
+    <li><a href="https://support.stripe.com/">Help &amp; Support</a></li>
+  </ul>
+</div>
+
+  </div><!-- #header -->
+
+  <section id="doc">
+
+    <nav>
+
+      <h1 class="getting-started">Documentation</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/docs">Getting Started</a>
+        </li>
+          <li class="unselected sub">
+            <a href="../tutorials/checkout.html">Embedded Form</a>
+          </li>
+          <li class="unselected sub">
+            <a href="../tutorials/forms.html">Custom Forms</a>
+          </li>
+          <li class="unselected sub">
+            <a href="../mobile.html">Mobile Apps</a>
+          </li>
+
+        <li class="unselected">
+          <a href="../tutorials/charges.html">Charging Cards</a>
+        </li>
+
+        <li class="unselected">
+          <a href="../tutorials/sending-transfers.html">Sending Transfers</a>
+        </li>
+
+        <li class="unselected">
+          <a href="../tutorials/dashboard.html">Your Account</a>
+        </li>
+      </ul>
+
+      <h1 class="references">References</h1>
+      <ul>
+        <li class="unselected">
+          <a href="../stripe.html">Stripe.js</a>
+        </li>
+        <li class="unselected">
+          <a href="../checkout.html">Checkout</a>
+        </li>
+        <li class="unselected">
+          <a href="../webhooks.html">Webhooks</a>
+        </li>
+        <li class="unselected">
+          <a href="../fraud.html">Fraud Protection</a>
+        </li>
+        <li class="unselected">
+          <a href="../testing.html">Testing</a>
+        </li>
+        <li class="unselected">
+          <a href="../examples.html">Examples</a>
+        </li>
+        <li class="unselected">
+          <a href="../upgrades.html">API Upgrades</a>
+        </li>
+        <li class="unselected">
+          <a href="../libraries.html">API Libraries</a>
+        </li>
+        <li class="unselected">
+          <a href="../guides/file-upload.html">File Upload Guide</a>
+        </li>
+        <li class="unselected">
+          <a href="../api.html" class="external" target="_blank">
+            Full API Reference
+          </a>
+        </li>
+      </ul>
+
+      <h1 class="subscriptions">Subscriptions</h1>
+      <ul>
+        <li class="unselected">
+          <a href="../subscriptions.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="../tutorials/subscriptions.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="../guides/subscriptions.html">Integration Guide</a>
+        </li>
+      </ul>
+
+      <h1 class="connect">Connect</h1>
+      <ul>
+        <li class="unselected">
+          <a href="../connect.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="../connect/getting-started.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="../connect/oauth.html">Integrating OAuth</a>
+        </li>
+        <li class="unselected">
+          <a href="../connect/collecting-fees.html">Collecting Fees</a>
+        </li>
+        <li class="unselected">
+          <a href="../connect/shared-customers.html">Shared Customers</a>
+        </li>
+        <li class="unselected">
+          <a href="../connect/reference.html">Reference</a>
+        </li>
+      </ul>
+
+      <h1 class="disputes">Disputes</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes-overview">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="../guides/dispute-evidence.html">Submitting Evidence</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/dispute-types">Dispute Types</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes">FAQ</a>
+        </li>
+      </ul>
+
+
+      <h1 class="faq"><abbr title="Frequently Asked Questions">FAQ</abbr></h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/transfers">Getting Paid</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/ssl">SSL/TLS</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/security">Security</a>
+        </li>
+      </ul>
+
+      <h1 class="more">More</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/contact">Contact</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/global">Global Users</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/gallery">Gallery</a>
+        </li>
+        <li class="last unselected">
+          <a href="../integrations.html">Integrations</a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <section id="content">
+      <style type="text/css" media="screen">
+  #doc .code-example:before {
+    clear: none;
+  }
+</style>
+
+<section id="details">
+  <header>
+    <h1>Android Integration</h1>
+    <p>
+      Our Android libraries let you easily accept mobile payments inside any Android app.
+      If you need help, check out our answers to <a href="https://support.stripe.com/">common questions</a> or chat live with other developers in #stripe on freenode.
+
+    </p>
+  </header>
+
+  <article>
+    <aside class="content note">
+      <h1>Google Play TOS</h1>
+      <p>
+        Google's <a href="https://play.google.com/about/developer-content-policy.html">developer terms</a> require that purchases related to the app, such as premium features or credits, are made via their native In-app Billing API.
+      </p>
+
+      <p>
+        You can only use Stripe for purchasing goods or services outside the app, such as physical goods. If you can use Stripe you do not need to give Google a cut of your revenue.
+      </p>
+    </aside>
+
+    <p>
+      Stripe has created a Java library for Android allowing you to easily submit payments from the platform. We support Android back to version 4, and the library has no external dependencies.
+    </p>
+
+    <h1 id="installation">Installation</h1>
+
+    <ol>
+      <li>First download the <a href="https://github.com/stripe/stripe-android/archive/master.zip">stripe-android libraries</a>.</li>
+      <li>Be sure you've installed the Android SDK with API Level 17 and android-support-v4</li>
+      <li>Import the <code>stripe</code> folder into <a href="http://help.eclipse.org/juno/topic/org.eclipse.platform.doc.user/tasks/tasks-importproject.htm">Eclipse</a>.</li>
+      <li>In your project settings, add the <code>stripe</code> project under the "Libraries" section of the "Android" category.</li>
+    </ol>
+
+    <h1 id="creating-cards">Creating &amp; validating cards</h1>
+
+    <p>You'll need to import the Stripe classes before you can use them.</p>
+
+    <section class="code-example first-code-example">
+      <div class="terminal-wrap">
+<pre><code><span class="highlight_js java">import com.stripe.android.*;</span></code></pre>
+      </div>
+    </section>
+
+    <p>
+      There are two main classes, <code>Card</code> and <code>Stripe</code>.
+      The <code>Card</code> class contains a bunch of useful helpers for validating card input on the client-side, before we even try to create a charge.
+    </p>
+
+    <p>
+      Let's construct a <code>Card</code> instance with your customers's payment information, perhaps retrived from a form.
+    </p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+<pre><code><span class="highlight_js java">Card card = new Card(
+    cardNumber,
+    cardExpMonth,
+    cardExpYear,
+    cardCVC
+);
+
+card.validateNumber();
+card.validateCVC();</span></code></pre>
+      </div>
+    </section>
+
+    <p>
+      As you can see in the example above, the <code>Card</code> instance contains some helpers to validate that the card number passes the Luhn check,
+      that the expiry is the future, and that the CVC looks valid.
+      You'll probably want to validate these three things at once, so we've included a <code>validateCard</code> function to help out:
+    </p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+<pre><code><span class="highlight_js java">Card card = new Card(&quot;4242-4242-4242-4242&quot;, 12, 2016, &quot;123&quot;);
+
+if ( !card.validateCard() ) {
+    // Show errors
+}</span></code></pre>
+      </div>
+    </section>
+
+    <h1 id="creating-tokens">Creating tokens</h1>
+
+    <p>
+      With our mobile library, we shoulder the burden of PCI compliance by helping you avoid the need to send card data directly to your server.
+      Instead, our libraries send the card data directly to our servers, where we can convert them to <a href="../api.html#tokens">tokens</a>.
+      You can charge these tokens later in your server-side code.
+    </p>
+
+    <p>
+      The next step is to pass off that sensitive payment information securely to Stripe, where we'll exchange it for a token.
+      We can create tokens using the <code>Stripe</code> instance method <code>createToken</code>, passing in a <code>Card</code> instance, and completion callbacks.
+      An asynchronous network request will be executed, and the appropriate callback invoked when it completes.
+    </p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+<pre><code><span class="highlight_js java">Card card = new Card(&quot;4242424242424242&quot;, &quot;12&quot;, &quot;2014&quot;, &quot;123&quot;);
+
+Stripe stripe = new Stripe(&quot;pk_test_6pRNASCoBOKtIshFeQd4XMUh&quot;);
+stripe.createToken(
+    card,
+    new TokenCallback() {
+        public void onSuccess(Token token) {
+            // Send token to your server
+        }
+        public void onError(Exception error) {
+            // Show localized error message
+            Toast.makeText(getContext(),
+              error.getLocalizedString(getContext()),
+              Toast.LENGTH_LONG
+            ).show();
+        }
+    }
+)</span></code></pre>
+      </div>
+    </section>
+
+    <p>
+      We've placed your <strong>test publishable</strong> API key as the first argument to <code>Stripe</code>. You'll need to swap it out with your <strong>live</strong> publishable key in production. You can see all your keys in <a href="https://dashboard.stripe.com/#account/apikeys">your dashboard</a>.
+    </p>
+
+    <p>
+      Set up a endpoint on your server that can receive a HTTP POST call for the token. In the <code>onSuccess</code> callback you'll need to POST the supplied token off to your server. Make sure any communication with your server is <a href="https://stripe.com/help/ssl">SSL secured</a> to prevent eavesdropping.
+    </p>
+
+    <p>
+      Now we have a Stripe token representing a card on our server we can go ahead and charge it, save it for charging later, or sign the user up for a subscription.
+      For more information, take a look at our tutorial on  <a href="../tutorials/charges.html">creating charges</a>.
+    </p>
+
+    <p>
+      Take a look at the full <a href="https://github.com/stripe/stripe-android/tree/master/example">example application</a> to see everything put together.
+    </p>
+  </article>
+
+  <footer>
+    <section id="next">
+      <h1>Next up</h1>
+      <p>
+        Once you've retrieved a token from Stripe, you're going to want to do something with the
+        payment details you just collected. This is usually one of two things:
+      </p>
+      <ul>
+        <li><a href="../tutorials/charges.html">Charge your user immediately</a></li>
+        <li><a href="../tutorials/subscriptions.html">Create a subscription</a></li>
+      </ul>
+    </section>
+
+    <section id="questions">
+      <h1>Questions?</h1>
+      <p>We're always happy to help with code or other questions you might have! Check out our answers to <a href="https://support.stripe.com/">common questions</a> or chat live with other developers in #stripe on freenode.</p>
+
+    </section>
+  </footer>
+</section>
+
+    </section>
+
+  </section><!-- #documentation -->
+
+  <div id="footer">
+    <div class="country-dropdown-view">
+        <a class="select">
+            <span>
+                <img src="../../img/flags/ch.png" width="23" height="17" data-hires="true" />
+                <strong>Switzerland</strong>
+            </span>
+        </a>
+
+        <div class="popover">
+            <div class="arrow"></div>
+            <h4>Select your Country</h4>
+            <ul>
+                    <li>
+                        <a href="https://stripe.com/country?country=AU&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/au.png" width="23" height="17" data-hires="true" />
+                            <span>Australia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CA&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/ca.png" width="23" height="17" data-hires="true" />
+                            <span>Canada</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=GB&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/gb.png" width="23" height="17" data-hires="true" />
+                            <span>United Kingdom</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IE&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/ie.png" width="23" height="17" data-hires="true" />
+                            <span>Ireland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=US&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/us.png" width="23" height="17" data-hires="true" />
+                            <span>United States</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=AT&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/at.png" width="23" height="17" data-hires="true" />
+                            <span>Austria</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=BE&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/be.png" width="23" height="17" data-hires="true" />
+                            <span>Belgium</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DK&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/dk.png" width="23" height="17" data-hires="true" />
+                            <span>Denmark</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FI&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/fi.png" width="23" height="17" data-hires="true" />
+                            <span>Finland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FR&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/fr.png" width="23" height="17" data-hires="true" />
+                            <span>France</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DE&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/de.png" width="23" height="17" data-hires="true" />
+                            <span>Germany</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IT&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/it.png" width="23" height="17" data-hires="true" />
+                            <span>Italy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=LU&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/lu.png" width="23" height="17" data-hires="true" />
+                            <span>Luxembourg</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NL&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/nl.png" width="23" height="17" data-hires="true" />
+                            <span>Netherlands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NO&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/no.png" width="23" height="17" data-hires="true" />
+                            <span>Norway</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=ES&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/es.png" width="23" height="17" data-hires="true" />
+                            <span>Spain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=SE&amp;redirect=/docs/mobile/android" >
+                            <img src="../../img/flags/se.png" width="23" height="17" data-hires="true" />
+                            <span>Sweden</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CH&amp;redirect=/docs/mobile/android" class="selected">
+                            <img src="../../img/flags/ch.png" width="23" height="17" data-hires="true" />
+                            <span>Switzerland</span>
+                        </a>
+                    </li>
+          </ul>
+        </div>
+    </div>
+
+
+    <p><a href="https://stripe.com/">&copy; Stripe</a></p>
+
+    <ul>
+        <li><a href="https://status.stripe.com/"><span>System Status</span></a></li>
+        <li><a href="https://stripe.com/about">About</a></li>
+        <li><a href="https://stripe.com/blog"><span>Blog</span></a></li>
+        <li><a href="https://stripe.com/jobs"><span>Jobs</span></a></li>
+        <li><a href="http://twitter.com/stripe">Twitter</a></li>
+    </ul>
+    <ul class="lesser">
+        <li><a href="https://stripe.com/terms">Terms of Service</a></li>
+        <li><a href="https://stripe.com/privacy">Privacy Policy</a></li>
+    </ul>
+</div>
+<div class="country-dropdown-overlay"></div>
+
+    <script src="../../assets/jquery-47d53801b9f61ca8a21dcc2571aeb3ec.js"></script>
+    <script src="../../assets/shared-3abadcaa3af6e785a085062e45894014.js"></script>
+
+<script src="../../assets/footer_analytics-6e8fc3677422b1ab0ef7aca057103605.js"></script>
+
+<noscript>
+  <div style="display:inline;">
+  <img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1008370075/?value=0&amp;guid=ON&amp;script=0"/>
+  </div>
+</noscript>
+
+
+  
+
+  <script src="../../assets/documentation-6a120856de81b5511bf1790365f19166.js"></script>
+  <script src="../../assets/highlight.pack-8bd9d9dd93b5ef1f95e855d7641494d2.js"></script>
+<script src="../../assets/highlighter-1268244f129b69592ca48d0f0f198cac.js"></script>
+
+  <script type="text/javascript">
+    Analytics.page("docs");
+  </script>
+</body>
+
+<!-- Mirrored from stripe.com/docs/mobile/android by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:13 GMT -->
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from stripe.com/docs/checkout/guides/sinatra by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Sinatra Checkout Guide</title>
+    <link rel="stylesheet" type="text/css" href="../../../assets/site-ea99019a1bc27872a48d1149a4785b01.css" media="screen" />
+    <script type="text/javascript">
+        var _sf_startpt=(new Date()).getTime()
+        var APIValues = {};
+    </script>
+    <script type="application/json" id="mixpanel_config">{&quot;identifier&quot;:&quot;eb71b6171a4f7ed97de9b7a0395b7ca5&quot;}</script>
+<script type="application/json" id="analytics_config">{}</script>
+<script src="../../../../www.googleadservices.com/pagead/f.txt"></script>
+<script src="../../../assets/external_analytics-a9e3d39cd6110aa8c184d9c1f2e5777e.js"></script>
+<script src="../../../assets/qframe-cb903dc9166e266dc7d9f11d44f5e81a.js"></script>
+
+    <link rel="shortcut icon" href="https://stripe.com/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="/assets/html5shiv-17761200a17ebcb716dda86cca6d2472.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../../../../use.typekit.net/gbh7uto.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    
+</head>
+<body id="documentation">
+
+  <div id="header">
+    <h1><a href="https://stripe.com/">Stripe</a></h1>
+    <div class="navigation">
+    <div class="signin"><a id='signin' href="https://dashboard.stripe.com/login"><span>Sign In</span></a></div>
+
+  <ul class="global">
+    <li><a href="https://stripe.com/docs" class="selected">Documentation</a></li>
+    <li><a href="https://support.stripe.com/">Help &amp; Support</a></li>
+  </ul>
+</div>
+
+  </div><!-- #header -->
+
+  <section id="doc">
+
+    <nav>
+
+      <h1 class="getting-started">Documentation</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/docs">Getting Started</a>
+        </li>
+          <li class="unselected sub">
+            <a href="../../tutorials/checkout.html">Embedded Form</a>
+          </li>
+          <li class="unselected sub">
+            <a href="../../tutorials/forms.html">Custom Forms</a>
+          </li>
+          <li class="unselected sub">
+            <a href="../../mobile.html">Mobile Apps</a>
+          </li>
+
+        <li class="unselected">
+          <a href="../../tutorials/charges.html">Charging Cards</a>
+        </li>
+
+        <li class="unselected">
+          <a href="../../tutorials/sending-transfers.html">Sending Transfers</a>
+        </li>
+
+        <li class="unselected">
+          <a href="../../tutorials/dashboard.html">Your Account</a>
+        </li>
+      </ul>
+
+      <h1 class="references">References</h1>
+      <ul>
+        <li class="unselected">
+          <a href="../../stripe.html">Stripe.js</a>
+        </li>
+        <li class="unselected">
+          <a href="../../checkout.html">Checkout</a>
+        </li>
+        <li class="unselected">
+          <a href="../../webhooks.html">Webhooks</a>
+        </li>
+        <li class="unselected">
+          <a href="../../fraud.html">Fraud Protection</a>
+        </li>
+        <li class="unselected">
+          <a href="../../testing.html">Testing</a>
+        </li>
+        <li class="unselected">
+          <a href="../../examples.html">Examples</a>
+        </li>
+        <li class="unselected">
+          <a href="../../upgrades.html">API Upgrades</a>
+        </li>
+        <li class="unselected">
+          <a href="../../libraries.html">API Libraries</a>
+        </li>
+        <li class="unselected">
+          <a href="../../guides/file-upload.html">File Upload Guide</a>
+        </li>
+        <li class="unselected">
+          <a href="../../api.html" class="external" target="_blank">
+            Full API Reference
+          </a>
+        </li>
+      </ul>
+
+      <h1 class="subscriptions">Subscriptions</h1>
+      <ul>
+        <li class="unselected">
+          <a href="../../subscriptions.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="../../tutorials/subscriptions.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="../../guides/subscriptions.html">Integration Guide</a>
+        </li>
+      </ul>
+
+      <h1 class="connect">Connect</h1>
+      <ul>
+        <li class="unselected">
+          <a href="../../connect.html">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="../../connect/getting-started.html">Getting Started</a>
+        </li>
+        <li class="unselected">
+          <a href="../../connect/oauth.html">Integrating OAuth</a>
+        </li>
+        <li class="unselected">
+          <a href="../../connect/collecting-fees.html">Collecting Fees</a>
+        </li>
+        <li class="unselected">
+          <a href="../../connect/shared-customers.html">Shared Customers</a>
+        </li>
+        <li class="unselected">
+          <a href="../../connect/reference.html">Reference</a>
+        </li>
+      </ul>
+
+      <h1 class="disputes">Disputes</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes-overview">Overview</a>
+        </li>
+        <li class="unselected">
+          <a href="../../guides/dispute-evidence.html">Submitting Evidence</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/dispute-types">Dispute Types</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/disputes">FAQ</a>
+        </li>
+      </ul>
+
+
+      <h1 class="faq"><abbr title="Frequently Asked Questions">FAQ</abbr></h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/transfers">Getting Paid</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/ssl">SSL/TLS</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/help/security">Security</a>
+        </li>
+      </ul>
+
+      <h1 class="more">More</h1>
+      <ul>
+        <li class="unselected">
+          <a href="https://stripe.com/help/contact">Contact</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/global">Global Users</a>
+        </li>
+        <li class="unselected">
+          <a href="https://stripe.com/gallery">Gallery</a>
+        </li>
+        <li class="last unselected">
+          <a href="../../integrations.html">Integrations</a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <section id="content">
+      <section id="details">
+
+  <header>
+    <h1>Using Stripe’s Checkout and Sinatra</h1>
+    <p>This tutorial will help you integrate Stripe and Ruby’s Sinatra framework</p>
+  </header>
+
+  <article>
+
+    <p>We’re going to create a simple application using <a href="http://www.sinatrarb.com/">Sinatra</a> and Stripe’s <a href="../../checkout.html">Checkout</a> to accept payments in a few lines of code. Sinatra and Stripe are extremely well suited to each other, and the <a href="https://gist.github.com/michaelvillar/7146708">end result of this tutorial</a> is elegant and compact.</p>
+
+    <p>You’ll need to have the following prerequisites before we go any further:</p>
+
+    <ul>
+      <li>A <a href="http://stripe.com/">Stripe</a> account</li>
+      <li>A <a href="http://www.ruby-lang.org/en">Ruby</a> &gt;= 1.8.6 environment</li>
+    </ul>
+
+    <p>The first step is to install the Stripe and Sinatra gems:</p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+        <pre><code><span class="highlight_js bash">$ gem install stripe sinatra</span></code></pre>
+      </div>
+    </section>
+
+    <p>Let’s create a file called <code>app.rb</code> and setup Stripe’s configuration:</p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+        <pre><code><span class="highlight_js ruby">require &#39;sinatra&#39;
+require &#39;stripe&#39;
+
+set :publishable_key, ENV[&#39;PUBLISHABLE_KEY&#39;]
+set :secret_key, ENV[&#39;SECRET_KEY&#39;]
+
+Stripe.api_key = settings.secret_key</span></code></pre>
+      </div>
+    </section>
+
+    <p>We’re creating two Sinatra settings, <code>:publishable_key</code> and <code>:secret_key</code> which are being pulled out of the current environmental variables. We’re not hardcoding these keys, since it’s often bad practice to put sensitive data into source control.</p>
+
+    <p>Next, let’s create some Sinatra methods, to first display our payment form, and then to create charges.</p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+        <pre><code><span class="highlight_js ruby">get &#39;/&#39; do
+  erb :index
+end
+
+post &#39;/charge&#39; do
+  # Amount in cents
+  @amount = 500
+
+  customer = Stripe::Customer.create(
+    :email =&gt; &#39;customer@example.com&#39;,
+    :card  =&gt; params[:stripeToken]
+  )
+
+  charge = Stripe::Charge.create(
+    :amount      =&gt; @amount,
+    :description =&gt; &#39;Sinatra Charge&#39;,
+    :currency    =&gt; &#39;usd&#39;,
+    :customer    =&gt; customer.id
+  )
+
+  erb :charge
+end</span></code></pre>
+      </div>
+    </section>
+
+    <p>In our <code>/charge</code> method, we’re creating a <code>Stripe::Charge</code> object with various POST parameters. Stripe expects charges to be in cents, so we’re converting the <code>amount</code> parameter by multiplying it by a hundred.</p>
+
+    <p>Stripe Charges also take an optional <code>:description</code> parameter, which in this case is <code>Sinatra Charge</code>. This is not something that’ll display in people’s statements, but just in Stripe’s management interface.</p>
+
+    <p>Finally, we’re setting the <code>:card</code> property to the <code>stripeToken</code> parameter. This is something that is automatically created for us by <a href="../../checkout.html">Stripe’s Checkout</a>, which we’re going to cover next.</p>
+
+    <p>Some payments could fail, for a variety of reasons such as an invalid CVC, card number or failed charge. We can cater for this in a basic manner for the time being, and catch any <code>CardError</code> exceptions.</p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+        <pre><code><span class="highlight_js ruby">error Stripe::CardError do
+  env[&#39;sinatra.error&#39;].message
+end</span></code></pre>
+      </div>
+    </section>
+
+    <h2 id="templates">Templates</h2>
+
+    <p>Sinatra lets you <a href="http://www.sinatrarb.com/intro.html#Inline%20Templates">inline templates</a> into Ruby files using a neat little Ruby trick, the <code>__END__</code> keyword.</p>
+
+    <p>First we’re going to create a Sinatra layout, which is going to wrap our templates.</p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+        <pre><code><span class="highlight_js xml">__END__
+
+@@ layout
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;%= yield %&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</span></code></pre>
+      </div>
+    </section>
+
+    <p>Next, let’s create our <code>:index</code> template, which is going to have the credit card form, amount and description. Notice we’re using <a href="../../checkout.html">Stripe’s Checkout</a>, which will display a credit card overlay which includes validation and error handling.</p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+        <pre><code><span class="highlight_js xml">@@ index
+  &lt;form action=&quot;/charge&quot; method=&quot;post&quot; class=&quot;payment&quot;&gt;
+    &lt;article&gt;
+      &lt;label class=&quot;amount&quot;&gt;
+        &lt;span&gt;Amount: $5.00&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/article&gt;
+
+    &lt;script src=&quot;https://checkout.stripe.com/checkout.js&quot; class=&quot;stripe-button&quot;
+            data-key=&quot;&lt;%= settings.publishable_key %&gt;&quot;&gt;&lt;/script&gt;
+  &lt;/form&gt;</span></code></pre>
+      </div>
+    </section>
+
+    <p>Finally let’s create a <code>:charge</code> template that shows users a success message.</p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+        <pre><code><span class="highlight_js xml">@@ charge
+  &lt;h2&gt;Thanks, you paid &lt;strong&gt;$5.00&lt;/strong&gt;!&lt;/h2&gt;</span></code></pre>
+      </div>
+    </section>
+
+    <p>So that’s it, complete Stripe and Sinatra integration in about 60 lines of Ruby and HTML! You can see the <a href="https://gist.github.com/michaelvillar/7146708">full example here</a>. Let’s start the server, making sure to set the environmental variables we used earlier to Stripe’s <a href="https://dashboard.stripe.com/account/apikeys">publishable and secret keys</a>. For now, let’s use the test keys, rather than the live ones.</p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+        <pre><code><span class="highlight_js bash">PUBLISHABLE_KEY=pk_foo SECRET_KEY=sk_bar ruby app.rb</span></code></pre>
+      </div>
+    </section>
+
+    <p>Now, if we navigate to <a href="http://localhost:4567/">http://localhost:4567</a>, we should see our payment form ready to use. If you’re using Stripe’s test keys, then we can test it with some dummy data. Enter the test number <code>4242 4242 4242 4242</code>, a three digit CVC and any expiry date in the future. Submitting the form should bring up our successful charge page.</p>
+
+    <h2 id="deploying-to-heroku">Deploying to Heroku</h2>
+
+    <p>So now we’ve created our basic payment page, let’s get it deployed somewhere so people can use it! Heroku is an awesome way to do this, and integrates seamlessly with Sinatra and Rack. Firstly, get a <a href="http://www.heroku.com/">Heroku</a> account, and install the gem:</p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+        <pre><code><span class="highlight_js bash">$ gem install heroku</span></code></pre>
+      </div>
+    </section>
+
+    <p>We also need to setup a few things, so Heroku knows what gems we’re using. Firstly, we’ll to create a <code>Gemfile</code> for <a href="http://gembundler.com/">Bundler</a>:</p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+        <pre><code><span class="highlight_js ruby">source &#39;http://rubygems.org&#39;
+gem &#39;sinatra&#39;
+gem &#39;stripe&#39;</span></code></pre>
+      </div>
+    </section>
+
+    <p>Remember to run <code>bundle install</code> to create the <code>Gemfile.lock</code>. Next, let’s add a file called <code>config.ru</code> for Rack:</p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+        <pre><code><span class="highlight_js ruby">require &#39;./app&#39;
+run Sinatra::Application</span></code></pre>
+      </div>
+    </section>
+
+    <p>That’s all the setup required. Now to tell Heroku to deploy our application.</p>
+
+    <section class="code-example">
+      <div class="terminal-wrap">
+        <pre><code><span class="highlight_js bash">heroku create
+heroku config:set PUBLISHABLE_KEY=pk_test_6pRNASCoBOKtIshFeQd4XMUh SECRET_KEY=sk_test_BQokikJOvBiI2HlWgH4olfQ2
+git push heroku master
+heroku open</span></code></pre>
+      </div>
+    </section>
+
+    <p>Note that we’ve placed your <strong>test</strong> API keys in the example above. You’ll need to swap it out with your <strong>live</strong> keys in production. You can see all your keys in <a href="https://dashboard.stripe.com/account/apikeys">your dashboard</a>.</p>
+
+    <p>By default, Heroku includes SSL for all applications. Just change the url from <code>http://</code> to <code>https://</code>.</p>
+
+  </article>
+</section>
+    </section>
+
+  </section><!-- #documentation -->
+
+  <div id="footer">
+    <div class="country-dropdown-view">
+        <a class="select">
+            <span>
+                <img src="../../../img/flags/ch.png" width="23" height="17" data-hires="true" />
+                <strong>Switzerland</strong>
+            </span>
+        </a>
+
+        <div class="popover">
+            <div class="arrow"></div>
+            <h4>Select your Country</h4>
+            <ul>
+                    <li>
+                        <a href="https://stripe.com/country?country=AU&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/au.png" width="23" height="17" data-hires="true" />
+                            <span>Australia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CA&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/ca.png" width="23" height="17" data-hires="true" />
+                            <span>Canada</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=GB&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/gb.png" width="23" height="17" data-hires="true" />
+                            <span>United Kingdom</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IE&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/ie.png" width="23" height="17" data-hires="true" />
+                            <span>Ireland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=US&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/us.png" width="23" height="17" data-hires="true" />
+                            <span>United States</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=AT&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/at.png" width="23" height="17" data-hires="true" />
+                            <span>Austria</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=BE&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/be.png" width="23" height="17" data-hires="true" />
+                            <span>Belgium</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DK&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/dk.png" width="23" height="17" data-hires="true" />
+                            <span>Denmark</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FI&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/fi.png" width="23" height="17" data-hires="true" />
+                            <span>Finland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=FR&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/fr.png" width="23" height="17" data-hires="true" />
+                            <span>France</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=DE&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/de.png" width="23" height="17" data-hires="true" />
+                            <span>Germany</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=IT&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/it.png" width="23" height="17" data-hires="true" />
+                            <span>Italy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=LU&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/lu.png" width="23" height="17" data-hires="true" />
+                            <span>Luxembourg</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NL&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/nl.png" width="23" height="17" data-hires="true" />
+                            <span>Netherlands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=NO&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/no.png" width="23" height="17" data-hires="true" />
+                            <span>Norway</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=ES&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/es.png" width="23" height="17" data-hires="true" />
+                            <span>Spain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=SE&amp;redirect=/docs/checkout/guides/sinatra" >
+                            <img src="../../../img/flags/se.png" width="23" height="17" data-hires="true" />
+                            <span>Sweden</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stripe.com/country?country=CH&amp;redirect=/docs/checkout/guides/sinatra" class="selected">
+                            <img src="../../../img/flags/ch.png" width="23" height="17" data-hires="true" />
+                            <span>Switzerland</span>
+                        </a>
+                    </li>
+          </ul>
+        </div>
+    </div>
+
+
+    <p><a href="https://stripe.com/">&copy; Stripe</a></p>
+
+    <ul>
+        <li><a href="https://status.stripe.com/"><span>System Status</span></a></li>
+        <li><a href="https://stripe.com/about">About</a></li>
+        <li><a href="https://stripe.com/blog"><span>Blog</span></a></li>
+        <li><a href="https://stripe.com/jobs"><span>Jobs</span></a></li>
+        <li><a href="http://twitter.com/stripe">Twitter</a></li>
+    </ul>
+    <ul class="lesser">
+        <li><a href="https://stripe.com/terms">Terms of Service</a></li>
+        <li><a href="https://stripe.com/privacy">Privacy Policy</a></li>
+    </ul>
+</div>
+<div class="country-dropdown-overlay"></div>
+
+    <script src="../../../assets/jquery-47d53801b9f61ca8a21dcc2571aeb3ec.js"></script>
+    <script src="../../../assets/shared-3abadcaa3af6e785a085062e45894014.js"></script>
+
+<script src="../../../assets/footer_analytics-6e8fc3677422b1ab0ef7aca057103605.js"></script>
+
+<noscript>
+  <div style="display:inline;">
+  <img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1008370075/?value=0&amp;guid=ON&amp;script=0"/>
+  </div>
+</noscript>
+
+
+  
+
+  <script src="../../../assets/documentation-6a120856de81b5511bf1790365f19166.js"></script>
+  <script src="../../../assets/highlight.pack-8bd9d9dd93b5ef1f95e855d7641494d2.js"></script>
+<script src="../../../assets/highlighter-1268244f129b69592ca48d0f0f198cac.js"></script>
+
+  <script type="text/javascript">
+    Analytics.page("docs");
+  </script>
+</body>
+
+<!-- Mirrored from stripe.com/docs/checkout/guides/sinatra by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Feb 2015 07:33:14 GMT -->
+</html>
