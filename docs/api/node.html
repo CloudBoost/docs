@@ -18,8 +18,6 @@
     <script src="../../assets/external_analytics-a9e3d39cd6110aa8c184d9c1f2e5777e.js"></script>
     <script src="../../assets/qframe-cb903dc9166e266dc7d9f11d44f5e81a.js"></script>
 
-    <link rel="shortcut icon" href="https://stripe.com/favicon.ico">
-
     <script src="../../assets/jquery-47d53801b9f61ca8a21dcc2571aeb3ec.js"></script>
     <script src="../../assets/jquery.cookie-d7482a1bbfda18d981eda4398666acdd.js"></script>
     <script src="../../assets/waypoints.min-2ac93b3c59b0bbb08d88afdcb18761b9.js"></script>
@@ -30,13 +28,16 @@
     <div id="background"></div>
 
     <div id="header">
-      <h1><a href="https://cloudboost.com/">CloudBoost</a></h1>
+      <h1><a href="https://cloudboost.io/">CloudBoost</a></h1>
       <div class="navigation">
-        <div class="signin"><a id='signin' href="https://dashboard.cloudboost.com/login"><span>Sign In</span></a></div>
-
+        <div class="signin">
+          <a id='signin' href="https://dashboard.cloudboost.io/login">
+            <span>Sign In</span>
+          </a>
+        </div>
         <ul class="global">
-          <li><a href="https://cloudboost.com/docs" class="selected">Documentation</a></li>
-          <li><a href="https://support.cloudboost.com/">Help &amp; Support</a></li>
+          <li><a href="https://cloudboost.io/docs" class="selected">Documentation</a></li>
+          <li><a href="https://support.cloudboost.io/">Help &amp; Support</a></li>
         </ul>
       </div>
     </div>
@@ -162,10 +163,10 @@
             </div>
             <div class="method-example" id="api-summary-example">
 
-              <h3>Libraries</h3>
-              <p>Libraries are <a href="https://cloudbooost.com/docs/libraries">available in javascript languages</a>.</p>
               <h3>API Endpoint</h3>
-              <code>https://api.cloudboost.com</code>
+              <a href="https://api.cloudboost.io">
+                <code>https://api.cloudboost.io</code>
+              </a>
 
             </div>
           </div>
@@ -184,16 +185,6 @@
 
             </div>
             <div class="method-example" id="api-summary-example">
-
-              <h3>Promises Sample</h3>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">function abc() {
-  var def = $.Deferred();
-  def.resolve();
-  def.reject();
-  return def.promise();
-}
-              </span></span></span> 
-              </code>
             </div> <!-- method-example -->
           </div> <!-- method-section -->
         </div> <!-- method -->
@@ -227,28 +218,31 @@
 
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CB.CloudApp = CB.CloudApp || {};
-              </span></span></span> 
-              </code>
             </div>
           </div>
           <a id='CloudApp-init' name="CloudApp-init" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CB.CloudApp.init( )</h3>
+              <h3>CloudApp.init( <code>appId, appKey [, callback]</code> )</h3>
               <p>
-              Initialises the app
+              Initialises the app.
+              </p>
+              <p>
+                <i>clientKey</i> and <i>masterKey</i> are the two keys that are provided for each app your create.
+                If you want a client of your app have access, its <b>recommended</b> to give him/her the <i>clienKey</i>.
+                In case you want administrative privellaged user to have access then its <b>recommended</b> provide him/her
+                <i>masterKey</i>.
               </p>
               <div class="method-list">
                 
                 <h6>Arguments</h6>
                 <dl class="argument-list">
-                  <dt>applicationId</dt>
+                  <dt>appId</dt>
                   <dd class="">Application ID <span>with which your app is registered</span></dd>
                   <div class="clearfix"></div>
-                  <dt>applicationKey</dt>
-                  <dd class="">Application key <span>unique for your app</span></dd>
+                  <dt>appKey</dt>
+                  <dd class="">Client/Master key <span>unique for your app</span></dd>
                   <div class="clearfix"></div>
                   <dt>callback</dt>
                   <dd class="">Object <span>[optional] if provided must have <code>success</code> 
@@ -261,11 +255,13 @@
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CB.CloudApp.init({
-  "success": function() {
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var myAppId = '8e3ecd95767c9c';
+var myClientKey = 'd1bae1c6978e3ecd3d5c8a0095767c9c';</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CB.CloudApp.init(myAppId, myClientKey, {
+  success: function() {
     //do something;
   },
-  "error": function(err) {
+  error: function(err) {
     //handle error
   }
 }); 
@@ -314,23 +310,15 @@
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject("table1");</span></span></code>
-              <code class="method-object"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj = {
-  "_tableName": "table1",
-  "_type": "custom",
-  "ACL": {
-    "read": ["all"],
-    "write": ["all"]
-  },
-  "document": {}
-}</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//creates an object for student collection/table
+var obj = new CB.CloudObject("student");</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudObject-set' name="CloudObject-set" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudObject.set( )</h3>
+              <h3>CloudObject.set( <code>columnName, data</code> )</h3>
               <p>
               Sets the value of an attribute of a <code>CloudObject</code> object.
               </p>
@@ -353,26 +341,21 @@
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject('table1')</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.set("col", "value");</span></span></span> 
-              <code class="method-object"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj = {
-  "_tableName": "table1",
-  "_type": "custom",
-  "ACL": {
-    "read": ["all"],
-    "write": ["all"]
-  },
-  "document": {
-    "col": "value"
-  }
-}</span></span></code>
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject('student')</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.set("name", "Smith");
+obj.set("age", 21);
+obj.set("address", {
+                      city: "Hyderabad",
+                      state: "Telangana",
+                      country: "India"
+                   });</span></span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudObject-get' name="CloudObject-get" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudObject.get( )</h3>
+              <h3>CloudObject.get( <code>columnName</code> )</h3>
               <p>
               Gets the value of an attribute of a <code>CloudObject</code> object.
               </p>
@@ -393,17 +376,27 @@
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject('table1');
-obj.set('col', 'data');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.get('col');</span></span></span></code>
-              <code class="method-response"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">"data"</span></span></code>
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject('student');
+obj.set("name", "Smith");
+obj.set("age", 21);
+obj.set("address", {
+                      city: "Hyderabad",
+                      state: "Telangana",
+                      country: "India"
+                   });</span></span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var addr = obj.get('address');</span></span></span></code>
+              <code class="method-response"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">addr = {
+  city: "Hyderabad",
+  state: "Telangana",
+  country: "India"
+}</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudObject-unset' name="CloudObject-unset" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudObject.unset( )</h3>
+              <h3>CloudObject.unset( <code>columnName</code> )</h3>
               <p>
               Sets the value of an attribute of a <code>CloudObject</code> object to <code>null</code>.
               </p>
@@ -423,27 +416,26 @@ obj.set('col', 'data');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject('table1');
-obj.set('col', 'data');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.unset('col');</span></span></span></code>
-              <code class="method-object"><span class="prompt"><span class="lang lang-node"><span class="highlight_js javascript">obj = {
-  "_tableName": "table1",
-  "_type": "custom",
-  "ACL": {
-    "read": ["all"],
-    "write": ["all"]
-  },
-  "document": {
-    "col": null
-  }
-}</span></span></span></code>
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject('student');
+obj.set("name", "Smith");
+obj.set("rollNumber", 2015001);
+obj.set("address", {
+                      city: "Hyderabad",
+                      state: "Telangana",
+                      country: "India"
+                   });</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//Now suppose the student leaves the school
+obj.unset('rollNumber');
+//When we try to get the rollNumber again
+var roll = obj.get('rollNumber');</span></span></span></code>
+              <code class="method-response"><span class="prompt"><span class="lang lang-node"><span class="highlight_js javascript">roll = null</span></span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudObject-save' name="CloudObject-save" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudObject.save( )</h3>
+              <h3>CloudObject.save( <code>[callback]</code> )</h3>
               <p>
               Saves the <code>CloudObject</code> object to database.
               </p>
@@ -464,37 +456,31 @@ obj.set('col', 'data');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject('table1');
-obj.set('col', 'data');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.save({
-  "success": function(res) {
-  //If successfull
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject('student');
+obj.set("name", "Smith");
+obj.set("age", 21);
+obj.set("address", {
+                      city: "Hyderabad",
+                      state: "Telangana",
+                      country: "India"
+                   });</span></span></span></code>
+
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//save the student info
+obj.save({
+  success: function(obj) {
+  //Saving successfull
   },
-  "error": function(err) {
+  error: function(err) {
   //Error occured in saving the object
   }
 });</span></span></span></code>
-              <code class="method-response"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">res = {
-  "document": {
-    "_id":"54e837d6d51a5ea011aa79ea",
-    "_tableName": "table1",
-    "ACL": {
-      "read": ["all"],
-      "write": ["all"]
-    },
-    "_type": "custom",
-    "col": "data",
-    "createdAt":"21/2/2015 13:16:30",
-    "updatedAt":"21/2/2015 13:16:30"
-  }
-}</span></span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudObject-fetch' name="CloudObject-fetch" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudObject.fetch( )</h3>
+              <h3>CloudObject.fetch( <code>[callback]</code> )</h3>
               <p>
               Refreshes a <code>CloudObject</code> object to by fetching its values from the database.
               </p>
@@ -517,49 +503,41 @@ obj.set('col', 'data');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject('table1');
-obj.set('col', 'data');
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject('student');
+obj.set("name", "Smith");
+obj.set("age", 21);
+obj.set("address", {
+                      city: "Hyderabad",
+                      state: "Telangana",
+                      country: "India"
+                   });
 obj.save({
-  success: function(res) {
-  obj.set('col', 'data1'); //we corrupt the data
-  fetchExample(obj); //call the fetch to restore the original object
-  //the object is saved
+  success: function(obj) {
+    //the object is saved
+    obj.unset('name'); //suppose this happens by mistake
+    refreshObject(obj); //call the fetch to restore the original object
   },
   error: function(err) {
-  //If any error occurred
+    //Error occured in saving the student info
   }
 });</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">function fetchExample(obj) {
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">function refreshObject(obj) {
   obj.fetch({
-    success: function(res2) {
-    //prints 'Success'
+    success: function(obj) {
+      //prints 'Success'
     },
     error: function(err) {
-    //Error occurred in fetching the data
+      //Error occurred in fetching the data
     }              
   });
 }</span></span></span></code>
-              <code class="method-response"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj = {
-  "_tableName": "table1",
-  "_type": "custom",
-  "ACL": {
-    "read": ["all"],
-    "write": ["all"]
-  },
-  "document": {
-    "_id":"54e837d6d51a5ea011aa79ea",
-    "col": "data",
-    "createdAt":"21/2/2015 13:16:30",
-    "updatedAt":"21/2/2015 13:16:30"
-  }
-}</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudObject-delete' name="CloudObject-delete" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudObject.delete( )</h3>
+              <h3>CloudObject.delete( <code>[callback]</code> )</h3>
               <p>
               Delete a <code>CloudObject</code> object, given its <code>document._id</code> attribute.
               </p>
@@ -582,37 +560,34 @@ obj.save({
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject('table1');
-obj.set('col', 'data');
-obj.save().then(function(res) { //using JQuery promise
-  deleteExample(obj); //deletes the data from the database
-}, function(err) {
-  //Error in deleting the data
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject('student');
+obj.set("name", "Smith");
+obj.set("age", 21);
+obj.set("address", {
+                      city: "Hyderabad",
+                      state: "Telangana",
+                      country: "India"
+                   });
+//suppose by mistake we saved it
+obj.save({
+  success: function(obj) {
+    //the object is saved
+    deleteObject(obj); //call the delete to delete from DB
+  },
+  error: function(err) {
+    //Error occured in saving the student info
+  }
 });</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">function deleteExample(obj) {
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">function deleteObject(obj) {
   obj.delete({
-    success: function(res2) {
-    //Deleting the object successfull
+    success: function(obj) {
+      //Deleting the object successfull
     },
     error: function(err) {
-    //Error occurred in fetching the data
+      //Error occurred in fetching the data
     }              
   });
 }</span></span></span></code>
-              <code class="method-response"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj = {
-  "_tableName": "table1",
-  "_type": "custom",
-  "ACL": {
-    "read": ["all"],
-    "write": ["all"]
-  },
-  "document": {
-    "id": null,   //id is set to null after deletion
-    "col": "data",
-    "createdAt":"21/2/2015 13:16:30",
-    "updatedAt":"21/2/2015 13:16:30"
-  }
-}</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
         </div> <!-- method -->
@@ -655,23 +630,14 @@ obj.save().then(function(res) { //using JQuery promise
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");</span></span></code>
-              <code class="method-object"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript"> obj = {
-  tableName: "table1",
-  query: {},
-  select: {},
-  sort: {},
-  skip: 0,
-  limit: -1
-}</span></span></code>
-              }
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-find' name="CloudQuery-find" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.find( )</h3>
+              <h3>CloudQuery.find( <code>[callback]</code> )</h3>
               <p>
                 Queries the database on the constraints provided by the <code>CloudQuery</code>
                 object and gets the result as an array of <code>CloudObject</code> objects.
@@ -704,11 +670,15 @@ obj.save().then(function(res) { //using JQuery promise
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">query.find({
+  success: function(data){
+    //data is an array of information of all
+    //the students present in the database
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             <p>To retrive a subset of the documents see the functions described in later topics</p>
             </div><!-- method-example -->
@@ -717,7 +687,7 @@ obj.save().then(function(res) { //using JQuery promise
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.findOne( )</h3>
+              <h3>CloudQuery.findOne( <code>[callback]</code> )</h3>
               <p>
                 Queries the database on the constraints provided by the <code>CloudQuery</code>
                 object and gets a single <code>CloudObject</code> object satisfying the constraint.
@@ -746,11 +716,14 @@ obj.save().then(function(res) { //using JQuery promise
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.findOne().then(function(data){
-  //data is a document returned from the database
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">query.findOne({
+  success: function(data){
+    //data is an information of a student present in the database
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             <p>To apply constraints on the data see the functions described in later topics</p>
             </div><!-- method-example -->
@@ -759,7 +732,7 @@ obj.save().then(function(res) { //using JQuery promise
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.get( )</h3>
+              <h3>CloudQuery.get( <code>objectId [, callback]</code> )</h3>
               <p>
                 Queries the database gets a <code>CloudObject</code> object whose <i>_id</i> field
                 matches <code>objectId</code>.
@@ -787,11 +760,15 @@ obj.save().then(function(res) { //using JQuery promise
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.get('54e837d6d51a5ea011aa79ea').then(function(data){
-  //data is a document returned from the database
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//retrieve a student detail by his unique ID
+query.get('54e837d6d51a5ea011aa79ea', {
+  success: function(data){
+    //data is a document returned from the database
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  } 
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -799,7 +776,7 @@ obj.save().then(function(res) { //using JQuery promise
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.equalTo( )</h3>
+              <h3>CloudQuery.equalTo( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant for finding the subset of the data in which 
               <code>columnName</code> has the value <code>data</code>.
@@ -823,12 +800,16 @@ obj.save().then(function(res) { //using JQuery promise
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.equalTo('col', 'data');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.equalTo('age', 21);</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//find all students who age is 21
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -836,7 +817,7 @@ obj.equalTo('col', 'data');</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.containedIn( )</h3>
+              <h3>CloudQuery.containedIn( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant to find the data in which value of <code>columnName</code>
               of each data is equal to any of the value(s) provided in <code>data</code>.
@@ -860,13 +841,17 @@ obj.equalTo('col', 'data');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.containedIn('country', ['India', 'Pakistan']);</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-  //having 'country'='India' or 'Pakistan'
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.containedIn('name', ['Smith', 'Max', 'Lucy']);</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//find information of Smith, Max and/or Lucy
+//whosever are there in DB 
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -874,7 +859,7 @@ obj.containedIn('country', ['India', 'Pakistan']);</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.containsAll( )</h3>
+              <h3>CloudQuery.containsAll( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant to find the data in which value of <code>columnName</code>
               of each data is at least equal to all of the value(s) provided in <code>data</code>.
@@ -898,13 +883,16 @@ obj.containedIn('country', ['India', 'Pakistan']);</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.containsAll('roles', ['staff', 'teacher']);</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-  //having 'roles'='staff' and 'teacher'
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("teachers");
+query.containsAll('roles', ['staff', 'Head of department']);</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//find teachers who are staff and head of department
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -912,7 +900,7 @@ obj.containsAll('roles', ['staff', 'teacher']);</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.startsWith( )</h3>
+              <h3>CloudQuery.startsWith( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant to find the data in which value of <code>columnName</code>
               of each data is starts with <code>data</code>.
@@ -936,12 +924,16 @@ obj.containsAll('roles', ['staff', 'teacher']);</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.startsWith('country', 'In');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.startsWith('name', 'S');</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//find all the students who name starts with letter 'S'
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -949,7 +941,7 @@ obj.startsWith('country', 'In');</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.notEqualTo( )</h3>
+              <h3>CloudQuery.notEqualTo( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant for finding the subset of the data in which 
               <code>columnName</code> does not has the value <code>data</code>.
@@ -973,12 +965,16 @@ obj.startsWith('country', 'In');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.notEqualTo('col', 'data');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.notEqualTo('name', 'Smith');</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//find all students info except of Smith
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -986,7 +982,7 @@ obj.notEqualTo('col', 'data');</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.notContainedIn( )</h3>
+              <h3>CloudQuery.notContainedIn( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant to find the data in which the value of <code>columnName</code>
               is not equal to any of the value(s) provided in <code>data</code>.
@@ -1010,13 +1006,16 @@ obj.notEqualTo('col', 'data');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.notContainedIn('country', ['India', 'Pakistan']);</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-  //having 'country' not equal to 'India' and 'Pakistan'
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.notContainedIn('name', ['Smith', 'Max', 'Lucy']);</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//find information of students except of Smith, Max and Lucy
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1024,7 +1023,7 @@ obj.notContainedIn('country', ['India', 'Pakistan']);</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.greaterThan( )</h3>
+              <h3>CloudQuery.greaterThan( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant for finding the subset of the data in which 
               <code>columnName</code> has the value greater than <code>data</code>.
@@ -1048,12 +1047,16 @@ obj.notContainedIn('country', ['India', 'Pakistan']);</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.greaterThan('col', 10);</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("teachers");
+query.greaterThan('age', 60);</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//find all the teachers who have retired
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1061,7 +1064,7 @@ obj.greaterThan('col', 10);</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.greaterThanEqualTo( )</h3>
+              <h3>CloudQuery.greaterThanEqualTo( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant for finding the subset of the data in which 
               <code>columnName</code> has the value greater than or equals to <code>data</code>.
@@ -1085,12 +1088,16 @@ obj.greaterThan('col', 10);</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.greaterThanEqualTo('col', 10);</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("teachers");
+query.greaterThanEqualTo('age', 60);</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//find all the teachers who have/going to get retired
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1098,7 +1105,7 @@ obj.greaterThanEqualTo('col', 10);</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.lessThan( )</h3>
+              <h3>CloudQuery.lessThan( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant for finding the subset of the data in which 
               <code>columnName</code> has the value less than <code>data</code>.
@@ -1122,12 +1129,16 @@ obj.greaterThanEqualTo('col', 10);</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.lessThan('col', 10);</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.lessThan('age', 18);</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//find all the students who are not adult
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1135,7 +1146,7 @@ obj.lessThan('col', 10);</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.lessThanEqualTo( )</h3>
+              <h3>CloudQuery.lessThanEqualTo( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant for finding the subset of the data in which 
               <code>columnName</code> has the value less than or equals to <code>data</code>.
@@ -1159,12 +1170,16 @@ obj.lessThan('col', 10);</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.lessThanEqualTo('col', 10);</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.lessThanEqualTo('age', 17);</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//find all the students who are not adult
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1172,7 +1187,7 @@ obj.lessThanEqualTo('col', 10);</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.or( )</h3>
+              <h3>CloudQuery.or( <code>query1, query2</code> )</h3>
               <p>
               It adds a logical OR contriant between 2 <code>CloudQuery</code> objects for 
               finding the set of the data satisfying conditions of both <code>query1</code>
@@ -1202,17 +1217,20 @@ obj.lessThanEqualTo('col', 10);</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query1 = new CB.CloudQuery('table1');
-var query2 = new CB.CloudQuery('table1');
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query1 = new CB.CloudQuery('student');
+var query2 = new CB.CloudQuery('student');
 
-query1.equalTo('country', 'India')
-query2.greaterThan('age', 20);
-var obj = CB.CloudQuery.or(query1, query2);</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) in which 
-  //either 'age'&gt;20 or 'country'='India'
-}, function(err) {
-  //Error in retrieving the data.
+query1.lessThan('age', 18)
+query2.greaterThan('age', 10);
+var query = CB.CloudQuery.or(query1, query2);</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//find all student such that 10&lt;age&lt;18
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1220,7 +1238,7 @@ var obj = CB.CloudQuery.or(query1, query2);</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.orderByAsc( )</h3>
+              <h3>CloudQuery.orderByAsc( <code>columnName</code> )</h3>
               <p>
               It adds a contriant for arranging the subset of the data in ascending 
               order wrt <code>columnName</code>.
@@ -1241,12 +1259,17 @@ var obj = CB.CloudQuery.or(query1, query2);</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.orderByAsc('col');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.greaterThan('age', 18);
+query.orderByAsc('age');</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//find all the students whose age&gt;18 in ascending order of their age
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1254,7 +1277,7 @@ obj.orderByAsc('col');</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.orderByDesc( )</h3>
+              <h3>CloudQuery.orderByDesc( <code>columnName</code> )</h3>
               <p>
               It adds a contriant for arranging the subset of the data in descending 
               order wrt <code>columnName</code>.
@@ -1275,12 +1298,17 @@ obj.orderByAsc('col');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.orderByDesc('col');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.greaterThan('age', 18);
+query.orderByDesc('age');</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//find all the students whose age&gt;18 in descending order of their age
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1288,7 +1316,7 @@ obj.orderByDesc('col');</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.setLimit( )</h3>
+              <h3>CloudQuery.setLimit( <code>data</code> )</h3>
               <p>
               It adds a contriant to limit no. of the data to be
               fetched from the database.
@@ -1312,13 +1340,17 @@ obj.orderByDesc('col');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.equalTo('age', 10);
-obj.setLimit(5);</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of max 5 documents in which 'age'=10
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.equalTo('age', 10);
+query.setLimit(5);</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//get information of 5 or <i>less</i> students whose age&#61;10
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1326,7 +1358,7 @@ obj.setLimit(5);</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.setSkip( )</h3>
+              <h3>CloudQuery.setSkip( <code>data</code> )</h3>
               <p>
               It adds a constraint to skip <code>data</code> no. of data
               matching satisfying the query contraints and fetching
@@ -1353,14 +1385,17 @@ obj.setLimit(5);</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.lessThan('age', 18);
-obj.setSkip(5);</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of documents returned from the database
-  //It skips 7 (max) documents in which age&lt;18
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.orderByDesc('age');
+query.setSkip(5);</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//get all the student's info leaving the first 5 students of max age
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1368,7 +1403,7 @@ obj.setSkip(5);</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.selectColumn( )</h3>
+              <h3>CloudQuery.selectColumn( <code>columnNames</code> )</h3>
               <p>
               It adds a contriant limiting the columns that are to fetched
               for each of the data from the database.
@@ -1394,13 +1429,17 @@ obj.setSkip(5);</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.selectColumn('col');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-  //having 'col', '_id', 'ACL', 'createdAt' and 'updatedAt' columns
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.greaterThan('age', 18);
+query.selectColumn(['name', 'age']);</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//get name and age of all the students who age&gt;18
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1408,7 +1447,7 @@ obj.selectColumn('col');</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.doNotSelectColumn( )</h3>
+              <h3>CloudQuery.doNotSelectColumn( <code>columnNames</code> )</h3>
               <p>
               It adds a contriant restricting the columns given in <code>columnNames</code> 
               to be fetched for each of the data from the database.
@@ -1429,15 +1468,21 @@ obj.selectColumn('col');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.selectColumn(['col', 'col2']);
-obj.doNotSelectColumn(['col', '_id']);//overwrites to restrict
-// returning of 'col' attribute</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-  //having 'col2', 'ACL', 'createdAt' and 'updatedAt' columns
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.greaterThan('age', 18);
+query.selectColumn(['name', 'age', 'address']);
+.
+.
+//Then you realise that address is not neccessary
+query.doNotSelectColumn('address');</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//get name and age of all the students who age&gt;18
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1445,7 +1490,7 @@ obj.doNotSelectColumn(['col', '_id']);//overwrites to restrict
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.exists( )</h3>
+              <h3>CloudQuery.exists( <code>columnName</code> )</h3>
               <p>
               It adds a contriant for finding the subset of the data in which 
               <code>columnName</code> exists irrespective of what its value is.
@@ -1466,12 +1511,16 @@ obj.doNotSelectColumn(['col', '_id']);//overwrites to restrict
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.exists('col');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.exists('address');</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//get all student's information whose address is provided
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1479,7 +1528,7 @@ obj.exists('col');</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.doesNotExists( )</h3>
+              <h3>CloudQuery.doesNotExists( <code>columnName</code> )</h3>
               <p>
               It adds a contriant for finding the subset of the data in which 
               <code>columnName</code> does not exists.
@@ -1500,12 +1549,16 @@ obj.exists('col');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.doesNotExists('col');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.find().then(function(data){
-  //data is an array of document(s) returned from the database
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.doesNotExists('address');</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//get all student's information whose address is not provided
+query.find({
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1513,7 +1566,7 @@ obj.doesNotExists('col');</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.count( )</h3>
+              <h3>CloudQuery.count( <code>[callback]</code> )</h3>
               <p>
               It adds a contriant to find the data in which value of <code>columnName</code>
               of each data is at least equal to all of the value(s) provided in <code>data</code>.
@@ -1537,12 +1590,16 @@ obj.doesNotExists('col');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.equalTo('name', 'cloudboost');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.count().then(function(data){
-  //data is the count of document(s) in which name = 'cloudboost'
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("student");
+query.greaterThan('age', 18);</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//fetch how many students are there who age&gt;18
+obj.count({
+  success: function(data){
+    //data is the count of students who age&gt;18
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1550,7 +1607,7 @@ obj.equalTo('name', 'cloudboost');</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.distinct( )</h3>
+              <h3>CloudQuery.distinct( <code>keys [, callback]</code> )</h3>
               <p>
               It adds a contriant to find the data in which value of <code>columnName</code>
               of each data is at least equal to all of the value(s) provided in <code>data</code>.
@@ -1565,7 +1622,7 @@ obj.equalTo('name', 'cloudboost');</span></span></code>
                 <dl class="argument-list">
                   
                   <dt>keys</dt>
-                  <dd class="">string/Array <span> The column name(s) which should have distinct values in the
+                  <dd class="">Array <span> The column name(s) which should have distinct values in the
                   returned data set.</span></dd>
                   <div class="clearfix"></div>
                   <dt>callback</dt>
@@ -1582,13 +1639,16 @@ obj.equalTo('name', 'cloudboost');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudQuery("table1");
-obj.equalTo('country', 'India');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.distinct('name').then(function(data){
-  //data is the count of document(s) in which country = 'India'
-  //having distict values of 'name' field.
-}, function(err) {
-  //Error in retrieving the data.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("teachers");
+var onKey = ['address.city']</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//get all the information of the teachers from unique cities
+query.distinct(onKey, {
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1635,18 +1695,14 @@ obj.equalTo('country', 'India');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.ACL("table1");</span></span></code>
-              <code class="method-object"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj = {
-  "read": ["all"],
-  "write": ["all"]
-}</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.ACL("research");</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='ACL-setPublicWriteAccess' name="ACL-setPublicWriteAccess" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>ACL.setPublicWriteAccess( )</h3>
+              <h3>ACL.setPublicWriteAccess( <code>value</code> )</h3>
               <p>
                 To allow/disallow <i>public</i> to write on a particular object
               </p>
@@ -1666,15 +1722,29 @@ obj.equalTo('country', 'India');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject("table1");</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.ACL.setPublicWriteAccess(false);</span></span></code>
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject("research-papers");
+obj.set("research-topic", "Shape of Earth");
+obj.set("content", "The shape of the Earth is elliptical and not spherical");</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//prevent any public read access to this object so that 
+//anyone can see it but no one should modify it.
+obj.ACL.setPublicWriteAccess(false);
+
+//save the research info
+obj.save({
+  success: function(obj) {
+    //Saving successfull
+  },
+  error: function(err) {
+    //Error occured in saving the object
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='ACL-setPublicReadAccess' name="ACL-setPublicReadAccess" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>ACL.setPublicReadAccess( )</h3>
+              <h3>ACL.setPublicReadAccess( <code>value</code> )</h3>
               <p>
                 To allow/disallow <i>public</i> to read a particular object
               </p>
@@ -1694,15 +1764,30 @@ obj.equalTo('country', 'India');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject("table1");</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.ACL.setPublicReadAccess(false);</span></span></code>
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject("ongoing-research");
+obj.set("research-topic", "Shape of human");
+obj.set("content-so-far", "The shape of the human is not a standard one.");</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//prevent any public read access to this object so that 
+//no one should see it and also no one should modify it.
+obj.ACL.setPublicWriteAccess(false);
+obj.ACL.setPublicReadAccess(false);
+
+//save the research info
+obj.save({
+  success: function(obj) {
+    //Saving successfull
+  },
+  error: function(err) {
+    //Error occured in saving the object
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='ACL-setUserWriteAccess' name="ACL-setUserWriteAccess" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>ACL.setUserWriteAccess( )</h3>
+              <h3>ACL.setUserWriteAccess( <code>userId, value</code> )</h3>
               <p>
                 To allow/disallow user having <i>_id</i> <code>userId</code> to write on a particular object.
               </p>
@@ -1725,15 +1810,35 @@ obj.equalTo('country', 'India');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject("table1");</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.ACL.setUserWriteAccess('54e837d6d51a5ea011aa79ea', true);</span></span></code>
+                 <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject("ongoing-research");
+obj.set("research-topic", "Shape of human");
+obj.set("content-so-far", "The shape of the human is not a standard one.");</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//prevent any public read access to this object so that 
+//no one should see it and also no one should modify it.
+obj.ACL.setPublicWriteAccess(false);
+obj.ACL.setPublicReadAccess(false);
+
+//Allow your team-mate to modify content
+var teammateUserId = '1zMv00tiAcvfuXaJtJJv';
+
+obj.ACL.setUserWriteAccess(teammateUserId, true);
+
+//save the research info
+obj.save({
+  success: function(obj) {
+    //Saving successfull
+  },
+  error: function(err) {
+    //Error occured in saving the object
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='ACL-setUserReadAccess' name="ACL-setUserReadAccess" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>ACL.setUserReadAccess( )</h3>
+              <h3>ACL.setUserReadAccess( <code>userId, value</code> )</h3>
               <p>
                 To allow/disallow user having <i>_id</i> <code>userId</code> to read a particular object.
               </p>
@@ -1756,15 +1861,40 @@ obj.equalTo('country', 'India');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject("table1");</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.ACL.setUserReadAccess('54e837d6d51a5ea011aa79ea', true);</span></span></code>
+                 <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject("ongoing-research");
+obj.set("research-topic", "Shape of human");
+obj.set("content-so-far", "The shape of the human is not a standard one.");</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//prevent any public read access to this object so that 
+//no one should see it and also no one should modify it.
+obj.ACL.setPublicWriteAccess(false);
+obj.ACL.setPublicReadAccess(false);
+
+//Allow your team-mate to modify content
+var teammateUserId = '1zMv00tiAcvfuXaJtJJv';
+
+obj.ACL.setUserWriteAccess(teammateUserId, true);
+
+//Allow your mentor to read the content
+var mentorUserId = 'hKfKZaVNmb6FSnhcScDB';
+
+obj.ACL.setUserWriteAccess(mentorUserId, true);
+
+//save the research info
+obj.save({
+  success: function(obj) {
+    //Saving successfull
+  },
+  error: function(err) {
+    //Error occured in saving the object
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='ACL-setRoleWriteAccess' name="ACL-setRoleWriteAccess" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>ACL.setRoleWriteAccess( )</h3>
+              <h3>ACL.setRoleWriteAccess( <code>roleId, value</code> )</h3>
               <p>
                 To allow/disallow users of <i>roles</i> <code>roleId</code> to write on a particular object
               </p>
@@ -1773,7 +1903,7 @@ obj.equalTo('country', 'India');</span></span></code>
                 <h6>Argument</h6>
                 <dl class="argument-list">
                   
-                  <dt>RoleId</dt>
+                  <dt>roleId</dt>
                   <dd class="">string <span>The role ID of the Role you want to set the access for</span></dd>
                   <div class="clearfix"></div>
                   <dt>value</dt>
@@ -1787,15 +1917,40 @@ obj.equalTo('country', 'India');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject("table1");</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.ACL.setRoleWriteAccess('54e837d6d51a5ea011aa79ea', true);</span></span></code>
+                 <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject("ongoing-research");
+obj.set("research-topic", "Shape of human");
+obj.set("content-so-far", "The shape of the human is not a standard one.");</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//prevent any public read access to this object so that 
+//no one should see it and also no one should modify it.
+obj.ACL.setPublicWriteAccess(false);
+obj.ACL.setPublicReadAccess(false);
+
+//Allow your team-mates (who are the playing the role of Shape-of-human-collaborators) to modify content
+var collaboratorRoleId = 'Vq4rbHvzneVHmPHW9xN3';
+
+obj.ACL.setRoleWriteAccess(collaboratorRoleId, true);
+
+//Allow your mentor to read the content
+var mentorUserId = 'hKfKZaVNmb6FSnhcScDB';
+
+obj.ACL.setUserWriteAccess(mentorUserId, true);
+
+//save the research info
+obj.save({
+  success: function(obj) {
+    //Saving successfull
+  },
+  error: function(err) {
+    //Error occured in saving the object
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='ACL-setRoleReadAccess' name="ACL-setRoleReadAccess" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>ACL.setRoleReadAccess( )</h3>
+              <h3>ACL.setRoleReadAccess( <code>roleId, value</code> )</h3>
               <p>
                 To allow/disallow users of <i>roles</i> <code>roleId</code> to read a particular object
               </p>
@@ -1818,8 +1973,28 @@ obj.equalTo('country', 'India');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject("table1");</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj.ACL.setRoleReadAccess('54e837d6d51a5ea011aa79ea', true);</span></span></code>
+                 <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudObject("research-papers");
+obj.set("research-topic", "Shape of mantle");
+obj.set("content-so-far", "The shape of the mantle is spherical but it keeps changing.");</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//prevent any public read access to this object so that 
+//no one should see it and also no one should modify it.
+obj.ACL.setPublicWriteAccess(false);
+obj.ACL.setPublicReadAccess(false);
+
+//Allow judges to read your research paper
+var judgeRoleId = 'LphW90RgS7DFt2KYpNnW';
+
+obj.ACL.setRoleReadAccess(judgeRoleId, true);
+
+//save the research info
+obj.save({
+  success: function(obj) {
+    //Saving successfull
+  },
+  error: function(err) {
+    //Error occured in saving the object
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
         </div> <!-- method -->
@@ -1867,17 +2042,13 @@ obj.equalTo('country', 'India');</span></span></code>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudUser();</span></span></code>
-              <code class="method-object"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj = {
-  "_tableName": "User",
-  "_type": "user"
-}</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudUser-signUp' name="CloudUser-signUp" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudUser.signUp( )</h3>
+              <h3>CloudUser.signUp( <code>[callback]</code> )</h3>
               <p>
                 It registers new user given its <i>username</i>, <i>email</i> and <i>password</i>.
                 Registration is successful if the given <i>email</i> is not already present in
@@ -1908,14 +2079,17 @@ obj.equalTo('country', 'India');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudUser();
-obj.set('username', 'user1');
-obj.set('password', 'password');
-obj.set('email', 'myemail@domain.in');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj.signUp().then(function(user) {
-  //Registration successfull
-}, function(err) {
-  //Error occured in user registration.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var user = new CB.CloudUser();
+user.set('username', 'gtm_singh');
+user.set('password', 'my_solid_password');
+user.set('email', 'gtm_singh@thisdomain.com');</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var user.signUp({
+  success: function(user) {
+    //Registration successfull
+  },
+  error: function(err) {
+    //Error occured in user registration.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1923,7 +2097,7 @@ obj.set('email', 'myemail@domain.in');</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudUser.logIn( )</h3>
+              <h3>CloudUser.logIn( <code>[callback]</code> )</h3>
               <p>
                 It logs in user given its <i>username</i> and <i>password</i>.
                 Login is successful if the given <i>username</i> and <i>password</i> pair is already present in
@@ -1955,13 +2129,16 @@ obj.set('email', 'myemail@domain.in');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudUser();
-obj.set('username', 'user1');
-obj.set('password', 'password');</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj.logIn().then(function(user) {
-  //login successfull
-}, function(err) {
-  //Error occured in user login.
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var user = new CB.CloudUser();
+user.set('username', 'gtm_singh');
+user.set('password', 'my_solid_password');</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var user.logIn({
+  success: function(user) {
+    //Login successfull
+  },
+  error: function(err) {
+    //Error occured in user registration.
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1969,7 +2146,7 @@ obj.set('password', 'password');</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudUser.logOut( )</h3>
+              <h3>CloudUser.logOut( <code>[callback]</code> )</h3>
               <p>
                 It logs the user out.
               </p>
@@ -1996,10 +2173,12 @@ obj.set('password', 'password');</span></span></code>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CB.CloudUser.current.logOut().then(function(user) {
-  //log out successfull
-}, function(err) {
-  //Error occured in user registration.
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CB.CloudUser.current.logOut({
+  success: function(user) {
+    //log out successfull
+  },
+  error: function(err) {
+    //Error occured in user registration.
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2007,7 +2186,7 @@ obj.set('password', 'password');</span></span></code>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudUser.addToRole( )</h3>
+              <h3>CloudUser.addToRole( <code>role [, callback]</code> )</h3>
               <p>
                 A user can be a part of many roles, like in real world. For this functionality
                 user should get added to a role before it can use its features.
@@ -2042,24 +2221,32 @@ obj.set('password', 'password');</span></span></code>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var user = new CB.CloudUser();
-user.set('username', 'user1');
-user.set('password', 'password');
-user.logIn().then(function(userObj) {
-  //user logged in
-  var role = new CB.CloudRole('Admin');
-  CB.CloudRole.getRole(role, function(roleObj) {
-    testAddToRole(roleObj);
-  },function(err) {
-    //Error occurred in getting role object
-  });
-}, function(err) {
-  //error occured in login
+user.set('username', 'gtm_singh');
+user.set('password', 'my_solid_password');
+user.logIn({
+  success: function(userObj) {
+    //user logged in
+    var role = new CB.CloudRole('my-collaborator');
+    CB.CloudRole.getRole(role, {
+      success: function(roleObj) {
+        addToRoleStub(roleObj);
+      },
+      error: function(err) {
+        //Error occurred in getting role object
+      });
+  },
+  error: function(err) {
+    //error occured in login
+  }
 });</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">testAddToRole(role) {
-  CB.CloudUser.current.addToRole(role).then(function(user) {
-    //added to role successfull
-  }, function(err) {
-    //Error occured in adding to role.
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">function addToRoleStub(role) {
+  CB.CloudUser.current.addToRole(role, {
+    success: function(user) {
+      //added to role successfull
+    },
+    error: function(err) {
+      //Error occured in adding to role.
+    }
   });
 }</span></span></code>
             <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
@@ -2069,7 +2256,7 @@ user.logIn().then(function(userObj) {
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudUser.isInRole( )</h3>
+              <h3>CloudUser.isInRole( <code>role</code> )</h3>
               <p>
                 To check if the current user is in the role provided by the role object.
               </p>
@@ -2095,14 +2282,14 @@ user.logIn().then(function(userObj) {
             <div class="method-example" id="api-summary-example">
               <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//suppose user is logged in and
 //CB.CloudUser.current is set
-var role = new CB.CloudRole('Admin');
+var role = new CB.CloudRole('my-collaborator');
 CB.CloudRole.getRole(role, function(roleObj) {
   checkForRole(roleObj);
 },function(err) {
   //Error occurred in getting role object
 });
 </span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">checkForRole(role) {
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">function checkForRole(role) {
   if(CB.CloudUser.current.isInRole(role)) {
     //The current user is in the given role.
   } else {
@@ -2116,7 +2303,7 @@ CB.CloudRole.getRole(role, function(roleObj) {
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudUser.removeFromRole( )</h3>
+              <h3>CloudUser.removeFromRole( <code>role [, callback]</code> )</h3>
               <p>
                 Removes the user from the given role provided in <code>role</code> object.
               </p>
@@ -2146,14 +2333,17 @@ CB.CloudRole.getRole(role, function(roleObj) {
             <div class="method-example" id="api-summary-example">
               <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//suppose user is logged in and
 //CB.CloudUser.current is set
-var role = new CB.CloudRole('Admin');
-CB.CloudRole.getRole(role, function(roleObj) {
-  removeRole(roleObj);
-},function(err) {
-  //Error occurred in getting role object
+var role = new CB.CloudRole('my-collaborator');
+CB.CloudRole.getRole(role, {
+  success: function(roleObj) {
+    removeFromRoleStub(roleObj);
+  },
+  error: function(err) {
+    //Error occurred in getting role object
+  }
 });
 </span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">removeRole(role) {
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">function removeFromRoleStub(role) {
   CB.CloudUser.current.removeFromRole(role).then(function(user) {
     //The current user has been removed from the given role.
   }, function(err) {
@@ -2214,21 +2404,14 @@ CB.CloudRole.getRole(role, function(roleObj) {
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudRole("Admin");</span></span></code>
-              <code class="method-object"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">obj = {
-  "document": {
-    "_tableName": "Role",
-    "_type": "role",
-    "name": "Admin"
-  }
-}</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var role = new CB.CloudRole("my-collaborator");</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudRole-getRole' name="CloudRole-getRole" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>ClouRole.getRole( )</h3>
+              <h3>ClouRole.getRole( <code>role [, callback]</code> )</h3>
               <p>
               Gets a <code>CloudRole</code> object for a given <code>role</code> object with <i>name</i>
               field only.
@@ -2255,11 +2438,14 @@ CB.CloudRole.getRole(role, function(roleObj) {
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudRole("Admin");</span></span></code>
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CB.CloudRole.getRole(obj).then(function(roleObj) {
-  //got the role object successfully
-}, function(err) {
-  //error in fetching role object
+              <code class="method-declaration"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var role = new CB.CloudRole("my-collaborator");</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CB.CloudRole.getRole(role, {
+  success: function(roleObj) {
+    //got the role object successfully
+  },
+  error: function(err) {
+    //error in fetching role object
+  }
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
