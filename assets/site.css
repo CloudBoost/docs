@@ -2556,7 +2556,7 @@ body.api-docs div#api-docs div#methods .method-section .method-example code.meth
 }
 
 body.api-docs div#api-docs div#methods .method-section .method-example code.method-request:before {
-  content: "EXAMPLE REQUEST";
+  content: "SAMPLE CODE";
 }
 
 body.api-docs div#api-docs div#methods .method-section .method-example code.method-response:before {
