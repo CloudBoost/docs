@@ -78,6 +78,8 @@
             <a href="#Relationships-manyToMany" class="parent">Many-to-many</a>
           </span>
         </li>
+
+
         <li class="section section-charges"><a href="#CloudQuery" class="parent">CloudQuery</a>
           <span class="children">
             <a href="#CloudQuery-constructor" class="parent">Constructor</a>
@@ -108,10 +110,35 @@
           </span>
         </li>
 
-        <li class="section section-charges"><a href="#RelationshipQuery" class="parent">Querying Relationships</a>
+        <li class="section section-charges"><a href="#CloudNotifcations" class="parent">CloudNotifications</a>
           <span class="children">
-            
+            <a href="#CloudNotification-on" class="parent">CloudNotifications.on()</a>
+            <a href="#CloudNotification-publish" class="parent">CloudNotifications.publish()</a>
+            <a href="#CloudNotification-off" class="parent">CloudNotifications.off()</a>
           </span>
+        </li>
+
+        <li class="section section-charges"><a href="#CloudNotifcations" class="parent">CloudSearch</a>
+
+          <span class="children">
+            <a href="#CloudSearch-constructor" class="parent">Constructor</a>
+            <a href="#CloudSearch-equalTo" class="parent">CloudSearch.searchOn()</a>
+            <a href="#CloudSearch-containedIn" class="parent">CloudSearch.equalTo()</a>
+            <a href="#CloudSearch-notEqualTo" class="parent">CloudSearch.notEqualTo()</a>
+            <a href="#CloudSearch-greaterThan" class="parent">CloudSearch.greaterThan()</a>
+            <a href="#CloudSearch-greaterThanEqualTo" class="parent">CloudSearch.greaterThanEqualTo()</a>
+            <a href="#CloudSearch-lessThan" class="parent">CloudSearch.lessThan()</a>
+            <a href="#CloudSearch-lessThanEqualTo" class="parent">CloudQuery.lessThanEqualTo()</a>
+            <a href="#CloudSearch-or" class="parent">CloudSearch.or()</a>
+            <a href="#CloudSearch-orderByAsc" class="parent">CloudSearch.orderByAsc()</a>
+            <a href="#CloudSearch-orderByDesc" class="parent">CloudSearch.orderByDesc()</a>
+            <a href="#CloudSearch-setLimit" class="parent">CloudSearch.setLimit()</a>
+            <a href="#CloudSearch-setSkip" class="parent">CloudSearch.setSkip()</a>
+            <a href="#CloudSearch-exists" class="parent">CloudSearch.exists()</a>
+            <a href="#CloudSearch-doesNotExists" class="parent">CloudSearch.doesNotExists()</a>
+            <a href="#CloudSearch-get" class="parent">CloudSearch.search()</a>
+          </span>
+
         </li>
         
         <li class="section section-charges"><a href="#ACL" class="parent">ACL</a>
@@ -796,7 +823,7 @@ student.save({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-          <a id='Relationships-oneToOne' name="Relationships-oneToOne" class="section-anchor">&nbsp;</a>
+          <a id='Relationships-oneToMany' name="Relationships-oneToMany" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -840,7 +867,7 @@ student.save({
                 <ol>
                   <li><b>#1 - Relation Option</b></li>
                   <li><b>#2 - List Option</b></li>
-                <ol>
+                </ol>
 
                 We will discuss both of these options below. <br/><br/><br/>
 
@@ -1785,6 +1812,7 @@ query.count({
   }
 });</span></span></code>
             </div><!-- method-example -->
+
           </div> <!-- method-section -->
           <a id='CloudQuery-distinct' name="CloudQuery-distinct" class="section-anchor">&nbsp;</a>
           <div class="method-section">
@@ -1833,7 +1861,740 @@ query.count({
             </div><!-- method-example -->
           </div> <!-- method-section -->
         </div><!-- method -->
+
+
+
+        <!-- CloudNotifications  --> 
+
         <div class="method">
+             <a id='CloudNotifcations' name="CloudNotifcations" class="section-anchor">&nbsp;</a>
+            <div class="method-section">
+              <div class="method-description">
+
+                <h1>CloudNotifcations</h1>
+                <p>
+
+                In Cloudboost, you can create realtime notification channels, publish messages to those channels and have other clients listen to those messages which are being published in real time. 
+                </p>
+
+              </div>
+            </div>
+
+                      <a id='CloudNotification-on' name="CloudNotification-on" class="section-anchor">&nbsp;</a>
+        
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudNotification.on( <code>channelName, functionToFire, callback</code> )</h3>
+              <p>
+              Listens to notification channels.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>channelName</dt>
+                  <dd class="">String<span>channel to listen to.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>functionToFire</dt>
+                  <dd class="">function <span> function to fire when data on this channel is published.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>callback</dt>
+                  <dd class="">Object <span>[optional] if provided must have <code>success</code> 
+                  and <code>error</code> functions to handle respective response.</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns JQuery promise, if <code>callback</code> is not specified</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudNotification.on('sample',function(data){
+  console.log(data);
+}, {
+  success : function(){
+    //succesfully subscribed. 
+  }, 
+  error : function(err){
+    //error
+  }
+});
+
+
+              </span></span></code>
+
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='CloudNotification-publish' name="CloudNotification-publish" class="section-anchor">&nbsp;</a>
+        
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudNotification.publish( <code>channelName, data, callback</code> )</h3>
+              <p>
+              Publishes data to notification channels.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>channelName</dt>
+                  <dd class="">String<span>channel to publish to.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything <span> data you want to publish to this channel</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>callback</dt>
+                  <dd class="">Object <span>[optional] if provided must have <code>success</code> 
+                  and <code>error</code> functions to handle respective response.</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns JQuery promise, if <code>callback</code> is not specified</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudNotification.publish('sample','data', {
+  success : function(){
+    //succesfully published. 
+  }, 
+  error : function(err){
+    //error
+  }
+});
+
+
+              </span></span></code>
+
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudNotification-off' name="CloudNotification-off" class="section-anchor">&nbsp;</a>
+        
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudNotification.off( <code>channelName, callback</code> )</h3>
+              <p>
+              Stops listening to notification channels.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>channelName</dt>
+                  <dd class="">String<span>channel to stop listening to.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>callback</dt>
+                  <dd class="">Object <span>[optional] if provided must have <code>success</code> 
+                  and <code>error</code> functions to handle respective response.</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns JQuery promise, if <code>callback</code> is not specified</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudNotification.off('sample', {
+  success : function(){
+    //succesfully stopped listening. 
+  }, 
+  error : function(err){
+    //error
+  }
+});
+
+
+              </span></span></code>
+
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+        </div>
+
+
+        <!-- CloudSearch -->
+
+        <div class="method">
+          <a id='CloudSearch' name="CloudSearch" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h1>CloudSearch</h1>
+              <p>
+                It encapsulates a set of methods and attributes required to perform search on your data in CloudApp to retrieve desired set of relevant results.
+              </p>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div> <!-- method-example -->
+          </div><!-- method-section -->
+          <a id='CloudQuery-constructor' name="CloudQuery-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudQuery</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>tableNames</dt>
+                  <dd class="">Array/string <span>The name of the table(s) you want to search on.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var cs = new CB.CloudSearch("Student");</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+           <a id='CloudSearch-searchOn' name="CloudSearch-searchOn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.searchOn( <code>columnName, query</code> )</h3>
+              <p>
+              Used to perform a search query.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string / Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">query<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchOn('resume', 'C++, Java, C#');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='CloudSearch-equalTo' name="CloudSearch-equalTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.equalTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> is equal to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.equalTo('age', 21); //find all Students who age is 21
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+         
+          <a id='CloudSearch-notEqualTo' name="CloudSearch-notEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.notEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> does not has the value <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+//find all Students info except of Smith
+cs.notEqualTo('name', 'Smith');
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          
+          <a id='CloudSearch-greaterThan' name="CloudSearch-greaterThan" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.greaterThan( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value greater than <code>data</code>.
+              </p>
+              <div class="method-list">
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string / number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions. </p>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var cs = new CB.CloudSearch("Teacher");
+//find all the teachers who are old.
+cs.greaterThan('age', 60);
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudSearch-greaterThanEqualTo' name="CloudSearch-greaterThanEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.greaterThanEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value greater than or equals to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string / number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Teacher");
+cs.greaterThanEqualTo('age', 60);
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-lessThan' name="CloudSearch-lessThan" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.lessThan( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value less than <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string/number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.lessThan('age', 18);
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='CloudSearch-lessThanEqualTo' name="CloudSearch-lessThanEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.lessThanEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value less than or equals to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string/number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.lessThanEqualTo('age', 17);
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-or' name="CloudSearch-or" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.or( <code>cloudSearch1, cloudSearch2</code> )</h3>
+              <p>
+              It adds a logical OR contriant between 2 <code>CloudSearch</code> objects for 
+              finding the set of the data satisfying conditions of both <code>cloudSearch1</code>
+              and <code>cloudSearch2</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>cloudSearch1</dt>
+                  <dd class=""><code>CloudSearch object</code></dd>
+                  <div class="clearfix"></div>
+                  <dt>cloudSearch2</dt>
+                  <dd class=""><code>CloudSearch object</code></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>CloudSearch</code> object which contains
+                OR'ed query of both of the <code>CloudSearch</code> objects.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//find all Student such that 10&lt;age&lt;18
+
+var cs1 = new CB.CloudSearch('Student');
+cs1.lessThan('age', 18);
+cs1.searchOn('name', 'Sam');
+
+var cs2 = new CB.CloudSearch('Student');
+cs2.greaterThan('age', 10);
+cs1.searchOn('name', 'Dan');
+
+var cs = CB.CloudSearch.or(cs1, cs2);
+</span></span></code>
+              
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-orderByAsc' name="CloudSearch-orderByAsc" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.orderByAsc( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for arranging the subset of the data in ascending 
+              order.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.orderByAsc('age');</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-orderByDesc' name="CloudSearch-orderByDesc" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.orderByDesc( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for arranging the subset of the data in descending 
+              order.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+               <h6>Returns</h6>
+                <p>Same search object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.orderByDesc('age');</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-setLimit' name="CloudSearch-setLimit" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.setLimit( <code>data</code> )</h3>
+              <p>
+              It adds a contriant to limit no. of the data to be
+              fetched from the database.
+              </p>
+              <p>
+                If it is not set explicitly, database returns 20 results by default.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>data</dt>
+                  <dd class="">number <span>No. of data to be shown</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.setLimit(5);</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-setSkip' name="CloudSearch-setSkip" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.setSkip( <code>data</code> )</h3>
+              <p>
+              It adds a constraint to skip <code>data</code> no. of data
+              matching satisfying the query contraints and fetching
+              from the database.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>data</dt>
+                  <dd class="">number <span>No. of data to be skipped</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.setSkip(5);</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          
+
+          <a id='CloudSearch-exists' name="CloudSearch-exists" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h3>CloudSearch.exists( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> exists irrespective of what its value is.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column name which is to be checked for existence</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.exists('address');</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-doesNotExists' name="CloudSearch-doesNotExists" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.doesNotExists( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> does not exists.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column name which is to be checked for non-existence</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.doesNotExists('address');</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudSearch-search' name="CloudSearch-search" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.search( <code>[callback]</code> )</h3>
+              <p>
+                Searches the database on the constraints provided by the <code>CloudSearch</code>
+                object and gets the result as an array of <code>CloudObject</code> objects.
+              </p>
+              <p>
+              If no. of documents to be returned is not specified using <a href="#CloudQuery-setLimit">limit()</a>
+              then at max 20 documents are returned in each query by default.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns an array of <code>CloudObject</code> objects or an error object if the opertion is successful or fails respectively along with JQuery promise (if <code>callback</code> is not provided).</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+cloudSearch.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+      </div>
+
+
           <a id='ACL' name="ACL" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -1849,9 +2610,8 @@ query.count({
                 All the modifications in the ACL can be reflected only after the object is saved after the changes.
               </p>
             </div>
-            <div class="method-example" id="api-summary-example">
-            </div>
           </div>
+
           <a id='ACL-constructor' name="ACL-constructor" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -2088,6 +2848,8 @@ obj.save({
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+
+
           <a id='ACL-setRoleReadAccess' name="ACL-setRoleReadAccess" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -2129,10 +2891,7 @@ obj.save({
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-        </div> <!-- method -->
 
-
-        <div class="method">
           <a id='CloudUser' name="CloudUser" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -2471,8 +3230,7 @@ if(CB.CloudUser.current.isInRole(role)) {
             <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-        </div> <!-- method -->
-        <div class="method">
+
           <a id='CloudRole' name="CloudRole" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -2567,7 +3325,6 @@ CB.CloudRole.getRole(role, {
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-        </div> <!-- method -->
       </div> <!-- methods -->
     </div> <!-- api-docs -->
     <div class="footer">
