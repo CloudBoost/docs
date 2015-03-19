@@ -124,8 +124,8 @@
 
           <span class="children">
             <a href="#CloudSearch-constructor" class="parent">Constructor</a>
-            <a href="#CloudSearch-equalTo" class="parent">CloudSearch.searchOn()</a>
-            <a href="#CloudSearch-containedIn" class="parent">CloudSearch.equalTo()</a>
+            <a href="#CloudSearch-searchOn" class="parent">CloudSearch.searchOn()</a>
+            <a href="#CloudSearch-equalTo" class="parent">CloudSearch.equalTo()</a>
             <a href="#CloudSearch-notEqualTo" class="parent">CloudSearch.notEqualTo()</a>
             <a href="#CloudSearch-greaterThan" class="parent">CloudSearch.greaterThan()</a>
             <a href="#CloudSearch-greaterThanEqualTo" class="parent">CloudSearch.greaterThanEqualTo()</a>
@@ -170,7 +170,14 @@
             <a href="#CloudRole-constructor" class="parent">Constructor</a>
             <a href="#CloudRole-getRole" class="parent">CloudRole.getRole()</a>
           </span>
-        </li>        
+        </li>
+        <li class="section section-charges"><a href="#CloudFile" class="parent">CloudFile</a>
+          <span class="children">
+            <a href="#CloudFile-constructor" class="parent">Constructor</a>
+            <a href="#CloudFile-save" class="parent">CloudFile.save()</a>
+            <a href="#CloudFile-delete" class="parent">CloudFile.delete()</a>
+          </span>
+        </li>
       </ul>
 
     </div>
@@ -2039,13 +2046,13 @@ CB.CloudNotification.off('sample', {
             <div class="method-example" id="api-summary-example">
             </div> <!-- method-example -->
           </div><!-- method-section -->
-          <a id='CloudQuery-constructor' name="CloudQuery-constructor" class="section-anchor">&nbsp;</a>
+          <a id='CloudSearch-constructor' name="CloudSearch-constructor" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
               <h3>Constructor</h3>
               <p>
-              Instantiates a <code>CloudQuery</code> object.
+              Instantiates a <code>CloudSearch</code> object.
               </p>
               <div class="method-list">
                 
@@ -3327,6 +3334,144 @@ CB.CloudRole.getRole(role, {
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+
+          <a id='CloudFile' name="CloudFile" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h1>CB.CloudFile</h1>
+              <p>
+                CB.CloudFile lets you store application files in the cloud that would otherwise be too large or 
+                cumbersome to fit into a regular <code>CB.CloudObject</code>. The most common use case is storing images, 
+                but you can also use it for documents, videos, music, and any other binary data.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div>
+          </div>
+          <a id='CloudFile-constructor' name="CloudFile-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>file</dt>
+                  <dd class="">file/BLOB object<span>The file/BLOB that you want to save</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var documentFile = new Blob([
+              'This is the content of by document blob'
+              ], {
+                type : 'text/plain'
+              });
+var file = new CB.CloudFile(documentFile);</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudFile-save' name="CloudRole-save" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudFile.save( <code>[callback]</code> )</h3>
+              <p>
+              Saves the <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudFile</code> object having <code>url</code> attribute set to the URL 
+                of the blob uploaded to the server if the operation is successfull otherwise returns 
+                an error object along with JQuery promise (if <code>callback</code> is not provided).
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var documentFile = new Blob([
+            'This is the content of by document blob'
+            ], {
+              type : 'text/plain'
+            });
+var file = new CB.CloudFile(documentFile);
+
+file.save({
+  success: function(roleObj) {
+    //got the file object successfully with the url to the file
+  },
+  error: function(err) {
+    //error in uploading file
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudFile-delete' name="CloudRole-delete" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudFile.delete( <code>[callback]</code> )</h3>
+              <p>
+              Saves the <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudFile</code> object having <code>url</code> attribute set to <code>null</code> 
+                if the operation is successfull otherwise returns an error object along with JQuery promise 
+                (if <code>callback</code> is not provided).
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var documentFile = new Blob([
+            'This is the content of by document blob'
+            ], {
+              type : 'text/plain'
+            });
+var file = new CB.CloudFile(documentFile);
+
+file.delete({
+  success: function(roleObj) {
+    //file deletion successfull
+  },
+  error: function(err) {
+    //error in deleting file
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+                  <div class="clearfix"></div>
+            
+          </div> <!-- method-section -->
+
       </div> <!-- methods -->
     </div> <!-- api-docs -->
     <div class="footer">
