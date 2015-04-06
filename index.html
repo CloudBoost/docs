@@ -71,6 +71,7 @@
             <a href="#CloudObject-searchable" class="parent">CloudObject.isSearchable</a>
             <a href="#CloudObject-on" class="parent">CloudObject.on()</a>
             <a href="#CloudObject-off" class="parent">CloudObject.off()</a>
+            <a href="#CloudObject-expires" class="parent">CloudObject.expires</a>
           </span>
         </li>
         <li class="section section-charges"><a href="#Relationships" class="parent">Relationships</a>
@@ -766,6 +767,26 @@ obj.delete({
 </span></span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+
+            <a id='CloudObject-expires' name="CloudObject-expires" class="section-anchor">&nbsp;</a>
+            <div class="method-section">
+                <div class="method-description">
+
+                    <h3>CloudObject.expires</h3>
+                    <p>
+                        Sets the expiration time for <code>CloudObject</code>. Expiration time is to be given as number of
+                        milliseconds from 1 Jan 1970.
+                    </p>
+                </div>
+                <div class="method-example" id="api-summary-example">
+                    <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+  var obj = new CB.CloudObject('Student');
+  obj.set('name', 'John Smith');
+  expire=new Date().getTime()+1000;
+  obj.expires = expires; //Set the expire time for object Student
+</span></span></span></code>
+                </div><!-- method-example -->
+            </div> <!-- method-section -->
 
         </div> <!-- method -->
 
