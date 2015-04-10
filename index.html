@@ -54,7 +54,7 @@
         <li class="section section-charges">
           <a href="#CloudApp" class="parent">CloudApp</a>
           <span class="children">
-            <a href="#CloudApp-init" class="parent">CloudApp.init()</a>
+            <a href="#CloudApp-init" class="parent">Initialize CloudApp</a>
           </span>
         </li>
       
@@ -62,16 +62,15 @@
           <a href="#CloudObject" class="parent">CloudObject</a>
           <span class="children">
             <a href="#CloudObject-constructor" class="parent">Constructor</a>
-            <a href="#CloudObject-set" class="parent">CloudObject.set()</a>
-            <a href="#CloudObject-get" class="parent">CloudObject.get()</a>
-            <a href="#CloudObject-unset" class="parent">CloudObject.unset()</a>
-            <a href="#CloudObject-save" class="parent">CloudObject.save()</a>
-            <a href="#CloudObject-fetch" class="parent">CloudObject.fetch()</a>
-            <a href="#CloudObject-delete" class="parent">CloudObject.delete()</a>
-            <a href="#CloudObject-searchable" class="parent">CloudObject.isSearchable</a>
-            <a href="#CloudObject-on" class="parent">CloudObject.on()</a>
-            <a href="#CloudObject-off" class="parent">CloudObject.off()</a>
-            <a href="#CloudObject-expires" class="parent">CloudObject.expires</a>
+            <a href="#CloudObject-set" class="parent">Set</a>
+            <a href="#CloudObject-get" class="parent">Get</a>
+            <a href="#CloudObject-unset" class="parent">Unset</a>
+            <a href="#CloudObject-save" class="parent">Save</a>
+            <a href="#CloudObject-fetch" class="parent">Fetch</a>
+            <a href="#CloudObject-delete" class="parent">Delete</a>
+            <a href="#CloudObject-searchable" class="parent">Index for Search</a>
+            <a href="#CloudObject-on" class="parent">Notification</a>
+            <a href="#CloudObject-expires" class="parent">Expires</a>
           </span>
         </li>
         <li class="section section-charges"><a href="#Relationships" class="parent">Relationships</a>
@@ -86,38 +85,36 @@
         <li class="section section-charges"><a href="#CloudQuery" class="parent">CloudQuery</a>
           <span class="children">
             <a href="#CloudQuery-constructor" class="parent">Constructor</a>
-            <a href="#CloudQuery-equalTo" class="parent">CloudQuery.equalTo()</a>
-            <a href="#CloudQuery-containedIn" class="parent">CloudQuery.containedIn()</a>
-            <a href="#CloudQuery-containsAll" class="parent">CloudQuery.containsAll()</a>
-            <a href="#CloudQuery-startsWith" class="parent">CloudQuery.startsWith()</a>
-            <a href="#CloudQuery-notEqualTo" class="parent">CloudQuery.notEqualTo()</a>
-            <a href="#CloudQuery-notContainedIn" class="parent">CloudQuery.notContainedIn()</a>
-            <a href="#CloudQuery-greaterThan" class="parent">CloudQuery.greaterThan()</a>
-            <a href="#CloudQuery-greaterThanEqualTo" class="parent">CloudQuery.greaterThanEqualTo()</a>
-            <a href="#CloudQuery-lessThan" class="parent">CloudQuery.lessThan()</a>
-            <a href="#CloudQuery-lessThanEqualTo" class="parent">CloudQuery.lessThanEqualTo()</a>
-            <a href="#CloudQuery-or" class="parent">CloudQuery.or()</a>
-            <a href="#CloudQuery-orderByAsc" class="parent">CloudQuery.orderByAsc()</a>
-            <a href="#CloudQuery-orderByDesc" class="parent">CloudQuery.orderByDesc()</a>
-            <a href="#CloudQuery-setLimit" class="parent">CloudQuery.setLimit()</a>
-            <a href="#CloudQuery-setSkip" class="parent">CloudQuery.setSkip()</a>
-            <a href="#CloudQuery-selectColumn" class="parent">CloudQuery.selectColumn()</a>
-            <a href="#CloudQuery-doNotSelectColumn" class="parent">CloudQuery.doNotSelectColumn()</a>
-            <a href="#CloudQuery-exists" class="parent">CloudQuery.exists()</a>
-            <a href="#CloudQuery-doesNotExists" class="parent">CloudQuery.doesNotExists()</a>
-            <a href="#CloudQuery-find" class="parent">CloudQuery.find()</a>
-            <a href="#CloudQuery-findOne" class="parent">CloudQuery.findOne()</a>
-            <a href="#CloudQuery-get" class="parent">CloudQuery.get()</a>
-            <a href="#CloudQuery-count" class="parent">CloudQuery.count()</a>
-            <a href="#CloudQuery-distinct" class="parent">CloudQuery.distinct()</a>
+            <a href="#CloudQuery-equalTo" class="parent">Equal To</a>
+            <a href="#CloudQuery-containedIn" class="parent">Contained In</a>
+            <a href="#CloudQuery-containsAll" class="parent">Contains All</a>
+            <a href="#CloudQuery-startsWith" class="parent">Starts With</a>
+            <a href="#CloudQuery-notEqualTo" class="parent">Not Equal To</a>
+            <a href="#CloudQuery-notContainedIn" class="parent">Not Contained In</a>
+            <a href="#CloudQuery-greaterThan" class="parent">Greater Than</a>
+            <a href="#CloudQuery-greaterThanEqualTo" class="parent">Greater Than and Equal To</a>
+            <a href="#CloudQuery-lessThan" class="parent">Less Than</a>
+            <a href="#CloudQuery-lessThanEqualTo" class="parent">Less than and equal to</a>
+            <a href="#CloudQuery-or" class="parent">Or</a>
+            <a href="#CloudQuery-orderByAsc" class="parent">Order by</a>
+            <a href="#CloudQuery-setLimit" class="parent">Limit</a>
+            <a href="#CloudQuery-setSkip" class="parent">Skip</a>
+            <a href="#CloudQuery-selectColumn" class="parent">Select Column</a>
+            <a href="#CloudQuery-exists" class="parent">Exists</a>
+            <a href="#CloudQuery-doesNotExists" class="parent">Does not exist</a>
+            <a href="#CloudQuery-find" class="parent">Find</a>
+            <a href="#CloudQuery-findOne" class="parent">Find One</a>
+            <a href="#CloudQuery-get" class="parent">Get</a>
+            <a href="#CloudQuery-count" class="parent">Count</a>
+            <a href="#CloudQuery-distinct" class="parent">Distinct</a>
           </span>
         </li>
 
         <li class="section section-charges"><a href="#CloudNotifcations" class="parent">CloudNotifications</a>
           <span class="children">
-            <a href="#CloudNotification-on" class="parent">CloudNotifications.on()</a>
-            <a href="#CloudNotification-publish" class="parent">CloudNotifications.publish()</a>
-            <a href="#CloudNotification-off" class="parent">CloudNotifications.off()</a>
+            <a href="#CloudNotification-on" class="parent">Subscribe</a>
+            <a href="#CloudNotification-publish" class="parent">Publish</a>
+            <a href="#CloudNotification-off" class="parent">Unsubscribe</a>
           </span>
         </li>
 
@@ -125,21 +122,20 @@
 
           <span class="children">
             <a href="#CloudSearch-constructor" class="parent">Constructor</a>
-            <a href="#CloudSearch-searchOn" class="parent">CloudSearch.searchOn()</a>
-            <a href="#CloudSearch-equalTo" class="parent">CloudSearch.equalTo()</a>
-            <a href="#CloudSearch-notEqualTo" class="parent">CloudSearch.notEqualTo()</a>
-            <a href="#CloudSearch-greaterThan" class="parent">CloudSearch.greaterThan()</a>
-            <a href="#CloudSearch-greaterThanEqualTo" class="parent">CloudSearch.greaterThanEqualTo()</a>
-            <a href="#CloudSearch-lessThan" class="parent">CloudSearch.lessThan()</a>
-            <a href="#CloudSearch-lessThanEqualTo" class="parent">CloudQuery.lessThanEqualTo()</a>
-            <a href="#CloudSearch-or" class="parent">CloudSearch.or()</a>
-            <a href="#CloudSearch-orderByAsc" class="parent">CloudSearch.orderByAsc()</a>
-            <a href="#CloudSearch-orderByDesc" class="parent">CloudSearch.orderByDesc()</a>
-            <a href="#CloudSearch-setLimit" class="parent">CloudSearch.setLimit()</a>
-            <a href="#CloudSearch-setSkip" class="parent">CloudSearch.setSkip()</a>
-            <a href="#CloudSearch-exists" class="parent">CloudSearch.exists()</a>
-            <a href="#CloudSearch-doesNotExists" class="parent">CloudSearch.doesNotExists()</a>
-            <a href="#CloudSearch-search" class="parent">CloudSearch.search()</a>
+            <a href="#CloudSearch-searchOn" class="parent">Search On</a>
+            <a href="#CloudSearch-equalTo" class="parent">Equal To</a>
+            <a href="#CloudSearch-notEqualTo" class="parent">Not Equal To</a>
+            <a href="#CloudSearch-greaterThan" class="parent">Greater Than</a>
+            <a href="#CloudSearch-greaterThanEqualTo" class="parent">Greater Than and Equal To</a>
+            <a href="#CloudSearch-lessThan" class="parent">Less Than</a>
+            <a href="#CloudSearch-lessThanEqualTo" class="parent">Less than and equal to</a>
+            <a href="#CloudSearch-or" class="parent">OR</a>
+            <a href="#CloudSearch-orderByAsc" class="parent">Order by</a>
+            <a href="#CloudSearch-setLimit" class="parent">Limit</a>
+            <a href="#CloudSearch-setSkip" class="parent">Skip</a>
+            <a href="#CloudSearch-exists" class="parent">Exists</a>
+            <a href="#CloudSearch-doesNotExists" class="parent">Does not exist</a>
+            <a href="#CloudSearch-search" class="parent">Search</a>
           </span>
 
         </li>
@@ -147,36 +143,36 @@
         <li class="section section-charges"><a href="#ACL" class="parent">ACL</a>
           <span class="children">
             <a href="#ACL-constructor" class="parent">Constructor</a>
-            <a href="#ACL-setPublicWriteAccess" class="parent">ACL.setPublicWriteAccess()</a>
-            <a href="#ACL-setPublicReadAccess" class="parent">ACL.setPublicReadAccess()</a>
-            <a href="#ACL-setUserWriteAccess" class="parent">ACL.setUserWriteAccess()</a>
-            <a href="#ACL-setUserReadAccess" class="parent">ACL.setUserReadAccess()</a>
-            <a href="#ACL-setRoleWriteAccess" class="parent">ACL.setRoleWriteAccess()</a>
-            <a href="#ACL-setRoleReadAccess" class="parent">ACL.setRoleReadAccess()</a>
+            <a href="#ACL-setPublicWriteAccess" class="parent">Public Write Access</a>
+            <a href="#ACL-setPublicReadAccess" class="parent">Public Read Access</a>
+            <a href="#ACL-setUserWriteAccess" class="parent">User Write Access</a>
+            <a href="#ACL-setUserReadAccess" class="parent">User Read Access</a>
+            <a href="#ACL-setRoleWriteAccess" class="parent">Role Write Access</a>
+            <a href="#ACL-setRoleReadAccess" class="parent">Role Read Access</a>
           </span>
         </li>
         <li class="section section-charges"><a href="#CloudUser" class="parent">CloudUser</a>
           <span class="children">
             <a href="#CloudUser-constructor" class="parent">Constructor</a>
-            <a href="#CloudUser-signUp" class="parent">CloudUser.signUp()</a>
-            <a href="#CloudUser-logIn" class="parent">CloudUser.logIn()</a>
-            <a href="#CloudUser-logOut" class="parent">CloudUser.logOut()</a>
-            <a href="#CloudUser-addToRole" class="parent">CloudUser.addToRole()</a>
-            <a href="#CloudUser-isInRole" class="parent">CloudUser.isInRole()</a>
-            <a href="#CloudUser-removeFromRole" class="parent">CloudUser.removeFromRole()</a>
+            <a href="#CloudUser-signUp" class="parent">Signup</a>
+            <a href="#CloudUser-logIn" class="parent">Login</a>
+            <a href="#CloudUser-logOut" class="parent">Logout</a>
+            <a href="#CloudUser-addToRole" class="parent">Add To Role</a>
+            <a href="#CloudUser-isInRole" class="parent">Is In Role</a>
+            <a href="#CloudUser-removeFromRole" class="parent">Remove from Role</a>
           </span>
         </li>
         <li class="section section-charges"><a href="#CloudRole" class="parent">CloudRole</a>
           <span class="children">
             <a href="#CloudRole-constructor" class="parent">Constructor</a>
-            <a href="#CloudRole-getRole" class="parent">CloudRole.getRole()</a>
+            <a href="#CloudRole-getRole" class="parent">Get Role</a>
           </span>
         </li>
         <li class="section section-charges"><a href="#CloudFile" class="parent">CloudFile</a>
           <span class="children">
             <a href="#CloudFile-constructor" class="parent">Constructor</a>
-            <a href="#CloudFile-save" class="parent">CloudFile.save()</a>
-            <a href="#CloudFile-delete" class="parent">CloudFile.delete()</a>
+            <a href="#CloudFile-save" class="parent">Save</a>
+            <a href="#CloudFile-delete" class="parent">Delete</a>
           </span>
         </li>
       </ul>
@@ -206,9 +202,9 @@
             </div>
             <div class="method-example" id="api-summary-example">
 
-              <h3>API Endpoint</h3>
+              <h3>JavaScript SDK</h3>
               <a href="https://api.cloudboost.io">
-                <code>https://api.cloudboost.io</code>
+                <code>https://api.cloudboost.io/sdk/js/1.0.0</code>
               </a>
 
             </div>
@@ -1053,6 +1049,14 @@ student.save({
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var query = new CB.CloudQuery("Student");
 query.equalTo('age', 21); //find all Students who age is 21
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1087,7 +1091,15 @@ query.equalTo('age', 21); //find all Students who age is 21
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var query = new CB.CloudQuery("Student");
 //Get Student where name is equal to Smith, Max or Lucy
-query.containedIn('name', ['Smith', 'Max', 'Lucy']); 
+query.containedIn('name', ['Smith', 'Max', 'Lucy']);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+}); 
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1122,7 +1134,14 @@ query.containedIn('name', ['Smith', 'Max', 'Lucy']);
 var query = new CB.CloudQuery("Student");
 //find Students who are in JavaScript and C# class
 query.containsAll('classes', ['JavaScript', 'C#']);
-
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1158,6 +1177,14 @@ query.containsAll('classes', ['JavaScript', 'C#']);
 var query = new CB.CloudQuery("Student");
 //find all the Students who name starts with letter 'S'
 query.startsWith('name', 'S');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1193,6 +1220,14 @@ query.startsWith('name', 'S');
 var query = new CB.CloudQuery("Student");
 //find all Students info except of Smith
 query.notEqualTo('name', 'Smith');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1228,7 +1263,14 @@ query.notEqualTo('name', 'Smith');
 var query = new CB.CloudQuery("Student");
 //Get all Students except Smith, Max and Lucy
 query.notContainedIn('name', ['Smith', 'Max', 'Lucy']);
-
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1263,7 +1305,14 @@ query.notContainedIn('name', ['Smith', 'Max', 'Lucy']);
 var query = new CB.CloudQuery("Teacher");
 //find all the teachers who are old.
 query.greaterThan('age', 60);
-
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1298,7 +1347,14 @@ query.greaterThan('age', 60);
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var query = new CB.CloudQuery("Teacher");
 query.greaterThanEqualTo('age', 60);
-
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1333,6 +1389,14 @@ query.greaterThanEqualTo('age', 60);
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var query = new CB.CloudQuery("Student");
 query.lessThan('age', 18);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1367,6 +1431,14 @@ query.lessThan('age', 18);
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var query = new CB.CloudQuery("Student");
 query.lessThanEqualTo('age', 17);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1414,7 +1486,15 @@ query1.lessThan('age', 18);
 var query2 = new CB.CloudQuery('Student');
 query2.greaterThan('age', 10);
 
-var query = CB.CloudQuery.or(query1, query2);</span></span></code>
+var query = CB.CloudQuery.or(query1, query2);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
               
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1445,7 +1525,15 @@ var query = CB.CloudQuery.or(query1, query2);</span></span></code>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var query = new CB.CloudQuery("Student");
-query.orderByAsc('age');</span></span></code>
+query.orderByAsc('age');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-orderByDesc' name="CloudQuery-orderByDesc" class="section-anchor">&nbsp;</a>
@@ -1475,7 +1563,15 @@ query.orderByAsc('age');</span></span></code>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var query = new CB.CloudQuery("Student");
-query.orderByDesc('age');</span></span></code>
+query.orderByDesc('age');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-setLimit' name="CloudQuery-setLimit" class="section-anchor">&nbsp;</a>
@@ -1508,7 +1604,15 @@ query.orderByDesc('age');</span></span></code>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var query = new CB.CloudQuery("Student");
-query.setLimit(5);</span></span></code>
+query.setLimit(5);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-setSkip' name="CloudQuery-setSkip" class="section-anchor">&nbsp;</a>
@@ -1544,7 +1648,15 @@ query.setLimit(5);</span></span></code>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var query = new CB.CloudQuery("Student");
-query.setSkip(5);</span></span></code>
+query.setSkip(5);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-selectColumn' name="CloudQuery-selectColumn" class="section-anchor">&nbsp;</a>
@@ -1578,7 +1690,15 @@ query.setSkip(5);</span></span></code>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("Student");
-query.selectColumn(['name', 'age']);</span></span></code>
+query.selectColumn(['name', 'age']);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-doNotSelectColumn' name="CloudQuery-doNotSelectColumn" class="section-anchor">&nbsp;</a>
@@ -1608,7 +1728,15 @@ query.selectColumn(['name', 'age']);</span></span></code>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("Student");
 query.greaterThan('age', 18);
-query.doNotSelectColumn('address');</span></span></code>
+query.doNotSelectColumn('address');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-exists' name="CloudQuery-exists" class="section-anchor">&nbsp;</a>
@@ -1637,7 +1765,15 @@ query.doNotSelectColumn('address');</span></span></code>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var query = new CB.CloudQuery("Student");
-query.exists('address');</span></span></code>
+query.exists('address');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-doesNotExists' name="CloudQuery-doesNotExists" class="section-anchor">&nbsp;</a>
@@ -1667,7 +1803,15 @@ query.exists('address');</span></span></code>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var query = new CB.CloudQuery("Student");
-query.doesNotExists('address');</span></span></code>
+query.doesNotExists('address');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
@@ -2166,6 +2310,14 @@ cs.search({
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Student");
 cs.equalTo('age', 21); //find all Students who age is 21
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2203,6 +2355,14 @@ cs.equalTo('age', 21); //find all Students who age is 21
 var cs = new CB.CloudSearch("Student");
 //find all Students info except of Smith
 cs.notEqualTo('name', 'Smith');
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2238,7 +2398,14 @@ cs.notEqualTo('name', 'Smith');
 var cs = new CB.CloudSearch("Teacher");
 //find all the teachers who are old.
 cs.greaterThan('age', 60);
-
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2274,7 +2441,14 @@ cs.greaterThan('age', 60);
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Teacher");
 cs.greaterThanEqualTo('age', 60);
-
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2309,6 +2483,14 @@ cs.greaterThanEqualTo('age', 60);
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Student");
 cs.lessThan('age', 18);
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2345,6 +2527,14 @@ cs.lessThan('age', 18);
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Student");
 cs.lessThanEqualTo('age', 17);
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2391,6 +2581,14 @@ cs2.greaterThan('age', 10);
 cs1.searchOn('name', 'Dan');
 
 var cs = CB.CloudSearch.or(cs1, cs2);
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
 </span></span></code>
               
             </div><!-- method-example -->
@@ -2422,7 +2620,15 @@ var cs = CB.CloudSearch.or(cs1, cs2);
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Student");
-cs.orderByAsc('age');</span></span></code>
+cs.orderByAsc('age');
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudSearch-orderByDesc' name="CloudSearch-orderByDesc" class="section-anchor">&nbsp;</a>
@@ -2452,7 +2658,15 @@ cs.orderByAsc('age');</span></span></code>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Student");
-cs.orderByDesc('age');</span></span></code>
+cs.orderByDesc('age');
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudSearch-setLimit' name="CloudSearch-setLimit" class="section-anchor">&nbsp;</a>
@@ -2485,7 +2699,15 @@ cs.orderByDesc('age');</span></span></code>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Student");
-cs.setLimit(5);</span></span></code>
+cs.setLimit(5);
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudSearch-setSkip' name="CloudSearch-setSkip" class="section-anchor">&nbsp;</a>
@@ -2516,7 +2738,15 @@ cs.setLimit(5);</span></span></code>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Student");
-cs.setSkip(5);</span></span></code>
+cs.setSkip(5);
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           
@@ -2547,7 +2777,15 @@ cs.setSkip(5);</span></span></code>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Student");
-cs.exists('address');</span></span></code>
+cs.exists('address');
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudSearch-doesNotExists' name="CloudSearch-doesNotExists" class="section-anchor">&nbsp;</a>
@@ -2577,7 +2815,15 @@ cs.exists('address');</span></span></code>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Student");
-cs.doesNotExists('address');</span></span></code>
+cs.doesNotExists('address');
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
@@ -2612,7 +2858,7 @@ cs.doesNotExists('address');</span></span></code>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-cloudSearch.search({
+cs.search({
   success: function(list){
     //list is an array of CloudObjects 
   },
@@ -2774,18 +3020,18 @@ obj.save({
             </div>
             <div class="method-example" id="api-summary-example">
              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-              var obj = new CB.CloudObject("Student");
-              obj.ACL = new CB.ACL();
-              obj.ACL.setUserWriteAccess('idOfTheUser',true);
+var obj = new CB.CloudObject("Student");
+obj.ACL = new CB.ACL();
+obj.ACL.setUserWriteAccess('idOfTheUser',true);
 
-              obj.save({
-                success: function(obj) {
-                  //Saving successfull
-                },
-                error: function(err) {
-                  //Error occured in saving the object
-                }
-              });
+obj.save({
+  success: function(obj) {
+    //Saving successfull
+  },
+  error: function(err) {
+    //Error occured in saving the object
+  }
+});
 
               </span></span></code>
                 
@@ -2819,19 +3065,19 @@ obj.save({
             </div>
             <div class="method-example" id="api-summary-example">
                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-              var obj = new CB.CloudObject("Student");
-              obj.ACL = new CB.ACL();
+var obj = new CB.CloudObject("Student");
+obj.ACL = new CB.ACL();
 
-              obj.ACL.setUserReadAccess('idOfTheUser',true);
+obj.ACL.setUserReadAccess('idOfTheUser',true);
 
-              obj.save({
-                success: function(obj) {
-                  //Saving successfull
-                },
-                error: function(err) {
-                  //Error occured in saving the object
-                }
-              });
+obj.save({
+  success: function(obj) {
+    //Saving successfull
+  },
+  error: function(err) {
+    //Error occured in saving the object
+  }
+});
 
               </span></span></code>
             </div><!-- method-example -->
