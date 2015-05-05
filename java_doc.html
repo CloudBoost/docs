@@ -482,7 +482,7 @@ String name = obj.get("name");
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudObject.unset( <code>columnName</code> )</h3>
+              <h3>CloudObject.unset( <code>columnName, [callback]</code> )</h3>
               <p>
               Sets the value of an column of a <code>CloudObject</code> object to <code>null</code>.
               </p>
@@ -494,6 +494,7 @@ String name = obj.get("name");
                   <dt>columnName</dt>
                   <dd class="">string <span>The name of the column which is to be unset.</span></dd>
                   <div class="clearfix"></div>
+                  
 
                 </dl>
 
@@ -521,7 +522,11 @@ obj.get("name"); //returns null.
               Saves the <code>CloudObject</code> object to CloudBoost.
               </p>
               <div class="method-list">
-                
+              <h6>Argument</h6>
+                <dl class="argument-list">
+                <dt>callback</dt>
+                  <dd class="">Callback interface object <span>Override the success and error method. both method do not take any argument.</span></dd>
+                  <div class="clearfix"></div>
                 <h6>Error Handling</h6>
                 <p>It throws <code>CloudBoostException</code></p>
                 
@@ -536,8 +541,22 @@ obj.get("name"); //returns null.
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 CloudObject obj = new CloudObject("Student");
 obj.set("name", "Smith");
+
+//without callback
 obj.save();
-//your data will save in background
+
+//with callback
+Callback callbackObj = new Callback(){
+	@Override
+	public void success() {
+		System.out.println("success message");
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+obj.save(callbackObj);
 </span></span></span></code>
 
             </div><!-- method-example -->
@@ -2474,7 +2493,7 @@ searchResultList = cs.search();
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudSearch.search( )</h3>
+              <h3>CloudSearch.search(<code>[callback]</code> )</h3>
               <p>
                 Searches the database on the constraints provided by the <code>CloudSearch</code>
                 object and gets the result as an array of <code>CloudObject</code> objects.
@@ -2484,8 +2503,15 @@ searchResultList = cs.search();
               then at max 20 documents are returned in each query by default.
               </p>
               <div class="method-list">
-              </dl>
+              
+				<h6>Argument</h6>
+                <dl class="argument-list">
 
+                  <dt>callback</dt>
+                  <dd class="">CloudSearchCallback interface object <span>must override success(Map&lt;String, Object &gt;) method and error method</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
                 <h6>Returns</h6>
                 <p>It returns an array of <code>CloudObject</code> objects.</p>
                 <h6>Error Handling</h6>
@@ -2494,7 +2520,23 @@ searchResultList = cs.search();
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-cs.search();</span></span></code>
+Map&lt;String, Object &gt; list;
+//without callback 
+list = cs.search();
+//with callback
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
       </div>
