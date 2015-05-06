@@ -3686,7 +3686,7 @@ var documentFile = new Blob([
 var file = new CB.CloudFile(documentFile);
 
 file.save({
-  success: function(roleObj) {
+  success: function(obj) {
     //got the file object successfully with the url to the file
   },
   error: function(err) {
@@ -3701,7 +3701,7 @@ file.save({
 
               <h3>CloudFile.delete( <code>[callback]</code> )</h3>
               <p>
-              Saves the <code>CloudFile</code> object.
+              Deletes the <code>CloudFile</code> object.
               </p>
               <div class="method-list">
                 
@@ -3729,15 +3729,21 @@ var documentFile = new Blob([
               type : 'text/plain'
             });
 var file = new CB.CloudFile(documentFile);
-
-file.delete({
-  success: function(roleObj) {
-    //file deletion successfull
-  },
-  error: function(err) {
-    //error in deleting file
+file.save({
+  success: function(obj) {
+    //got the file object successfully with the url to the file
+    file.delete({
+  	  success: function(obj) {
+    	//file deletion successful
+  	  },error: function(err) {
+    	//error in deleting file
+  	  }
+	});
+  },error: function(err) {
+    //error in uploading file
   }
-});</span></span></code>
+});
+</span></span></code>
             </div><!-- method-example -->
                   <div class="clearfix"></div>
             
