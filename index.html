@@ -34,7 +34,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
         </div>
         <ul class="global">
           <li><a href="https://docs.cloudboost.io" class="selected">Documentation</a></li>
-          <li><a href="https://www.cloudboost.io/contact">Help &amp; Support</a></li>
+          <li><a href="http://stackoverflow.com/questions/ask?tags=cloudboost">Help &amp; Support</a></li>
         </ul>
       </div>
     </div>
@@ -45,9 +45,9 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
         <li class="section">
           <a href="#Introduction" class="parent viewing">Introduction</a>
         </li>
-        <li class="section">
+        <!--<li class="section">
           <a href="#Dependencies" class="parent">Dependencies</a>
-        </li>
+        </li>-->
         <li class="section">
           <a href="#Apps" class="parent">Apps</a>
         </li>
@@ -244,22 +244,6 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
         </div>
 
         <div class="method">
-          <a id='Dependencies' name="Dependencies" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h1>Dependencies</h1>
-              <p>
-              Our javascript SDK does not require any external libraries except
-              <a href="http://code.jquery.com/jquery-1.11.2.js">JQuery</a> framework which is used for promises and making API requests. We recommend, before you install CloudBoost JavaScript SDK, install JQuery first.
-              </p>
-
-            </div>
-            <div class="method-example" id="api-summary-example">
-            </div> <!-- method-example -->
-          </div> <!-- method-section -->
-        </div> <!-- method -->
-        <div class="method">
           <a id='Apps' name="Apps" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -295,7 +279,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudApp.init( <code>appId, appKey,  [callback]</code> )</h3>
+              <h3>CloudApp.init( <code>appId, appKey</code> )</h3>
               <p>
               Initialises the app.
               </p>
@@ -315,14 +299,11 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
                   <dt>appKey</dt>
                   <dd class="">Client/Master key <span>unique for your app</span></dd>
                   <div class="clearfix"></div>
-                  <dt>callback</dt>
-                  <dd class="">Object <span>[optional] if provided must have <code>success</code> 
-                  and <code>error</code> functions to handle respective response.</span></dd>
-                  <div class="clearfix"></div>
+                 
                 </dl>
 
                 <h6>Returns</h6>
-                <p>It returns JQuery promise, if <code>callback</code> is not specified</p>
+                <p>It returns void</p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
