@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <title>CloudBoost SDK Reference</title>
     <link rel="stylesheet" type="text/css" href="assets/site.css" media="screen" />
-
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <script src="assets/qframe.js"></script>
 
     <script src="assets/jquery.js"></script>
@@ -109,7 +109,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudQuery-doesNotExists" class="parent">Does not exist</a>
             <a href="#CloudQuery-find" class="parent">Find</a>
             <a href="#CloudQuery-findOne" class="parent">Find One</a>
-            <a href="#CloudQuery-get" class="parent">Get</a>
+            <a href="#CloudQuery-get" class="parent">Find By Id</a>
             <a href="#CloudQuery-count" class="parent">Count</a>
             <a href="#CloudQuery-distinct" class="parent">Distinct</a>
               <a href="#CloudQuery-include" class="parent">Include</a>
@@ -299,7 +299,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
                   <dt>appKey</dt>
                   <dd class="">Client/Master key <span>unique for your app</span></dd>
                   <div class="clearfix"></div>
-                 
+
                 </dl>
 
                 <h6>Returns</h6>
@@ -876,15 +876,14 @@ student.save({
 var teacher = new CB.CloudObject("Teacher"); 
 var course = new CB.CloudObject("Course"); 
 
-//here one teacher be assigned to many courses. 
-//address column of Student Table is pointed to the Address Table with unique set to true.
+//here one teacher can be assigned to many courses.
 
-course.set('teacher', address); 
+course.set('teacher', teacher);
 
-student.save({
+course.save({
 
-  success : function(student){
-    //saved student with address. 
+  success : function(course){
+    //saved course with teacher.
   }, 
 
   error : function(err){
@@ -1103,7 +1102,7 @@ query.find({
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var query = new CB.CloudQuery("Student");
-//Get Student where name is equal to Smith, Max or Lucy
+//Get Student where name is equal to Smith, Max <b>OR</b> Lucy
 query.containedIn('name', ['Smith', 'Max', 'Lucy']);
 query.find({
   success: function(list){
@@ -1145,7 +1144,7 @@ query.find({
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var query = new CB.CloudQuery("Student");
-//find Students who are in JavaScript and C# class
+//find Students who are in JavaScript <b>AND</b> C# class
 query.containsAll('classes', ['JavaScript', 'C#']);
 query.find({
   success: function(list){
@@ -1920,7 +1919,7 @@ query.find({
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.get( <code>id,  [callback]</code> )</h3>
+              <h3>CloudQuery.findById( <code>id,  [callback]</code> )</h3>
               <p>
                 Queries the database gets a <code>CloudObject</code> object whose <i>id</i> field
                 matches <code>id</code>.
@@ -1950,7 +1949,7 @@ query.find({
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 //retrieve a Student detail by his unique ID
-query.get('54e837d6d51a5ea011aa79ea', {
+query.findById('54e837d6d51a5ea011aa79ea', {
   success: function(obj){
     //obj an instance of CloudObject
   },
