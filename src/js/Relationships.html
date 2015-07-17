@@ -1,0 +1,176 @@
+ <div class="method">
+          <a id='Relationships' name="Relationships" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h1>Relationships</h1>
+
+              <p>
+                This section is dedicated to modelling relationships with CloudBoost.
+              </p>
+              <p>
+                There are usually three types of relationships. 
+                <ul>
+                  <li> 
+                    One-to-One Relationship
+                  </li>
+                  <li> 
+                    One-to-many Relationship
+                  </li>
+                  <li> 
+                    Many-to-many Relationship
+                  </li>
+                </ul>
+              </p>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div> <!-- method-example -->
+          </div><!-- method-section -->
+
+          <a id='Relationships-oneToOne' name="Relationships-oneToOne" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>One-to-One Relationship</h3>
+              <p>
+                If you want to model one-to-one relationship. Then you need to create a new column of type <code> Relation </code> pointed to a table which you want it to be related to and set that column <code> Unique </code> property to true.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var student = new CB.CloudObject("Student"); 
+var address = new CB.CloudObject("Address"); 
+
+//here one student can only have one address for example. 
+//address column of Student Table is pointed to the Address Table with unique set to true.
+student.set('address', address); 
+
+student.save({
+  success : function(student){
+    //saved
+  }, error : function(err){
+    //error
+  }
+});
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='Relationships-oneToMany' name="Relationships-oneToMany" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>One-to-Many Relationship</h3>
+               <p>
+                If you want to model one-to-many relationship. Then you need to create a new column of type <code> Relation </code> pointed to a table which you want it to be related to and set that column <code> Unique </code> property to false.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var teacher = new CB.CloudObject("Teacher"); 
+var course = new CB.CloudObject("Course"); 
+
+//here one teacher can be assigned to many courses.
+
+course.set('teacher', teacher);
+
+course.save({
+  success : function(course){
+    //saved course with teacher.
+  }, error : function(err){
+    //error
+  }
+
+});
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='Relationships-manyToMany' name="Relationships-manyToMany" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Many-to-Many Relationship</h3>
+               <p>
+                If you want to model many-to-many relationship. Then you have two options<br/>
+                <ol>
+                  <li><b>#1 - Relation </b></li>
+                  <li><b>#2 - List </b></li>
+                </ol>
+                <br/><br/>
+                We will discuss both of these options below. <br/><br/><br/>
+
+                <h4>Relation :</h4>
+                <p> This option is recommended only if you have huge number of relationships assigned to any one object. </p>
+                <p> This relationship can be created by creating a third table and having two columns that are relatied to tables you want to have many to many relationships on.  </p>
+
+                <br/><br/><br/><br/><br/><br/><br/><br/>
+
+                <h4>List Option</h4>
+                <p> This option is recommended only if you have small number of relationships assigned to any one object. </p>
+                <p> This relationship can be created by creating an array and having related objects pushed to that array and having that array saved in any column of the table. </p>
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+
+
+
+
+
+
+
+//Type #1 : Relation Option
+var student = new CB.CloudObject("Student"); 
+var course = new CB.CloudObject("Teacher"); 
+
+//here one student be into many courses, and vice versa. 
+var studentCourse = new CB.CloudObject('StudentCourse');
+studentCourse.set('student', student);
+studentCourse.set('teacher', teacher); 
+
+studentCourse.save({
+  success : function(studentCourse){
+    //saved studentCourse with two related objects. 
+  },  error : function(err){
+    //error
+  }
+
+});
+
+
+
+
+//Type #2 : List Option.
+
+var student = new CB.CloudObject("Student"); 
+
+//create an array. 
+var courseList = [];
+
+//a new course
+var course = new CB.CloudObject("Course"); 
+
+//add it to the list. You can push any number of objects you need. 
+courseList.push(course);
+
+//here one student be into many courses, and vice versa. 
+student.set('courses', courseList); 
+
+//save
+student.save({
+  success : function(student){
+    //saved student with two related objects. 
+  }, error : function(err){
+    //error
+  }
+});
+
+
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+        </div>

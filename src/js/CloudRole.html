@@ -1,0 +1,108 @@
+<a id='CloudRole' name="CloudRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h1>CB.CloudRole</h1>
+              <p>
+                As your app grows in scope and user-base, you may find yourself needing more 
+                coarse-grained control over access to pieces of your data than user-linked ACLs
+                can provide. To address this requirement, CloudBoost supports a form of Role-based 
+                Access Control. Roles provide a logical way of grouping users with common access 
+                privileges to your CB data. Roles are named objects that contain users and other 
+                roles. Any permission granted to a role is implicitly granted to its users as 
+                well as to the users of any roles that it contains.
+              </p>
+              <p>
+                We provide a specialized class called <code>CB.CloudRole</code> that represents these role 
+                objects in your client code. <code>CB.CloudRole</code> is a subclass of <code>CB.CloudObject</code>, 
+                and has all of the same features, such as a flexible schema, automatic 
+                persistence, and a key value interface. All the methods that are on <code>CB.CloudObject</code> 
+                also exist on <code>CB.CloudRole</code>. The difference is that <code>CB.CloudRole</code> has some additions 
+                specific to management of roles.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div>
+          </div>
+          <a id='CloudRole-constructor' name="CloudRole-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudRole</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>roleName</dt>
+                  <dd class="">string <span>The name of the role you want to deal with</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var role = new CB.CloudRole("Student");</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudRole-getRole' name="CloudRole-getRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudRole.getRole( <code>role , [callback]</code> )</h3>
+              <p>
+              Gets a <code>CloudRole</code> object for a given <code>role</code> object with <i>name</i>
+              field only.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>role</dt>
+                  <dd class="">CloudRole object <span>The name of the role you want to deal with</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudRole</code> object having the role information of the role whose name was 
+                provided in the object of <code>role</code> argument otherwise an error object along with JQuery 
+                promise (if <code>callback</code> is not provided).
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var role = new CB.CloudRole("my-collaborator");
+
+CB.CloudRole.getRole(role, {
+  success: function(roleObj) {
+    //got the role object successfully
+  },
+  error: function(err) {
+    //error in fetching role object
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudFile' name="CloudFile" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h1>CB.CloudFile</h1>
+              <p>
+                CB.CloudFile lets you store application files in the cloud that would otherwise be too large or 
+                cumbersome to fit into a regular <code>CB.CloudObject</code>. The most common use case is storing images, 
+                but you can also use it for documents, videos, music, and any other binary data.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div>
+          </div>

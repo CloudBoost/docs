@@ -4,6 +4,9 @@
   "dependencies": {
     "express": "^4.12.3",
     "express-seojs": "0.0.5",
+    "grunt": "^0.4.5",
+    "grunt-connect": "^0.2.0",
+    "grunt-contrib-concat": "^0.5.1",
     "prerender-node": "^1.2.1"
   }
 }
