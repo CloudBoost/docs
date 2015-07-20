@@ -1,6 +1,7 @@
   <!-- CloudNotifications  --> 
 
         <div class="method">
+
              <a id='CloudNotifcations' name="CloudNotifcations" class="section-anchor">&nbsp;</a>
             <div class="method-section">
               <div class="method-description">
@@ -19,7 +20,7 @@
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudNotification.on( <code>channelName, functionToFire, callback</code> )</h3>
+              <h3>CloudNotification.on( <code>channelName, functionToFire, [callback]</code> )</h3>
               <p>
               Listens to notification channels.
               </p>
@@ -45,18 +46,9 @@
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CB.CloudNotification.on('sample',function(data){
+CB.CloudNotification.on('Sample',function(data){
   console.log(data);
-}, {
-  success : function(){
-    //succesfully subscribed. 
-  }, 
-  error : function(err){
-    //error
-  }
 });
-
-
               </span></span></code>
 
             </div><!-- method-example -->
@@ -68,7 +60,7 @@ CB.CloudNotification.on('sample',function(data){
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudNotification.publish( <code>channelName, data, callback</code> )</h3>
+              <h3>CloudNotification.publish( <code>channelName, data, [callback]</code> )</h3>
               <p>
               Publishes data to notification channels.
               </p>
@@ -94,18 +86,8 @@ CB.CloudNotification.on('sample',function(data){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CB.CloudNotification.publish('sample','data', {
-  success : function(){
-    //succesfully published. 
-  }, 
-  error : function(err){
-    //error
-  }
-});
-
-
+CB.CloudNotification.publish('sample','data');
               </span></span></code>
-
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
@@ -114,9 +96,9 @@ CB.CloudNotification.publish('sample','data', {
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudNotification.off( <code>channelName, callback</code> )</h3>
+              <h3>CloudNotification.off( <code>channelName, [callback]</code> )</h3>
               <p>
-              Stops listening to notification channels.
+              Stops listening to notification channel.
               </p>
               <div class="method-list">
                 
@@ -137,17 +119,8 @@ CB.CloudNotification.publish('sample','data', {
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CB.CloudNotification.off('sample', {
-  success : function(){
-    //succesfully stopped listening. 
-  }, 
-  error : function(err){
-    //error
-  }
-});
-
-
-              </span></span></code>
+CB.CloudNotification.off('sample');
+</span></span></code>
 
             </div><!-- method-example -->
           </div> <!-- method-section -->

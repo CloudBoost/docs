@@ -216,50 +216,7 @@ query.find({
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-          <a id='CloudQuery-startsWith' name="CloudQuery-startsWith" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
 
-              <h3>CloudQuery.startsWith( <code>columnName, data</code> )</h3>
-              <p>
-              It adds a contriant to find the data in which value of <code>columnName</code>
-              of each data is starts with <code>data</code>.
-              </p>
-              <div class="method-list">
-                
-                <h6>Arguments</h6>
-                <dl class="argument-list">
-
-                  <dt>columnName</dt>
-                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
-                  <div class="clearfix"></div>
-                  <dt>data</dt>
-                  <dd class="">string <span>The value that is to be checked with.</span></dd>
-                  <div class="clearfix"></div>
-
-                </dl>
-
-                <h6>Returns</h6>
-                <p>Same query object, which can be helpful in chaining query functions.</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var query = new CB.CloudQuery("Student");
-//find all the Students who name starts with letter 'S'
-query.startsWith('name', 'S');
-query.find({
-  success: function(list){
-    //list is an array of CloudObjects 
-  },
-  error: function(err) {
-    //Error in retrieving the data.
-  }
-});
-</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-         
           <a id='CloudQuery-notContainedIn' name="CloudQuery-notContainedIn" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -303,6 +260,7 @@ query.find({
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+          
           <a id='CloudQuery-greaterThan' name="CloudQuery-greaterThan" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -475,6 +433,51 @@ query.find({
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+
+           <a id='CloudQuery-startsWith' name="CloudQuery-startsWith" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.startsWith( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant to find the data in which value of <code>columnName</code>
+              of each data is starts with <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string <span>The value that is to be checked with.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+//find all the Students who name starts with letter 'S'
+query.startsWith('name', 'S');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
           <a id='CloudQuery-or' name="CloudQuery-or" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -883,7 +886,8 @@ query.find({
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">query.find({
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+query.find({
   success: function(list){
     //list is an array of CloudObjects 
   },
@@ -926,7 +930,8 @@ query.find({
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">query.findOne({
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+query.findOne({
   success: function(obj){
     //obj is an instance of CloudObject
   },
@@ -970,7 +975,7 @@ query.find({
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 //retrieve a Student detail by his unique ID
-query.findById('54e837d6d51a5ea011aa79ea', {
+query.findById('xxxxx', {
   success: function(obj){
     //obj an instance of CloudObject
   },
@@ -1009,7 +1014,7 @@ query.findById('54e837d6d51a5ea011aa79ea', {
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//fetch how many Students are there who age&gt;18
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 query.count({
   success: function(count){
     //count is the count of data which belongs to the query
@@ -1057,14 +1062,14 @@ query.count({
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-                query.distinct('address', {
-                  success: function(data){
-                    //data is an array of document(s)
-                  },
-                  error: function(err) {
-                    //Error in retrieving the data.
-                  }
-                });</span></span></code>
+query.distinct('address', {
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
         </div><!-- method -->
@@ -1107,4 +1112,4 @@ query.find({
 });</span></span></code>
               </div><!-- method-example -->
           </div> <!-- method-section -->
-          <!-- </div> method -->
+          </div> 

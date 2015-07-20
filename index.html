@@ -75,6 +75,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudObject-on" class="parent">On</a>
             <a href="#CloudObject-off" class="parent">Off</a>
             <a href="#CloudObject-expires" class="parent">Expires</a>
+            <a href="#CloudObject-expires" class="parent">Relate</a>
           </span>
         </li>
         <li class="section section-charges"><a href="#Relationships" class="parent">Relationships</a>
@@ -82,6 +83,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#Relationships-oneToOne" class="parent">One-to-One</a>
             <a href="#Relationships-oneToMany" class="parent">One-to-Many</a>
             <a href="#Relationships-manyToMany" class="parent">Many-to-many</a>
+            <a href="#Relationships-query" class="parent">Query on Relationships</a>
           </span>
         </li>
 
@@ -90,20 +92,21 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
           <span class="children">
             <a href="#CloudQuery-constructor" class="parent">Constructor</a>
             <a href="#CloudQuery-equalTo" class="parent">Equal To</a>
+            <a href="#CloudQuery-notEqualTo" class="parent">Not Equal To</a>
             <a href="#CloudQuery-containedIn" class="parent">Contained In</a>
             <a href="#CloudQuery-containsAll" class="parent">Contains All</a>
-            <a href="#CloudQuery-startsWith" class="parent">Starts With</a>
-            <a href="#CloudQuery-notEqualTo" class="parent">Not Equal To</a>
             <a href="#CloudQuery-notContainedIn" class="parent">Not Contained In</a>
             <a href="#CloudQuery-greaterThan" class="parent">Greater Than</a>
             <a href="#CloudQuery-greaterThanEqualTo" class="parent">Greater Than and Equal To</a>
             <a href="#CloudQuery-lessThan" class="parent">Less Than</a>
             <a href="#CloudQuery-lessThanEqualTo" class="parent">Less than and equal to</a>
+            <a href="#CloudQuery-startsWith" class="parent">Starts With</a>
             <a href="#CloudQuery-or" class="parent">Or</a>
             <a href="#CloudQuery-orderByAsc" class="parent">Order by</a>
             <a href="#CloudQuery-setLimit" class="parent">Limit</a>
             <a href="#CloudQuery-setSkip" class="parent">Skip</a>
             <a href="#CloudQuery-selectColumn" class="parent">Select Column</a>
+            <a href="#CloudQuery-doNotSelectColumn" class="parent">Do Not Select Column</a>
             <a href="#CloudQuery-exists" class="parent">Exists</a>
             <a href="#CloudQuery-doesNotExists" class="parent">Does not exist</a>
             <a href="#CloudQuery-find" class="parent">Find</a>
@@ -111,7 +114,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudQuery-get" class="parent">Find By Id</a>
             <a href="#CloudQuery-count" class="parent">Count</a>
             <a href="#CloudQuery-distinct" class="parent">Distinct</a>
-              <a href="#CloudQuery-include" class="parent">Include</a>
+            <a href="#CloudQuery-include" class="parent">Include</a>
           </span>
         </li>
 
@@ -127,36 +130,53 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
 
           <span class="children">
             <a href="#CloudSearch-constructor" class="parent">Constructor</a>
-            <a href="#CloudSearch-searchOn" class="parent">Search On</a>
-            <a href="#CloudSearch-equalTo" class="parent">Equal To</a>
-            <a href="#CloudSearch-notEqualTo" class="parent">Not Equal To</a>
-            <a href="#CloudSearch-greaterThan" class="parent">Greater Than</a>
-            <a href="#CloudSearch-greaterThanEqualTo" class="parent">Greater Than and Equal To</a>
-            <a href="#CloudSearch-lessThan" class="parent">Less Than</a>
-            <a href="#CloudSearch-lessThanEqualTo" class="parent">Less than and equal to</a>
-            <a href="#CloudSearch-or" class="parent">OR</a>
+            
+            <a href="#sq-constructor" class="parent">Query : Constructor</a>
+            <a href="#sq-searchOn" class="parent">Query : Search On</a>
+            <a href="#sq-phrase" class="parent">Query : Phrase</a>
+            <a href="#sq-bestColumns" class="parent">Query : Best Columns</a>
+            <a href="#sq-mostColumns" class="parent">Query : Most Columns</a>
+            <a href="#sq-prefix" class="parent">Query : StartsWith</a>
+            <a href="#sq-wildcard" class="parent">Query : Wildcard</a>
+            <a href="#sq-regexp" class="parent">Query : Regexp</a>
+            <a href="#sq-and" class="parent">Query : and</a>
+            <a href="#sq-or" class="parent">Query : or</a>
+            <a href="#sq-not" class="parent">Query : not</a>
+
+            <a href="#CloudSearch-constructor" class="parent">Filter : Constructor</a>
+            <a href="#CloudSearch-equalTo" class="parent">Filter : Equal To</a>
+            <a href="#CloudSearch-notEqualTo" class="parent">Filter : Not Equal To</a>
+            <a href="#CloudSearch-greaterThan" class="parent"> Filter : Greater Than</a>
+            <a href="#CloudSearch-greaterThanEqualTo" class="parent"> Filter : Greater Than and Equal To</a>
+            <a href="#CloudSearch-lessThan" class="parent"> Filter : Less Than</a>
+            <a href="#CloudSearch-lessThanEqualTo" class="parent"> Filter : Less than and equal to</a>
+            <a href="#CloudSearch-exists" class="parent"> Filter : Exists</a>
+            <a href="#CloudSearch-doesNotExists" class="parent"> Filter : Does not exist</a>
+            <a href="#CloudSearch-or" class="parent">Filter : or</a>
+            <a href="#CloudSearch-or" class="parent">Filter : and</a>
+            <a href="#CloudSearch-or" class="parent">Filter : not</a>
+
             <a href="#CloudSearch-orderByAsc" class="parent">Order by</a>
             <a href="#CloudSearch-setLimit" class="parent">Limit</a>
-            <a href="#CloudSearch-setSkip" class="parent">Skip</a>
-            <a href="#CloudSearch-exists" class="parent">Exists</a>
-            <a href="#CloudSearch-doesNotExists" class="parent">Does not exist</a>
+            <a href="#CloudSearch-setSkip" class="parent">Skip</a>            
             <a href="#CloudSearch-search" class="parent">Search</a>
-          </span>
 
+          </span>
         </li>
-          <li class="section section-charges"><a href="#CloudGeoPoint" class="parent">CloudGeoPoint</a>
+
+        <li class="section section-charges"><a href="#CloudGeoPoint" class="parent">CloudGeoPoint</a>
 
           <span class="children">
             <a href="#CloudGeoPoint-constructor" class="parent">Constructor</a>
               <a href="#CloudGeoPoint-dkm" class="parent">Distance In kilometers</a>
               <a href="#CloudGeoPoint-miles" class="parent">Distance In Miles</a>
               <a href="#CloudGeoPoint-radians" class="parent">Distance In Radians</a>
-            <a href="#CloudGeoPoint-save" class="parent">Save</a>
+              <a href="#CloudGeoPoint-save" class="parent">Save</a>
               <a href="#CloudGeoPoint-near" class="parent">Near</a>
               <a href="#CloudGeoPoint-geowithin" class="parent">GeoWithin</a>
           </span>
 
-          </li>
+        </li>
         
         <li class="section section-charges"><a href="#ACL" class="parent">ACL</a>
           <span class="children">
@@ -169,6 +189,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#ACL-setRoleReadAccess" class="parent">Role Read Access</a>
           </span>
         </li>
+        
         <li class="section section-charges"><a href="#CloudUser" class="parent">CloudUser</a>
           <span class="children">
             <a href="#CloudUser-constructor" class="parent">Constructor</a>
@@ -180,18 +201,33 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudUser-removeFromRole" class="parent">Remove from Role</a>
           </span>
         </li>
+        
         <li class="section section-charges"><a href="#CloudRole" class="parent">CloudRole</a>
           <span class="children">
             <a href="#CloudRole-constructor" class="parent">Constructor</a>
             <a href="#CloudRole-getRole" class="parent">Get Role</a>
           </span>
         </li>
+        
         <li class="section section-charges"><a href="#CloudFile" class="parent">CloudFile</a>
+        
           <span class="children">
             <a href="#CloudFile-constructor" class="parent">Constructor</a>
             <a href="#CloudFile-save" class="parent">Save</a>
             <a href="#CloudFile-delete" class="parent">Delete</a>
           </span>
+
+        </li>
+
+         <li class="section section-charges"><a href="#CloudFile" class="parent">JSON</a>
+        
+          <span class="children">
+            <a href="#CloudFile-constructor" class="parent">fromJSON</a>
+            <a href="#CloudFile-save" class="parent">toJSON</a>
+          </span>
+        </li>
+
+        <li class="section section-charges"><a href="#Contribute" class="parent">Contribute</a>
         </li>
       </ul>
 
@@ -762,6 +798,52 @@ CB.CloudObject.off('Student', //name of the table
             </div> <!-- method-section -->
 
         </div> <!-- method -->
+
+
+        <a id='CloudObject-expires' name="CloudObject-expires" class="section-anchor">&nbsp;</a>
+            <div class="method-section">
+                <div class="method-description">
+
+                    <h3>CloudObject.relate(<code>columnName,tableName,objectId</code>)</h3>
+                    <p>
+                        Relates a CloudObject which is already saved to this CloudObject. Can be used to relate objects together in a relation.
+                    </p>
+
+                     <div class="method-list">
+
+                   <h6>Argument</h6>
+
+                    <dl class="argument-list"> 
+                      <dt>columnName</dt>
+                      <dd class="">String <span> Name of the column of the current CloudObject.
+                       </span></dd>
+                      <div class="clearfix"></div>
+
+                      <dt>tableName</dt>
+                      <dd class="">String <span> Name of the table of the CloudObject which you want to relate to.
+                       </span></dd>
+                      <div class="clearfix"></div>
+
+                      <dt>objectId</dt>
+                      <dd class="">String <span> Id of the object which you want to relate to.
+                       </span></dd>
+                      <div class="clearfix"></div>
+                    
+                    </dl>
+
+                    <h6>Returns</h6>
+                    <p>void</p>
+
+              </div>
+                </div>
+                <div class="method-example" id="api-summary-example">
+                    <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+  var obj = new CB.CloudObject('Student');
+  obj.relate('teacher','Teacher','xxxxxx'); //relates the teacher in the Teacher table with id xxxxx to this student.
+</span></span></span></code>
+                </div><!-- method-example -->
+            </div> <!-- method-section -->
+
  <div class="method">
           <a id='Relationships' name="Relationships" class="section-anchor">&nbsp;</a>
           <div class="method-section">
@@ -888,12 +970,12 @@ course.save({
 
 //Type #1 : Relation Option
 var student = new CB.CloudObject("Student"); 
-var course = new CB.CloudObject("Teacher"); 
+var course = new CB.CloudObject("Course"); 
 
 //here one student be into many courses, and vice versa. 
 var studentCourse = new CB.CloudObject('StudentCourse');
 studentCourse.set('student', student);
-studentCourse.set('teacher', teacher); 
+studentCourse.set('course', course); 
 
 studentCourse.save({
   success : function(studentCourse){
@@ -928,6 +1010,102 @@ student.save({
   success : function(student){
     //saved student with two related objects. 
   }, error : function(err){
+    //error
+  }
+});
+
+
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+           <a id='Relationships-oneToMany' name="Relationships-oneToMany" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>One-to-Many Relationship</h3>
+               <p>
+                If you want to model one-to-many relationship. Then you need to create a new column of type <code> Relation </code> pointed to a table which you want it to be related to and set that column <code> Unique </code> property to false.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var teacher = new CB.CloudObject("Teacher"); 
+var course = new CB.CloudObject("Course"); 
+
+//here one teacher can be assigned to many courses.
+
+course.set('teacher', teacher);
+
+course.save({
+  success : function(course){
+    //saved course with teacher.
+  }, error : function(err){
+    //error
+  }
+
+});
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='Relationships-manyToMany' name="Relationships-query" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Query on Relationships</h3>
+               <p>
+               Relations are of two types and if you want to query relationships then there is a different type of query for each of the type. Two types are : <br/>
+                <ol>
+                  <li><b>#1 - Relation </b></li>
+                  <li><b>#2 - List </b></li>
+                </ol>
+                <br/><br/>
+                We will discuss both of these options below. <br/><br/><br/>
+
+                <h4>Relation :</h4>
+                <p> To query on a <code> Relation </code>, You can use CloudQuery function EqualTo / NotEqualTo  </p>
+
+                <br/><br/><br/><br/><br/><br/><br/><br/>
+
+                <h4>List Option</h4>
+                <p> To query on a <code> List of Relations </code>, You can use CloudQuery function ContainedIn / NotContainedIn / ContainsAll </p>
+
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//Type #1 : Relation Option.
+//Get all the course which belong to a teacher
+
+var courseQuery = new CB.CloudQuery('Course'); 
+courseQuery.equalTo('teaher', teacher); //teacher is an instance of CloudObject and should have an Id. 
+courseQuery.find({
+  success : function(list){
+    //list of CloudObject
+  }, error : function(error){
+    //error
+  }
+});
+
+
+
+
+
+
+
+//Type #2 : Query on List of Relations.
+//Get all the courses which the student belongs to. 
+//Assume : Course has a list of Students, in the column 'students'
+
+var courseQuery = new CB.CloudQuery('Course'); 
+courseQuery.containsIn('student', student); //student is an instance of CloudObject and should have an Id. 
+courseQuery.find({
+  success : function(list){
+    //list of CloudObjects
+  }, error : function(error){
     //error
   }
 });
@@ -1157,50 +1335,7 @@ query.find({
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-          <a id='CloudQuery-startsWith' name="CloudQuery-startsWith" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
 
-              <h3>CloudQuery.startsWith( <code>columnName, data</code> )</h3>
-              <p>
-              It adds a contriant to find the data in which value of <code>columnName</code>
-              of each data is starts with <code>data</code>.
-              </p>
-              <div class="method-list">
-                
-                <h6>Arguments</h6>
-                <dl class="argument-list">
-
-                  <dt>columnName</dt>
-                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
-                  <div class="clearfix"></div>
-                  <dt>data</dt>
-                  <dd class="">string <span>The value that is to be checked with.</span></dd>
-                  <div class="clearfix"></div>
-
-                </dl>
-
-                <h6>Returns</h6>
-                <p>Same query object, which can be helpful in chaining query functions.</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var query = new CB.CloudQuery("Student");
-//find all the Students who name starts with letter 'S'
-query.startsWith('name', 'S');
-query.find({
-  success: function(list){
-    //list is an array of CloudObjects 
-  },
-  error: function(err) {
-    //Error in retrieving the data.
-  }
-});
-</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-         
           <a id='CloudQuery-notContainedIn' name="CloudQuery-notContainedIn" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -1244,6 +1379,7 @@ query.find({
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+          
           <a id='CloudQuery-greaterThan' name="CloudQuery-greaterThan" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -1416,6 +1552,51 @@ query.find({
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+
+           <a id='CloudQuery-startsWith' name="CloudQuery-startsWith" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.startsWith( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant to find the data in which value of <code>columnName</code>
+              of each data is starts with <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string <span>The value that is to be checked with.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+//find all the Students who name starts with letter 'S'
+query.startsWith('name', 'S');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
           <a id='CloudQuery-or' name="CloudQuery-or" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -1824,7 +2005,8 @@ query.find({
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">query.find({
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+query.find({
   success: function(list){
     //list is an array of CloudObjects 
   },
@@ -1867,7 +2049,8 @@ query.find({
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">query.findOne({
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+query.findOne({
   success: function(obj){
     //obj is an instance of CloudObject
   },
@@ -1911,7 +2094,7 @@ query.find({
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 //retrieve a Student detail by his unique ID
-query.findById('54e837d6d51a5ea011aa79ea', {
+query.findById('xxxxx', {
   success: function(obj){
     //obj an instance of CloudObject
   },
@@ -1950,7 +2133,7 @@ query.findById('54e837d6d51a5ea011aa79ea', {
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//fetch how many Students are there who age&gt;18
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 query.count({
   success: function(count){
     //count is the count of data which belongs to the query
@@ -1998,14 +2181,14 @@ query.count({
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-                query.distinct('address', {
-                  success: function(data){
-                    //data is an array of document(s)
-                  },
-                  error: function(err) {
-                    //Error in retrieving the data.
-                  }
-                });</span></span></code>
+query.distinct('address', {
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
         </div><!-- method -->
@@ -2048,7 +2231,7 @@ query.find({
 });</span></span></code>
               </div><!-- method-example -->
           </div> <!-- method-section -->
-          <!-- </div> method -->
+          </div> 
  <!-- CloudSearch -->
 
         <div class="method">
@@ -2071,7 +2254,7 @@ query.find({
 
               <h3>Constructor</h3>
               <p>
-              Instantiates a <code>CloudSearch</code> object.
+              CB.CloudSearch(<code> tableName, [CB.SearchQuery], [CB.SearchFilter]</code>)
               </p>
               <div class="method-list">
                 
@@ -2082,11 +2265,11 @@ query.find({
                   <dd class="">Array/string <span>The name of the table(s) you want to search on.</span></dd>
                   <div class="clearfix"></div>
 
-                  <dt>searchQuery</dt>
+                  <dt>CB.SearchQuery</dt>
                   <dd class="">CB.SearchQuery (Optional)<span>CB.SearchQuery object for search.</span></dd>
                   <div class="clearfix"></div>
 
-                  <dt>searchFilter</dt>
+                  <dt>CB.SearchFilter</dt>
                   <dd class="">CB.searchFilter (Optional)<span>CB.SearchFilter object for search.</span></dd>
                   <div class="clearfix"></div>
                   
@@ -2095,26 +2278,23 @@ query.find({
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var cs = new CB.CloudSearch("Student");
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 
-              //create a new search filter
-              var searchFilter = new CB.SearchFilter();
-              //attach the filter to CloudSearch
-              cs.searchFilter = searchfilter; 
+var cs = new CB.CloudSearch("Student");
+//create a new filter
+cs.searchFilter = new CB.SearchFilter();
+//create a new query
+cs.searchQuery = new CB.SearchQuery();
 
-              //create a new search query.
-              var searchQuery = new CB.SearchQuery();
-              //attach the search query to CloudSearch
-              var searchQuery = searchQuery;
               </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-           <a id='CloudSearch-searchOn' name="CloudSearch-searchOn" class="section-anchor">&nbsp;</a>
+          <a id='sq-searchOn' name="sq-searchOn" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>SearchQuery.searchOn( <code>columnName, query</code> )</h3>
+              <h3>SearchQuery.searchOn( <code>columns, queryText, [fuzziness], [all_words], [match_percent], [priority]</code> )</h3>
               <p>
               Used to perform a search query.
               </p>
@@ -2126,20 +2306,37 @@ query.find({
                   <dt>columnName</dt>
                   <dd class="">string / Array <span>The column on which the contraint is to be applied</span></dd>
                   <div class="clearfix"></div>
-                  <dt>data</dt>
-                  <dd class="">query<span>A text query</span></dd>
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>all_words</dt>
+                  <dd class="">[Optional] string<span>Can take only value - true. If set the search will contain all the words in query. For example, If your search query is "Brown Fox". Results will contain both the words "Brown" AND "Fox".</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>match_percent</dt>
+                  <dd class=""> [Optional] string<span>Can take only value - %. For ex : "75%". If set the search will return all the results which matches 75%.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
                   <div class="clearfix"></div>
                   
                 </dl>
 
                 <h6>Returns</h6>
-                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch('Student');
-cs.searchOn('resume', ['C++, Java, C#']);
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.searchOn('resume', 'Java');
 cs.search({
   success : function(list){
     //list is an array of CloudObjects
@@ -2151,6 +2348,427 @@ cs.search({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
+
+          <a id='sq-phrase' name="sq-searchOn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.phrase( <code>columns, queryText, [fuzziness], [priority]</code> )</h3>
+              <p>
+              Used to find the Phrase in search. For example, If you want to match a search text "Brown Fox" in your records <b>as is</b>, then you use Phrase Query. 
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string / Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.phrase('resume', 'Java');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+
+         
+
+
+        <a id='sq-bestColumns' name="sq-bestColumns" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.bestColumns( <code>columns, queryText, [fuzziness], [all_words], [match_percent], [priority]</code> )</h3>
+              <p>
+              This function is most useful when you are searching for multiple words best found in the same field. For instance “brown fox” in a single field is more meaningful than “brown” in one field and “fox” in the other.
+
+              For example : If you have two records, 
+              <table>
+                <th>
+                  <tr>
+                    ID
+                  </tr>
+                  <tr>
+                    Sample 1
+                  </tr>
+                  <tr>
+                   Sample 2
+                  </tr>
+                  
+                </th>
+                <td>
+                  <tr>
+                    1
+                  </tr>
+                  <tr>
+                    Brown Fox
+                  </tr>
+                  <tr>
+                    Up the hill
+                  </tr>
+                </td>
+                <td>
+                  <tr>
+                    2
+                  </tr>
+                  <tr>
+                    Brown 
+                  </tr>
+                  <tr>
+                   Fox up the hill
+                  </tr>
+                </td>
+              </table>
+
+              In this case, If you search for brown fox then Record with ID 1 will be more relevant than record with ID 2
+
+              </p>
+
+
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnNames</dt>
+                  <dd class=""> Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>all_words</dt>
+                  <dd class="">[Optional] string<span>Can take only value - true. If set the search will contain all the words in query. For example, If your search query is "Brown Fox". Results will contain both the words "Brown" AND "Fox".</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>match_percent</dt>
+                  <dd class=""> [Optional] string<span>Can take only value - %. For ex : "75%". If set the search will return all the results which matches 75%.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.bestColumns(['Sample1','Sample2'], 'Brown Fox');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+        <a id='sq-mostColumns' name="sq-mostCOlumns" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.mostColumns( <code>columns, queryText, [fuzziness], [all_words], [match_percent], [priority]</code> )</h3>
+              <p>
+
+              This fucntion is most useful when querying multiple fields that contain the same text should be given higher relevance than others. 
+
+              For example : If you have two records, 
+              <table>
+                <th>
+                  <tr>
+                    ID
+                  </tr>
+                  <tr>
+                    Sample 1
+                  </tr>
+                  <tr>
+                   Sample 2
+                  </tr>
+                  
+                </th>
+                <td>
+                  <tr>
+                    1
+                  </tr>
+                  <tr>
+                    Brown
+                  </tr>
+                  <tr>
+                    Up the hill
+                  </tr>
+                </td>
+                <td>
+                  <tr>
+                    2
+                  </tr>
+                  <tr>
+                   Brown 
+                  </tr>
+                  <tr>
+                   Fox up the hill
+                  </tr>
+                </td>
+              </table>
+
+              In this case, If you search for brown fox then Record with ID 2 will be more relevant than record with ID 1
+
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnNames</dt>
+                  <dd class=""> Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>all_words</dt>
+                  <dd class="">[Optional] string<span>Can take only value - true. If set the search will contain all the words in query. For example, If your search query is "Brown Fox". Results will contain both the words "Brown" AND "Fox".</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>match_percent</dt>
+                  <dd class=""> [Optional] string<span>Can take only value - %. For ex : "75%". If set the search will return all the results which matches 75%.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.mostColumns(['Sample1','Sample2'], 'Brown Fox');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+
+        <a id='sq-startsWith' name="sq-startsWith" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.startsWith( <code>column, value, [priority]</code> )</h3>
+              <p>
+
+              Starts with query.
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class=""> String <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>value</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.startsWith('Sample1', 'Brown');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-wildcard' name="sq-wildcard" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.wildcard( <code>column, value, [priority]</code> )</h3>
+              <p>
+
+              Wildcard Query.
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class=""> String <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>value</dt>
+                  <dd class="">string<span>A wildcard value</span></dd>
+                  <div class="clearfix"></div>
+
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.Wildcard('Sample1', 'B*');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-regexp' name="sq-regexp" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.regexp( <code>column, value, [priority]</code> )</h3>
+              <p>
+
+              A Regular Expression Query
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class=""> String <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>value</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.regexp('Sample', 'B[a-z]*');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
 
           <a id='CloudSearch-equalTo' name="CloudSearch-equalTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
@@ -3173,6 +3791,7 @@ query.find().then(function(list) {
   <!-- CloudNotifications  --> 
 
         <div class="method">
+
              <a id='CloudNotifcations' name="CloudNotifcations" class="section-anchor">&nbsp;</a>
             <div class="method-section">
               <div class="method-description">
@@ -3191,7 +3810,7 @@ query.find().then(function(list) {
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudNotification.on( <code>channelName, functionToFire, callback</code> )</h3>
+              <h3>CloudNotification.on( <code>channelName, functionToFire, [callback]</code> )</h3>
               <p>
               Listens to notification channels.
               </p>
@@ -3217,18 +3836,9 @@ query.find().then(function(list) {
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CB.CloudNotification.on('sample',function(data){
+CB.CloudNotification.on('Sample',function(data){
   console.log(data);
-}, {
-  success : function(){
-    //succesfully subscribed. 
-  }, 
-  error : function(err){
-    //error
-  }
 });
-
-
               </span></span></code>
 
             </div><!-- method-example -->
@@ -3240,7 +3850,7 @@ CB.CloudNotification.on('sample',function(data){
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudNotification.publish( <code>channelName, data, callback</code> )</h3>
+              <h3>CloudNotification.publish( <code>channelName, data, [callback]</code> )</h3>
               <p>
               Publishes data to notification channels.
               </p>
@@ -3266,18 +3876,8 @@ CB.CloudNotification.on('sample',function(data){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CB.CloudNotification.publish('sample','data', {
-  success : function(){
-    //succesfully published. 
-  }, 
-  error : function(err){
-    //error
-  }
-});
-
-
+CB.CloudNotification.publish('sample','data');
               </span></span></code>
-
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
@@ -3286,9 +3886,9 @@ CB.CloudNotification.publish('sample','data', {
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudNotification.off( <code>channelName, callback</code> )</h3>
+              <h3>CloudNotification.off( <code>channelName, [callback]</code> )</h3>
               <p>
-              Stops listening to notification channels.
+              Stops listening to notification channel.
               </p>
               <div class="method-list">
                 
@@ -3309,17 +3909,8 @@ CB.CloudNotification.publish('sample','data', {
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CB.CloudNotification.off('sample', {
-  success : function(){
-    //succesfully stopped listening. 
-  }, 
-  error : function(err){
-    //error
-  }
-});
-
-
-              </span></span></code>
+CB.CloudNotification.off('sample');
+</span></span></code>
 
             </div><!-- method-example -->
           </div> <!-- method-section -->

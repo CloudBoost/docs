@@ -40,6 +40,7 @@
             <a href="#Relationships-oneToOne" class="parent">One-to-One</a>
             <a href="#Relationships-oneToMany" class="parent">One-to-Many</a>
             <a href="#Relationships-manyToMany" class="parent">Many-to-many</a>
+            <a href="#Relationships-query" class="parent">Query on Relationships</a>
           </span>
         </li>
 
@@ -50,8 +51,8 @@
             <a href="#CloudQuery-equalTo" class="parent">Equal To</a>
             <a href="#CloudQuery-notEqualTo" class="parent">Not Equal To</a>
             <a href="#CloudQuery-containedIn" class="parent">Contained In</a>
-            <a href="#CloudQuery-notContainedIn" class="parent">Not Contained In</a>
             <a href="#CloudQuery-containsAll" class="parent">Contains All</a>
+            <a href="#CloudQuery-notContainedIn" class="parent">Not Contained In</a>
             <a href="#CloudQuery-greaterThan" class="parent">Greater Than</a>
             <a href="#CloudQuery-greaterThanEqualTo" class="parent">Greater Than and Equal To</a>
             <a href="#CloudQuery-lessThan" class="parent">Less Than</a>
@@ -86,36 +87,53 @@
 
           <span class="children">
             <a href="#CloudSearch-constructor" class="parent">Constructor</a>
-            <a href="#CloudSearch-searchOn" class="parent">Search On</a>
-            <a href="#CloudSearch-equalTo" class="parent">Equal To</a>
-            <a href="#CloudSearch-notEqualTo" class="parent">Not Equal To</a>
-            <a href="#CloudSearch-greaterThan" class="parent">Greater Than</a>
-            <a href="#CloudSearch-greaterThanEqualTo" class="parent">Greater Than and Equal To</a>
-            <a href="#CloudSearch-lessThan" class="parent">Less Than</a>
-            <a href="#CloudSearch-lessThanEqualTo" class="parent">Less than and equal to</a>
-            <a href="#CloudSearch-or" class="parent">OR</a>
+            
+            <a href="#sq-constructor" class="parent">Query : Constructor</a>
+            <a href="#sq-searchOn" class="parent">Query : Search On</a>
+            <a href="#sq-phrase" class="parent">Query : Phrase</a>
+            <a href="#sq-bestColumns" class="parent">Query : Best Columns</a>
+            <a href="#sq-mostColumns" class="parent">Query : Most Columns</a>
+            <a href="#sq-prefix" class="parent">Query : StartsWith</a>
+            <a href="#sq-wildcard" class="parent">Query : Wildcard</a>
+            <a href="#sq-regexp" class="parent">Query : Regexp</a>
+            <a href="#sq-and" class="parent">Query : and</a>
+            <a href="#sq-or" class="parent">Query : or</a>
+            <a href="#sq-not" class="parent">Query : not</a>
+
+            <a href="#CloudSearch-constructor" class="parent">Filter : Constructor</a>
+            <a href="#CloudSearch-equalTo" class="parent">Filter : Equal To</a>
+            <a href="#CloudSearch-notEqualTo" class="parent">Filter : Not Equal To</a>
+            <a href="#CloudSearch-greaterThan" class="parent"> Filter : Greater Than</a>
+            <a href="#CloudSearch-greaterThanEqualTo" class="parent"> Filter : Greater Than and Equal To</a>
+            <a href="#CloudSearch-lessThan" class="parent"> Filter : Less Than</a>
+            <a href="#CloudSearch-lessThanEqualTo" class="parent"> Filter : Less than and equal to</a>
+            <a href="#CloudSearch-exists" class="parent"> Filter : Exists</a>
+            <a href="#CloudSearch-doesNotExists" class="parent"> Filter : Does not exist</a>
+            <a href="#CloudSearch-or" class="parent">Filter : or</a>
+            <a href="#CloudSearch-or" class="parent">Filter : and</a>
+            <a href="#CloudSearch-or" class="parent">Filter : not</a>
+
             <a href="#CloudSearch-orderByAsc" class="parent">Order by</a>
             <a href="#CloudSearch-setLimit" class="parent">Limit</a>
-            <a href="#CloudSearch-setSkip" class="parent">Skip</a>
-            <a href="#CloudSearch-exists" class="parent">Exists</a>
-            <a href="#CloudSearch-doesNotExists" class="parent">Does not exist</a>
+            <a href="#CloudSearch-setSkip" class="parent">Skip</a>            
             <a href="#CloudSearch-search" class="parent">Search</a>
-          </span>
 
+          </span>
         </li>
-          <li class="section section-charges"><a href="#CloudGeoPoint" class="parent">CloudGeoPoint</a>
+
+        <li class="section section-charges"><a href="#CloudGeoPoint" class="parent">CloudGeoPoint</a>
 
           <span class="children">
             <a href="#CloudGeoPoint-constructor" class="parent">Constructor</a>
               <a href="#CloudGeoPoint-dkm" class="parent">Distance In kilometers</a>
               <a href="#CloudGeoPoint-miles" class="parent">Distance In Miles</a>
               <a href="#CloudGeoPoint-radians" class="parent">Distance In Radians</a>
-            <a href="#CloudGeoPoint-save" class="parent">Save</a>
+              <a href="#CloudGeoPoint-save" class="parent">Save</a>
               <a href="#CloudGeoPoint-near" class="parent">Near</a>
               <a href="#CloudGeoPoint-geowithin" class="parent">GeoWithin</a>
           </span>
 
-          </li>
+        </li>
         
         <li class="section section-charges"><a href="#ACL" class="parent">ACL</a>
           <span class="children">
@@ -128,6 +146,7 @@
             <a href="#ACL-setRoleReadAccess" class="parent">Role Read Access</a>
           </span>
         </li>
+        
         <li class="section section-charges"><a href="#CloudUser" class="parent">CloudUser</a>
           <span class="children">
             <a href="#CloudUser-constructor" class="parent">Constructor</a>
@@ -139,17 +158,29 @@
             <a href="#CloudUser-removeFromRole" class="parent">Remove from Role</a>
           </span>
         </li>
+        
         <li class="section section-charges"><a href="#CloudRole" class="parent">CloudRole</a>
           <span class="children">
             <a href="#CloudRole-constructor" class="parent">Constructor</a>
             <a href="#CloudRole-getRole" class="parent">Get Role</a>
           </span>
         </li>
+        
         <li class="section section-charges"><a href="#CloudFile" class="parent">CloudFile</a>
+        
           <span class="children">
             <a href="#CloudFile-constructor" class="parent">Constructor</a>
             <a href="#CloudFile-save" class="parent">Save</a>
             <a href="#CloudFile-delete" class="parent">Delete</a>
+          </span>
+
+        </li>
+
+         <li class="section section-charges"><a href="#CloudFile" class="parent">JSON</a>
+        
+          <span class="children">
+            <a href="#CloudFile-constructor" class="parent">fromJSON</a>
+            <a href="#CloudFile-save" class="parent">toJSON</a>
           </span>
         </li>
 

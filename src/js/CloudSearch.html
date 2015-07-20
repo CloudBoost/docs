@@ -20,7 +20,7 @@
 
               <h3>Constructor</h3>
               <p>
-              Instantiates a <code>CloudSearch</code> object.
+              CB.CloudSearch(<code> tableName, [CB.SearchQuery], [CB.SearchFilter]</code>)
               </p>
               <div class="method-list">
                 
@@ -31,11 +31,11 @@
                   <dd class="">Array/string <span>The name of the table(s) you want to search on.</span></dd>
                   <div class="clearfix"></div>
 
-                  <dt>searchQuery</dt>
+                  <dt>CB.SearchQuery</dt>
                   <dd class="">CB.SearchQuery (Optional)<span>CB.SearchQuery object for search.</span></dd>
                   <div class="clearfix"></div>
 
-                  <dt>searchFilter</dt>
+                  <dt>CB.SearchFilter</dt>
                   <dd class="">CB.searchFilter (Optional)<span>CB.SearchFilter object for search.</span></dd>
                   <div class="clearfix"></div>
                   
@@ -44,26 +44,23 @@
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var cs = new CB.CloudSearch("Student");
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 
-              //create a new search filter
-              var searchFilter = new CB.SearchFilter();
-              //attach the filter to CloudSearch
-              cs.searchFilter = searchfilter; 
+var cs = new CB.CloudSearch("Student");
+//create a new filter
+cs.searchFilter = new CB.SearchFilter();
+//create a new query
+cs.searchQuery = new CB.SearchQuery();
 
-              //create a new search query.
-              var searchQuery = new CB.SearchQuery();
-              //attach the search query to CloudSearch
-              var searchQuery = searchQuery;
               </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-           <a id='CloudSearch-searchOn' name="CloudSearch-searchOn" class="section-anchor">&nbsp;</a>
+          <a id='sq-searchOn' name="sq-searchOn" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>SearchQuery.searchOn( <code>columnName, query</code> )</h3>
+              <h3>SearchQuery.searchOn( <code>columns, queryText, [fuzziness], [all_words], [match_percent], [priority]</code> )</h3>
               <p>
               Used to perform a search query.
               </p>
@@ -75,20 +72,37 @@
                   <dt>columnName</dt>
                   <dd class="">string / Array <span>The column on which the contraint is to be applied</span></dd>
                   <div class="clearfix"></div>
-                  <dt>data</dt>
-                  <dd class="">query<span>A text query</span></dd>
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>all_words</dt>
+                  <dd class="">[Optional] string<span>Can take only value - true. If set the search will contain all the words in query. For example, If your search query is "Brown Fox". Results will contain both the words "Brown" AND "Fox".</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>match_percent</dt>
+                  <dd class=""> [Optional] string<span>Can take only value - %. For ex : "75%". If set the search will return all the results which matches 75%.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
                   <div class="clearfix"></div>
                   
                 </dl>
 
                 <h6>Returns</h6>
-                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch('Student');
-cs.searchOn('resume', ['C++, Java, C#']);
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.searchOn('resume', 'Java');
 cs.search({
   success : function(list){
     //list is an array of CloudObjects
@@ -100,6 +114,427 @@ cs.search({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
+
+          <a id='sq-phrase' name="sq-searchOn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.phrase( <code>columns, queryText, [fuzziness], [priority]</code> )</h3>
+              <p>
+              Used to find the Phrase in search. For example, If you want to match a search text "Brown Fox" in your records <b>as is</b>, then you use Phrase Query. 
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string / Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.phrase('resume', 'Java');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+
+         
+
+
+        <a id='sq-bestColumns' name="sq-bestColumns" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.bestColumns( <code>columns, queryText, [fuzziness], [all_words], [match_percent], [priority]</code> )</h3>
+              <p>
+              This function is most useful when you are searching for multiple words best found in the same field. For instance “brown fox” in a single field is more meaningful than “brown” in one field and “fox” in the other.
+
+              For example : If you have two records, 
+              <table>
+                <th>
+                  <tr>
+                    ID
+                  </tr>
+                  <tr>
+                    Sample 1
+                  </tr>
+                  <tr>
+                   Sample 2
+                  </tr>
+                  
+                </th>
+                <td>
+                  <tr>
+                    1
+                  </tr>
+                  <tr>
+                    Brown Fox
+                  </tr>
+                  <tr>
+                    Up the hill
+                  </tr>
+                </td>
+                <td>
+                  <tr>
+                    2
+                  </tr>
+                  <tr>
+                    Brown 
+                  </tr>
+                  <tr>
+                   Fox up the hill
+                  </tr>
+                </td>
+              </table>
+
+              In this case, If you search for brown fox then Record with ID 1 will be more relevant than record with ID 2
+
+              </p>
+
+
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnNames</dt>
+                  <dd class=""> Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>all_words</dt>
+                  <dd class="">[Optional] string<span>Can take only value - true. If set the search will contain all the words in query. For example, If your search query is "Brown Fox". Results will contain both the words "Brown" AND "Fox".</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>match_percent</dt>
+                  <dd class=""> [Optional] string<span>Can take only value - %. For ex : "75%". If set the search will return all the results which matches 75%.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.bestColumns(['Sample1','Sample2'], 'Brown Fox');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+        <a id='sq-mostColumns' name="sq-mostCOlumns" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.mostColumns( <code>columns, queryText, [fuzziness], [all_words], [match_percent], [priority]</code> )</h3>
+              <p>
+
+              This fucntion is most useful when querying multiple fields that contain the same text should be given higher relevance than others. 
+
+              For example : If you have two records, 
+              <table>
+                <th>
+                  <tr>
+                    ID
+                  </tr>
+                  <tr>
+                    Sample 1
+                  </tr>
+                  <tr>
+                   Sample 2
+                  </tr>
+                  
+                </th>
+                <td>
+                  <tr>
+                    1
+                  </tr>
+                  <tr>
+                    Brown
+                  </tr>
+                  <tr>
+                    Up the hill
+                  </tr>
+                </td>
+                <td>
+                  <tr>
+                    2
+                  </tr>
+                  <tr>
+                   Brown 
+                  </tr>
+                  <tr>
+                   Fox up the hill
+                  </tr>
+                </td>
+              </table>
+
+              In this case, If you search for brown fox then Record with ID 2 will be more relevant than record with ID 1
+
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnNames</dt>
+                  <dd class=""> Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>all_words</dt>
+                  <dd class="">[Optional] string<span>Can take only value - true. If set the search will contain all the words in query. For example, If your search query is "Brown Fox". Results will contain both the words "Brown" AND "Fox".</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>match_percent</dt>
+                  <dd class=""> [Optional] string<span>Can take only value - %. For ex : "75%". If set the search will return all the results which matches 75%.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.mostColumns(['Sample1','Sample2'], 'Brown Fox');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+
+        <a id='sq-startsWith' name="sq-startsWith" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.startsWith( <code>column, value, [priority]</code> )</h3>
+              <p>
+
+              Starts with query.
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class=""> String <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>value</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.startsWith('Sample1', 'Brown');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-wildcard' name="sq-wildcard" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.wildcard( <code>column, value, [priority]</code> )</h3>
+              <p>
+
+              Wildcard Query.
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class=""> String <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>value</dt>
+                  <dd class="">string<span>A wildcard value</span></dd>
+                  <div class="clearfix"></div>
+
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.Wildcard('Sample1', 'B*');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-regexp' name="sq-regexp" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.regexp( <code>column, value, [priority]</code> )</h3>
+              <p>
+
+              A Regular Expression Query
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class=""> String <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>value</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.regexp('Sample', 'B[a-z]*');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
 
           <a id='CloudSearch-equalTo' name="CloudSearch-equalTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
