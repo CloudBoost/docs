@@ -1174,12 +1174,12 @@ cs.search({
           </div> <!-- method-section -->
 
 
-          <a id='SearchFilter-not' name="SearchFilter-and" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-not' name="SearchFilter-not" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
-              <h3>SearchFilter.and( <code>searchFilter )</h3>
+              <h3>SearchFilter.not( <code>searchFilter )</h3>
               <p>
-              It adds a logical AND contriant to <code>SearchFilter</code> object for 
+              It adds a logical NOT contriant to <code>SearchFilter</code> object for 
               finding the set of the data satisfying conditions of <code>SearchFilter</code>
               </p>
               <div class="method-list">
@@ -1215,10 +1215,10 @@ searchFilter2.greaterThan('age', 18);
 
 //and both of these. 
 var searchFilter = new CB.SearchFilter();
-searchFilter.and(searchFilter1);
-searchFilter.and(searchFilter2);
+searchFilter.not(searchFilter1);
+searchFilter.not(searchFilter2);
 
-//attach OR'ed searchFilter to CloudSearch. 
+//attach NOT'ed searchFilter to CloudSearch. 
 var cs = new CB.CloudSearch('Student');
 cs.searchFilter = searchFilter;
 //search term

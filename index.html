@@ -75,7 +75,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudObject-on" class="parent">On</a>
             <a href="#CloudObject-off" class="parent">Off</a>
             <a href="#CloudObject-expires" class="parent">Expires</a>
-            <a href="#CloudObject-expires" class="parent">Relate</a>
+            <a href="#CloudObject-relate" class="parent">Relate</a>
           </span>
         </li>
         <li class="section section-charges"><a href="#Relationships" class="parent">Relationships</a>
@@ -133,19 +133,17 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
           <span class="children">
             <a href="#CloudSearch-constructor" class="parent">Constructor</a>
             
-            <a href="#sq-constructor" class="parent">Query : Constructor</a>
             <a href="#sq-searchOn" class="parent">Query : Search On</a>
             <a href="#sq-phrase" class="parent">Query : Phrase</a>
             <a href="#sq-bestColumns" class="parent">Query : Best Columns</a>
             <a href="#sq-mostColumns" class="parent">Query : Most Columns</a>
-            <a href="#sq-prefix" class="parent">Query : StartsWith</a>
+            <a href="#sq-startsWith" class="parent">Query : StartsWith</a>
             <a href="#sq-wildcard" class="parent">Query : Wildcard</a>
             <a href="#sq-regexp" class="parent">Query : Regexp</a>
             <a href="#sq-and" class="parent">Query : and</a>
             <a href="#sq-or" class="parent">Query : or</a>
             <a href="#sq-not" class="parent">Query : not</a>
 
-            <a href="#SearchFilter-constructor" class="parent">Filter : Constructor</a>
             <a href="#SearchFilter-equalTo" class="parent">Filter : Equal To</a>
             <a href="#SearchFilter-notEqualTo" class="parent">Filter : Not Equal To</a>
             <a href="#SearchFilter-greaterThan" class="parent"> Filter : Greater Than</a>
@@ -155,8 +153,8 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#SearchFilter-exists" class="parent"> Filter : Exists</a>
             <a href="#SearchFilter-doesNotExists" class="parent"> Filter : Does not exist</a>
             <a href="#SearchFilter-or" class="parent">Filter : or</a>
-            <a href="#SearchFilter-or" class="parent">Filter : and</a>
-            <a href="#SearchFilter-or" class="parent">Filter : not</a>
+            <a href="#SearchFilter-and" class="parent">Filter : and</a>
+            <a href="#SearchFilter-not" class="parent">Filter : not</a>
 
             <a href="#CloudSearch-orderByAsc" class="parent">Order by</a>
             <a href="#CloudSearch-setLimit" class="parent">Limit</a>
@@ -220,11 +218,11 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
           </span>
         </li>
 
-         <li class="section section-charges"><a href="#CloudFile" class="parent">JSON</a>
+         <li class="section section-charges"><a href="#JSON" class="parent">JSON</a>
         
           <span class="children">
-            <a href="#CloudFile-constructor" class="parent">Serialize to JSON</a>
-            <a href="#CloudFile-save" class="parent">Deserialize from JSON</a>
+            <a href="#JSON-serialize" class="parent">Serialize to JSON</a>
+            <a href="#JSON-deserialize" class="parent">Deserialize from JSON</a>
           </span>
         </li>
 
@@ -801,7 +799,7 @@ CB.CloudObject.off('Student', //name of the table
         </div> <!-- method -->
 
 
-        <a id='CloudObject-expires' name="CloudObject-expires" class="section-anchor">&nbsp;</a>
+        <a id='CloudObject-relate' name="CloudObject-relate" class="section-anchor">&nbsp;</a>
             <div class="method-section">
                 <div class="method-description">
 
@@ -1051,7 +1049,7 @@ course.save({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-          <a id='Relationships-manyToMany' name="Relationships-query" class="section-anchor">&nbsp;</a>
+          <a id='Relationships-query' name="Relationships-query" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -3633,12 +3631,12 @@ cs.search({
           </div> <!-- method-section -->
 
 
-          <a id='SearchFilter-not' name="SearchFilter-and" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-not' name="SearchFilter-not" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
-              <h3>SearchFilter.and( <code>searchFilter )</h3>
+              <h3>SearchFilter.not( <code>searchFilter )</h3>
               <p>
-              It adds a logical AND contriant to <code>SearchFilter</code> object for 
+              It adds a logical NOT contriant to <code>SearchFilter</code> object for 
               finding the set of the data satisfying conditions of <code>SearchFilter</code>
               </p>
               <div class="method-list">
@@ -3674,10 +3672,10 @@ searchFilter2.greaterThan('age', 18);
 
 //and both of these. 
 var searchFilter = new CB.SearchFilter();
-searchFilter.and(searchFilter1);
-searchFilter.and(searchFilter2);
+searchFilter.not(searchFilter1);
+searchFilter.not(searchFilter2);
 
-//attach OR'ed searchFilter to CloudSearch. 
+//attach NOT'ed searchFilter to CloudSearch. 
 var cs = new CB.CloudSearch('Student');
 cs.searchFilter = searchFilter;
 //search term
@@ -4036,142 +4034,6 @@ var distance = loc.distanceInRadians(loc2);
 
 
           
-        <a id='CloudFile' name="CloudFile" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-              <div class="method-description">
-                  <h1>CB.CloudFile</h1>
-                  CB.CloudFile lets you store application files in the cloud that would otherwise be too large or cumbersome to fit into a regular CB.CloudObject. The most common use case is storing images, but you can also use it for documents, videos, music, and any other binary data.
-              </div>
-          </div>
-
-         
-
-
-
-
-          <a id='CloudFile-constructor' name="CloudFile-constructor" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>Constructor</h3>
-              <p>
-              Instantiates a <code>CloudFile</code> object.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>file</dt>
-                  <dd class="">file/BLOB object<span>The file/BLOB that you want to save</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var documentFile = new Blob([
-              'This is the content of by document blob'
-              ], {
-                type : 'text/plain'
-              });
-var file = new CB.CloudFile(documentFile);</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudFile-save' name="CloudRole-save" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudFile.save( <code>[callback]</code> )</h3>
-              <p>
-              Saves the <code>CloudFile</code> object.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-                <h6>Returns</h6>
-                It returns a <code>CloudFile</code> object having <code>url</code> attribute set to the URL 
-                of the blob uploaded to the server if the operation is successful otherwise returns 
-                an error object along with JQuery promise (if <code>callback</code> is not provided).
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var documentFile = new Blob([
-            'This is the content of by document blob'
-            ], {
-              type : 'text/plain'
-            });
-var file = new CB.CloudFile(documentFile);
-
-file.save({
-  success: function(roleObj) {
-    //got the file object successfully with the url to the file
-  },
-  error: function(err) {
-    //error in uploading file
-  }
-});</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudFile-delete' name="CloudRole-delete" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudFile.delete( <code>[callback]</code> )</h3>
-              <p>
-              Saves the <code>CloudFile</code> object.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-                <h6>Returns</h6>
-                It returns a <code>CloudFile</code> object having <code>url</code> attribute set to <code>null</code> 
-                if the operation is successful otherwise returns an error object along with JQuery promise 
-                (if <code>callback</code> is not provided).
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var documentFile = new Blob([
-            'This is the content of by document blob'
-            ], {
-              type : 'text/plain'
-            });
-var file = new CB.CloudFile(documentFile);
-
-file.delete({
-  success: function(roleObj) {
-    //file deletion successfull
-  },
-  error: function(err) {
-    //error in deleting file
-  }
-});</span></span></code>
-            </div><!-- method-example -->
-                  <div class="clearfix"></div>
-            
-          </div> 
  <a id='CloudUser' name="CloudUser" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -4565,6 +4427,135 @@ CB.CloudUser.current.removeFromRole(role, {
             </div><!-- method-example -->
           </div> <!-- method-section -->
           
+        <a id='CloudFile' name="CloudFile" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+                  <h1>CB.CloudFile</h1>
+                  CB.CloudFile lets you store application files in the cloud that would otherwise be too large or cumbersome to fit into a regular CB.CloudObject. The most common use case is storing images, but you can also use it for documents, videos, music, and any other binary data.
+              </div>
+          </div>
+
+         
+
+
+
+
+          <a id='CloudFile-constructor' name="CloudFile-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>file</dt>
+                  <dd class="">file/BLOB object<span>The file/BLOB that you want to save</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var documentFile = new Blob([
+              'This is the content of by document blob'
+              ], {
+                type : 'text/plain'
+              });
+var file = new CB.CloudFile(documentFile);</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudFile-save' name="CloudRole-save" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudFile.save( <code>[callback]</code> )</h3>
+              <p>
+              Saves the <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudFile</code> object having <code>url</code> attribute set to the URL 
+                of the blob uploaded to the server if the operation is successful otherwise returns 
+                an error object along with JQuery promise (if <code>callback</code> is not provided).
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var documentFile = new Blob([
+            'This is the content of by document blob'
+            ], {
+              type : 'text/plain'
+            });
+var file = new CB.CloudFile(documentFile);
+
+file.save({
+  success: function(roleObj) {
+    //got the file object successfully with the url to the file
+  },
+  error: function(err) {
+    //error in uploading file
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudFile-delete' name="CloudRole-delete" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudFile.delete( <code>[callback]</code> )</h3>
+              <p>
+              Saves the <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudFile</code> object having <code>url</code> attribute set to <code>null</code> 
+                if the operation is successful otherwise returns an error object along with JQuery promise 
+                (if <code>callback</code> is not provided).
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+file.delete({
+  success: function(roleObj) {
+    //file deletion successfull
+  },
+  error: function(err) {
+    //error in deleting file
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+                  <div class="clearfix"></div>
+            
+          </div> 
   <!--Acl -->
 
           <a id='ACL' name="ACL" class="section-anchor">&nbsp;</a>
@@ -4862,6 +4853,117 @@ obj.save({
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+
+        <div class="method">
+          <a id='JSON' name="JSON" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h1>JSON</h1>
+              <p>
+              Here's a way to serialize and de-serialize CloudBoost objects for passing it between your server and clients.
+              </p>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div>
+          </div>
+         
+
+          <a id='JSON-toJSON' name="JSON-toJSON" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CB.toJSON( <code>data</code> )</h3>
+              <p>
+              Convert CloudBoost Object to JSON
+              </p>
+              
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>data</dt>
+                  <dd class="">Any CloudBoost Object / Array of CloudBoost Objects</span></dd>
+                  <div class="clearfix"></div>
+                 
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Serialized JSON</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var obj = new CB.CloudObject('Sample');
+CB.toJSON(obj);
+              </span></span></code>
+
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+           <a id='JSON-fromJSON' name="JSON-fromJSON" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CB.fromJSON( <code>json</code> )</h3>
+              <p>
+              Convert JSON to CloudBoost Objects
+              </p>
+              
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>data</dt>
+                  <dd class="">JSON to convert it to CloudBoost Object</span></dd>
+                  <div class="clearfix"></div>
+                 
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Serialized JSON</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.fromJSON({/*Serialized JSON*/});
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+        </div> <!-- method -->
+ 
+
+        <div class="method">
+          <a id='Contribute' name="Contribute" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h1>Contribute</h1>
+              <p>
+              We heart contributors. Love what we do and want to contribute? <br/>
+
+              JavaScript SDK : <a href="https://github.com/CloudBoost/JavaScriptSDK">GitHub Repository</a>
+
+              <br/><br/>
+
+              Our documentation is open source too! <br/><br/>
+
+              Documentation : <a href="https://github.com/CloudBoost/api-reference">GitHub Repository</a> 
+              </p>
+
+            </div>
+             <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+01001101 01100001 01100100 01100101
+01110111 01101001 01110100 01101000  
+00111100 00110011 
+              </span></span></code>
+            </div><!-- method-example -->
+          </div>
+         
+        </div> <!-- method -->
 
 
       </div> <!-- methods -->
