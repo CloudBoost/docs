@@ -1112,4 +1112,99 @@ query.find({
 });</span></span></code>
               </div><!-- method-example -->
           </div> <!-- method-section -->
-          </div> 
+
+
+
+          <a id='CloudQuery-near' name="CloudQuery-near" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudQuery.near(columnName,geoPoint, range)</h3>
+                  <p>
+                      Queries for <code>CloudObject</code> objects which are within range.It gives result in the order of nearest to farthest.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>ColumnName</dt>
+                          <dd class="">String <span> Name of column which has the <code>CloudGeoPoint</code></span></dd>
+                          <div class="clearfix"></div>
+                          <dt>CloudGeoPoint</dt>
+                          <dd class="">Object <span> It is the point close to which the points are to be found
+                   respective response.</span></dd>
+                          <div class="clearfix"></div>
+                          <dt>Range</dt>
+                          <dd class="">Number <span> It the range within which are CloudObjects are to be sought. It is given in Meters</span></dd>
+                          <div class="clearfix"></div>
+
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Same query object, which can be helpful in chaining query functions.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc = new CB.CloudGeoPoint(17.7,80.3);
+var query = new CB.CloudQuery('Custom5');
+query.near("location", loc, 100000);
+query.find().then(function(list) {
+       //searches for cloudobjects within 100000 meters
+}, function (err) {
+      //error
+  })
+});
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudQuery-geowithin' name="CloudQuery-geowithin" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudQuery.geowithin("ColumnName",CloudGeoPoint,Radius)</h3>
+                  <p>
+                      Queries for CloudObject objects which are within range.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>ColumnName</dt>
+                          <dd class="">Object <span> Name of column which has the <code>CloudGeoPoint</code></span></dd>
+                          <div class="clearfix"></div>
+                          <dt>CloudGeoPoints</dt>
+                          <dd class="">Array <span> Array of CloudGeopoints within which we want to search CloudObjects or Center of Circle in case the shape is circle</span></dd>
+                          <div class="clearfix"></div>
+                          <dt>Radius</dt>
+                          <dd class="">decimal <span> [Optional] Radius of Circle. Radius is taken in Meters</span></dd>
+                          <div class="clearfix"></div>
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Same query object, which can be helpful in chaining query functions.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc1 = new CB.CloudGeoPoint(18.4,78.9);
+var loc2 = new CB.CloudGeoPoint(17.4,78.4);
+var loc3 = new CB.CloudGeoPoint(17.7,80.4);
+var query = new CB.CloudQuery('Custom');
+query.geoWithin("location", [loc1, loc2, loc3]);
+query.find().then(function(list) {
+       //searches for cloudobjects within triangle formed by the CloudGeoPoints
+}, function (err) {
+      //error
+  })
+});
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->

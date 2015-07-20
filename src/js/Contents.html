@@ -72,6 +72,8 @@
             <a href="#CloudQuery-count" class="parent">Count</a>
             <a href="#CloudQuery-distinct" class="parent">Distinct</a>
             <a href="#CloudQuery-include" class="parent">Include</a>
+            <a href="#CloudQuery-near" class="parent">Near</a>
+            <a href="#CloudQuery-geowithin" class="parent">GeoWithin</a>
           </span>
         </li>
 
@@ -100,18 +102,18 @@
             <a href="#sq-or" class="parent">Query : or</a>
             <a href="#sq-not" class="parent">Query : not</a>
 
-            <a href="#CloudSearch-constructor" class="parent">Filter : Constructor</a>
-            <a href="#CloudSearch-equalTo" class="parent">Filter : Equal To</a>
-            <a href="#CloudSearch-notEqualTo" class="parent">Filter : Not Equal To</a>
-            <a href="#CloudSearch-greaterThan" class="parent"> Filter : Greater Than</a>
-            <a href="#CloudSearch-greaterThanEqualTo" class="parent"> Filter : Greater Than and Equal To</a>
-            <a href="#CloudSearch-lessThan" class="parent"> Filter : Less Than</a>
-            <a href="#CloudSearch-lessThanEqualTo" class="parent"> Filter : Less than and equal to</a>
-            <a href="#CloudSearch-exists" class="parent"> Filter : Exists</a>
-            <a href="#CloudSearch-doesNotExists" class="parent"> Filter : Does not exist</a>
-            <a href="#CloudSearch-or" class="parent">Filter : or</a>
-            <a href="#CloudSearch-or" class="parent">Filter : and</a>
-            <a href="#CloudSearch-or" class="parent">Filter : not</a>
+            <a href="#SearchFilter-constructor" class="parent">Filter : Constructor</a>
+            <a href="#SearchFilter-equalTo" class="parent">Filter : Equal To</a>
+            <a href="#SearchFilter-notEqualTo" class="parent">Filter : Not Equal To</a>
+            <a href="#SearchFilter-greaterThan" class="parent"> Filter : Greater Than</a>
+            <a href="#SearchFilter-greaterThanEqualTo" class="parent"> Filter : Greater Than and Equal To</a>
+            <a href="#SearchFilter-lessThan" class="parent"> Filter : Less Than</a>
+            <a href="#SearchFilter-lessThanEqualTo" class="parent"> Filter : Less than and equal to</a>
+            <a href="#SearchFilter-exists" class="parent"> Filter : Exists</a>
+            <a href="#SearchFilter-doesNotExists" class="parent"> Filter : Does not exist</a>
+            <a href="#SearchFilter-or" class="parent">Filter : or</a>
+            <a href="#SearchFilter-or" class="parent">Filter : and</a>
+            <a href="#SearchFilter-or" class="parent">Filter : not</a>
 
             <a href="#CloudSearch-orderByAsc" class="parent">Order by</a>
             <a href="#CloudSearch-setLimit" class="parent">Limit</a>
@@ -128,23 +130,9 @@
               <a href="#CloudGeoPoint-dkm" class="parent">Distance In kilometers</a>
               <a href="#CloudGeoPoint-miles" class="parent">Distance In Miles</a>
               <a href="#CloudGeoPoint-radians" class="parent">Distance In Radians</a>
-              <a href="#CloudGeoPoint-save" class="parent">Save</a>
-              <a href="#CloudGeoPoint-near" class="parent">Near</a>
-              <a href="#CloudGeoPoint-geowithin" class="parent">GeoWithin</a>
+              
           </span>
 
-        </li>
-        
-        <li class="section section-charges"><a href="#ACL" class="parent">ACL</a>
-          <span class="children">
-            <a href="#ACL-constructor" class="parent">Constructor</a>
-            <a href="#ACL-setPublicWriteAccess" class="parent">Public Write Access</a>
-            <a href="#ACL-setPublicReadAccess" class="parent">Public Read Access</a>
-            <a href="#ACL-setUserWriteAccess" class="parent">User Write Access</a>
-            <a href="#ACL-setUserReadAccess" class="parent">User Read Access</a>
-            <a href="#ACL-setRoleWriteAccess" class="parent">Role Write Access</a>
-            <a href="#ACL-setRoleReadAccess" class="parent">Role Read Access</a>
-          </span>
         </li>
         
         <li class="section section-charges"><a href="#CloudUser" class="parent">CloudUser</a>
@@ -162,9 +150,10 @@
         <li class="section section-charges"><a href="#CloudRole" class="parent">CloudRole</a>
           <span class="children">
             <a href="#CloudRole-constructor" class="parent">Constructor</a>
-            <a href="#CloudRole-getRole" class="parent">Get Role</a>
           </span>
         </li>
+
+        
         
         <li class="section section-charges"><a href="#CloudFile" class="parent">CloudFile</a>
         
@@ -176,11 +165,23 @@
 
         </li>
 
+        <li class="section section-charges"><a href="#ACL" class="parent">Access Control List (ACL)</a>
+          <span class="children">
+            <a href="#ACL-constructor" class="parent">Constructor</a>
+            <a href="#ACL-setPublicWriteAccess" class="parent">Public Write Access</a>
+            <a href="#ACL-setPublicReadAccess" class="parent">Public Read Access</a>
+            <a href="#ACL-setUserWriteAccess" class="parent">User Write Access</a>
+            <a href="#ACL-setUserReadAccess" class="parent">User Read Access</a>
+            <a href="#ACL-setRoleWriteAccess" class="parent">Role Write Access</a>
+            <a href="#ACL-setRoleReadAccess" class="parent">Role Read Access</a>
+          </span>
+        </li>
+
          <li class="section section-charges"><a href="#CloudFile" class="parent">JSON</a>
         
           <span class="children">
-            <a href="#CloudFile-constructor" class="parent">fromJSON</a>
-            <a href="#CloudFile-save" class="parent">toJSON</a>
+            <a href="#CloudFile-constructor" class="parent">Serialize to JSON</a>
+            <a href="#CloudFile-save" class="parent">Deserialize from JSON</a>
           </span>
         </li>
 

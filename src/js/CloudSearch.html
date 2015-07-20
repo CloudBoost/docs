@@ -536,7 +536,170 @@ cs.search({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-          <a id='CloudSearch-equalTo' name="CloudSearch-equalTo" class="section-anchor">&nbsp;</a>
+
+
+          <a id='sq-or' name="sq-or" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.or( <code>searchQuery</code> )</h3>
+              <p>
+
+              OR a SearchQuery
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>searchQuery</dt>
+                  <dd class=""> CB.SearchQuery <span>SearchQuery object to be OR'ed</span></dd>
+                  <div class="clearfix"></div>
+
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+
+var obj1 = new CB.SearchQuery();
+obj1.searchOn('name', 'Dan');
+
+var obj2 = new CB.SearchQuery();
+obj2.searchOn('name', 'Sam');
+
+cs.searchQuery.or(obj1);
+cs.searchQuery.or(obj2);
+
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-and' name="sq-and" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.and( <code>searchQuery</code> )</h3>
+              <p>
+
+              AND a SearchQuery
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>searchQuery</dt>
+                  <dd class=""> CB.SearchQuery <span>SearchQuery object to be AND'ed</span></dd>
+                  <div class="clearfix"></div>
+
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+
+var obj1 = new CB.SearchQuery();
+obj1.searchOn('name', 'Dan');
+
+var obj2 = new CB.SearchQuery();
+obj2.searchOn('name', 'Sam');
+
+cs.searchQuery.and(obj1);
+cs.searchQuery.and(obj2);
+
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-not' name="sq-not" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.not( <code>searchQuery</code> )</h3>
+              <p>
+
+              NOT a SearchQuery
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>searchQuery</dt>
+                  <dd class=""> CB.SearchQuery <span>SearchQuery object to be NOT</span></dd>
+                  <div class="clearfix"></div>
+
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+
+var obj1 = new CB.SearchQuery();
+obj1.searchOn('name', 'Dan');
+
+var obj2 = new CB.SearchQuery();
+obj2.searchOn('name', 'Sam');
+
+cs.searchQuery.not(obj1);
+cs.searchQuery.not(obj2);
+
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='SearchFilter-equalTo' name="SearchFilter-equalTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -581,7 +744,7 @@ cs.search({
           </div> <!-- method-section -->
 
          
-          <a id='CloudSearch-notEqualTo' name="CloudSearch-notEqualTo" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-notEqualTo' name="SearchFilter-notEqualTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -626,7 +789,7 @@ cs.search({
             </div><!-- method-example -->
           </div> <!-- method-section -->
           
-          <a id='CloudSearch-greaterThan' name="CloudSearch-greaterThan" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-greaterThan' name="SearchFilter-greaterThan" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -671,7 +834,7 @@ cs.search({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-          <a id='CloudSearch-greaterThanEqualTo' name="CloudSearch-greaterThanEqualTo" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-greaterThanEqualTo' name="SearchFilter-greaterThanEqualTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -714,7 +877,7 @@ cs.search({
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-          <a id='CloudSearch-lessThan' name="CloudSearch-lessThan" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-lessThan' name="SearchFilter-lessThan" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -759,7 +922,7 @@ cs.search({
           </div> <!-- method-section -->
 
 
-          <a id='CloudSearch-lessThanEqualTo' name="CloudSearch-lessThanEqualTo" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-lessThanEqualTo' name="SearchFilter-lessThanEqualTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -803,7 +966,7 @@ cs.search({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-          <a id='CloudSearch-exists' name="CloudSearch-exists" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-exists' name="SearchFilter-exists" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
               <h3>SearchFilter.exists( <code>columnName</code> )</h3>
@@ -841,7 +1004,7 @@ cs.search({
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-          <a id='CloudSearch-doesNotExists' name="CloudSearch-doesNotExists" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-doesNotExists' name="SearchFilter-doesNotExists" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -881,8 +1044,7 @@ cs.search({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-
-          <a id='CloudSearch-or' name="CloudSearch-or" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-or' name="SearchFilter-or" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
               <h3>SearchFilter.or( <code>searchFilter )</h3>
@@ -947,7 +1109,7 @@ cs.search({
           </div> <!-- method-section -->
 
 
-          <a id='CloudSearch-and' name="CloudSearch-and" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-and' name="SearchFilter-and" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
               <h3>SearchFilter.and( <code>searchFilter )</h3>
@@ -1012,7 +1174,7 @@ cs.search({
           </div> <!-- method-section -->
 
 
-          <a id='CloudSearch-not' name="CloudSearch-and" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-not' name="SearchFilter-and" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
               <h3>SearchFilter.and( <code>searchFilter )</h3>

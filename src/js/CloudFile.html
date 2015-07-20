@@ -1,7 +1,16 @@
-         
+        <a id='CloudFile' name="CloudFile" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+                  <h1>CB.CloudFile</h1>
+                  CB.CloudFile lets you store application files in the cloud that would otherwise be too large or cumbersome to fit into a regular CB.CloudObject. The most common use case is storing images, but you can also use it for documents, videos, music, and any other binary data.
+              </div>
+          </div>
+
          
 
-          
+
+
+
           <a id='CloudFile-constructor' name="CloudFile-constructor" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -106,13 +115,6 @@ file.save({
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var documentFile = new Blob([
-            'This is the content of by document blob'
-            ], {
-              type : 'text/plain'
-            });
-var file = new CB.CloudFile(documentFile);
-
 file.delete({
   success: function(roleObj) {
     //file deletion successfull
@@ -124,4 +126,4 @@ file.delete({
             </div><!-- method-example -->
                   <div class="clearfix"></div>
             
-          </div> <!-- method-section -->
+          </div> 

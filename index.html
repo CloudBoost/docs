@@ -115,6 +115,8 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudQuery-count" class="parent">Count</a>
             <a href="#CloudQuery-distinct" class="parent">Distinct</a>
             <a href="#CloudQuery-include" class="parent">Include</a>
+            <a href="#CloudQuery-near" class="parent">Near</a>
+            <a href="#CloudQuery-geowithin" class="parent">GeoWithin</a>
           </span>
         </li>
 
@@ -143,18 +145,18 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#sq-or" class="parent">Query : or</a>
             <a href="#sq-not" class="parent">Query : not</a>
 
-            <a href="#CloudSearch-constructor" class="parent">Filter : Constructor</a>
-            <a href="#CloudSearch-equalTo" class="parent">Filter : Equal To</a>
-            <a href="#CloudSearch-notEqualTo" class="parent">Filter : Not Equal To</a>
-            <a href="#CloudSearch-greaterThan" class="parent"> Filter : Greater Than</a>
-            <a href="#CloudSearch-greaterThanEqualTo" class="parent"> Filter : Greater Than and Equal To</a>
-            <a href="#CloudSearch-lessThan" class="parent"> Filter : Less Than</a>
-            <a href="#CloudSearch-lessThanEqualTo" class="parent"> Filter : Less than and equal to</a>
-            <a href="#CloudSearch-exists" class="parent"> Filter : Exists</a>
-            <a href="#CloudSearch-doesNotExists" class="parent"> Filter : Does not exist</a>
-            <a href="#CloudSearch-or" class="parent">Filter : or</a>
-            <a href="#CloudSearch-or" class="parent">Filter : and</a>
-            <a href="#CloudSearch-or" class="parent">Filter : not</a>
+            <a href="#SearchFilter-constructor" class="parent">Filter : Constructor</a>
+            <a href="#SearchFilter-equalTo" class="parent">Filter : Equal To</a>
+            <a href="#SearchFilter-notEqualTo" class="parent">Filter : Not Equal To</a>
+            <a href="#SearchFilter-greaterThan" class="parent"> Filter : Greater Than</a>
+            <a href="#SearchFilter-greaterThanEqualTo" class="parent"> Filter : Greater Than and Equal To</a>
+            <a href="#SearchFilter-lessThan" class="parent"> Filter : Less Than</a>
+            <a href="#SearchFilter-lessThanEqualTo" class="parent"> Filter : Less than and equal to</a>
+            <a href="#SearchFilter-exists" class="parent"> Filter : Exists</a>
+            <a href="#SearchFilter-doesNotExists" class="parent"> Filter : Does not exist</a>
+            <a href="#SearchFilter-or" class="parent">Filter : or</a>
+            <a href="#SearchFilter-or" class="parent">Filter : and</a>
+            <a href="#SearchFilter-or" class="parent">Filter : not</a>
 
             <a href="#CloudSearch-orderByAsc" class="parent">Order by</a>
             <a href="#CloudSearch-setLimit" class="parent">Limit</a>
@@ -171,23 +173,9 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
               <a href="#CloudGeoPoint-dkm" class="parent">Distance In kilometers</a>
               <a href="#CloudGeoPoint-miles" class="parent">Distance In Miles</a>
               <a href="#CloudGeoPoint-radians" class="parent">Distance In Radians</a>
-              <a href="#CloudGeoPoint-save" class="parent">Save</a>
-              <a href="#CloudGeoPoint-near" class="parent">Near</a>
-              <a href="#CloudGeoPoint-geowithin" class="parent">GeoWithin</a>
+              
           </span>
 
-        </li>
-        
-        <li class="section section-charges"><a href="#ACL" class="parent">ACL</a>
-          <span class="children">
-            <a href="#ACL-constructor" class="parent">Constructor</a>
-            <a href="#ACL-setPublicWriteAccess" class="parent">Public Write Access</a>
-            <a href="#ACL-setPublicReadAccess" class="parent">Public Read Access</a>
-            <a href="#ACL-setUserWriteAccess" class="parent">User Write Access</a>
-            <a href="#ACL-setUserReadAccess" class="parent">User Read Access</a>
-            <a href="#ACL-setRoleWriteAccess" class="parent">Role Write Access</a>
-            <a href="#ACL-setRoleReadAccess" class="parent">Role Read Access</a>
-          </span>
         </li>
         
         <li class="section section-charges"><a href="#CloudUser" class="parent">CloudUser</a>
@@ -205,9 +193,10 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
         <li class="section section-charges"><a href="#CloudRole" class="parent">CloudRole</a>
           <span class="children">
             <a href="#CloudRole-constructor" class="parent">Constructor</a>
-            <a href="#CloudRole-getRole" class="parent">Get Role</a>
           </span>
         </li>
+
+        
         
         <li class="section section-charges"><a href="#CloudFile" class="parent">CloudFile</a>
         
@@ -219,11 +208,23 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
 
         </li>
 
+        <li class="section section-charges"><a href="#ACL" class="parent">Access Control List (ACL)</a>
+          <span class="children">
+            <a href="#ACL-constructor" class="parent">Constructor</a>
+            <a href="#ACL-setPublicWriteAccess" class="parent">Public Write Access</a>
+            <a href="#ACL-setPublicReadAccess" class="parent">Public Read Access</a>
+            <a href="#ACL-setUserWriteAccess" class="parent">User Write Access</a>
+            <a href="#ACL-setUserReadAccess" class="parent">User Read Access</a>
+            <a href="#ACL-setRoleWriteAccess" class="parent">Role Write Access</a>
+            <a href="#ACL-setRoleReadAccess" class="parent">Role Read Access</a>
+          </span>
+        </li>
+
          <li class="section section-charges"><a href="#CloudFile" class="parent">JSON</a>
         
           <span class="children">
-            <a href="#CloudFile-constructor" class="parent">fromJSON</a>
-            <a href="#CloudFile-save" class="parent">toJSON</a>
+            <a href="#CloudFile-constructor" class="parent">Serialize to JSON</a>
+            <a href="#CloudFile-save" class="parent">Deserialize from JSON</a>
           </span>
         </li>
 
@@ -2231,7 +2232,231 @@ query.find({
 });</span></span></code>
               </div><!-- method-example -->
           </div> <!-- method-section -->
-          </div> 
+
+
+
+          <a id='CloudQuery-near' name="CloudQuery-near" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudQuery.near(columnName,geoPoint, range)</h3>
+                  <p>
+                      Queries for <code>CloudObject</code> objects which are within range.It gives result in the order of nearest to farthest.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>ColumnName</dt>
+                          <dd class="">String <span> Name of column which has the <code>CloudGeoPoint</code></span></dd>
+                          <div class="clearfix"></div>
+                          <dt>CloudGeoPoint</dt>
+                          <dd class="">Object <span> It is the point close to which the points are to be found
+                   respective response.</span></dd>
+                          <div class="clearfix"></div>
+                          <dt>Range</dt>
+                          <dd class="">Number <span> It the range within which are CloudObjects are to be sought. It is given in Meters</span></dd>
+                          <div class="clearfix"></div>
+
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Same query object, which can be helpful in chaining query functions.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc = new CB.CloudGeoPoint(17.7,80.3);
+var query = new CB.CloudQuery('Custom5');
+query.near("location", loc, 100000);
+query.find().then(function(list) {
+       //searches for cloudobjects within 100000 meters
+}, function (err) {
+      //error
+  })
+});
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudQuery-geowithin' name="CloudQuery-geowithin" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudQuery.geowithin("ColumnName",CloudGeoPoint,Radius)</h3>
+                  <p>
+                      Queries for CloudObject objects which are within range.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>ColumnName</dt>
+                          <dd class="">Object <span> Name of column which has the <code>CloudGeoPoint</code></span></dd>
+                          <div class="clearfix"></div>
+                          <dt>CloudGeoPoints</dt>
+                          <dd class="">Array <span> Array of CloudGeopoints within which we want to search CloudObjects or Center of Circle in case the shape is circle</span></dd>
+                          <div class="clearfix"></div>
+                          <dt>Radius</dt>
+                          <dd class="">decimal <span> [Optional] Radius of Circle. Radius is taken in Meters</span></dd>
+                          <div class="clearfix"></div>
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Same query object, which can be helpful in chaining query functions.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc1 = new CB.CloudGeoPoint(18.4,78.9);
+var loc2 = new CB.CloudGeoPoint(17.4,78.4);
+var loc3 = new CB.CloudGeoPoint(17.7,80.4);
+var query = new CB.CloudQuery('Custom');
+query.geoWithin("location", [loc1, loc2, loc3]);
+query.find().then(function(list) {
+       //searches for cloudobjects within triangle formed by the CloudGeoPoints
+}, function (err) {
+      //error
+  })
+});
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+  <!-- CloudNotifications  --> 
+
+        <div class="method">
+
+             <a id='CloudNotifcations' name="CloudNotifcations" class="section-anchor">&nbsp;</a>
+            <div class="method-section">
+              <div class="method-description">
+
+                <h1>CloudNotifcations</h1>
+                <p>
+
+                In Cloudboost, you can create realtime notification channels, publish messages to those channels and have other clients listen to those messages which are being published in real time. 
+                </p>
+
+              </div>
+            </div>
+
+                      <a id='CloudNotification-on' name="CloudNotification-on" class="section-anchor">&nbsp;</a>
+        
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudNotification.on( <code>channelName, functionToFire, [callback]</code> )</h3>
+              <p>
+              Listens to notification channels.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>channelName</dt>
+                  <dd class="">String<span>channel to listen to.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>functionToFire</dt>
+                  <dd class="">function <span> function to fire when data on this channel is published.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>callback</dt>
+                  <dd class="">Object <span>[optional] if provided must have <code>success</code> 
+                  and <code>error</code> functions to handle respective response.</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns JQuery promise, if <code>callback</code> is not specified</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudNotification.on('Sample',function(data){
+  console.log(data);
+});
+              </span></span></code>
+
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='CloudNotification-publish' name="CloudNotification-publish" class="section-anchor">&nbsp;</a>
+        
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudNotification.publish( <code>channelName, data, [callback]</code> )</h3>
+              <p>
+              Publishes data to notification channels.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>channelName</dt>
+                  <dd class="">String<span>channel to publish to.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything <span> data you want to publish to this channel</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>callback</dt>
+                  <dd class="">Object <span>[optional] if provided must have <code>success</code> 
+                  and <code>error</code> functions to handle respective response.</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns JQuery promise, if <code>callback</code> is not specified</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudNotification.publish('sample','data');
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudNotification-off' name="CloudNotification-off" class="section-anchor">&nbsp;</a>
+        
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudNotification.off( <code>channelName, [callback]</code> )</h3>
+              <p>
+              Stops listening to notification channel.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>channelName</dt>
+                  <dd class="">String<span>channel to stop listening to.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>callback</dt>
+                  <dd class="">Object <span>[optional] if provided must have <code>success</code> 
+                  and <code>error</code> functions to handle respective response.</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns JQuery promise, if <code>callback</code> is not specified</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudNotification.off('sample');
+</span></span></code>
+
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+        </div>
  <!-- CloudSearch -->
 
         <div class="method">
@@ -2770,7 +2995,170 @@ cs.search({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-          <a id='CloudSearch-equalTo' name="CloudSearch-equalTo" class="section-anchor">&nbsp;</a>
+
+
+          <a id='sq-or' name="sq-or" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.or( <code>searchQuery</code> )</h3>
+              <p>
+
+              OR a SearchQuery
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>searchQuery</dt>
+                  <dd class=""> CB.SearchQuery <span>SearchQuery object to be OR'ed</span></dd>
+                  <div class="clearfix"></div>
+
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+
+var obj1 = new CB.SearchQuery();
+obj1.searchOn('name', 'Dan');
+
+var obj2 = new CB.SearchQuery();
+obj2.searchOn('name', 'Sam');
+
+cs.searchQuery.or(obj1);
+cs.searchQuery.or(obj2);
+
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-and' name="sq-and" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.and( <code>searchQuery</code> )</h3>
+              <p>
+
+              AND a SearchQuery
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>searchQuery</dt>
+                  <dd class=""> CB.SearchQuery <span>SearchQuery object to be AND'ed</span></dd>
+                  <div class="clearfix"></div>
+
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+
+var obj1 = new CB.SearchQuery();
+obj1.searchOn('name', 'Dan');
+
+var obj2 = new CB.SearchQuery();
+obj2.searchOn('name', 'Sam');
+
+cs.searchQuery.and(obj1);
+cs.searchQuery.and(obj2);
+
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-not' name="sq-not" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.not( <code>searchQuery</code> )</h3>
+              <p>
+
+              NOT a SearchQuery
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>searchQuery</dt>
+                  <dd class=""> CB.SearchQuery <span>SearchQuery object to be NOT</span></dd>
+                  <div class="clearfix"></div>
+
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+
+var obj1 = new CB.SearchQuery();
+obj1.searchOn('name', 'Dan');
+
+var obj2 = new CB.SearchQuery();
+obj2.searchOn('name', 'Sam');
+
+cs.searchQuery.not(obj1);
+cs.searchQuery.not(obj2);
+
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='SearchFilter-equalTo' name="SearchFilter-equalTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -2815,7 +3203,7 @@ cs.search({
           </div> <!-- method-section -->
 
          
-          <a id='CloudSearch-notEqualTo' name="CloudSearch-notEqualTo" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-notEqualTo' name="SearchFilter-notEqualTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -2860,7 +3248,7 @@ cs.search({
             </div><!-- method-example -->
           </div> <!-- method-section -->
           
-          <a id='CloudSearch-greaterThan' name="CloudSearch-greaterThan" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-greaterThan' name="SearchFilter-greaterThan" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -2905,7 +3293,7 @@ cs.search({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-          <a id='CloudSearch-greaterThanEqualTo' name="CloudSearch-greaterThanEqualTo" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-greaterThanEqualTo' name="SearchFilter-greaterThanEqualTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -2948,7 +3336,7 @@ cs.search({
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-          <a id='CloudSearch-lessThan' name="CloudSearch-lessThan" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-lessThan' name="SearchFilter-lessThan" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -2993,7 +3381,7 @@ cs.search({
           </div> <!-- method-section -->
 
 
-          <a id='CloudSearch-lessThanEqualTo' name="CloudSearch-lessThanEqualTo" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-lessThanEqualTo' name="SearchFilter-lessThanEqualTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -3037,7 +3425,7 @@ cs.search({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-          <a id='CloudSearch-exists' name="CloudSearch-exists" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-exists' name="SearchFilter-exists" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
               <h3>SearchFilter.exists( <code>columnName</code> )</h3>
@@ -3075,7 +3463,7 @@ cs.search({
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-          <a id='CloudSearch-doesNotExists' name="CloudSearch-doesNotExists" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-doesNotExists' name="SearchFilter-doesNotExists" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -3115,8 +3503,7 @@ cs.search({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-
-          <a id='CloudSearch-or' name="CloudSearch-or" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-or' name="SearchFilter-or" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
               <h3>SearchFilter.or( <code>searchFilter )</h3>
@@ -3181,7 +3568,7 @@ cs.search({
           </div> <!-- method-section -->
 
 
-          <a id='CloudSearch-and' name="CloudSearch-and" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-and' name="SearchFilter-and" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
               <h3>SearchFilter.and( <code>searchFilter )</h3>
@@ -3246,7 +3633,7 @@ cs.search({
           </div> <!-- method-section -->
 
 
-          <a id='CloudSearch-not' name="CloudSearch-and" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-not' name="SearchFilter-and" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
               <h3>SearchFilter.and( <code>searchFilter )</h3>
@@ -3515,7 +3902,7 @@ cs.search({
                       <code>CloudGeoPoint</code> is used to store GeoPoints and perform GeoPoint operation like finding points near and bounding box.
                   </p>
                   <p>
-                      A <code>CloudGeoPoint</code> object has to be saved in <code>CloudObject</code> as a property.
+                      A <code>CloudGeoPoint</code> object has to be saved in <code>CloudObject</code> in a column.
                   </p>
                   <p>
                       All the modifications in the GeoPoint can be reflected only after the object is saved after the changes.
@@ -3529,12 +3916,12 @@ cs.search({
 
                   <h3>Constructor</h3>
                   <p>
-                      Instantiates an <code>CloudGeoPoint</code> object.
+                      Init's a <code>CloudGeoPoint</code> object.
                   </p>
                   <div class="method-list">
 
                       <h6>Argument</h6>
-                      <p>It takes lattitude and longitude of a point. Points can be given in Numeric format or in string</p>
+                      <p>It takes latitude and longitude of a GeoPoint. Points can be given in Numeric format.</p>
 
                       <h6>Returns</h6>
                       <p>It returns a <code>CloudGeoPoint</code> object.</p>
@@ -3542,9 +3929,8 @@ cs.search({
               </div>
               <div class="method-example" id="api-summary-example">
                   <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var loc = new CB.CloudGeoPoint(17.4,78,5);
-or
-var loc = new CB.CloudGeoPoint("17.4","78.5");
+var point = new CB.CloudGeoPoint(17.4,78.5);
+
 </span></span></code>
               </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -3574,8 +3960,8 @@ var loc = new CB.CloudGeoPoint("17.4","78.5");
               <div class="method-example" id="api-summary-example">
                   <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var loc = new CB.CloudGeoPoint(17.7,80.3);
-var distance = loc.distanceInKMs(10.7,70.3);
-console.log(distance);
+var loc2 = new CB.CloudGeoPoint(10.7,70.3);
+var distance = loc.distanceInKMs(loc2);
 
 </span></span></span></code>
 
@@ -3607,8 +3993,8 @@ console.log(distance);
               <div class="method-example" id="api-summary-example">
                   <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var loc = new CB.CloudGeoPoint(17.7,80.3);
-var distance = loc.distanceInMiles(10.7,70.3);
-console.log(distance);
+var loc2 = new CB.CloudGeoPoint(10.7,70.3);
+var distance = loc.distanceInMiles(loc2);
 
 </span></span></span></code>
 
@@ -3640,8 +4026,8 @@ console.log(distance);
               <div class="method-example" id="api-summary-example">
                   <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var loc = new CB.CloudGeoPoint(17.7,80.3);
-var distance = loc.distanceInRadians(10.7,70.3);
-console.log(distance);
+var loc2 = new CB.CloudGeoPoint(10.7,70.3);
+var distance = loc.distanceInRadians(loc2);
 
 </span></span></span></code>
 
@@ -3649,273 +4035,143 @@ console.log(distance);
           </div> <!-- method-section -->
 
 
-          <a id='CloudGeoPoint-save' name="CloudGeoPoint-save" class="section-anchor">&nbsp;</a>
+          
+        <a id='CloudFile' name="CloudFile" class="section-anchor">&nbsp;</a>
           <div class="method-section">
               <div class="method-description">
-
-                  <h3>CloudObject.save( <code>[callback]</code> )</h3>
-                  <p>
-                      Saves the <code>CloudObject</code> object to CloudBoost with a <code>CloudGeoPoint</code> in it.
-                  </p>
-                  <div class="method-list">
-
-                      <h6>Argument</h6>
-                      <dl class="argument-list">
-
-                          <dt>callback</dt>
-                          <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-                          <div class="clearfix"></div>
-
-                      </dl>
-
-                      <h6>Returns</h6>
-                      <p>It returns a <code>Promise</code> which when resolved returns instance of <code>CloudObject </code> saved or if the promise is rejected, you get an error back. (if <code>callback</code> is not provided).</p>
-                  </div>
+                  <h1>CB.CloudFile</h1>
+                  CB.CloudFile lets you store application files in the cloud that would otherwise be too large or cumbersome to fit into a regular CB.CloudObject. The most common use case is storing images, but you can also use it for documents, videos, music, and any other binary data.
               </div>
-              <div class="method-example" id="api-summary-example">
-                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-//saves CloudGeoPoint in CloudObject
-var obj = new CB.CloudObject('Student');
-var loc = new CloudGeoPoint(17,5,78.5);
-obj.set("location",loc);
-obj.set("name", "Smith");
-obj.save({
-  success: function(obj) {
-    //Saving successfull
-    //obj is instance of CloudObject
+          </div>
+
+         
+
+
+
+
+          <a id='CloudFile-constructor' name="CloudFile-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>file</dt>
+                  <dd class="">file/BLOB object<span>The file/BLOB that you want to save</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var documentFile = new Blob([
+              'This is the content of by document blob'
+              ], {
+                type : 'text/plain'
+              });
+var file = new CB.CloudFile(documentFile);</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudFile-save' name="CloudRole-save" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudFile.save( <code>[callback]</code> )</h3>
+              <p>
+              Saves the <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudFile</code> object having <code>url</code> attribute set to the URL 
+                of the blob uploaded to the server if the operation is successful otherwise returns 
+                an error object along with JQuery promise (if <code>callback</code> is not provided).
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var documentFile = new Blob([
+            'This is the content of by document blob'
+            ], {
+              type : 'text/plain'
+            });
+var file = new CB.CloudFile(documentFile);
+
+file.save({
+  success: function(roleObj) {
+    //got the file object successfully with the url to the file
   },
   error: function(err) {
-   //Error occured in saving the object
+    //error in uploading file
   }
-});
-
-</span></span></span></code>
-
-              </div><!-- method-example -->
+});</span></span></code>
+            </div><!-- method-example -->
           </div> <!-- method-section -->
-
-          <a id='CloudGeoPoint-near' name="CloudGeoPoint-near" class="section-anchor">&nbsp;</a>
+          <a id='CloudFile-delete' name="CloudRole-delete" class="section-anchor">&nbsp;</a>
           <div class="method-section">
-              <div class="method-description">
+            <div class="method-description">
 
-                  <h3>CloudQuery.near("ColumnName",CloudGeoPoint,range )</h3>
-                  <p>
-                      Queries for <code>CloudObject</code> objects which are within range.It gives result in the order of nearest to farthest.
-                  </p>
-                  <div class="method-list">
+              <h3>CloudFile.delete( <code>[callback]</code> )</h3>
+              <p>
+              Saves the <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
 
-                      <h6>Argument</h6>
-                      <dl class="argument-list">
-
-                          <dt>ColumnName</dt>
-                          <dd class="">String <span> Name of column which has the <code>CloudGeoPoint</code></span></dd>
-                          <div class="clearfix"></div>
-                          <dt>CloudGeoPoint</dt>
-                          <dd class="">Object <span> It is the point close to which the points are to be found
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
                    respective response.</span></dd>
-                          <div class="clearfix"></div>
-                          <dt>Range</dt>
-                          <dd class="">Number <span> It the range within which are CloudObjects are to be sought. It is given in radians</span></dd>
-                          <div class="clearfix"></div>
-
-                      </dl>
-
-                      <h6>Returns</h6>
-                      <p>Same query object, which can be helpful in chaining query functions.</p>
-                  </div>
-              </div>
-              <div class="method-example" id="api-summary-example">
-                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var loc = new CB.CloudGeoPoint("17.7","80.3");
-var query = new CB.CloudQuery('Custom5');
-query.near("location", loc, 100000);
-query.find().then(function(list) {
-       //searches for cloudobjects within 100000
-}, function (err) {
-      //error
-  })
-});
-
-</span></span></span></code>
-
-              </div><!-- method-example -->
-          </div> <!-- method-section -->
-
-          <a id='CloudGeoPoint-geowithin' name="CloudGeoPoint-geowithin" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-              <div class="method-description">
-
-                  <h3>CloudQuery.geowithin("ColumnName",CloudGeoPoint,Radius)</h3>
-                  <p>
-                      Queries for CloudObject objects which are within range.
-                  </p>
-                  <div class="method-list">
-
-                      <h6>Argument</h6>
-                      <dl class="argument-list">
-
-                          <dt>ColumnName</dt>
-                          <dd class="">Object <span> Name of column which has the <code>CloudGeoPoint</code></span></dd>
-                          <div class="clearfix"></div>
-                          <dt>CloudGeoPoints</dt>
-                          <dd class="">Array <span> Array of CloudGeopoints within which we want to search CloudObjects or Center of Circle in case the shape is circle</span></dd>
-                          <div class="clearfix"></div>
-                          <dt>Radius</dt>
-                          <dd class="">Number <span> [Optional] Radius of Circle. Radius is taken in Miles</span></dd>
-                          <div class="clearfix"></div>
-                      </dl>
-
-                      <h6>Returns</h6>
-                      <p>Same query object, which can be helpful in chaining query functions.</p>
-                  </div>
-              </div>
-              <div class="method-example" id="api-summary-example">
-                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var loc1 = new CB.CloudGeoPoint(18.4,78.9);
-var loc2 = new CB.CloudGeoPoint(17.4,78.4);
-var loc3 = new CB.CloudGeoPoint(17.7,80.4);
-var query = new CB.CloudQuery('Custom');
-query.geoWithin("location", [loc1, loc2, loc3]);
-query.find().then(function(list) {
-       //searches for cloudobjects within triangle formed by the CloudGeoPoints
-}, function (err) {
-      //error
-  })
-});
-
-</span></span></span></code>
-
-              </div><!-- method-example -->
-          </div> <!-- method-section -->
-  <!-- CloudNotifications  --> 
-
-        <div class="method">
-
-             <a id='CloudNotifcations' name="CloudNotifcations" class="section-anchor">&nbsp;</a>
-            <div class="method-section">
-              <div class="method-description">
-
-                <h1>CloudNotifcations</h1>
-                <p>
-
-                In Cloudboost, you can create realtime notification channels, publish messages to those channels and have other clients listen to those messages which are being published in real time. 
-                </p>
-
-              </div>
-            </div>
-
-                      <a id='CloudNotification-on' name="CloudNotification-on" class="section-anchor">&nbsp;</a>
-        
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudNotification.on( <code>channelName, functionToFire, [callback]</code> )</h3>
-              <p>
-              Listens to notification channels.
-              </p>
-              <div class="method-list">
-                
-                <h6>Arguments</h6>
-                <dl class="argument-list">
-                  <dt>channelName</dt>
-                  <dd class="">String<span>channel to listen to.</span></dd>
                   <div class="clearfix"></div>
-                  <dt>functionToFire</dt>
-                  <dd class="">function <span> function to fire when data on this channel is published.</span></dd>
-                  <div class="clearfix"></div>
-                  <dt>callback</dt>
-                  <dd class="">Object <span>[optional] if provided must have <code>success</code> 
-                  and <code>error</code> functions to handle respective response.</span></dd>
-                  <div class="clearfix"></div>
+                  
                 </dl>
 
                 <h6>Returns</h6>
-                <p>It returns JQuery promise, if <code>callback</code> is not specified</p>
+                It returns a <code>CloudFile</code> object having <code>url</code> attribute set to <code>null</code> 
+                if the operation is successful otherwise returns an error object along with JQuery promise 
+                (if <code>callback</code> is not provided).
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CB.CloudNotification.on('Sample',function(data){
-  console.log(data);
-});
-              </span></span></code>
+var documentFile = new Blob([
+            'This is the content of by document blob'
+            ], {
+              type : 'text/plain'
+            });
+var file = new CB.CloudFile(documentFile);
 
+file.delete({
+  success: function(roleObj) {
+    //file deletion successfull
+  },
+  error: function(err) {
+    //error in deleting file
+  }
+});</span></span></code>
             </div><!-- method-example -->
-          </div> <!-- method-section -->
-
-
-          <a id='CloudNotification-publish' name="CloudNotification-publish" class="section-anchor">&nbsp;</a>
-        
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudNotification.publish( <code>channelName, data, [callback]</code> )</h3>
-              <p>
-              Publishes data to notification channels.
-              </p>
-              <div class="method-list">
-                
-                <h6>Arguments</h6>
-                <dl class="argument-list">
-                  <dt>channelName</dt>
-                  <dd class="">String<span>channel to publish to.</span></dd>
                   <div class="clearfix"></div>
-                  <dt>data</dt>
-                  <dd class="">Anything <span> data you want to publish to this channel</span></dd>
-                  <div class="clearfix"></div>
-                  <dt>callback</dt>
-                  <dd class="">Object <span>[optional] if provided must have <code>success</code> 
-                  and <code>error</code> functions to handle respective response.</span></dd>
-                  <div class="clearfix"></div>
-                </dl>
-
-                <h6>Returns</h6>
-                <p>It returns JQuery promise, if <code>callback</code> is not specified</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CB.CloudNotification.publish('sample','data');
-              </span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-
-          <a id='CloudNotification-off' name="CloudNotification-off" class="section-anchor">&nbsp;</a>
-        
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudNotification.off( <code>channelName, [callback]</code> )</h3>
-              <p>
-              Stops listening to notification channel.
-              </p>
-              <div class="method-list">
-                
-                <h6>Arguments</h6>
-                <dl class="argument-list">
-                  <dt>channelName</dt>
-                  <dd class="">String<span>channel to stop listening to.</span></dd>
-                  <div class="clearfix"></div>
-                  <dt>callback</dt>
-                  <dd class="">Object <span>[optional] if provided must have <code>success</code> 
-                  and <code>error</code> functions to handle respective response.</span></dd>
-                  <div class="clearfix"></div>
-                </dl>
-
-                <h6>Returns</h6>
-                <p>It returns JQuery promise, if <code>callback</code> is not specified</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CB.CloudNotification.off('sample');
-</span></span></code>
-
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-
-        </div>
+            
+          </div> 
  <a id='CloudUser' name="CloudUser" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -4308,64 +4564,7 @@ CB.CloudUser.current.removeFromRole(role, {
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var role = new CB.CloudRole("Student");</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-          <a id='CloudRole-getRole' name="CloudRole-getRole" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudRole.getRole( <code>role , [callback]</code> )</h3>
-              <p>
-              Gets a <code>CloudRole</code> object for a given <code>role</code> object with <i>name</i>
-              field only.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>role</dt>
-                  <dd class="">CloudRole object <span>The name of the role you want to deal with</span></dd>
-                  <div class="clearfix"></div>
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-                <h6>Returns</h6>
-                It returns a <code>CloudRole</code> object having the role information of the role whose name was 
-                provided in the object of <code>role</code> argument otherwise an error object along with JQuery 
-                promise (if <code>callback</code> is not provided).
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var role = new CB.CloudRole("my-collaborator");
-
-CB.CloudRole.getRole(role, {
-  success: function(roleObj) {
-    //got the role object successfully
-  },
-  error: function(err) {
-    //error in fetching role object
-  }
-});</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-
-          <a id='CloudFile' name="CloudFile" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-              <h1>CB.CloudFile</h1>
-              <p>
-                CB.CloudFile lets you store application files in the cloud that would otherwise be too large or 
-                cumbersome to fit into a regular <code>CB.CloudObject</code>. The most common use case is storing images, 
-                but you can also use it for documents, videos, music, and any other binary data.
-              </p>
-            </div>
-            <div class="method-example" id="api-summary-example">
-            </div>
-          </div>
+          
   <!--Acl -->
 
           <a id='ACL' name="ACL" class="section-anchor">&nbsp;</a>
