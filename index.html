@@ -61,7 +61,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudApp-init" class="parent">Initialize CloudApp</a>
           </span>
         </li>
-      
+
         <li class="section section-charges">
           <a href="#CloudObject" class="parent">CloudObject</a>
           <span class="children">
@@ -132,7 +132,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
 
           <span class="children">
             <a href="#CloudSearch-constructor" class="parent">Constructor</a>
-            
+
             <a href="#sq-searchOn" class="parent">Query : Search On</a>
             <a href="#sq-phrase" class="parent">Query : Phrase</a>
             <a href="#sq-bestColumns" class="parent">Query : Best Columns</a>
@@ -158,7 +158,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
 
             <a href="#CloudSearch-orderByAsc" class="parent">Order by</a>
             <a href="#CloudSearch-setLimit" class="parent">Limit</a>
-            <a href="#CloudSearch-setSkip" class="parent">Skip</a>            
+            <a href="#CloudSearch-setSkip" class="parent">Skip</a>
             <a href="#CloudSearch-search" class="parent">Search</a>
 
           </span>
@@ -171,11 +171,11 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
               <a href="#CloudGeoPoint-dkm" class="parent">Distance In kilometers</a>
               <a href="#CloudGeoPoint-miles" class="parent">Distance In Miles</a>
               <a href="#CloudGeoPoint-radians" class="parent">Distance In Radians</a>
-              
+
           </span>
 
         </li>
-        
+
         <li class="section section-charges"><a href="#CloudUser" class="parent">CloudUser</a>
           <span class="children">
             <a href="#CloudUser-constructor" class="parent">Constructor</a>
@@ -187,23 +187,44 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudUser-removeFromRole" class="parent">Remove from Role</a>
           </span>
         </li>
-        
+
         <li class="section section-charges"><a href="#CloudRole" class="parent">CloudRole</a>
           <span class="children">
             <a href="#CloudRole-constructor" class="parent">Constructor</a>
           </span>
         </li>
 
-        
-        
+
+
         <li class="section section-charges"><a href="#CloudFile" class="parent">CloudFile</a>
-        
+
           <span class="children">
             <a href="#CloudFile-constructor" class="parent">Constructor</a>
             <a href="#CloudFile-save" class="parent">Save</a>
             <a href="#CloudFile-delete" class="parent">Delete</a>
           </span>
 
+        </li>
+
+        <li class="section section-charges">
+          <a href="#Column" class="parent">Column</a>
+          <span class="children">
+            <a href="#Column-constructor" class="parent">Constructor</a>
+            <a href="#Column-datatype" class="parent">Data Type</a>
+          </span>
+        </li>
+
+        <li class="section section-charges">
+          <a href="#CloudTable" class="parent">CloudTable</a>
+          <span class="children">
+            <a href="#CloudTable-constructor" class="parent">Constructor</a>
+            <a href="#CloudTable-get" class="parent">Get</a>
+            <a href="#CloudTable-getall" class="parent">GetAll</a>
+            <a href="#CloudTable-addcolumn" class="parent">Add Column</a>
+            <a href="#CloudTable-deletecolumn" class="parent">Delete Column</a>
+            <a href="#CloudTable-save" class="parent">Save</a>
+            <a href="#CloudTable-delete" class="parent">Delete</a>
+          </span>
         </li>
 
         <li class="section section-charges"><a href="#ACL" class="parent">Access Control List (ACL)</a>
@@ -219,7 +240,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
         </li>
 
          <li class="section section-charges"><a href="#JSON" class="parent">JSON</a>
-        
+
           <span class="children">
             <a href="#JSON-serialize" class="parent">Serialize to JSON</a>
             <a href="#JSON-deserialize" class="parent">Deserialize from JSON</a>
@@ -231,6 +252,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
       </ul>
 
     </div>
+
 <!-- api docs -->
     <div id="api-docs">
       <a id="top" name="top" class="section-anchor">&nbsp;</a>
@@ -4556,6 +4578,379 @@ file.delete({
                   <div class="clearfix"></div>
             
           </div> 
+<div class="method">
+  <a id='Column' name="Column" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h1>CB.Column</h1>
+      <p>
+      This API allow to create a column object.
+      </p>
+    </div>
+    <div class="method-example" id="api-summary-example">
+    </div>
+  </div>
+  <a id='Column-constructor' name="Column-constructor" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+      <h3>CB.Column(<code>columnName, dataType, [required], [unique]</code>)</h3>
+      <p>
+        Initialize a column.
+        <br/>
+        List of valid <b>Data Type</b> is given below.
+        <br/>
+        <b>Reqiure</b> is a boolean that indicate whether the field can be null or not.
+        <br/>
+        <b>Unique</b> field is a boolean type, indicates whether should contains unique value or not.
+      </p>
+
+      <div class="method-list">
+
+        <h6>Arguments</h6>
+        <dl class="argument-list">
+          <dt>columnNmae</dt>
+          <dd class="">String <span>Column Name should not start with a number and should not contain any spaces and special characters.</span></dd>
+          <div class="clearfix"></div>
+          <dt>dataType</dt>
+          <dd class="">Cloud Data Types<span>Default data type is <b>Text</b></span></dd>
+          <div class="clearfix"></div>
+          <dt>required</dt>
+          <dd class="">Boolean <span>Default value is <b>False. </b></span></dd>
+          <div class="clearfix"></div>
+          <dt>unique</dt>
+          <dd class="">Boolean <span>Default value is <b>False. </b></span></dd>
+          <div class="clearfix"></div>
+        </dl>
+
+        <h6>Returns</h6>
+        <p>A cloudcolumn object</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var column1 = new CB.Column('name', 'Text', true, false);
+var column2 = new CB.Column('uniqueId');
+column2.dataType = 'Number';
+column2.unique = true;
+column2.required = true;
+var table = new CB.CloudTable('Employee');
+table.addColumn(column1);
+table.addColumn(column2);
+table.save().then(function(obj){
+    //cloud table object
+}, function(err){
+   //error
+});
+</span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+  <a id='Column-datatype' name="Column-datatype" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+      <h3>Data Types</h3>
+      <p>List of Valid Data Types
+        <ul>
+          <li>Text</li>
+          <li>Number</li>
+          <li>Email</li>
+          <li>URL</li>
+          <li>Boolean</li>
+          <li>dateTime</li>
+          <li>GeoPoint</li>
+          <li>File</li>
+          <li>List</li>
+          <li>Relation</li>
+          <li>Object</li>
+        </ul>
+        <p><small><b>data types are case sensitive</small></b></p>
+      </p>
+      <p>
+        If you are using <b>Relation</b> as a data type then you need to set <b>relatedTo</b> property to column object</b>.
+        <br/>
+        Valid relatedTo data types for <b>Relation</b> is <b>CloudTable Object</b> i.e. just set the table name in relatedTo property.
+
+      </p>
+
+      <p>
+        If you are using <b>List</b> as a data type then you need to set <b>relatedTo</b> property to column object</b>.
+        <br/>
+        Valid relatedTo data types for <b>List</b> are:
+        <br/>
+        ['CloudTable Objects', 'Text', 'Email', 'URL', 'Number', 'Boolean', 'DateTime', 'Boolean', 'GeoPoint', 'File', 'Object']
+      </p>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var column3 = new CB.Column('department', 'Relation');
+column3.relatedTo = 'DeparmentTable';
+var column4 = new CB.Column('skills', 'List');
+column4.relatedTo = 'Text';
+var table = new CB.CloudTable('Employee');
+table.addColumn(column3);
+table.addColumn(column4);
+table.save().then(function(obj){
+    //cloud table object
+}, function(err){
+   //error
+});
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+<div>  <!-- method -->
+
+<div class="method">
+  <a id='CloudTable' name="CloudTable" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h1>CB.CloudTable</h1>
+      <p>
+      This API allows to create, delete, get details of a table from an App by using <b>master-key.</b>
+      </p>
+
+    </div>
+    <div class="method-example" id="api-summary-example">
+    </div>
+  </div>
+  <a id='CloudTable-constructor' name="CloudTable-constructor" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h3>CB.CloudTable(<code>tableName</code>)</h3>
+      <p>
+        All the tables are in cloudboost is a type of cloudtable. Pass the table name as a parameter to initialize a cloudtable.
+      </p>
+      <div class="method-list">
+
+        <h6>Arguments</h6>
+        <dl class="argument-list">
+          <dt>tableName</dt>
+          <dd class="">String <span>Table should not start with a number and should not contain any spaces and special characters.</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+
+        <h6>Returns</h6>
+        <p>A cloudtable object</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var table = new CB.CloudTable("TableName");
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+  <a id='CloudTable-get' name="CloudTable-get" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h3>CloudTable.get(<code>cloudtable, [callback]</code>)</h3>
+      <p>
+        To get a table's detail of an App use get method.
+      </p>
+      <div class="method-list">
+
+        <h6>Arguments</h6>
+        <dl class="argument-list">
+          <dt>cloudtable</dt>
+          <dd class="">CloudTable Object <span>Pass a cloudtable object</span></dd>
+          <div class="clearfix"></div>
+          <dt>callback</dt>
+          <dd class="">Object <span>[optional] if provided must have success and error functions to handle respective response.</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+
+        <h6>Returns</h6>
+        <p>A cloudtable object</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var obj = new CB.CloudTable('Address');
+CB.CloudTable.get(obj).then(function(table){
+    //get cloudtable object for requested table.
+}, function(err){
+    //get error details
+});
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+  <a id='CloudTable-getall' name="CloudTable-getall" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h3>CloudTable.getAll(<code>[callback]</code>)</h3>
+      <p>
+        It fetch all tables of an App.
+      </p>
+      <div class="method-list">
+
+        <h6>Arguments</h6>
+        <dl>
+          <dt>callback</dt>
+          <dd class="">Object <span>[optional] if provided must have success and error functions to handle respective response.</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+
+        <h6>Returns</h6>
+        <p>Array of cloudtable object</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudTable.getAll().then(function(tableArray){
+    //get array of cloudtables
+}, function(err){
+    //get error details
+});
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+
+  <a id='CloudTable-addcolumn' name="CloudTable-addcolumn" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h3>CloudTable.addColumn(<code>columnObj</code>)</h3>
+      <p>
+        Add a column to a table. go through <a href="#Column">Column</a> to get more detail about how to initialize a column object.
+      </p>
+      <div class="method-list">
+
+        <h6>Arguments</h6>
+        <dl>
+          <dt>Column</dt>
+          <dd class="">Column Object<span>Create a column object using Column Class and put this object as an argument</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+
+        <h6>Returns</h6>
+        <p>Void</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var table = new CB.CloudTable('Student');
+var column = new CB.Column('Name', 'Text');
+table.addColumn(column);
+table.save().then(function(obj){
+  //new table object with new column
+}, function(err){
+
+});
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+  <a id='CloudTable-deletecolumn' name="CloudTable-deletecolumn" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h3>CloudTable.deleteColumn(<code>columnObj</code>)</h3>
+      <p>
+        Delete a column of a table. go through <a href="">Column</a> to get more detail about how to initialize a column object.
+      </p>
+      <div class="method-list">
+        <h6>Arguments</h6>
+        <dl>
+          <dt>Column</dt>
+          <dd class="">Column Object<span>Create a column object using Column Class and put this object as an argument</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+        <h6>Returns</h6>
+        <p>Void</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var column = new CB.Column('Name', 'Text');
+table.deleteColumn(column);
+table.save().then(function(obj){
+  //updated table object without 'Name' column
+}, function(err){
+
+});
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+  <a id='CloudTable-save' name="CloudTable-save" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h3>CloudTable.save(<code>[callback]</code>)</h3>
+      <p>
+        Save a cloudtable object. It will automatically create all default columns for a table. If you want to create a user table or role table then just pass 'User' or 'Role' as an argument while creating cloudtable object.
+      </p>
+      <div class="method-list">
+        <h6>Arguments</h6>
+        <dl>
+          <dt>callback</dt>
+          <dd class="">Object <span>[optional] if provided must have success and error functions to handle respective response.</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+        <h6>Returns</h6>
+        <p>cloudtable object</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var table = new CB.CloudTable('NewTable');
+table.save().then(function(obj){
+  //saved cloudtable object
+}, function(err){
+
+});
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+  <a id='CloudTable-delete' name="CloudTable-delete" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h3>CloudTable.delete(<code>cloudtable, [callback]</code>)</h3>
+      <p>
+        delete a cloudtable object i.e. delete a table of an App.
+      </p>
+      <div class="method-list">
+        <h6>Arguments</h6>
+        <dl>
+          <dt>Table</dt>
+          <dd class="">CloudTable object <span>cloudtable object which has to delete.</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+        <dl>
+          <dt>callback</dt>
+          <dd class="">Object <span>[optional] if provided must have success and error functions to handle respective response.</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+        <h6>Returns</h6>
+        <p>success or error status</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var table = new CB.CloudTable('Student');
+CB.CloudTable.delete(table).then(function(status){
+    //success status
+},function(){
+    //get error status
+});
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+</div> <!-- method -->
+
   <!--Acl -->
 
           <a id='ACL' name="ACL" class="section-anchor">&nbsp;</a>
