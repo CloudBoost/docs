@@ -18,7 +18,7 @@
 
       <h3>CB.CloudTable(<code>tableName</code>)</h3>
       <p>
-        All the tables are in cloudboost is a type of cloudtable. Pass the table name as a parameter to initialize a cloudtable.
+        All the tables are in CloudBoost is a type of CloudTable. Pass the table name as a parameter to initialize a CloudTable.
       </p>
       <div class="method-list">
 
@@ -30,7 +30,7 @@
         </dl>
 
         <h6>Returns</h6>
-        <p>A cloudtable object</p>
+        <p>A CloudTable object</p>
       </div>
     </div>
     <div class="method-example" id="api-summary-example">
@@ -44,7 +44,7 @@ var table = new CB.CloudTable("TableName");
   <div class="method-section">
     <div class="method-description">
 
-      <h3>CloudTable.get(<code>cloudtable, [callback]</code>)</h3>
+      <h3>CloudTable.get(<code>CloudTable, [callback]</code>)</h3>
       <p>
         To get a table's detail of an App use get method.
       </p>
@@ -53,7 +53,9 @@ var table = new CB.CloudTable("TableName");
         <h6>Arguments</h6>
         <dl class="argument-list">
           <dt>cloudtable</dt>
-          <dd class="">CloudTable Object <span>Pass a cloudtable object</span></dd>
+          <dd class="">CloudTable Object <span>Pass a CloudTable Object</span></dd>
+               <dd>or</dd>
+            <dd class="">CloudTable <span>Pass a Name of CloudTable</span></dd>
           <div class="clearfix"></div>
           <dt>callback</dt>
           <dd class="">Object <span>[optional] if provided must have success and error functions to handle respective response.</span></dd>
@@ -61,14 +63,14 @@ var table = new CB.CloudTable("TableName");
         </dl>
 
         <h6>Returns</h6>
-        <p>A cloudtable object</p>
+        <p>A CloudTable Object</p>
       </div>
     </div>
     <div class="method-example" id="api-summary-example">
       <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var obj = new CB.CloudTable('Address');
 CB.CloudTable.get(obj).then(function(table){
-    //get cloudtable object for requested table.
+    //Get CloudTable Object for requested table.
 }, function(err){
     //get error details
 });
@@ -94,13 +96,13 @@ CB.CloudTable.get(obj).then(function(table){
         </dl>
 
         <h6>Returns</h6>
-        <p>Array of cloudtable object</p>
+        <p>Array of CloudTable object</p>
       </div>
     </div>
     <div class="method-example" id="api-summary-example">
       <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 CB.CloudTable.getAll().then(function(tableArray){
-    //get array of cloudtables
+    //get array of CloudTables
 }, function(err){
     //get error details
 });
@@ -122,7 +124,9 @@ CB.CloudTable.getAll().then(function(tableArray){
         <h6>Arguments</h6>
         <dl>
           <dt>Column</dt>
-          <dd class="">Column Object<span>Create a column object using Column Class and put this object as an argument</span></dd>
+            <dd class="">Column Object<span>Create a Column object using Column Class and put this object as an Argument</span></dd>
+            <dd>or</dd>
+            <dd class="">Column Name<span>Pass the Column Name as the Argument</span></dd>
           <div class="clearfix"></div>
         </dl>
 
@@ -150,13 +154,15 @@ table.save().then(function(obj){
 
       <h3>CloudTable.deleteColumn(<code>columnObj</code>)</h3>
       <p>
-        Delete a column of a table. go through <a href="">Column</a> to get more detail about how to initialize a column object.
+        Delete a column of a Table. go through <a href="">Column</a> to get more detail about how to initialize a Column Object.
       </p>
       <div class="method-list">
         <h6>Arguments</h6>
         <dl>
           <dt>Column</dt>
           <dd class="">Column Object<span>Create a column object using Column Class and put this object as an argument</span></dd>
+            <dd>or</dd>
+            <dd class="">Column Name<span>Pass the Column Name as the Argument</span></dd>
           <div class="clearfix"></div>
         </dl>
         <h6>Returns</h6>
@@ -183,7 +189,7 @@ table.save().then(function(obj){
 
       <h3>CloudTable.save(<code>[callback]</code>)</h3>
       <p>
-        Save a cloudtable object. It will automatically create all default columns for a table. If you want to create a user table or role table then just pass 'User' or 'Role' as an argument while creating cloudtable object.
+        Save a CloudTable Object. It will automatically create all default columns for a table. If you want to create a user table or role table then just pass 'User' or 'Role' as an argument while creating cloudtable object.
       </p>
       <div class="method-list">
         <h6>Arguments</h6>
@@ -193,7 +199,7 @@ table.save().then(function(obj){
           <div class="clearfix"></div>
         </dl>
         <h6>Returns</h6>
-        <p>cloudtable object</p>
+        <p>CloudTable Object</p>
       </div>
     </div>
     <div class="method-example" id="api-summary-example">
@@ -213,31 +219,26 @@ table.save().then(function(obj){
   <div class="method-section">
     <div class="method-description">
 
-      <h3>CloudTable.delete(<code>cloudtable, [callback]</code>)</h3>
+      <h3>CloudTable.delete(<code>[callback]</code>)</h3>
       <p>
-        delete a cloudtable object i.e. delete a table of an App.
+        Delete a CloudTable object i.e. delete a table of an App.
       </p>
       <div class="method-list">
         <h6>Arguments</h6>
-        <dl>
-          <dt>Table</dt>
-          <dd class="">CloudTable object <span>cloudtable object which has to delete.</span></dd>
-          <div class="clearfix"></div>
-        </dl>
         <dl>
           <dt>callback</dt>
           <dd class="">Object <span>[optional] if provided must have success and error functions to handle respective response.</span></dd>
           <div class="clearfix"></div>
         </dl>
         <h6>Returns</h6>
-        <p>success or error status</p>
+        <p>Success or Error Status</p>
       </div>
     </div>
     <div class="method-example" id="api-summary-example">
       <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 
 var table = new CB.CloudTable('Student');
-CB.CloudTable.delete(table).then(function(status){
+table.delete().then(function(status){
     //success status
 },function(){
     //get error status
