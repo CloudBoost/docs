@@ -1,0 +1,71 @@
+        <div class="method">
+          <a id='Apps' name="Apps" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h1>Apps</h1>
+              <p>
+              In Cloudboost, you create an app each of which has its own AppID,  
+              Client Key and the Master Key that you apply to your web app. You master key is a secret which should not be shared in your client apps. Your account on CloudBoost can accommodate multiple apps.
+
+              This is useful even if you have one application, since you can deploy different versions for test and production.
+              </p>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div>
+          </div>
+        </div>
+        <div class="method">
+          <a id='CloudApp' name="CloudApp" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h1>CB.CloudApp</h1>
+              <p>
+              This is your CloudApp object, and it is used to initalize your app with CloudBoost.
+              </p>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div>
+          </div>
+          <a id='CloudApp-init' name="CloudApp-init" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudApp.init( <code>appId, appKey</code> )</h3>
+              <p>
+              Init's the app.
+              </p>
+              <p>
+                <i>ClientKey</i> and <i>MasterKey</i> are the two keys that are provided for each app your create.
+                If you want a client of your app have access to CloudBoost API, its <b>recommended you only share <i>ClientKey</i> with your app.</b>
+                <br/><br/>
+                <b>We dont recommend init'ing your app with <i>MasterKey</i> unless you install our API and make requests from your server.</b>
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>appId</dt>
+                  <dd class="">Application ID <span>with which your app is registered. You can find this on your CloudBoost Dashboard</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>appKey</dt>
+                  <dd class="">Client / Master key <span>Secret Key for your app. You can find this on your CloudBoost Dashboard</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>void</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudApp.init('YOUR APP ID', 'YOUR APP KEY'); 
+              </span></span></code>
+
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+        </div> <!-- method -->

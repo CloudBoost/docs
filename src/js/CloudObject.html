@@ -1,0 +1,494 @@
+ <div class="method">
+          <a id='CloudObject' name="CloudObject" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h1>CB.CloudObject</h1>
+              <p>
+              Your data in CloudBoost is represented with CloudObjects <code>CB.CloudObject</code>. Each <code>CB.CloudObject</code> 
+              belongs to a table in your database with us and each object represents a row of data in that table. The data you can store in CloudObject has schema which you define in Table Designer in CloudBoost portal. CloudBoost is schema-mix, So you can store validate the piece of data with a schema or not. Simply set whatever key-value pairs you want, and CloudBoost will store it for you.
+              </p>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div>
+          </div>
+          <a id='CloudObject-constructor' name="CloudObject-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor : CloudObject( <code>columnName, [objectId]</code> )</h3>
+              <p>
+              Instantiates a <code>CloudObject</code> object.
+              </p>
+              <div class="method-list">
+                <h6>Argument</h6>
+                <dl class="argument-list">
+                  <dt>tableName</dt>
+                  <dd class="">string <span>The name of the table you want to deal with</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>objectId</dt>
+                  <dd class="">[optional] string <span>The id of the object you want it to be. <b>Important : Use this parameter only when you're working on relations. For more information</b></span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns an instance of a CloudObject, as its a constructor. </p>
+              </div>
+
+              <div class="method-list">
+                <h6>Properties</h6>
+
+                <p>Every instance of CloudObject has these properties </p>
+
+                <dl class="argument-list">
+
+                  <dt>id</dt>
+                  <dd class="">string <span>The id of the CloudObject which is populated after the object is saved.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>createdAt</dt>
+                  <dd class="">Date <span>The Date and time when the object was saved in the database.</span></dd>
+                  <div class="clearfix"></div>
+
+                   <dt>updatedAt</dt>
+                  <dd class="">Date <span>The Date and time when the object was updated in the database.</span></dd>
+                  <div class="clearfix"></div>
+
+
+                  <dt>ACL</dt>
+                  <dd class="">ACL <span>Access Control List, by default this object is publicily readable and writeable. You set object level security here. Refer <a href="/#ACL">ACL's</a></span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+                
+              </div>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node">
+              <span class="highlight_js javascript">
+//creates an object for Student table
+var obj = new CB.CloudObject("Student"); 
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudObject-set' name="CloudObject-set" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudObject.set( <code>columnName, data</code> )</h3>
+              <p>
+              Sets the value of an attribute of a <code>CloudObject</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be set.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Any data<span>The value which is to be stored in the column.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>void</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var obj = new CB.CloudObject('Student'); //create a new object.
+obj.set("name", "John Smith"); //store string
+obj.set("age", 21); // store number
+obj.set("address", {
+                      city: "Hyderabad",
+                      state: "Telangana",
+                      country: "India"
+                   });  // store object
+
+                   
+                   </span></span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudObject-get' name="CloudObject-get" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudObject.get( <code>columnName</code> )</h3>
+              <p>
+              Gets the value of an column of an instance of <code>CloudObject</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be fetched.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns the value of column which was previously set otherwise returns <code>undefined</code> if the column is not set to a value.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var address = obj.get('address'); //get the data. 
+
+/* address will be 
+
+  {
+      city: "Hyderabad",
+      state: "Telangana",
+      country: "India"
+  }
+
+  which was saved in the object using object.set
+
+*/
+
+
+
+                   </span></span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudObject-unset' name="CloudObject-unset" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudObject.unset( <code>columnName</code> )</h3>
+              <p>
+              Unsets or Sets the value of an column of a <code>CloudObject</code> object to <code>null</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column which is to be unset.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>void</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var obj = new CB.CloudObject('Student');
+obj.set("name", "John Smith");
+obj.get("name"); //returns John Smith.
+obj.unset("name");
+obj.get("name"); //returns null.
+</span></span></code>
+             
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudObject-save' name="CloudObject-save" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudObject.save( <code>[callback]</code> )</h3>
+              <p>
+              Saves the <code>CloudObject</code> object to CloudBoost.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+                
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>Promise</code> which when resolved and returns instance of <code>CloudObject </code> saved .If the promise is rejected, you get an error object back. (if <code>callback</code> is not provided).</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var obj = new CB.CloudObject('Student');
+obj.set("name", "Smith");
+obj.save({
+  success: function(obj) {
+    //Saving successfull
+    //obj is instance of CloudObject
+  },
+  error: function(err) {
+   //Error occured in saving the object
+  }
+});
+
+</span></span></span></code>
+
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudObject-fetch' name="CloudObject-fetch" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudObject.fetch( <code>[callback]</code> )</h3>
+              <p>
+              Refreshes a <code>CloudObject</code> object to by fetching its values from the database.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle respective response.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns <code>Promise</code> whcih resolves or rejects (if <code>callback</code> is not provided).</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+obj.fetch({
+  success: function(obj) {
+    //obj is an instance of a refreshed CloudObject
+  },
+  error: function(err) {
+    //Error occurred in fetching the data
+  }              
+});
+</span></span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudObject-delete' name="CloudObject-delete" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudObject.delete( <code>[callback]</code> )</h3>
+              <p>
+              Delete a <code>CloudObject</code> object, if it is saved in the database.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns <code>Promise</code> whcih resolves or rejects (if <code>callback</code> is not provided).</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+obj.delete({
+  success: function(obj) {
+    //success
+  },
+  error: function(err) {
+    //Error
+  }              
+});
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+           
+
+          <a id='CloudObject-on' name="CloudObject-on" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudObject.on( <code> tableName, eventType, functionToFire, [callback] </code>)</h3>
+              <p>
+              Realtime Notifications : Listens to  <code>CloudObject</code> events like insert, update, delete in the database.
+              </p>
+
+              <div class="method-list">
+
+               <h6>Argument</h6>
+
+                <dl class="argument-list"> 
+                  <dt>tableName</dt>
+                  <dd class="">String <span> Name of the table on which you want to listen for events.
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>eventType</dt>
+                  <dd class="">String / Array<span> Type of an event you want to listen to, Only  <code> created, updated, deleted </code> are supported values.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>functionToFire</dt>
+                  <dd class="">Function <span> Your custom function to fire when the event occours</dd>
+                  <div class="clearfix"></div>
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] Success/Error callback if the subscribe to event was successful / failed.
+                  <div class="clearfix"></div>
+                
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>Promise</code> (if <code>callback</code> is not provided).</p>
+
+              </div>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+  //listen to an event
+
+CB.CloudObject.on('Student', //name of the table
+'created', //type of an event
+function(obj){ //your custom function which you want to fire.
+  //obj is an instance of CloudObject
+  console.log('Student Created : '+obj.get('name'));
+}, 
+{ //callback
+  success : function(){
+    //subscribe success
+  },
+  error : function(err){
+    //failed
+  }
+});
+
+</span></span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+                    <a id='CloudObject-off' name="CloudObject-off" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudObject.off( <code> tableName, eventType, [callback] </code>)</h3>
+              <p>
+              Realtime Notifications : Switches off listening to  <code>CloudObject</code> events like insert, update, delete in the database.
+              </p>
+
+              <div class="method-list">
+
+               <h6>Argument</h6>
+
+                <dl class="argument-list"> 
+                  <dt>tableName</dt>
+                  <dd class="">String <span> Name of the table on which you want to stop listening for events to.
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>eventType</dt>
+                  <dd class="">String / Array<span> Type of an event you want to stop listening to, Only  <code> created, updated, deleted </code> are supported values.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] Success/Error callback if the unsubscribe to event was successful / failed.
+                  <div class="clearfix"></div>
+                
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>Promise</code> (if <code>callback</code> is not provided).</p>
+
+              </div>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+//stop listening to an event
+
+CB.CloudObject.off('Student', //name of the table
+'created', //type of an event
+{ //callback
+  success : function(){
+    //unsubscribe success
+  },
+  error : function(err){
+    //unsubscribe failed
+  }
+});
+
+</span></span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+            <a id='CloudObject-expires' name="CloudObject-expires" class="section-anchor">&nbsp;</a>
+            <div class="method-section">
+                <div class="method-description">
+
+                    <h3>CloudObject.expires</h3>
+                    <p>
+                        Automatically deletes the object from the database at specified time. Sets the expiration time for <code>CloudObject</code>. Expiration time is to be given as number of
+                        milliseconds from 1 Jan 1970.
+                    </p>
+                </div>
+                <div class="method-example" id="api-summary-example">
+                    <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+  var obj = new CB.CloudObject('Student');
+  obj.set('name', 'John Smith');
+  expire=new Date().getTime()+1000; //increase the expiration time by 1 second from current time
+  obj.expires = expires; //Set the expire time for object Student
+</span></span></span></code>
+                </div><!-- method-example -->
+            </div> <!-- method-section -->
+
+        </div> <!-- method -->
+
+
+        <a id='CloudObject-relate' name="CloudObject-relate" class="section-anchor">&nbsp;</a>
+            <div class="method-section">
+                <div class="method-description">
+
+                    <h3>CloudObject.relate(<code>columnName,tableName,objectId</code>)</h3>
+                    <p>
+                        Relates a CloudObject which is already saved to this CloudObject. Can be used to relate objects together in a relation.
+                    </p>
+
+                     <div class="method-list">
+
+                   <h6>Argument</h6>
+
+                    <dl class="argument-list"> 
+                      <dt>columnName</dt>
+                      <dd class="">String <span> Name of the column of the current CloudObject.
+                       </span></dd>
+                      <div class="clearfix"></div>
+
+                      <dt>tableName</dt>
+                      <dd class="">String <span> Name of the table of the CloudObject which you want to relate to.
+                       </span></dd>
+                      <div class="clearfix"></div>
+
+                      <dt>objectId</dt>
+                      <dd class="">String <span> Id of the object which you want to relate to.
+                       </span></dd>
+                      <div class="clearfix"></div>
+                    
+                    </dl>
+
+                    <h6>Returns</h6>
+                    <p>void</p>
+
+              </div>
+                </div>
+                <div class="method-example" id="api-summary-example">
+                    <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+  var obj = new CB.CloudObject('Student');
+  obj.relate('teacher','Teacher','xxxxxx'); //relates the teacher in the Teacher table with id xxxxx to this student.
+</span></span></span></code>
+                </div><!-- method-example -->
+            </div> <!-- method-section -->

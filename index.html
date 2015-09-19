@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <title>CloudBoost SDK Reference</title>
     <link rel="stylesheet" type="text/css" href="assets/site.css" media="screen" />
-
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <script src="assets/qframe.js"></script>
 
     <script src="assets/jquery.js"></script>
@@ -21,37 +21,36 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
 <!-- end Mixpanel --> 
 
   </head>
-  <body class="api-docs node">
+
+
+
+   <body class="api-docs node">
     <div id="background"></div>
 
     <div id="header">
       <a href="https://www.cloudboost.io"><img src="img/logoc81e.png" height="40" style="float:left;margin-top:5px" /></a>
       <div class="navigation">
         <div class="signin">
-          <a id='signin' href="https://www.cloudboost.io/#login">
+          <a id='signin' href="https://dashboard.cloudboost.io/accounts">
             <span>Sign In</span>
           </a>
         </div>
         <ul class="global">
           <li><a href="https://docs.cloudboost.io" class="selected">Documentation</a></li>
-          <li><a href="https://www.cloudboost.io/#contact">Help &amp; Support</a></li>
+          <li><a href="http://stackoverflow.com/questions/ask?tags=cloudboost">Help &amp; Support</a></li>
         </ul>
       </div>
     </div>
-    
-    <div id="guide">
-      <p class="ref-title">Overview</p>
-      <ul class="ref-list">
-        <li class="section">
-          <a href="#Introduction" class="parent viewing">Introduction</a>
-        </li>
-        <li class="section">
-          <a href="#Dependencies" class="parent">Dependencies</a>
-        </li>
-        <li class="section">
-          <a href="#Apps" class="parent">Apps</a>
-        </li>
-      </ul>
+<div id="guide">
+    <p class="ref-title">Overview</p>
+    <ul class="ref-list">
+      <li class="section">
+        <a href="#Introduction" class="parent viewing">Introduction</a>
+      </li>
+      <li class="section">
+        <a href="#Apps" class="parent">Apps</a>
+      </li>
+    </ul>
 
       <p class="ref-title">Features</p>
       <ul class="ref-list">
@@ -62,7 +61,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudApp-init" class="parent">Initialize CloudApp</a>
           </span>
         </li>
-      
+
         <li class="section section-charges">
           <a href="#CloudObject" class="parent">CloudObject</a>
           <span class="children">
@@ -73,16 +72,18 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudObject-save" class="parent">Save</a>
             <a href="#CloudObject-fetch" class="parent">Fetch</a>
             <a href="#CloudObject-delete" class="parent">Delete</a>
-            <a href="#CloudObject-searchable" class="parent">Index for Search</a>
-            <a href="#CloudObject-on" class="parent">Notification</a>
+            <a href="#CloudObject-on" class="parent">On</a>
+            <a href="#CloudObject-off" class="parent">Off</a>
             <a href="#CloudObject-expires" class="parent">Expires</a>
+            <a href="#CloudObject-relate" class="parent">Relate</a>
           </span>
         </li>
         <li class="section section-charges"><a href="#Relationships" class="parent">Relationships</a>
           <span class="children">
             <a href="#Relationships-oneToOne" class="parent">One-to-One</a>
-            <a href="#Relationships-onetoMany" class="parent">One-to-Many</a>
+            <a href="#Relationships-oneToMany" class="parent">One-to-Many</a>
             <a href="#Relationships-manyToMany" class="parent">Many-to-many</a>
+            <a href="#Relationships-query" class="parent">Query on Relationships</a>
           </span>
         </li>
 
@@ -91,27 +92,31 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
           <span class="children">
             <a href="#CloudQuery-constructor" class="parent">Constructor</a>
             <a href="#CloudQuery-equalTo" class="parent">Equal To</a>
+            <a href="#CloudQuery-notEqualTo" class="parent">Not Equal To</a>
             <a href="#CloudQuery-containedIn" class="parent">Contained In</a>
             <a href="#CloudQuery-containsAll" class="parent">Contains All</a>
-            <a href="#CloudQuery-startsWith" class="parent">Starts With</a>
-            <a href="#CloudQuery-notEqualTo" class="parent">Not Equal To</a>
             <a href="#CloudQuery-notContainedIn" class="parent">Not Contained In</a>
             <a href="#CloudQuery-greaterThan" class="parent">Greater Than</a>
             <a href="#CloudQuery-greaterThanEqualTo" class="parent">Greater Than and Equal To</a>
             <a href="#CloudQuery-lessThan" class="parent">Less Than</a>
             <a href="#CloudQuery-lessThanEqualTo" class="parent">Less than and equal to</a>
+            <a href="#CloudQuery-startsWith" class="parent">Starts With</a>
             <a href="#CloudQuery-or" class="parent">Or</a>
             <a href="#CloudQuery-orderByAsc" class="parent">Order by</a>
             <a href="#CloudQuery-setLimit" class="parent">Limit</a>
             <a href="#CloudQuery-setSkip" class="parent">Skip</a>
             <a href="#CloudQuery-selectColumn" class="parent">Select Column</a>
+            <a href="#CloudQuery-doNotSelectColumn" class="parent">Do Not Select Column</a>
             <a href="#CloudQuery-exists" class="parent">Exists</a>
             <a href="#CloudQuery-doesNotExists" class="parent">Does not exist</a>
             <a href="#CloudQuery-find" class="parent">Find</a>
             <a href="#CloudQuery-findOne" class="parent">Find One</a>
-            <a href="#CloudQuery-get" class="parent">Get</a>
+            <a href="#CloudQuery-get" class="parent">Find By Id</a>
             <a href="#CloudQuery-count" class="parent">Count</a>
             <a href="#CloudQuery-distinct" class="parent">Distinct</a>
+            <a href="#CloudQuery-include" class="parent">Include</a>
+            <a href="#CloudQuery-near" class="parent">Near</a>
+            <a href="#CloudQuery-geowithin" class="parent">GeoWithin</a>
           </span>
         </li>
 
@@ -127,35 +132,50 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
 
           <span class="children">
             <a href="#CloudSearch-constructor" class="parent">Constructor</a>
-            <a href="#CloudSearch-searchOn" class="parent">Search On</a>
-            <a href="#CloudSearch-equalTo" class="parent">Equal To</a>
-            <a href="#CloudSearch-notEqualTo" class="parent">Not Equal To</a>
-            <a href="#CloudSearch-greaterThan" class="parent">Greater Than</a>
-            <a href="#CloudSearch-greaterThanEqualTo" class="parent">Greater Than and Equal To</a>
-            <a href="#CloudSearch-lessThan" class="parent">Less Than</a>
-            <a href="#CloudSearch-lessThanEqualTo" class="parent">Less than and equal to</a>
-            <a href="#CloudSearch-or" class="parent">OR</a>
+
+            <a href="#sq-searchOn" class="parent">Query : Search On</a>
+            <a href="#sq-phrase" class="parent">Query : Phrase</a>
+            <a href="#sq-bestColumns" class="parent">Query : Best Columns</a>
+            <a href="#sq-mostColumns" class="parent">Query : Most Columns</a>
+            <a href="#sq-startsWith" class="parent">Query : StartsWith</a>
+            <a href="#sq-wildcard" class="parent">Query : Wildcard</a>
+            <a href="#sq-regexp" class="parent">Query : Regexp</a>
+            <a href="#sq-and" class="parent">Query : and</a>
+            <a href="#sq-or" class="parent">Query : or</a>
+            <a href="#sq-not" class="parent">Query : not</a>
+
+            <a href="#SearchFilter-equalTo" class="parent">Filter : Equal To</a>
+            <a href="#SearchFilter-notEqualTo" class="parent">Filter : Not Equal To</a>
+            <a href="#SearchFilter-greaterThan" class="parent"> Filter : Greater Than</a>
+            <a href="#SearchFilter-greaterThanEqualTo" class="parent"> Filter : Greater Than and Equal To</a>
+            <a href="#SearchFilter-lessThan" class="parent"> Filter : Less Than</a>
+            <a href="#SearchFilter-lessThanEqualTo" class="parent"> Filter : Less than and equal to</a>
+            <a href="#SearchFilter-exists" class="parent"> Filter : Exists</a>
+            <a href="#SearchFilter-doesNotExists" class="parent"> Filter : Does not exist</a>
+            <a href="#SearchFilter-or" class="parent">Filter : or</a>
+            <a href="#SearchFilter-and" class="parent">Filter : and</a>
+            <a href="#SearchFilter-not" class="parent">Filter : not</a>
+
             <a href="#CloudSearch-orderByAsc" class="parent">Order by</a>
             <a href="#CloudSearch-setLimit" class="parent">Limit</a>
             <a href="#CloudSearch-setSkip" class="parent">Skip</a>
-            <a href="#CloudSearch-exists" class="parent">Exists</a>
-            <a href="#CloudSearch-doesNotExists" class="parent">Does not exist</a>
             <a href="#CloudSearch-search" class="parent">Search</a>
+
+          </span>
+        </li>
+
+        <li class="section section-charges"><a href="#CloudGeoPoint" class="parent">CloudGeoPoint</a>
+
+          <span class="children">
+            <a href="#CloudGeoPoint-constructor" class="parent">Constructor</a>
+              <a href="#CloudGeoPoint-dkm" class="parent">Distance In kilometers</a>
+              <a href="#CloudGeoPoint-miles" class="parent">Distance In Miles</a>
+              <a href="#CloudGeoPoint-radians" class="parent">Distance In Radians</a>
+
           </span>
 
         </li>
-        
-        <li class="section section-charges"><a href="#ACL" class="parent">ACL</a>
-          <span class="children">
-            <a href="#ACL-constructor" class="parent">Constructor</a>
-            <a href="#ACL-setPublicWriteAccess" class="parent">Public Write Access</a>
-            <a href="#ACL-setPublicReadAccess" class="parent">Public Read Access</a>
-            <a href="#ACL-setUserWriteAccess" class="parent">User Write Access</a>
-            <a href="#ACL-setUserReadAccess" class="parent">User Read Access</a>
-            <a href="#ACL-setRoleWriteAccess" class="parent">Role Write Access</a>
-            <a href="#ACL-setRoleReadAccess" class="parent">Role Read Access</a>
-          </span>
-        </li>
+
         <li class="section section-charges"><a href="#CloudUser" class="parent">CloudUser</a>
           <span class="children">
             <a href="#CloudUser-constructor" class="parent">Constructor</a>
@@ -167,30 +187,81 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudUser-removeFromRole" class="parent">Remove from Role</a>
           </span>
         </li>
+
         <li class="section section-charges"><a href="#CloudRole" class="parent">CloudRole</a>
           <span class="children">
             <a href="#CloudRole-constructor" class="parent">Constructor</a>
-            <a href="#CloudRole-getRole" class="parent">Get Role</a>
           </span>
         </li>
+
+
+
         <li class="section section-charges"><a href="#CloudFile" class="parent">CloudFile</a>
+
           <span class="children">
             <a href="#CloudFile-constructor" class="parent">Constructor</a>
             <a href="#CloudFile-save" class="parent">Save</a>
             <a href="#CloudFile-delete" class="parent">Delete</a>
           </span>
+
+        </li>
+
+        <li class="section section-charges">
+          <a href="#Column" class="parent">Column</a>
+          <span class="children">
+            <a href="#Column-constructor" class="parent">Constructor</a>
+            <a href="#Column-datatype" class="parent">Data Type</a>
+          </span>
+        </li>
+
+        <li class="section section-charges">
+          <a href="#CloudTable" class="parent">CloudTable</a>
+          <span class="children">
+            <a href="#CloudTable-constructor" class="parent">Constructor</a>
+            <a href="#CloudTable-get" class="parent">Get</a>
+            <a href="#CloudTable-getall" class="parent">GetAll</a>
+            <a href="#CloudTable-addcolumn" class="parent">Add Column</a>
+            <a href="#CloudTable-deletecolumn" class="parent">Delete Column</a>
+            <a href="#CloudTable-save" class="parent">Save</a>
+            <a href="#CloudTable-delete" class="parent">Delete</a>
+          </span>
+        </li>
+
+        <li class="section section-charges"><a href="#ACL" class="parent">Access Control List (ACL)</a>
+          <span class="children">
+            <a href="#ACL-constructor" class="parent">Constructor</a>
+            <a href="#ACL-setPublicWriteAccess" class="parent">Public Write Access</a>
+            <a href="#ACL-setPublicReadAccess" class="parent">Public Read Access</a>
+            <a href="#ACL-setUserWriteAccess" class="parent">User Write Access</a>
+            <a href="#ACL-setUserReadAccess" class="parent">User Read Access</a>
+            <a href="#ACL-setRoleWriteAccess" class="parent">Role Write Access</a>
+            <a href="#ACL-setRoleReadAccess" class="parent">Role Read Access</a>
+          </span>
+        </li>
+
+         <li class="section section-charges"><a href="#JSON" class="parent">JSON</a>
+
+          <span class="children">
+            <a href="#JSON-serialize" class="parent">Serialize to JSON</a>
+            <a href="#JSON-deserialize" class="parent">Deserialize from JSON</a>
+          </span>
+        </li>
+
+        <li class="section section-charges"><a href="#Contribute" class="parent">Contribute</a>
         </li>
       </ul>
 
     </div>
-    <!-- api docs -->
+
+<!-- api docs -->
     <div id="api-docs">
       <a id="top" name="top" class="section-anchor">&nbsp;</a>
       <div id="methods">
         <div class="border"></div>
 
         <div id="language">
-          <a class="language selected" href="javascript.html">JavaScript</a>
+          <a class="language selected" href="index.html">JavaScript</a>
+          <a class="language" href="java.html">Java</a>
         </div>
 
         <div class="method">
@@ -208,30 +279,26 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <div class="method-example" id="api-summary-example">
 
               <h3>JavaScript SDK</h3>
-              <a href="https://api.cloudboost.io">
-                <code>https://api.cloudboost.io/sdk/js/1.0.0</code>
-              </a>
+              <h4>Non-minified :</h4> <a href="https://cloudboost.io/js-sdk/1.0.0.js">
+                <code>https://cloudboost.io/js-sdk/1.0.0.js</code>
+              </a> <br/>
+
+              <h4>Minified JS :</h4>  <a href="https://cloudboost.io/js-sdk/1.0.0.min.js">
+                <code>https://cloudboost.io/js-sdk/1.0.0.min.js</code>
+              </a><br/>
+
+              <h4>NPM :</h4> 
+                <code>npm install <b>cloudboost</b></code>
+                <code>var CB = require('cloudboost');</code>
+              <br/>
+
+              <h4>GitHub :</h4>  <a href="https://github.com/CloudBoost/JavaScriptSDK/">
+                <code>https://github.com/CloudBoost/JavaScriptSDK</code>
+              </a><br/>
 
             </div>
           </div>
         </div>
-
-        <div class="method">
-          <a id='Dependencies' name="Dependencies" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h1>Dependencies</h1>
-              <p>
-              Our javascript SDK does not require any external libraries except
-              <a href="http://code.jquery.com/jquery-1.11.2.js">JQuery</a> framework which is used for promises and making API requests. We recommend, before you install CloudBoost JavaScript SDK, install JQuery first.
-              </p>
-
-            </div>
-            <div class="method-example" id="api-summary-example">
-            </div> <!-- method-example -->
-          </div> <!-- method-section -->
-        </div> <!-- method -->
         <div class="method">
           <a id='Apps' name="Apps" class="section-anchor">&nbsp;</a>
           <div class="method-section">
@@ -239,7 +306,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
 
               <h1>Apps</h1>
               <p>
-              In Cloudboost, you create an app each of which has its own AppID, JavaScript 
+              In Cloudboost, you create an app each of which has its own AppID,  
               Client Key and the Master Key that you apply to your web app. You master key is a secret which should not be shared in your client apps. Your account on CloudBoost can accommodate multiple apps.
 
               This is useful even if you have one application, since you can deploy different versions for test and production.
@@ -268,64 +335,49 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudApp.init( <code>appId, appKey,  [callback]</code> )</h3>
+              <h3>CloudApp.init( <code>appId, appKey</code> )</h3>
               <p>
-              Initialises the app.
+              Init's the app.
               </p>
               <p>
                 <i>ClientKey</i> and <i>MasterKey</i> are the two keys that are provided for each app your create.
-                If you want a client of your app have access to CloudBoost API, its <b>recommended</b> you only share <i>ClientKey</i> with your app.
-                <br/>
-                We dont recommend initialising your app with <i>MasterKey</i> unless you install our API and make requests from your server.
+                If you want a client of your app have access to CloudBoost API, its <b>recommended you only share <i>ClientKey</i> with your app.</b>
+                <br/><br/>
+                <b>We dont recommend init'ing your app with <i>MasterKey</i> unless you install our API and make requests from your server.</b>
               </p>
               <div class="method-list">
                 
                 <h6>Arguments</h6>
                 <dl class="argument-list">
                   <dt>appId</dt>
-                  <dd class="">Application ID <span>with which your app is registered.</span></dd>
+                  <dd class="">Application ID <span>with which your app is registered. You can find this on your CloudBoost Dashboard</span></dd>
                   <div class="clearfix"></div>
                   <dt>appKey</dt>
-                  <dd class="">Client/Master key <span>unique for your app</span></dd>
+                  <dd class="">Client / Master key <span>Secret Key for your app. You can find this on your CloudBoost Dashboard</span></dd>
                   <div class="clearfix"></div>
-                  <dt>callback</dt>
-                  <dd class="">Object <span>[optional] if provided must have <code>success</code> 
-                  and <code>error</code> functions to handle respective response.</span></dd>
-                  <div class="clearfix"></div>
+
                 </dl>
 
                 <h6>Returns</h6>
-                <p>It returns JQuery promise, if <code>callback</code> is not specified</p>
+                <p>void</p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-
-var myAppId = 'schoolApp';
-var myKey = 'd1bae1c6978e3ecd3d5c8a0095767c9c';
-
-CB.CloudApp.init(myAppId, myKey, {
-  success: function() {
-    //do something;
-  },
-  error: function(err) {
-    //handle error
-  }
-}); 
+CB.CloudApp.init('YOUR APP ID', 'YOUR APP KEY'); 
               </span></span></code>
 
             </div><!-- method-example -->
           </div> <!-- method-section -->
         </div> <!-- method -->
-        <div class="method">
+ <div class="method">
           <a id='CloudObject' name="CloudObject" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
               <h1>CB.CloudObject</h1>
               <p>
               Your data in CloudBoost is represented with CloudObjects <code>CB.CloudObject</code>. Each <code>CB.CloudObject</code> 
-              belongs to a table in your database with us and each objct represents a row of data in that table. The data you can store in CloudObject has schema which you define in Table Designer in CloudBoost portal. You 
-              simply set whatever key-value pairs you want, and our backend will store it for you.
+              belongs to a table in your database with us and each object represents a row of data in that table. The data you can store in CloudObject has schema which you define in Table Designer in CloudBoost portal. CloudBoost is schema-mix, So you can store validate the piece of data with a schema or not. Simply set whatever key-value pairs you want, and CloudBoost will store it for you.
               </p>
 
             </div>
@@ -336,27 +388,26 @@ CB.CloudApp.init(myAppId, myKey, {
           <div class="method-section">
             <div class="method-description">
 
-              <h3>Constructor</h3>
+              <h3>Constructor : CloudObject( <code>columnName, [objectId]</code> )</h3>
               <p>
               Instantiates a <code>CloudObject</code> object.
               </p>
               <div class="method-list">
-                
                 <h6>Argument</h6>
                 <dl class="argument-list">
-
                   <dt>tableName</dt>
                   <dd class="">string <span>The name of the table you want to deal with</span></dd>
                   <div class="clearfix"></div>
-                  
+                  <dt>objectId</dt>
+                  <dd class="">[optional] string <span>The id of the object you want it to be. <b>Important : Use this parameter only when you're working on relations. For more information</b></span></dd>
+                  <div class="clearfix"></div>
                 </dl>
 
                 <h6>Returns</h6>
-                <p>It returns an instance of a CloudObject, because its a constructor. </p>
+                <p>It returns an instance of a CloudObject, as its a constructor. </p>
               </div>
 
               <div class="method-list">
-                
                 <h6>Properties</h6>
 
                 <p>Every instance of CloudObject has these properties </p>
@@ -375,16 +426,12 @@ CB.CloudApp.init(myAppId, myKey, {
                   <dd class="">Date <span>The Date and time when the object was updated in the database.</span></dd>
                   <div class="clearfix"></div>
 
-                  <dt>isSearchable</dt>
-                  <dd class="">boolean <span>Set this to true if you want this object to be indexe for search and is accessible with CloudSearch</span></dd>
-                  <div class="clearfix"></div>
 
                   <dt>ACL</dt>
-                  <dd class="">ACL <span>Access Control List, by defualt this object is publicily readbale and writable. You set object leevel security here. Refer ACL's</span></dd>
+                  <dd class="">ACL <span>Access Control List, by default this object is publicily readable and writeable. You set object level security here. Refer <a href="/#ACL">ACL's</a></span></dd>
                   <div class="clearfix"></div>
                   
                 </dl>
-
                 
               </div>
 
@@ -393,8 +440,6 @@ CB.CloudApp.init(myAppId, myKey, {
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node">
               <span class="highlight_js javascript">
 //creates an object for Student table
-//CB is the namespace whcih contains
-//all the CloudBoost functionality.
 var obj = new CB.CloudObject("Student"); 
               </span></span></code>
             </div><!-- method-example -->
@@ -435,7 +480,8 @@ obj.set("address", {
                       state: "Telangana",
                       country: "India"
                    });  // store object
-                   //we support a lot of other datatypes as well.
+
+                   
                    </span></span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -459,8 +505,7 @@ obj.set("address", {
                 </dl>
 
                 <h6>Returns</h6>
-                <p>It returns <code>undefined</code> if the attribute is not set previously otherwise 
-                returns the value of column which was previously set.</p>
+                <p>It returns the value of column which was previously set otherwise returns <code>undefined</code> if the column is not set to a value.</p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
@@ -475,7 +520,7 @@ var address = obj.get('address'); //get the data.
       country: "India"
   }
 
-  which was saved using object.set
+  which was saved in the object using object.set
 
 */
 
@@ -490,7 +535,7 @@ var address = obj.get('address'); //get the data.
 
               <h3>CloudObject.unset( <code>columnName</code> )</h3>
               <p>
-              Sets the value of an column of a <code>CloudObject</code> object to <code>null</code>.
+              Unsets or Sets the value of an column of a <code>CloudObject</code> object to <code>null</code>.
               </p>
               <div class="method-list">
                 
@@ -539,7 +584,7 @@ obj.get("name"); //returns null.
                 </dl>
 
                 <h6>Returns</h6>
-                <p>It returns a <code>Promise</code> which when resolved returns instance of <code>CloudObject </code> saved or if the promise is rejected, you get an error back. (if <code>callback</code> is not provided).</p>
+                <p>It returns a <code>Promise</code> which when resolved and returns instance of <code>CloudObject </code> saved .If the promise is rejected, you get an error object back. (if <code>callback</code> is not provided).</p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
@@ -585,14 +630,14 @@ obj.save({
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-  obj.fetch({
-    success: function(obj) {
-      //obj is an instance of a refreshed CloudObject
-    },
-    error: function(err) {
-      //Error occurred in fetching the data
-    }              
-  });
+obj.fetch({
+  success: function(obj) {
+    //obj is an instance of a refreshed CloudObject
+  },
+  error: function(err) {
+    //Error occurred in fetching the data
+  }              
+});
 </span></span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -634,23 +679,7 @@ obj.delete({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-           <a id='CloudObject-searchable' name="CloudObject-searchable" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudObject.isSearchable</h3>
-              <p>
-              Indexes <code>CloudObject</code> for search using CloudSearch.
-              </p>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-  var obj = new CB.CloudObject('Student');
-  obj.set('name', 'John Smith');
-  obj.isSearchable = true; //index this object for Search
-</span></span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
+           
 
           <a id='CloudObject-on' name="CloudObject-on" class="section-anchor">&nbsp;</a>
           <div class="method-section">
@@ -675,7 +704,7 @@ obj.delete({
                   <dd class="">String / Array<span> Type of an event you want to listen to, Only  <code> created, updated, deleted </code> are supported values.</span></dd>
                   <div class="clearfix"></div>
 
-                  <dt>functiontoFire</dt>
+                  <dt>functionToFire</dt>
                   <dd class="">Function <span> Your custom function to fire when the event occours</dd>
                   <div class="clearfix"></div>
 
@@ -695,20 +724,20 @@ obj.delete({
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
   //listen to an event
 
-  CB.CloudObject.on('Student', //name of the table
-                    'created', //type of an event
-                    function(obj){ //your custom function which you want to fire.
-                      //obj is an instance of CloudObject
-                      console.log('Student Created : '+obj.get('name'));
-                    }, 
-                    { //callback
-                      success : function(){
-                        //subscribe success
-                      },
-                      error : function(err){
-                        //failed
-                      }
-                    });
+CB.CloudObject.on('Student', //name of the table
+'created', //type of an event
+function(obj){ //your custom function which you want to fire.
+  //obj is an instance of CloudObject
+  console.log('Student Created : '+obj.get('name'));
+}, 
+{ //callback
+  success : function(){
+    //subscribe success
+  },
+  error : function(err){
+    //failed
+  }
+});
 
 </span></span></span></code>
             </div><!-- method-example -->
@@ -752,18 +781,18 @@ obj.delete({
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-  //stop listening to an event
+//stop listening to an event
 
-  CB.CloudObject.off('Student', //name of the table
-                    'created', //type of an event
-                    { //callback
-                      success : function(){
-                        //unsubscribe success
-                      },
-                      error : function(err){
-                        //unsubscribe failed
-                      }
-                    });
+CB.CloudObject.off('Student', //name of the table
+'created', //type of an event
+{ //callback
+  success : function(){
+    //unsubscribe success
+  },
+  error : function(err){
+    //unsubscribe failed
+  }
+});
 
 </span></span></span></code>
             </div><!-- method-example -->
@@ -775,7 +804,7 @@ obj.delete({
 
                     <h3>CloudObject.expires</h3>
                     <p>
-                        Sets the expiration time for <code>CloudObject</code>. Expiration time is to be given as number of
+                        Automatically deletes the object from the database at specified time. Sets the expiration time for <code>CloudObject</code>. Expiration time is to be given as number of
                         milliseconds from 1 Jan 1970.
                     </p>
                 </div>
@@ -783,7 +812,7 @@ obj.delete({
                     <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
   var obj = new CB.CloudObject('Student');
   obj.set('name', 'John Smith');
-  expire=new Date().getTime()+1000;
+  expire=new Date().getTime()+1000; //increase the expiration time by 1 second from current time
   obj.expires = expires; //Set the expire time for object Student
 </span></span></span></code>
                 </div><!-- method-example -->
@@ -791,7 +820,52 @@ obj.delete({
 
         </div> <!-- method -->
 
-        <div class="method">
+
+        <a id='CloudObject-relate' name="CloudObject-relate" class="section-anchor">&nbsp;</a>
+            <div class="method-section">
+                <div class="method-description">
+
+                    <h3>CloudObject.relate(<code>columnName,tableName,objectId</code>)</h3>
+                    <p>
+                        Relates a CloudObject which is already saved to this CloudObject. Can be used to relate objects together in a relation.
+                    </p>
+
+                     <div class="method-list">
+
+                   <h6>Argument</h6>
+
+                    <dl class="argument-list"> 
+                      <dt>columnName</dt>
+                      <dd class="">String <span> Name of the column of the current CloudObject.
+                       </span></dd>
+                      <div class="clearfix"></div>
+
+                      <dt>tableName</dt>
+                      <dd class="">String <span> Name of the table of the CloudObject which you want to relate to.
+                       </span></dd>
+                      <div class="clearfix"></div>
+
+                      <dt>objectId</dt>
+                      <dd class="">String <span> Id of the object which you want to relate to.
+                       </span></dd>
+                      <div class="clearfix"></div>
+                    
+                    </dl>
+
+                    <h6>Returns</h6>
+                    <p>void</p>
+
+              </div>
+                </div>
+                <div class="method-example" id="api-summary-example">
+                    <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+  var obj = new CB.CloudObject('Student');
+  obj.relate('teacher','Teacher','xxxxxx'); //relates the teacher in the Teacher table with id xxxxx to this student.
+</span></span></span></code>
+                </div><!-- method-example -->
+            </div> <!-- method-section -->
+
+ <div class="method">
           <a id='Relationships' name="Relationships" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -840,15 +914,11 @@ var address = new CB.CloudObject("Address");
 student.set('address', address); 
 
 student.save({
-
   success : function(student){
     //saved
-  }, 
-
-  error : function(err){
-
+  }, error : function(err){
+    //error
   }
-
 });
               </span></span></code>
             </div><!-- method-example -->
@@ -868,19 +938,15 @@ student.save({
 var teacher = new CB.CloudObject("Teacher"); 
 var course = new CB.CloudObject("Course"); 
 
-//here one teacher be assigned to many courses. 
-//address column of Student Table is pointed to the Address Table with unique set to true.
+//here one teacher can be assigned to many courses.
 
-course.set('teacher', address); 
+course.set('teacher', teacher);
 
-student.save({
-
-  success : function(student){
-    //saved student with address. 
-  }, 
-
-  error : function(err){
-
+course.save({
+  success : function(course){
+    //saved course with teacher.
+  }, error : function(err){
+    //error
   }
 
 });
@@ -896,13 +962,13 @@ student.save({
                <p>
                 If you want to model many-to-many relationship. Then you have two options<br/>
                 <ol>
-                  <li><b>#1 - Relation Option</b></li>
-                  <li><b>#2 - List Option</b></li>
+                  <li><b>#1 - Relation </b></li>
+                  <li><b>#2 - List </b></li>
                 </ol>
-
+                <br/><br/>
                 We will discuss both of these options below. <br/><br/><br/>
 
-                <h4>Relation Option</h4>
+                <h4>Relation :</h4>
                 <p> This option is recommended only if you have huge number of relationships assigned to any one object. </p>
                 <p> This relationship can be created by creating a third table and having two columns that are relatied to tables you want to have many to many relationships on.  </p>
 
@@ -916,6 +982,13 @@ student.save({
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 
+
+
+
+
+
+
+
 //Type #1 : Relation Option
 var student = new CB.CloudObject("Student"); 
 var course = new CB.CloudObject("Course"); 
@@ -923,22 +996,19 @@ var course = new CB.CloudObject("Course");
 //here one student be into many courses, and vice versa. 
 var studentCourse = new CB.CloudObject('StudentCourse');
 studentCourse.set('student', student);
-studentCourse.set('teacher', teacher); 
+studentCourse.set('course', course); 
 
 studentCourse.save({
-
   success : function(studentCourse){
     //saved studentCourse with two related objects. 
-  }, 
-
-  error : function(err){
-
+  },  error : function(err){
+    //error
   }
 
 });
 
 
-// ======================================================
+
 
 //Type #2 : List Option.
 
@@ -953,20 +1023,112 @@ var course = new CB.CloudObject("Course");
 //add it to the list. You can push any number of objects you need. 
 courseList.push(course);
 
-
 //here one student be into many courses, and vice versa. 
 student.set('courses', courseList); 
 
+//save
 student.save({
-
   success : function(student){
     //saved student with two related objects. 
-  }, 
+  }, error : function(err){
+    //error
+  }
+});
 
-  error : function(err){
 
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+           <a id='Relationships-oneToMany' name="Relationships-oneToMany" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>One-to-Many Relationship</h3>
+               <p>
+                If you want to model one-to-many relationship. Then you need to create a new column of type <code> Relation </code> pointed to a table which you want it to be related to and set that column <code> Unique </code> property to false.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var teacher = new CB.CloudObject("Teacher"); 
+var course = new CB.CloudObject("Course"); 
+
+//here one teacher can be assigned to many courses.
+
+course.set('teacher', teacher);
+
+course.save({
+  success : function(course){
+    //saved course with teacher.
+  }, error : function(err){
+    //error
   }
 
+});
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='Relationships-query' name="Relationships-query" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Query on Relationships</h3>
+               <p>
+               Relations are of two types and if you want to query relationships then there is a different type of query for each of the type. Two types are : <br/>
+                <ol>
+                  <li><b>#1 - Relation </b></li>
+                  <li><b>#2 - List </b></li>
+                </ol>
+                <br/><br/>
+                We will discuss both of these options below. <br/><br/><br/>
+
+                <h4>Relation :</h4>
+                <p> To query on a <code> Relation </code>, You can use CloudQuery function EqualTo / NotEqualTo  </p>
+
+                <br/><br/><br/><br/><br/><br/><br/><br/>
+
+                <h4>List Option</h4>
+                <p> To query on a <code> List of Relations </code>, You can use CloudQuery function ContainedIn / NotContainedIn / ContainsAll </p>
+
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//Type #1 : Relation Option.
+//Get all the course which belong to a teacher
+
+var courseQuery = new CB.CloudQuery('Course'); 
+courseQuery.equalTo('teaher', teacher); //teacher is an instance of CloudObject and should have an Id. 
+courseQuery.find({
+  success : function(list){
+    //list of CloudObject
+  }, error : function(error){
+    //error
+  }
+});
+
+
+
+
+
+
+
+//Type #2 : Query on List of Relations.
+//Get all the courses which the student belongs to. 
+//Assume : Course has a list of Students, in the column 'students'
+
+var courseQuery = new CB.CloudQuery('Course'); 
+courseQuery.containsIn('student', student); //student is an instance of CloudObject and should have an Id. 
+courseQuery.find({
+  success : function(list){
+    //list of CloudObjects
+  }, error : function(error){
+    //error
+  }
 });
 
 
@@ -975,7 +1137,6 @@ student.save({
           </div> <!-- method-section -->
 
         </div>
-
 
 <!-- CloudQuery Section -->
 
@@ -1066,134 +1227,8 @@ query.find({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-          <a id='CloudQuery-containedIn' name="CloudQuery-containedIn" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
 
-              <h3>CloudQuery.containedIn( <code>columnName, data</code> )</h3>
-              <p>
-              If you want to retrieve objects matching several different values, you can use containedIn, providing an array of acceptable values. This is often useful to replace multiple queries with a single query. 
-              </p>
-              <div class="method-list">
-                
-                <h6>Arguments</h6>
-                <dl class="argument-list">
-
-                  <dt>columnName</dt>
-                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
-                  <div class="clearfix"></div>
-                  <dt>data</dt>
-                  <dd class="">Array <span>The value(s) that are to be matched with.</span></dd>
-                  <div class="clearfix"></div>
-
-                </dl>
-
-                <h6>Returns</h6>
-                <p>Same query object, which can be helpful in chaining query functions.</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var query = new CB.CloudQuery("Student");
-//Get Student where name is equal to Smith, Max or Lucy
-query.containedIn('name', ['Smith', 'Max', 'Lucy']);
-query.find({
-  success: function(list){
-    //list is an array of CloudObjects 
-  },
-  error: function(err) {
-    //Error in retrieving the data.
-  }
-}); 
-</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudQuery-containsAll' name="CloudQuery-containsAll" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudQuery.containsAll( <code>columnName, data</code> )</h3>
-              <p>
-               Find objects where the array data in columnName contains all of the elements of data.
-              </p>
-              <div class="method-list">
-                
-                <h6>Arguments</h6>
-                <dl class="argument-list">
-
-                  <dt>columnName</dt>
-                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
-                  <div class="clearfix"></div>
-                  <dt>data</dt>
-                  <dd class="">Array <span>The value(s) that are to be matched with.</span></dd>
-                  <div class="clearfix"></div>
-
-                </dl>
-
-                <h6>Returns</h6>
-                <p>Same query object, which can be helpful in chaining query functions.</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var query = new CB.CloudQuery("Student");
-//find Students who are in JavaScript and C# class
-query.containsAll('classes', ['JavaScript', 'C#']);
-query.find({
-  success: function(list){
-    //list is an array of CloudObjects 
-  },
-  error: function(err) {
-    //Error in retrieving the data.
-  }
-});
-</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudQuery-startsWith' name="CloudQuery-startsWith" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudQuery.startsWith( <code>columnName, data</code> )</h3>
-              <p>
-              It adds a contriant to find the data in which value of <code>columnName</code>
-              of each data is starts with <code>data</code>.
-              </p>
-              <div class="method-list">
-                
-                <h6>Arguments</h6>
-                <dl class="argument-list">
-
-                  <dt>columnName</dt>
-                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
-                  <div class="clearfix"></div>
-                  <dt>data</dt>
-                  <dd class="">string <span>The value that is to be checked with.</span></dd>
-                  <div class="clearfix"></div>
-
-                </dl>
-
-                <h6>Returns</h6>
-                <p>Same query object, which can be helpful in chaining query functions.</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var query = new CB.CloudQuery("Student");
-//find all the Students who name starts with letter 'S'
-query.startsWith('name', 'S');
-query.find({
-  success: function(list){
-    //list is an array of CloudObjects 
-  },
-  error: function(err) {
-    //Error in retrieving the data.
-  }
-});
-</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudQuery-notEqualTo' name="CloudQuery-notEqualTo" class="section-anchor">&nbsp;</a>
+           <a id='CloudQuery-notEqualTo' name="CloudQuery-notEqualTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -1236,6 +1271,92 @@ query.find({
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+
+          <a id='CloudQuery-containedIn' name="CloudQuery-containedIn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.containedIn( <code>columnName, data</code> )</h3>
+              <p>
+              If you want to retrieve objects matching several different values, you can use containedIn, providing an array of acceptable values. This is often useful to replace multiple queries with a single query. 
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Array <span>The value(s) that are to be matched with.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+//Get Student where name is equal to Smith, Max <b>OR</b> Lucy
+query.containedIn('name', ['Smith', 'Max', 'Lucy']);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+}); 
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-containsAll' name="CloudQuery-containsAll" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.containsAll( <code>columnName, data</code> )</h3>
+              <p>
+               Find objects where the array data in columnName contains all of the elements of data.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Array <span>The value(s) that are to be matched with.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+//find Students who are in JavaScript <b>AND</b> C# class
+query.containsAll('classes', ['JavaScript', 'C#']);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
           <a id='CloudQuery-notContainedIn' name="CloudQuery-notContainedIn" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -1279,6 +1400,7 @@ query.find({
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+          
           <a id='CloudQuery-greaterThan' name="CloudQuery-greaterThan" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -1363,6 +1485,10 @@ query.find({
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+
+
+
+
           <a id='CloudQuery-lessThan' name="CloudQuery-lessThan" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -1447,6 +1573,51 @@ query.find({
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+
+           <a id='CloudQuery-startsWith' name="CloudQuery-startsWith" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.startsWith( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant to find the data in which value of <code>columnName</code>
+              of each data is starts with <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string <span>The value that is to be checked with.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+//find all the Students who name starts with letter 'S'
+query.startsWith('name', 'S');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
           <a id='CloudQuery-or' name="CloudQuery-or" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -1855,7 +2026,8 @@ query.find({
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">query.find({
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+query.find({
   success: function(list){
     //list is an array of CloudObjects 
   },
@@ -1898,7 +2070,8 @@ query.find({
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">query.findOne({
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+query.findOne({
   success: function(obj){
     //obj is an instance of CloudObject
   },
@@ -1912,7 +2085,7 @@ query.find({
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudQuery.get( <code>id,  [callback]</code> )</h3>
+              <h3>CloudQuery.findById( <code>id,  [callback]</code> )</h3>
               <p>
                 Queries the database gets a <code>CloudObject</code> object whose <i>id</i> field
                 matches <code>id</code>.
@@ -1942,7 +2115,7 @@ query.find({
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 //retrieve a Student detail by his unique ID
-query.get('54e837d6d51a5ea011aa79ea', {
+query.findById('xxxxx', {
   success: function(obj){
     //obj an instance of CloudObject
   },
@@ -1981,7 +2154,7 @@ query.get('54e837d6d51a5ea011aa79ea', {
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//fetch how many Students are there who age&gt;18
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 query.count({
   success: function(count){
     //count is the count of data which belongs to the query
@@ -2029,23 +2202,157 @@ query.count({
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-                query.distinct('address', {
-                  success: function(data){
-                    //data is an array of document(s)
-                  },
-                  error: function(err) {
-                    //Error in retrieving the data.
-                  }
-                });</span></span></code>
+query.distinct('address', {
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
         </div><!-- method -->
 
+        <!--Inlcude-->
+          <a id='CloudQuery-include' name="CloudQuery-include" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudQuery.include( <code>columnName</code> )</h3>
+                  <p>
+                      It gives the join on columnName for the table being queried upon.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>columnName</dt>
+                          <dd class="">String <span> The column name on which join is to be performed.</span></dd>
+                          <div class="clearfix"></div>
+
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Same query object, which can be helpful in chaining query functions.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//joins table student with hostel
+var query = new CB.CloudQuery("Student");
+query.include('hostel');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
 
 
-        <!-- CloudNotifications  --> 
+
+          <a id='CloudQuery-near' name="CloudQuery-near" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudQuery.near(columnName,geoPoint, range)</h3>
+                  <p>
+                      Queries for <code>CloudObject</code> objects which are within range.It gives result in the order of nearest to farthest.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>ColumnName</dt>
+                          <dd class="">String <span> Name of column which has the <code>CloudGeoPoint</code></span></dd>
+                          <div class="clearfix"></div>
+                          <dt>CloudGeoPoint</dt>
+                          <dd class="">Object <span> It is the point close to which the points are to be found
+                   respective response.</span></dd>
+                          <div class="clearfix"></div>
+                          <dt>Range</dt>
+                          <dd class="">Number <span> It the range within which are CloudObjects are to be sought. It is given in Meters</span></dd>
+                          <div class="clearfix"></div>
+
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Same query object, which can be helpful in chaining query functions.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc = new CB.CloudGeoPoint(17.7,80.3);
+var query = new CB.CloudQuery('Custom5');
+query.near("location", loc, 100000);
+query.find().then(function(list) {
+       //searches for cloudobjects within 100000 meters
+}, function (err) {
+      //error
+  })
+});
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudQuery-geowithin' name="CloudQuery-geowithin" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudQuery.geowithin("ColumnName",CloudGeoPoint,Radius)</h3>
+                  <p>
+                      Queries for CloudObject objects which are within range.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>ColumnName</dt>
+                          <dd class="">Object <span> Name of column which has the <code>CloudGeoPoint</code></span></dd>
+                          <div class="clearfix"></div>
+                          <dt>CloudGeoPoints</dt>
+                          <dd class="">Array <span> Array of CloudGeopoints within which we want to search CloudObjects or Center of Circle in case the shape is circle</span></dd>
+                          <div class="clearfix"></div>
+                          <dt>Radius</dt>
+                          <dd class="">decimal <span> [Optional] Radius of Circle. Radius is taken in Meters</span></dd>
+                          <div class="clearfix"></div>
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Same query object, which can be helpful in chaining query functions.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc1 = new CB.CloudGeoPoint(18.4,78.9);
+var loc2 = new CB.CloudGeoPoint(17.4,78.4);
+var loc3 = new CB.CloudGeoPoint(17.7,80.4);
+var query = new CB.CloudQuery('Custom');
+query.geoWithin("location", [loc1, loc2, loc3]);
+query.find().then(function(list) {
+       //searches for cloudobjects within triangle formed by the CloudGeoPoints
+}, function (err) {
+      //error
+  })
+});
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+  <!-- CloudNotifications  --> 
 
         <div class="method">
+
              <a id='CloudNotifcations' name="CloudNotifcations" class="section-anchor">&nbsp;</a>
             <div class="method-section">
               <div class="method-description">
@@ -2064,7 +2371,7 @@ query.count({
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudNotification.on( <code>channelName, functionToFire, callback</code> )</h3>
+              <h3>CloudNotification.on( <code>channelName, functionToFire, [callback]</code> )</h3>
               <p>
               Listens to notification channels.
               </p>
@@ -2090,18 +2397,9 @@ query.count({
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CB.CloudNotification.on('sample',function(data){
+CB.CloudNotification.on('Sample',function(data){
   console.log(data);
-}, {
-  success : function(){
-    //succesfully subscribed. 
-  }, 
-  error : function(err){
-    //error
-  }
 });
-
-
               </span></span></code>
 
             </div><!-- method-example -->
@@ -2113,7 +2411,7 @@ CB.CloudNotification.on('sample',function(data){
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudNotification.publish( <code>channelName, data, callback</code> )</h3>
+              <h3>CloudNotification.publish( <code>channelName, data, [callback]</code> )</h3>
               <p>
               Publishes data to notification channels.
               </p>
@@ -2139,18 +2437,8 @@ CB.CloudNotification.on('sample',function(data){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CB.CloudNotification.publish('sample','data', {
-  success : function(){
-    //succesfully published. 
-  }, 
-  error : function(err){
-    //error
-  }
-});
-
-
+CB.CloudNotification.publish('sample','data');
               </span></span></code>
-
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
@@ -2159,9 +2447,9 @@ CB.CloudNotification.publish('sample','data', {
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudNotification.off( <code>channelName, callback</code> )</h3>
+              <h3>CloudNotification.off( <code>channelName, [callback]</code> )</h3>
               <p>
-              Stops listening to notification channels.
+              Stops listening to notification channel.
               </p>
               <div class="method-list">
                 
@@ -2182,25 +2470,14 @@ CB.CloudNotification.publish('sample','data', {
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CB.CloudNotification.off('sample', {
-  success : function(){
-    //succesfully stopped listening. 
-  }, 
-  error : function(err){
-    //error
-  }
-});
-
-
-              </span></span></code>
+CB.CloudNotification.off('sample');
+</span></span></code>
 
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
         </div>
-
-
-        <!-- CloudSearch -->
+ <!-- CloudSearch -->
 
         <div class="method">
           <a id='CloudSearch' name="CloudSearch" class="section-anchor">&nbsp;</a>
@@ -2222,7 +2499,7 @@ CB.CloudNotification.off('sample', {
 
               <h3>Constructor</h3>
               <p>
-              Instantiates a <code>CloudSearch</code> object.
+              CB.CloudSearch(<code> tableName, [CB.SearchQuery], [CB.SearchFilter]</code>)
               </p>
               <div class="method-list">
                 
@@ -2232,21 +2509,37 @@ CB.CloudNotification.off('sample', {
                   <dt>tableNames</dt>
                   <dd class="">Array/string <span>The name of the table(s) you want to search on.</span></dd>
                   <div class="clearfix"></div>
+
+                  <dt>CB.SearchQuery</dt>
+                  <dd class="">CB.SearchQuery (Optional)<span>CB.SearchQuery object for search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>CB.SearchFilter</dt>
+                  <dd class="">CB.searchFilter (Optional)<span>CB.SearchFilter object for search.</span></dd>
+                  <div class="clearfix"></div>
                   
                 </dl>
 
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var cs = new CB.CloudSearch("Student");</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var cs = new CB.CloudSearch("Student");
+//create a new filter
+cs.searchFilter = new CB.SearchFilter();
+//create a new query
+cs.searchQuery = new CB.SearchQuery();
+
+              </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-           <a id='CloudSearch-searchOn' name="CloudSearch-searchOn" class="section-anchor">&nbsp;</a>
+          <a id='sq-searchOn' name="sq-searchOn" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudSearch.searchOn( <code>columnName, query</code> )</h3>
+              <h3>SearchQuery.searchOn( <code>columns, queryText, [fuzziness], [all_words], [match_percent], [priority]</code> )</h3>
               <p>
               Used to perform a search query.
               </p>
@@ -2258,20 +2551,37 @@ CB.CloudNotification.off('sample', {
                   <dt>columnName</dt>
                   <dd class="">string / Array <span>The column on which the contraint is to be applied</span></dd>
                   <div class="clearfix"></div>
-                  <dt>data</dt>
-                  <dd class="">query<span>A text query</span></dd>
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>all_words</dt>
+                  <dd class="">[Optional] string<span>Can take only value - true. If set the search will contain all the words in query. For example, If your search query is "Brown Fox". Results will contain both the words "Brown" AND "Fox".</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>match_percent</dt>
+                  <dd class=""> [Optional] string<span>Can take only value - %. For ex : "75%". If set the search will return all the results which matches 75%.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
                   <div class="clearfix"></div>
                   
                 </dl>
 
                 <h6>Returns</h6>
-                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch('Student');
-cs.searchOn('resume', ['C++, Java, C#']);
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.searchOn('resume', 'Java');
 cs.search({
   success : function(list){
     //list is an array of CloudObjects
@@ -2284,11 +2594,595 @@ cs.search({
           </div> <!-- method-section -->
 
 
-          <a id='CloudSearch-equalTo' name="CloudSearch-equalTo" class="section-anchor">&nbsp;</a>
+          <a id='sq-phrase' name="sq-searchOn" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudSearch.equalTo( <code>columnName, data</code> )</h3>
+              <h3>SearchQuery.phrase( <code>columns, queryText, [fuzziness], [priority]</code> )</h3>
+              <p>
+              Used to find the Phrase in search. For example, If you want to match a search text "Brown Fox" in your records <b>as is</b>, then you use Phrase Query. 
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string / Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.phrase('resume', 'Java');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+
+         
+
+
+        <a id='sq-bestColumns' name="sq-bestColumns" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.bestColumns( <code>columns, queryText, [fuzziness], [all_words], [match_percent], [priority]</code> )</h3>
+              <p>
+              This function is most useful when you are searching for multiple words best found in the same field. For instance “brown fox” in a single field is more meaningful than “brown” in one field and “fox” in the other.
+
+              For example : If you have two records, 
+              <table>
+                <th>
+                  <tr>
+                    ID
+                  </tr>
+                  <tr>
+                    Sample 1
+                  </tr>
+                  <tr>
+                   Sample 2
+                  </tr>
+                  
+                </th>
+                <td>
+                  <tr>
+                    1
+                  </tr>
+                  <tr>
+                    Brown Fox
+                  </tr>
+                  <tr>
+                    Up the hill
+                  </tr>
+                </td>
+                <td>
+                  <tr>
+                    2
+                  </tr>
+                  <tr>
+                    Brown 
+                  </tr>
+                  <tr>
+                   Fox up the hill
+                  </tr>
+                </td>
+              </table>
+
+              In this case, If you search for brown fox then Record with ID 1 will be more relevant than record with ID 2
+
+              </p>
+
+
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnNames</dt>
+                  <dd class=""> Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>all_words</dt>
+                  <dd class="">[Optional] string<span>Can take only value - true. If set the search will contain all the words in query. For example, If your search query is "Brown Fox". Results will contain both the words "Brown" AND "Fox".</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>match_percent</dt>
+                  <dd class=""> [Optional] string<span>Can take only value - %. For ex : "75%". If set the search will return all the results which matches 75%.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.bestColumns(['Sample1','Sample2'], 'Brown Fox');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+        <a id='sq-mostColumns' name="sq-mostCOlumns" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.mostColumns( <code>columns, queryText, [fuzziness], [all_words], [match_percent], [priority]</code> )</h3>
+              <p>
+
+              This fucntion is most useful when querying multiple fields that contain the same text should be given higher relevance than others. 
+
+              For example : If you have two records, 
+              <table>
+                <th>
+                  <tr>
+                    ID
+                  </tr>
+                  <tr>
+                    Sample 1
+                  </tr>
+                  <tr>
+                   Sample 2
+                  </tr>
+                  
+                </th>
+                <td>
+                  <tr>
+                    1
+                  </tr>
+                  <tr>
+                    Brown
+                  </tr>
+                  <tr>
+                    Up the hill
+                  </tr>
+                </td>
+                <td>
+                  <tr>
+                    2
+                  </tr>
+                  <tr>
+                   Brown 
+                  </tr>
+                  <tr>
+                   Fox up the hill
+                  </tr>
+                </td>
+              </table>
+
+              In this case, If you search for brown fox then Record with ID 2 will be more relevant than record with ID 1
+
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnNames</dt>
+                  <dd class=""> Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>all_words</dt>
+                  <dd class="">[Optional] string<span>Can take only value - true. If set the search will contain all the words in query. For example, If your search query is "Brown Fox". Results will contain both the words "Brown" AND "Fox".</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>match_percent</dt>
+                  <dd class=""> [Optional] string<span>Can take only value - %. For ex : "75%". If set the search will return all the results which matches 75%.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.mostColumns(['Sample1','Sample2'], 'Brown Fox');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+
+        <a id='sq-startsWith' name="sq-startsWith" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.startsWith( <code>column, value, [priority]</code> )</h3>
+              <p>
+
+              Starts with query.
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class=""> String <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>value</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.startsWith('Sample1', 'Brown');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-wildcard' name="sq-wildcard" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.wildcard( <code>column, value, [priority]</code> )</h3>
+              <p>
+
+              Wildcard Query.
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class=""> String <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>value</dt>
+                  <dd class="">string<span>A wildcard value</span></dd>
+                  <div class="clearfix"></div>
+
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.Wildcard('Sample1', 'B*');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-regexp' name="sq-regexp" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.regexp( <code>column, value, [priority]</code> )</h3>
+              <p>
+
+              A Regular Expression Query
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class=""> String <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>value</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.regexp('Sample', 'B[a-z]*');
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+
+          <a id='sq-or' name="sq-or" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.or( <code>searchQuery</code> )</h3>
+              <p>
+
+              OR a SearchQuery
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>searchQuery</dt>
+                  <dd class=""> CB.SearchQuery <span>SearchQuery object to be OR'ed</span></dd>
+                  <div class="clearfix"></div>
+
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+
+var obj1 = new CB.SearchQuery();
+obj1.searchOn('name', 'Dan');
+
+var obj2 = new CB.SearchQuery();
+obj2.searchOn('name', 'Sam');
+
+cs.searchQuery.or(obj1);
+cs.searchQuery.or(obj2);
+
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-and' name="sq-and" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.and( <code>searchQuery</code> )</h3>
+              <p>
+
+              AND a SearchQuery
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>searchQuery</dt>
+                  <dd class=""> CB.SearchQuery <span>SearchQuery object to be AND'ed</span></dd>
+                  <div class="clearfix"></div>
+
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+
+var obj1 = new CB.SearchQuery();
+obj1.searchOn('name', 'Dan');
+
+var obj2 = new CB.SearchQuery();
+obj2.searchOn('name', 'Sam');
+
+cs.searchQuery.and(obj1);
+cs.searchQuery.and(obj2);
+
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-not' name="sq-not" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.not( <code>searchQuery</code> )</h3>
+              <p>
+
+              NOT a SearchQuery
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>searchQuery</dt>
+                  <dd class=""> CB.SearchQuery <span>SearchQuery object to be NOT</span></dd>
+                  <div class="clearfix"></div>
+
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+
+var obj1 = new CB.SearchQuery();
+obj1.searchOn('name', 'Dan');
+
+var obj2 = new CB.SearchQuery();
+obj2.searchOn('name', 'Sam');
+
+cs.searchQuery.not(obj1);
+cs.searchQuery.not(obj2);
+
+cs.search({
+  success : function(list){
+    //list is an array of CloudObjects
+  },error : function(error){
+    //error
+  }
+});
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='SearchFilter-equalTo' name="SearchFilter-equalTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchFilter.equalTo( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant for finding the subset of the data in which 
               <code>columnName</code> is equal to <code>data</code>.
@@ -2308,13 +3202,14 @@ cs.search({
                 </dl>
 
                 <h6>Returns</h6>
-                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+                <p>Same SearchFilter object, which can be helpful in chaining search functions.</p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Student");
-cs.equalTo('age', 21); //find all Students who age is 21
+cs.searchFilter = new CB.SearchFilter();
+cs.searchFilter.equalTo('age', 21); //find all Students who age is 21
 cs.search({
   success: function(list){
     //list is an array of CloudObjects 
@@ -2328,11 +3223,11 @@ cs.search({
           </div> <!-- method-section -->
 
          
-          <a id='CloudSearch-notEqualTo' name="CloudSearch-notEqualTo" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-notEqualTo' name="SearchFilter-notEqualTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudSearch.notEqualTo( <code>columnName, data</code> )</h3>
+              <h3>SearchFilter.notEqualTo( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant for finding the subset of the data in which 
               <code>columnName</code> does not has the value <code>data</code>.
@@ -2352,14 +3247,15 @@ cs.search({
                 </dl>
 
                 <h6>Returns</h6>
-                <p>Same CloudSearch object, which can be helpful in chaining query functions.</p>
+                <p>Same SearchFilter object, which can be helpful in chaining query functions.</p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Student");
 //find all Students info except of Smith
-cs.notEqualTo('name', 'Smith');
+cs.searchFilter = new CB.SearchFilter();
+cs.searchFilter.notEqualTo('name', 'Smith');
 cs.search({
   success: function(list){
     //list is an array of CloudObjects 
@@ -2372,11 +3268,11 @@ cs.search({
             </div><!-- method-example -->
           </div> <!-- method-section -->
           
-          <a id='CloudSearch-greaterThan' name="CloudSearch-greaterThan" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-greaterThan' name="SearchFilter-greaterThan" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudSearch.greaterThan( <code>columnName, data</code> )</h3>
+              <h3>SearchFilter.greaterThan( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant for finding the subset of the data in which 
               <code>columnName</code> has the value greater than <code>data</code>.
@@ -2393,7 +3289,7 @@ cs.search({
                 </dl>
 
                 <h6>Returns</h6>
-                <p>Same CloudSearch object, which can be helpful in chaining search functions. </p>
+                <p>Same SearchFilter object, which can be helpful in chaining search functions. </p>
 
               </div>
             </div>
@@ -2402,7 +3298,8 @@ cs.search({
 
 var cs = new CB.CloudSearch("Teacher");
 //find all the teachers who are old.
-cs.greaterThan('age', 60);
+cs.searchFilter = new CB.SearchFilter();
+cs.searchFilter.greaterThan('age', 60);
 cs.search({
   success: function(list){
     //list is an array of CloudObjects 
@@ -2411,15 +3308,16 @@ cs.search({
     //Error in retrieving the data.
   }
 });
+
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-          <a id='CloudSearch-greaterThanEqualTo' name="CloudSearch-greaterThanEqualTo" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-greaterThanEqualTo' name="SearchFilter-greaterThanEqualTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudSearch.greaterThanEqualTo( <code>columnName, data</code> )</h3>
+              <h3>SearchFilter.greaterThanEqualTo( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant for finding the subset of the data in which 
               <code>columnName</code> has the value greater than or equals to <code>data</code>.
@@ -2439,13 +3337,14 @@ cs.search({
                 </dl>
 
                 <h6>Returns</h6>
-                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+                <p>Same SearchFilter object, which can be helpful in chaining search functions.</p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Teacher");
-cs.greaterThanEqualTo('age', 60);
+cs.searchFilter = new CB.SearchFilter();
+cs.searchFilter.greaterThanEqualTo('age', 60);
 cs.search({
   success: function(list){
     //list is an array of CloudObjects 
@@ -2457,11 +3356,11 @@ cs.search({
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-          <a id='CloudSearch-lessThan' name="CloudSearch-lessThan" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-lessThan' name="SearchFilter-lessThan" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudSearch.lessThan( <code>columnName, data</code> )</h3>
+              <h3>SearchFilter.lessThan( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant for finding the subset of the data in which 
               <code>columnName</code> has the value less than <code>data</code>.
@@ -2481,13 +3380,14 @@ cs.search({
                 </dl>
 
                 <h6>Returns</h6>
-                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+                <p>Same SearchFilter object, which can be helpful in chaining search functions.</p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Student");
-cs.lessThan('age', 18);
+cs.searchFilter = new CB.SearchFilter();
+cs.searchFilter.lessThan('age', 18);
 cs.search({
   success: function(list){
     //list is an array of CloudObjects 
@@ -2501,11 +3401,11 @@ cs.search({
           </div> <!-- method-section -->
 
 
-          <a id='CloudSearch-lessThanEqualTo' name="CloudSearch-lessThanEqualTo" class="section-anchor">&nbsp;</a>
+          <a id='SearchFilter-lessThanEqualTo' name="SearchFilter-lessThanEqualTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudSearch.lessThanEqualTo( <code>columnName, data</code> )</h3>
+              <h3>SearchFilter.lessThanEqualTo( <code>columnName, data</code> )</h3>
               <p>
               It adds a contriant for finding the subset of the data in which 
               <code>columnName</code> has the value less than or equals to <code>data</code>.
@@ -2525,13 +3425,14 @@ cs.search({
                 </dl>
 
                 <h6>Returns</h6>
-                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+                <p>Same SearchFilter object, which can be helpful in chaining search functions.</p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var cs = new CB.CloudSearch("Student");
-cs.lessThanEqualTo('age', 17);
+cs.searchFilter = new CB.SearchFilter();
+cs.searchFilter.lessThanEqualTo('age', 17);
 cs.search({
   success: function(list){
     //list is an array of CloudObjects 
@@ -2543,49 +3444,136 @@ cs.search({
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-          <a id='CloudSearch-or' name="CloudSearch-or" class="section-anchor">&nbsp;</a>
+
+          <a id='SearchFilter-exists' name="SearchFilter-exists" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h3>SearchFilter.exists( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> exists irrespective of what its value is.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column name which is to be checked for existence</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchFilter object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.searchFilter = new CB.SearchFilter();
+cs.searchFilter.exists('address');
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='SearchFilter-doesNotExists' name="SearchFilter-doesNotExists" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudSearch.or( <code>cloudSearch1, cloudSearch2</code> )</h3>
+              <h3>SearchFilter.doesNotExists( <code>columnName</code> )</h3>
               <p>
-              It adds a logical OR contriant between 2 <code>CloudSearch</code> objects for 
-              finding the set of the data satisfying conditions of both <code>cloudSearch1</code>
-              and <code>cloudSearch2</code>.
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> does not exists.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column name which is to be checked for non-existence</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchFilter object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.searchFilter = new CB.SearchFilter();
+cs.searchFilter.doesNotExists('address');
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='SearchFilter-or' name="SearchFilter-or" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h3>SearchFilter.or( <code>searchFilter )</h3>
+              <p>
+              It adds a logical OR contriant to <code>SearchFilter</code> object for 
+              finding the set of the data satisfying conditions of <code>SearchFilter</code>
               </p>
               <div class="method-list">
                 
                 <h6>Arguments</h6>
                 <dl class="argument-list">
 
-                  <dt>cloudSearch1</dt>
-                  <dd class=""><code>CloudSearch object</code></dd>
+                  <dt>SearchFilter</dt>
+                  <dd class=""><code>SearchFilter Object</code></dd>
                   <div class="clearfix"></div>
-                  <dt>cloudSearch2</dt>
-                  <dd class=""><code>CloudSearch object</code></dd>
-                  <div class="clearfix"></div>
+                  
                   
                 </dl>
 
                 <h6>Returns</h6>
-                <p>It returns a <code>CloudSearch</code> object which contains
-                OR'ed query of both of the <code>CloudSearch</code> objects.</p>
+                <p>It returns a <code>SearchFilter</code> object which contains
+                OR'ed query of <code>SearchFilter</code> object.</p>
               </div>
+
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 
 //find all Student such that 10&lt;age&lt;18
 
-var cs1 = new CB.CloudSearch('Student');
-cs1.lessThan('age', 18);
-cs1.searchOn('name', 'Sam');
+//create first searchFilter. 
+var searchFilter1 = new CB.SearchFilter();
+searchFilter1.lessThan('age', 18);
 
-var cs2 = new CB.CloudSearch('Student');
-cs2.greaterThan('age', 10);
-cs1.searchOn('name', 'Dan');
+//create second search Filter. 
+var searchFilter2 = new CB.SearchFilter();
+searchFilter2.greaterThan('age', 18);
 
-var cs = CB.CloudSearch.or(cs1, cs2);
+//or both of these. 
+var searchFilter = new CB.SearchFilter();
+searchFilter.or(searchFilter1);
+searchFilter.or(searchFilter2);
+
+//attach OR'ed searchFilter to CloudSearch. 
+var cs = new CB.CloudSearch('Student');
+cs.searchFilter = searchFilter;
+//search term
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.searchOn('name','Dan');
+
 cs.search({
   success: function(list){
     //list is an array of CloudObjects 
@@ -2598,6 +3586,138 @@ cs.search({
               
             </div><!-- method-example -->
           </div> <!-- method-section -->
+
+
+          <a id='SearchFilter-and' name="SearchFilter-and" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h3>SearchFilter.and( <code>searchFilter )</h3>
+              <p>
+              It adds a logical AND contriant to <code>SearchFilter</code> object for 
+              finding the set of the data satisfying conditions of <code>SearchFilter</code>
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>SearchFilter</dt>
+                  <dd class=""><code>SearchFilter Object</code></dd>
+                  <div class="clearfix"></div>
+                  
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>SearchFilter</code> object which contains
+                OR'ed query of <code>SearchFilter</code> object.</p>
+              </div>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//find all students of age less than 10 AND greater than 18.
+
+//create first searchFilter. 
+var searchFilter1 = new CB.SearchFilter();
+searchFilter1.lessThan('age', 10);
+
+//create second search Filter. 
+var searchFilter2 = new CB.SearchFilter();
+searchFilter2.greaterThan('age', 18);
+
+//and both of these. 
+var searchFilter = new CB.SearchFilter();
+searchFilter.and(searchFilter1);
+searchFilter.and(searchFilter2);
+
+//attach OR'ed searchFilter to CloudSearch. 
+var cs = new CB.CloudSearch('Student');
+cs.searchFilter = searchFilter;
+//search term
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.searchOn('name','Dan');
+
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+              
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='SearchFilter-not' name="SearchFilter-not" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h3>SearchFilter.not( <code>searchFilter )</h3>
+              <p>
+              It adds a logical NOT contriant to <code>SearchFilter</code> object for 
+              finding the set of the data satisfying conditions of <code>SearchFilter</code>
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>SearchFilter</dt>
+                  <dd class=""><code>SearchFilter Object</code></dd>
+                  <div class="clearfix"></div>
+                  
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>SearchFilter</code> object which contains
+                OR'ed query of <code>SearchFilter</code> object.</p>
+              </div>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//find all students of age less than 10 AND greater than 18.
+
+//create first searchFilter. 
+var searchFilter1 = new CB.SearchFilter();
+searchFilter1.lessThan('age', 10);
+
+//create second search Filter. 
+var searchFilter2 = new CB.SearchFilter();
+searchFilter2.greaterThan('age', 18);
+
+//and both of these. 
+var searchFilter = new CB.SearchFilter();
+searchFilter.not(searchFilter1);
+searchFilter.not(searchFilter2);
+
+//attach NOT'ed searchFilter to CloudSearch. 
+var cs = new CB.CloudSearch('Student');
+cs.searchFilter = searchFilter;
+//search term
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.searchOn('name','Dan');
+
+cs.search({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+              
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
           <a id='CloudSearch-orderByAsc' name="CloudSearch-orderByAsc" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -2756,82 +3876,6 @@ cs.search({
           </div> <!-- method-section -->
           
 
-          <a id='CloudSearch-exists' name="CloudSearch-exists" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-              <h3>CloudSearch.exists( <code>columnName</code> )</h3>
-              <p>
-              It adds a contriant for finding the subset of the data in which 
-              <code>columnName</code> exists irrespective of what its value is.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>columnName</dt>
-                  <dd class="">string <span>The column name which is to be checked for existence</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-                <h6>Returns</h6>
-                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var cs = new CB.CloudSearch("Student");
-cs.exists('address');
-cs.search({
-  success: function(list){
-    //list is an array of CloudObjects 
-  },
-  error: function(err) {
-    //Error in retrieving the data.
-  }
-});</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudSearch-doesNotExists' name="CloudSearch-doesNotExists" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudSearch.doesNotExists( <code>columnName</code> )</h3>
-              <p>
-              It adds a contriant for finding the subset of the data in which 
-              <code>columnName</code> does not exists.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>columnName</dt>
-                  <dd class="">string <span>The column name which is to be checked for non-existence</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-                <h6>Returns</h6>
-                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var cs = new CB.CloudSearch("Student");
-cs.doesNotExists('address');
-cs.search({
-  success: function(list){
-    //list is an array of CloudObjects 
-  },
-  error: function(err) {
-    //Error in retrieving the data.
-  }
-});</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-
           <a id='CloudSearch-search' name="CloudSearch-search" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -2846,17 +3890,13 @@ cs.search({
               then at max 20 documents are returned in each query by default.
               </p>
               <div class="method-list">
-                
                 <h6>Arguments</h6>
                 <dl class="argument-list">
-
                   <dt>callback</dt>
                   <dd class="">Object <span> [optional] if provided must have success and error functions to handle
                    respective response.</span></dd>
                   <div class="clearfix"></div>
-                  
                 </dl>
-
                 <h6>Returns</h6>
                 <p>It returns an array of <code>CloudObject</code> objects or an error object if the opertion is successful or fails respectively along with JQuery promise (if <code>callback</code> is not provided).</p>
               </div>
@@ -2874,7 +3914,1066 @@ cs.search({
             </div><!-- method-example -->
           </div> <!-- method-section -->
       </div>
+ <a id='CloudGeoPoint' name="CloudGeoPoint" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+                  <h1>CB.CloudGeoPoint</h1>
+                  <p>
+                      <code>CloudGeoPoint</code> is used to store GeoPoints and perform GeoPoint operation like finding points near and bounding box.
+                  </p>
+                  <p>
+                      A <code>CloudGeoPoint</code> object has to be saved in <code>CloudObject</code> in a column.
+                  </p>
+                  <p>
+                      All the modifications in the GeoPoint can be reflected only after the object is saved after the changes.
+                  </p>
+              </div>
+          </div>
 
+          <a id='CloudGeoPoint-constructor' name="CloudGeoPoint-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>Constructor</h3>
+                  <p>
+                      Init's a <code>CloudGeoPoint</code> object.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <p>It takes latitude and longitude of a GeoPoint. Points can be given in Numeric format.</p>
+
+                      <h6>Returns</h6>
+                      <p>It returns a <code>CloudGeoPoint</code> object.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var point = new CB.CloudGeoPoint(17.4,78.5);
+
+</span></span></code>
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudGeoPoint-dkm' name="CloudGeoPoint-dkm" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudGeoPoint.distanceInKms(CloudGeoPoint)</h3>
+                  <p>
+                      Finds distance between CloudGeoPoints in kilometers.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>CloudGeoPoint</dt>
+                          <dd class="">Object <span> It is the point from which the distance to be found.</span></dd>
+                          <div class="clearfix"></div>
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Distance in Kilometers.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc = new CB.CloudGeoPoint(17.7,80.3);
+var loc2 = new CB.CloudGeoPoint(10.7,70.3);
+var distance = loc.distanceInKMs(loc2);
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudGeoPoint-miles' name="CloudGeoPoint-miles" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudGeoPoint.distanceInMiles(CloudGeoPoint)</h3>
+                  <p>
+                      Finds distance between CloudGeoPoints in Miles.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>CloudGeoPoint</dt>
+                          <dd class="">Object <span> It is the point from which the distance to be found.</span></dd>
+                          <div class="clearfix"></div>
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Distance in Miles.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc = new CB.CloudGeoPoint(17.7,80.3);
+var loc2 = new CB.CloudGeoPoint(10.7,70.3);
+var distance = loc.distanceInMiles(loc2);
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudGeoPoint-radians' name="CloudGeoPoint-radians" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudGeoPoint.distanceInRadians(CloudGeoPoint)</h3>
+                  <p>
+                      Finds distance between CloudGeoPoints in kilometers.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>CloudGeoPoint</dt>
+                          <dd class="">Object <span> It is the point from which the distance to be found.</span></dd>
+                          <div class="clearfix"></div>
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Distance in Radians.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc = new CB.CloudGeoPoint(17.7,80.3);
+var loc2 = new CB.CloudGeoPoint(10.7,70.3);
+var distance = loc.distanceInRadians(loc2);
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          
+ <a id='CloudUser' name="CloudUser" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h1>CB.CloudUser</h1>
+              <p>
+                There is a notion of user accounts that lets users access their information in a secure manner.
+                We provide a specialized user class called <code>CB.CloudUser</code> that automatically handles
+                much of the functionality required for user account management.
+              </p>
+              <p>
+                <code>CB.CloudUser</code> is a subclass of <code>CB.CloudObject</code>, and has all the same features, such as flexible 
+                schema, automatic persistence, and a key value interface. All the methods that are on 
+                <code>CB.CloudObject</code> also exist in <code>CB.CloudUser</code>. The difference is that <code>CB.CloudUser</code> has some special 
+                additions specific to user accounts. With this class, you'll be able to add user account 
+                functionality in your app.
+              </p>
+              <p>
+                There is a special object <code>CB.CloudUser.current</code> which holds the
+                information of the current user logged in.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div>
+          </div>
+          <a id='CloudUser-constructor' name="CloudUser-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudUser</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <p>It takes no argument.</p>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudUser();</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-signUp' name="CloudUser-signUp" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.signUp( <code>[callback]</code> )</h3>
+              <p>
+                It registers new user given its <i>username</i>, <i>email</i> and <i>password</i>.
+                Registration is successful if the given <i>email</i> is not already registered to an existing user.
+              </p>
+              <p>
+                It sets the attributes of <code>CB.CloudUser.current</code> object with the 
+                <code>CloudUser</code> object recieved.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object which has the user information if registration is 
+                successful otherwise an error object along with JQuery promise (if <code>callback</code> 
+                is not provided).
+                </p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var user = new CB.CloudUser();
+user.set('username', 'my_username');
+user.set('password', 'my_solid_password');
+user.set('email', 'email@sample.com');
+user.signUp({
+  success: function(user) {
+    //Registration successfull
+  },
+  error: function(err) {
+    //Error in user registration.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-logIn' name="CloudUser-logIn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.logIn( <code>[callback]</code> )</h3>
+              <p>
+                It logs in user given its <i>username</i> and <i>password</i>.
+                Login is successful if the given <i>username</i> and <i>password</i> pair is already present in the database.
+              </p>
+              <p>
+                It sets the attributes of <code>CB.CloudUser.current</code> object with the 
+                <code>CloudUser</code> object recieved.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object which has the user information if registration is 
+                successful otherwise an error object along with JQuery promise (if <code>callback</code> 
+                is not provided).
+                </p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var user = new CB.CloudUser();
+user.set('username', 'my_username');
+user.set('password', 'my_solid_password');
+user.logIn({
+  success: function(user) {
+    //Login successfull
+  },
+  error: function(err) {
+    //Error occured in user registration.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-logOut' name="CloudUser-logOut" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.logOut( <code>[callback]</code> )</h3>
+              <p>
+                It logs the user out.
+              </p>
+              <p>
+                It sets the <code>CB.CloudUser.current</code> object to <i>null</i>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object having the user information of the user who was logged in 
+                otherwise an error object along with JQuery promise (if <code>callback</code> is not provided).
+                </p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudUser.current.logOut({
+  success: function(user) {
+    //log out successfull
+  },
+  error: function(err) {
+    //Error occured in user registration.
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudUser-current' name="CloudUser-current" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.current( <code>[callback]</code> )</h3>
+              <p>
+                Get the current logged in user.
+              </p>
+             
+              
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+//gets the current user if user is loggedIn, null otherwise.
+var currentUser = CB.CloudUser.current;</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+           <a id='CloudUser-addToRole' name="CloudUser-addToRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.addToRole( <code>role,  [callback]</code> )</h3>
+              <p>
+                A user can be a part of many roles, like in real world. For this functionality
+                user should get added to a Role.
+              </p>
+              <p>
+                For this purpose <code>addToRole()</code> of <code>CB.CloudUser</code> comes in handy.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>role</dt>
+                  <dd class="">CloudRole Object <span> The <code>CloudRole</code> object of the role you want to
+                  add the user to.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object having the user information of the user who was logged in 
+                otherwise an error object along with JQuery promise (if <code>callback</code> is not provided).
+                </p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//role is an instance of CloudRole Object.
+
+CB.CloudUser.current.addToRole(role, {
+  success: function(user) {
+    //added to role successfull
+  },
+  error: function(err) {
+    //Error occured in adding to role.
+  }
+});
+
+</span></span></code>
+            <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-isInRole' name="CloudUser-isInRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.isInRole( <code>role</code> )</h3>
+              <p>
+                To check if the current user is in the role provided by the role object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>role</dt>
+                  <dd class="">CloudRole Object <span> The <code>CloudRole</code> object of the role you want to
+                  check the user to.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <i>true/false</i> based on whether the user is in the given
+                role or not respectively.
+                </p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+//role is the instance of the CloudRole object. 
+
+if(CB.CloudUser.current.isInRole(role)) {
+  //The current user is in the given role.
+} else {
+  //The user is not in the given role.
+}
+
+}</span></span></code>
+            <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-removeFromRole' name="CloudUser-removeFromRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.removeFromRole( <code>role , [callback]</code> )</h3>
+              <p>
+                Removes the user from the given role provided in <code>role</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>role</dt>
+                  <dd class="">CloudRole Object <span> The <code>CloudRole</code> object of the role you want to
+                  remove the user from.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object having the user information of the user who was logged in 
+                otherwise an error object along with JQuery promise (if <code>callback</code> is not provided).
+                </p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudUser.current.removeFromRole(role, {
+    success : function(user){
+      //get the updated user 
+    }, 
+    error : function(err){
+      //erorr if something goes wrong.
+    }
+  });
+}</span></span></code>
+            <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          
+<a id='CloudRole' name="CloudRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h1>CB.CloudRole</h1>
+              <p>
+                As your app grows in scope and user-base, you may find yourself needing more 
+                coarse-grained control over access to pieces of your data than user-linked ACLs
+                can provide. To address this requirement, CloudBoost supports a form of Role-based 
+                Access Control. Roles provide a logical way of grouping users with common access 
+                privileges to your CB data. Roles are named objects that contain users and other 
+                roles. Any permission granted to a role is implicitly granted to its users as 
+                well as to the users of any roles that it contains.
+              </p>
+              <p>
+                We provide a specialized class called <code>CB.CloudRole</code> that represents these role 
+                objects in your client code. <code>CB.CloudRole</code> is a subclass of <code>CB.CloudObject</code>, 
+                and has all of the same features, such as a flexible schema, automatic 
+                persistence, and a key value interface. All the methods that are on <code>CB.CloudObject</code> 
+                also exist on <code>CB.CloudRole</code>. The difference is that <code>CB.CloudRole</code> has some additions 
+                specific to management of roles.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div>
+          </div>
+          <a id='CloudRole-constructor' name="CloudRole-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudRole</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>roleName</dt>
+                  <dd class="">string <span>The name of the role you want to deal with</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var role = new CB.CloudRole("Student");</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          
+        <a id='CloudFile' name="CloudFile" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+                  <h1>CB.CloudFile</h1>
+                  CB.CloudFile lets you store application files in the cloud that would otherwise be too large or cumbersome to fit into a regular CB.CloudObject. The most common use case is storing images, but you can also use it for documents, videos, music, and any other binary data.
+              </div>
+          </div>
+
+         
+
+
+
+
+          <a id='CloudFile-constructor' name="CloudFile-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>file</dt>
+                  <dd class="">file/BLOB object<span>The file/BLOB that you want to save</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var documentFile = new Blob([
+              'This is the content of by document blob'
+              ], {
+                type : 'text/plain'
+              });
+var file = new CB.CloudFile(documentFile);</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudFile-save' name="CloudRole-save" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudFile.save( <code>[callback]</code> )</h3>
+              <p>
+              Saves the <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudFile</code> object having <code>url</code> attribute set to the URL 
+                of the blob uploaded to the server if the operation is successful otherwise returns 
+                an error object along with JQuery promise (if <code>callback</code> is not provided).
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var documentFile = new Blob([
+            'This is the content of by document blob'
+            ], {
+              type : 'text/plain'
+            });
+var file = new CB.CloudFile(documentFile);
+
+file.save({
+  success: function(obj) {
+    //got the file object successfully with the url to the file
+  },
+  error: function(err) {
+    //error in uploading file
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudFile-delete' name="CloudRole-delete" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudFile.delete( <code>[callback]</code> )</h3>
+              <p>
+              Deletes the <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudFile</code> object having <code>url</code> attribute set to <code>null</code> 
+                if the operation is successful otherwise returns an error object along with JQuery promise 
+                (if <code>callback</code> is not provided).
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+<<<<<<< HEAD
+var documentFile = new Blob([
+            'This is the content of by document blob'
+            ], {
+              type : 'text/plain'
+            });
+var file = new CB.CloudFile(documentFile);
+file.save({
+  success: function(obj) {
+    //got the file object successfully with the url to the file
+    file.delete({
+  	  success: function(obj) {
+    	//file deletion successful
+  	  },error: function(err) {
+    	//error in deleting file
+  	  }
+	});
+  },error: function(err) {
+    //error in uploading file
+=======
+file.delete({
+  success: function(roleObj) {
+    //file deletion successfull
+  },
+  error: function(err) {
+    //error in deleting file
+>>>>>>> 5bad80bb862adeba95f0c7285e9ff85d28c490cd
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+                  <div class="clearfix"></div>
+            
+          </div> 
+<div class="method">
+  <a id='Column' name="Column" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h1>CB.Column</h1>
+      <p>
+      This API allow to create a column object.
+      </p>
+    </div>
+    <div class="method-example" id="api-summary-example">
+    </div>
+  </div>
+  <a id='Column-constructor' name="Column-constructor" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+      <h3>CB.Column(<code>columnName, dataType, [required], [unique]</code>)</h3>
+      <p>
+        Initialize a column.
+        <br/>
+        List of valid <b>Data Type</b> is given below.
+        <br/>
+        <b>Reqiure</b> is a boolean that indicate whether the field can be null or not.
+        <br/>
+        <b>Unique</b> field is a boolean type, indicates whether should contains unique value or not.
+      </p>
+
+      <div class="method-list">
+
+        <h6>Arguments</h6>
+        <dl class="argument-list">
+          <dt>columnNmae</dt>
+          <dd class="">String <span>Column Name should not start with a number and should not contain any spaces and special characters.</span></dd>
+          <div class="clearfix"></div>
+          <dt>dataType</dt>
+          <dd class="">Cloud Data Types<span>Default data type is <b>Text</b></span></dd>
+          <div class="clearfix"></div>
+          <dt>required</dt>
+          <dd class="">Boolean <span>Default value is <b>False. </b></span></dd>
+          <div class="clearfix"></div>
+          <dt>unique</dt>
+          <dd class="">Boolean <span>Default value is <b>False. </b></span></dd>
+          <div class="clearfix"></div>
+        </dl>
+
+        <h6>Returns</h6>
+        <p>A cloudcolumn object</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var column1 = new CB.Column('name', 'Text', true, false);
+var column2 = new CB.Column('uniqueId');
+column2.dataType = 'Number';
+column2.unique = true;
+column2.required = true;
+var table = new CB.CloudTable('Employee');
+table.addColumn(column1);
+table.addColumn(column2);
+table.save().then(function(obj){
+    //cloud table object
+}, function(err){
+   //error
+});
+</span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+  <a id='Column-datatype' name="Column-datatype" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+      <h3>Data Types</h3>
+      <p>List of Valid Data Types
+        <ul>
+          <li>Text</li>
+          <li>Number</li>
+          <li>Email</li>
+          <li>URL</li>
+          <li>Boolean</li>
+          <li>DateTime</li>
+          <li>GeoPoint</li>
+          <li>File</li>
+          <li>List</li>
+          <li>Relation</li>
+          <li>Object</li>
+        </ul>
+        <p><small><b>data types are case sensitive</small></b></p>
+      </p>
+      <p>
+        If you are using <b>Relation</b> as a data type then you need to set <b>relatedTo</b> property to column object</b>.
+        <br/>
+        Valid relatedTo data types for <b>Relation</b> is <b>CloudTable Object</b> i.e. just set the table name in relatedTo property.
+
+      </p>
+
+      <p>
+        If you are using <b>List</b> as a data type then you need to set <b>relatedTo</b> property to column object</b>.
+        <br/>
+        Valid relatedTo data types for <b>List</b> are:
+        <br/>
+        ['CloudTable Objects', 'Text', 'Email', 'URL', 'Number', 'Boolean', 'DateTime', 'Boolean', 'GeoPoint', 'File', 'Object']
+      </p>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var column3 = new CB.Column('department', 'Relation');
+column3.relatedTo = 'DeparmentTable';
+var column4 = new CB.Column('skills', 'List');
+column4.relatedTo = 'Text';
+var table = new CB.CloudTable('Employee');
+table.addColumn(column3);
+table.addColumn(column4);
+table.save().then(function(obj){
+    //cloud table object
+}, function(err){
+   //error
+});
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+<div>  <!-- method -->
+
+<div class="method">
+  <a id='CloudTable' name="CloudTable" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h1>CB.CloudTable</h1>
+      <p>
+      This API allows to create, delete, get details of a table from an App by using <b>master-key.</b>
+      </p>
+
+    </div>
+    <div class="method-example" id="api-summary-example">
+    </div>
+  </div>
+  <a id='CloudTable-constructor' name="CloudTable-constructor" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h3>CB.CloudTable(<code>tableName</code>)</h3>
+      <p>
+        All the tables are in cloudboost is a type of cloudtable. Pass the table name as a parameter to initialize a cloudtable.
+      </p>
+      <div class="method-list">
+
+        <h6>Arguments</h6>
+        <dl class="argument-list">
+          <dt>tableName</dt>
+          <dd class="">String <span>Table should not start with a number and should not contain any spaces and special characters.</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+
+        <h6>Returns</h6>
+        <p>A cloudtable object</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var table = new CB.CloudTable("TableName");
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+  <a id='CloudTable-get' name="CloudTable-get" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h3>CloudTable.get(<code>cloudtable, [callback]</code>)</h3>
+      <p>
+        To get a table's detail of an App use get method.
+      </p>
+      <div class="method-list">
+
+        <h6>Arguments</h6>
+        <dl class="argument-list">
+          <dt>cloudtable</dt>
+          <dd class="">CloudTable Object <span>Pass a cloudtable object</span></dd>
+          <div class="clearfix"></div>
+          <dt>callback</dt>
+          <dd class="">Object <span>[optional] if provided must have success and error functions to handle respective response.</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+
+        <h6>Returns</h6>
+        <p>A cloudtable object</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var obj = new CB.CloudTable('Address');
+CB.CloudTable.get(obj).then(function(table){
+    //get cloudtable object for requested table.
+}, function(err){
+    //get error details
+});
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+  <a id='CloudTable-getall' name="CloudTable-getall" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h3>CloudTable.getAll(<code>[callback]</code>)</h3>
+      <p>
+        It fetch all tables of an App.
+      </p>
+      <div class="method-list">
+
+        <h6>Arguments</h6>
+        <dl>
+          <dt>callback</dt>
+          <dd class="">Object <span>[optional] if provided must have success and error functions to handle respective response.</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+
+        <h6>Returns</h6>
+        <p>Array of cloudtable object</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudTable.getAll().then(function(tableArray){
+    //get array of cloudtables
+}, function(err){
+    //get error details
+});
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+
+  <a id='CloudTable-addcolumn' name="CloudTable-addcolumn" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h3>CloudTable.addColumn(<code>columnObj</code>)</h3>
+      <p>
+        Add a column to a table. go through <a href="#Column">Column</a> to get more detail about how to initialize a column object.
+      </p>
+      <div class="method-list">
+
+        <h6>Arguments</h6>
+        <dl>
+          <dt>Column</dt>
+          <dd class="">Column Object<span>Create a column object using Column Class and put this object as an argument</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+
+        <h6>Returns</h6>
+        <p>Void</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var table = new CB.CloudTable('Student');
+var column = new CB.Column('Name', 'Text');
+table.addColumn(column);
+table.save().then(function(obj){
+  //new table object with new column
+}, function(err){
+
+});
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+  <a id='CloudTable-deletecolumn' name="CloudTable-deletecolumn" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h3>CloudTable.deleteColumn(<code>columnObj</code>)</h3>
+      <p>
+        Delete a column of a table. go through <a href="">Column</a> to get more detail about how to initialize a column object.
+      </p>
+      <div class="method-list">
+        <h6>Arguments</h6>
+        <dl>
+          <dt>Column</dt>
+          <dd class="">Column Object<span>Create a column object using Column Class and put this object as an argument</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+        <h6>Returns</h6>
+        <p>Void</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var column = new CB.Column('Name', 'Text');
+table.deleteColumn(column);
+table.save().then(function(obj){
+  //updated table object without 'Name' column
+}, function(err){
+
+});
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+  <a id='CloudTable-save' name="CloudTable-save" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h3>CloudTable.save(<code>[callback]</code>)</h3>
+      <p>
+        Save a cloudtable object. It will automatically create all default columns for a table. If you want to create a user table or role table then just pass 'User' or 'Role' as an argument while creating cloudtable object.
+      </p>
+      <div class="method-list">
+        <h6>Arguments</h6>
+        <dl>
+          <dt>callback</dt>
+          <dd class="">Object <span>[optional] if provided must have success and error functions to handle respective response.</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+        <h6>Returns</h6>
+        <p>cloudtable object</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var table = new CB.CloudTable('NewTable');
+table.save().then(function(obj){
+  //saved cloudtable object
+}, function(err){
+
+});
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+  <a id='CloudTable-delete' name="CloudTable-delete" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
+
+      <h3>CloudTable.delete(<code>cloudtable, [callback]</code>)</h3>
+      <p>
+        delete a cloudtable object i.e. delete a table of an App.
+      </p>
+      <div class="method-list">
+        <h6>Arguments</h6>
+        <dl>
+          <dt>Table</dt>
+          <dd class="">CloudTable object <span>cloudtable object which has to delete.</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+        <dl>
+          <dt>callback</dt>
+          <dd class="">Object <span>[optional] if provided must have success and error functions to handle respective response.</span></dd>
+          <div class="clearfix"></div>
+        </dl>
+        <h6>Returns</h6>
+        <p>success or error status</p>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var table = new CB.CloudTable('Student');
+CB.CloudTable.delete(table).then(function(status){
+    //success status
+},function(){
+    //get error status
+});
+      </span></span></code>
+
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
+</div> <!-- method -->
+
+  <!--Acl -->
 
           <a id='ACL' name="ACL" class="section-anchor">&nbsp;</a>
           <div class="method-section">
@@ -3172,582 +5271,117 @@ obj.save({
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-          <a id='CloudUser' name="CloudUser" class="section-anchor">&nbsp;</a>
+        <div class="method">
+          <a id='JSON' name="JSON" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
-              <h1>CB.CloudUser</h1>
+
+              <h1>JSON</h1>
               <p>
-                There is a notion of user accounts that lets users access their information in a secure manner.
-                We provide a specialized user class called <code>CB.CloudUser</code> that automatically handles
-                much of the functionality required for user account management.
+              Here's a way to serialize and de-serialize CloudBoost objects for passing it between your server and clients.
               </p>
-              <p>
-                <code>CB.CloudUser</code> is a subclass of <code>CB.CloudObject</code>, and has all the same features, such as flexible 
-                schema, automatic persistence, and a key value interface. All the methods that are on 
-                <code>CB.CloudObject</code> also exist in <code>CB.CloudUser</code>. The difference is that <code>CB.CloudUser</code> has some special 
-                additions specific to user accounts. With this class, you'll be able to add user account 
-                functionality in your app.
-              </p>
-              <p>
-                There is a special object <code>CB.CloudUser.current</code> which holds the
-                information of the current user logged in.
-              </p>
+
             </div>
             <div class="method-example" id="api-summary-example">
             </div>
           </div>
-          <a id='CloudUser-constructor' name="CloudUser-constructor" class="section-anchor">&nbsp;</a>
+         
+
+          <a id='JSON-toJSON' name="JSON-toJSON" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>Constructor</h3>
+              <h3>CB.toJSON( <code>data</code> )</h3>
               <p>
-              Instantiates a <code>CloudUser</code> object.
+              Convert CloudBoost Object to JSON
               </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <p>It takes no argument.</p>
-
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudUser();</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudUser-signUp' name="CloudUser-signUp" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudUser.signUp( <code>[callback]</code> )</h3>
-              <p>
-                It registers new user given its <i>username</i>, <i>email</i> and <i>password</i>.
-                Registration is successful if the given <i>email</i> is not already registered to an existing user.
-              </p>
-              <p>
-                It sets the attributes of <code>CB.CloudUser.current</code> object with the 
-                <code>CloudUser</code> object recieved.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-                <h6>Returns</h6>
-                <p>
-                It returns a <code>CloudUser</code> object which has the user information if registration is 
-                successful otherwise an error object along with JQuery promise (if <code>callback</code> 
-                is not provided).
-                </p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var user = new CB.CloudUser();
-user.set('username', 'my_username');
-user.set('password', 'my_solid_password');
-user.set('email', 'email@sample.com');
-user.signUp({
-  success: function(user) {
-    //Registration successfull
-  },
-  error: function(err) {
-    //Error in user registration.
-  }
-});</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudUser-logIn' name="CloudUser-logIn" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudUser.logIn( <code>[callback]</code> )</h3>
-              <p>
-                It logs in user given its <i>username</i> and <i>password</i>.
-                Login is successful if the given <i>username</i> and <i>password</i> pair is already present in the database.
-              </p>
-              <p>
-                It sets the attributes of <code>CB.CloudUser.current</code> object with the 
-                <code>CloudUser</code> object recieved.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-
-                <h6>Returns</h6>
-                <p>
-                It returns a <code>CloudUser</code> object which has the user information if registration is 
-                successful otherwise an error object along with JQuery promise (if <code>callback</code> 
-                is not provided).
-                </p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var user = new CB.CloudUser();
-user.set('username', 'my_username');
-user.set('password', 'my_solid_password');
-user.logIn({
-  success: function(user) {
-    //Login successfull
-  },
-  error: function(err) {
-    //Error occured in user registration.
-  }
-});</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudUser-logOut' name="CloudUser-logOut" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudUser.logOut( <code>[callback]</code> )</h3>
-              <p>
-                It logs the user out.
-              </p>
-              <p>
-                It sets the <code>CB.CloudUser.current</code> object to <i>null</i>.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-                <h6>Returns</h6>
-                <p>
-                It returns a <code>CloudUser</code> object having the user information of the user who was logged in 
-                otherwise an error object along with JQuery promise (if <code>callback</code> is not provided).
-                </p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CB.CloudUser.current.logOut({
-  success: function(user) {
-    //log out successfull
-  },
-  error: function(err) {
-    //Error occured in user registration.
-});</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-
-          <a id='CloudUser-current' name="CloudUser-current" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudUser.current( <code>[callback]</code> )</h3>
-              <p>
-                Get the current logged in user.
-              </p>
-             
               
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-//gets the current user if user is loggedIn, null otherwise.
-var currentUser = CB.CloudUser.current;</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudUser-addToRole' name="CloudUser-addToRole" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudUser.addToRole( <code>role,  [callback]</code> )</h3>
-              <p>
-                A user can be a part of many roles, like in real world. For this functionality
-                user should get added to a Role.
-              </p>
-              <p>
-                For this purpose <code>addToRole()</code> of <code>CB.CloudUser</code> comes in handy.
-              </p>
               <div class="method-list">
                 
                 <h6>Arguments</h6>
                 <dl class="argument-list">
-
-                  <dt>role</dt>
-                  <dd class="">CloudRole Object <span> The <code>CloudRole</code> object of the role you want to
-                  add the user to.</span></dd>
+                  <dt>data</dt>
+                  <dd class="">Any CloudBoost Object / Array of CloudBoost Objects</span></dd>
                   <div class="clearfix"></div>
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-                  
+                 
                 </dl>
 
                 <h6>Returns</h6>
-                <p>
-                It returns a <code>CloudUser</code> object having the user information of the user who was logged in 
-                otherwise an error object along with JQuery promise (if <code>callback</code> is not provided).
-                </p>
+                <p>Serialized JSON</p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var obj = new CB.CloudObject('Sample');
+CB.toJSON(obj);
+              </span></span></code>
 
-//role is an instance of CloudRole Object.
-
-CB.CloudUser.current.addToRole(role, {
-  success: function(user) {
-    //added to role successfull
-  },
-  error: function(err) {
-    //Error occured in adding to role.
-  }
-});
-
-</span></span></code>
-            <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-          <a id='CloudUser-isInRole' name="CloudUser-isInRole" class="section-anchor">&nbsp;</a>
+
+
+           <a id='JSON-fromJSON' name="JSON-fromJSON" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudUser.isInRole( <code>role</code> )</h3>
+              <h3>CB.fromJSON( <code>json</code> )</h3>
               <p>
-                To check if the current user is in the role provided by the role object.
+              Convert JSON to CloudBoost Objects
               </p>
+              
               <div class="method-list">
                 
-                <h6>Argument</h6>
+                <h6>Arguments</h6>
                 <dl class="argument-list">
-
-                  <dt>role</dt>
-                  <dd class="">CloudRole Object <span> The <code>CloudRole</code> object of the role you want to
-                  check the user to.</span></dd>
+                  <dt>data</dt>
+                  <dd class="">JSON to convert it to CloudBoost Object</span></dd>
                   <div class="clearfix"></div>
-                  
+                 
                 </dl>
 
                 <h6>Returns</h6>
-                <p>
-                It returns a <i>true/false</i> based on whether the user is in the given
-                role or not respectively.
-                </p>
+                <p>Serialized JSON</p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-//role is the instance of the CloudRole object. 
-
-if(CB.CloudUser.current.isInRole(role)) {
-  //The current user is in the given role.
-} else {
-  //The user is not in the given role.
-}
-
-}</span></span></code>
-            <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
+CB.fromJSON({/*Serialized JSON*/});
+              </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-          <a id='CloudUser-removeFromRole' name="CloudUser-removeFromRole" class="section-anchor">&nbsp;</a>
+        </div> <!-- method -->
+ 
+
+        <div class="method">
+          <a id='Contribute' name="Contribute" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudUser.removeFromRole( <code>role , [callback]</code> )</h3>
+              <h1>Contribute</h1>
               <p>
-                Removes the user from the given role provided in <code>role</code> object.
+              We heart contributors. Love what we do and want to contribute? <br/>
+
+              JavaScript SDK : <a href="https://github.com/CloudBoost/JavaScriptSDK">GitHub Repository</a>
+
+              <br/><br/>
+
+              Our documentation is open source too! <br/><br/>
+
+              Documentation : <a href="https://github.com/CloudBoost/api-reference">GitHub Repository</a> 
               </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
 
-                  <dt>role</dt>
-                  <dd class="">CloudRole Object <span> The <code>CloudRole</code> object of the role you want to
-                  remove the user from.</span></dd>
-                  <div class="clearfix"></div>
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-
-                </dl>
-
-                <h6>Returns</h6>
-                <p>
-                It returns a <code>CloudUser</code> object having the user information of the user who was logged in 
-                otherwise an error object along with JQuery promise (if <code>callback</code> is not provided).
-                </p>
-              </div>
             </div>
-            <div class="method-example" id="api-summary-example">
+             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CB.CloudUser.current.removeFromRole(role, {
-    success : function(user){
-      //get the updated user 
-    }, 
-    error : function(err){
-      //erorr if something goes wrong.
-    }
-  });
-}</span></span></code>
-            <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
+01001101 01100001 01100100 01100101
+01110111 01101001 01110100 01101000  
+00111100 00110011 
+              </span></span></code>
             </div><!-- method-example -->
-          </div> <!-- method-section -->
-
-          <a id='CloudRole' name="CloudRole" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-              <h1>CB.CloudRole</h1>
-              <p>
-                As your app grows in scope and user-base, you may find yourself needing more 
-                coarse-grained control over access to pieces of your data than user-linked ACLs
-                can provide. To address this requirement, CloudBoost supports a form of Role-based 
-                Access Control. Roles provide a logical way of grouping users with common access 
-                privileges to your CB data. Roles are named objects that contain users and other 
-                roles. Any permission granted to a role is implicitly granted to its users as 
-                well as to the users of any roles that it contains.
-              </p>
-              <p>
-                We provide a specialized class called <code>CB.CloudRole</code> that represents these role 
-                objects in your client code. <code>CB.CloudRole</code> is a subclass of <code>CB.CloudObject</code>, 
-                and has all of the same features, such as a flexible schema, automatic 
-                persistence, and a key value interface. All the methods that are on <code>CB.CloudObject</code> 
-                also exist on <code>CB.CloudRole</code>. The difference is that <code>CB.CloudRole</code> has some additions 
-                specific to management of roles.
-              </p>
-            </div>
-            <div class="method-example" id="api-summary-example">
-            </div>
           </div>
-          <a id='CloudRole-constructor' name="CloudRole-constructor" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
+         
+        </div> <!-- method -->
 
-              <h3>Constructor</h3>
-              <p>
-              Instantiates a <code>CloudRole</code> object.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>roleName</dt>
-                  <dd class="">string <span>The name of the role you want to deal with</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var role = new CB.CloudRole("Student");</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudRole-getRole' name="CloudRole-getRole" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudRole.getRole( <code>role , [callback]</code> )</h3>
-              <p>
-              Gets a <code>CloudRole</code> object for a given <code>role</code> object with <i>name</i>
-              field only.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>role</dt>
-                  <dd class="">CloudRole object <span>The name of the role you want to deal with</span></dd>
-                  <div class="clearfix"></div>
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-                <h6>Returns</h6>
-                It returns a <code>CloudRole</code> object having the role information of the role whose name was 
-                provided in the object of <code>role</code> argument otherwise an error object along with JQuery 
-                promise (if <code>callback</code> is not provided).
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var role = new CB.CloudRole("my-collaborator");
-
-CB.CloudRole.getRole(role, {
-  success: function(roleObj) {
-    //got the role object successfully
-  },
-  error: function(err) {
-    //error in fetching role object
-  }
-});</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-
-          <a id='CloudFile' name="CloudFile" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-              <h1>CB.CloudFile</h1>
-              <p>
-                CB.CloudFile lets you store application files in the cloud that would otherwise be too large or 
-                cumbersome to fit into a regular <code>CB.CloudObject</code>. The most common use case is storing images, 
-                but you can also use it for documents, videos, music, and any other binary data.
-              </p>
-            </div>
-            <div class="method-example" id="api-summary-example">
-            </div>
-          </div>
-          <a id='CloudFile-constructor' name="CloudFile-constructor" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>Constructor</h3>
-              <p>
-              Instantiates a <code>CloudFile</code> object.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>file</dt>
-                  <dd class="">file/BLOB object<span>The file/BLOB that you want to save</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var documentFile = new Blob([
-              'This is the content of by document blob'
-              ], {
-                type : 'text/plain'
-              });
-var file = new CB.CloudFile(documentFile);</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudFile-save' name="CloudRole-save" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudFile.save( <code>[callback]</code> )</h3>
-              <p>
-              Saves the <code>CloudFile</code> object.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-                <h6>Returns</h6>
-                It returns a <code>CloudFile</code> object having <code>url</code> attribute set to the URL 
-                of the blob uploaded to the server if the operation is successful otherwise returns 
-                an error object along with JQuery promise (if <code>callback</code> is not provided).
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var documentFile = new Blob([
-            'This is the content of by document blob'
-            ], {
-              type : 'text/plain'
-            });
-var file = new CB.CloudFile(documentFile);
-
-file.save({
-  success: function(obj) {
-    //got the file object successfully with the url to the file
-  },
-  error: function(err) {
-    //error in uploading file
-  }
-});</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudFile-delete' name="CloudRole-delete" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudFile.delete( <code>[callback]</code> )</h3>
-              <p>
-              Deletes the <code>CloudFile</code> object.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-                <h6>Returns</h6>
-                It returns a <code>CloudFile</code> object having <code>url</code> attribute set to <code>null</code> 
-                if the operation is successful otherwise returns an error object along with JQuery promise 
-                (if <code>callback</code> is not provided).
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var documentFile = new Blob([
-            'This is the content of by document blob'
-            ], {
-              type : 'text/plain'
-            });
-var file = new CB.CloudFile(documentFile);
-file.save({
-  success: function(obj) {
-    //got the file object successfully with the url to the file
-    file.delete({
-  	  success: function(obj) {
-    	//file deletion successful
-  	  },error: function(err) {
-    	//error in deleting file
-  	  }
-	});
-  },error: function(err) {
-    //error in uploading file
-  }
-});
-</span></span></code>
-            </div><!-- method-example -->
-                  <div class="clearfix"></div>
-            
-          </div> <!-- method-section -->
 
       </div> <!-- methods -->
     </div> <!-- api-docs -->

@@ -1,0 +1,142 @@
+ <a id='CloudGeoPoint' name="CloudGeoPoint" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+                  <h1>CB.CloudGeoPoint</h1>
+                  <p>
+                      <code>CloudGeoPoint</code> is used to store GeoPoints and perform GeoPoint operation like finding points near and bounding box.
+                  </p>
+                  <p>
+                      A <code>CloudGeoPoint</code> object has to be saved in <code>CloudObject</code> in a column.
+                  </p>
+                  <p>
+                      All the modifications in the GeoPoint can be reflected only after the object is saved after the changes.
+                  </p>
+              </div>
+          </div>
+
+          <a id='CloudGeoPoint-constructor' name="CloudGeoPoint-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>Constructor</h3>
+                  <p>
+                      Init's a <code>CloudGeoPoint</code> object.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <p>It takes latitude and longitude of a GeoPoint. Points can be given in Numeric format.</p>
+
+                      <h6>Returns</h6>
+                      <p>It returns a <code>CloudGeoPoint</code> object.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var point = new CB.CloudGeoPoint(17.4,78.5);
+
+</span></span></code>
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudGeoPoint-dkm' name="CloudGeoPoint-dkm" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudGeoPoint.distanceInKms(CloudGeoPoint)</h3>
+                  <p>
+                      Finds distance between CloudGeoPoints in kilometers.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>CloudGeoPoint</dt>
+                          <dd class="">Object <span> It is the point from which the distance to be found.</span></dd>
+                          <div class="clearfix"></div>
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Distance in Kilometers.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc = new CB.CloudGeoPoint(17.7,80.3);
+var loc2 = new CB.CloudGeoPoint(10.7,70.3);
+var distance = loc.distanceInKMs(loc2);
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudGeoPoint-miles' name="CloudGeoPoint-miles" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudGeoPoint.distanceInMiles(CloudGeoPoint)</h3>
+                  <p>
+                      Finds distance between CloudGeoPoints in Miles.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>CloudGeoPoint</dt>
+                          <dd class="">Object <span> It is the point from which the distance to be found.</span></dd>
+                          <div class="clearfix"></div>
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Distance in Miles.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc = new CB.CloudGeoPoint(17.7,80.3);
+var loc2 = new CB.CloudGeoPoint(10.7,70.3);
+var distance = loc.distanceInMiles(loc2);
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudGeoPoint-radians' name="CloudGeoPoint-radians" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudGeoPoint.distanceInRadians(CloudGeoPoint)</h3>
+                  <p>
+                      Finds distance between CloudGeoPoints in kilometers.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>CloudGeoPoint</dt>
+                          <dd class="">Object <span> It is the point from which the distance to be found.</span></dd>
+                          <div class="clearfix"></div>
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Distance in Radians.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc = new CB.CloudGeoPoint(17.7,80.3);
+var loc2 = new CB.CloudGeoPoint(10.7,70.3);
+var distance = loc.distanceInRadians(loc2);
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          
