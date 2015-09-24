@@ -76,6 +76,8 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudObject-off" class="parent">Off</a>
             <a href="#CloudObject-expires" class="parent">Expires</a>
             <a href="#CloudObject-relate" class="parent">Relate</a>
+            <a href="#CloudObject-bulkInsert" class="parent">Bulk Save</a>
+            <a href="#CloudObject-bulkDelete" class="parent">Bulk Delete</a>
           </span>
         </li>
         <li class="section section-charges"><a href="#Relationships" class="parent">Relationships</a>
@@ -225,7 +227,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudTable-save" class="parent">Save</a>
             <a href="#CloudTable-delete" class="parent">Delete</a>
           </span>
-        </li> 
+        </li>
 
         <li class="section section-charges"><a href="#ACL" class="parent">Access Control List (ACL)</a>
           <span class="children">
@@ -864,6 +866,91 @@ CB.CloudObject.off('Student', //name of the table
 </span></span></span></code>
                 </div><!-- method-example -->
             </div> <!-- method-section -->
+
+ <a id='CloudObject-bulkInsert' name="CloudObject-bulkInsert" class="section-anchor">&nbsp;</a>
+ <div class="method-section">
+     <div class="method-description">
+
+         <h3>CB.CloudObject.saveAll(<code>ObjectArray,callback</code>)</h3>
+         <p>
+             Saves an Array of CloudObject.
+         </p>
+
+         <div class="method-list">
+
+             <h6>Argument</h6>
+
+             <dl class="argument-list">
+                 <dt>ObjectArray</dt>
+                 <dd class="">Array <span> Array of CloudObjects.
+                       </span></dd>
+                 <div class="clearfix"></div>
+                 <dt>callback</dt>
+                 <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+             </dl>
+             </dl>
+
+             <h6>Returns</h6>
+             <p>Array of Saved CloudObjects</p>
+
+         </div>
+     </div>
+     <div class="method-example" id="api-summary-example">
+         <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+  var obj1 = new CB.CloudObject('Student');
+  obj1.set('name','abcd');
+  var obj2 = new CB.CloudObject('Student');
+  obj2.age('age',10);
+  CB.CloudObject.saveAll([obj1,obj2]).then(function(res){
+        console.log(res);
+  },function(err){
+        console.log(err);
+  });
+</span></span></span></code>
+     </div><!-- method-example -->
+ </div> <!-- method-section -->
+
+
+ <a id='CloudObject-bulkDelete' name="CloudObject-bulkDelete" class="section-anchor">&nbsp;</a>
+ <div class="method-section">
+     <div class="method-description">
+
+         <h3>CB.CloudObject.deleteAll(<code>ObjectArray,callback</code>)</h3>
+         <p>
+             Deletes an Array of CloudObject.
+         </p>
+
+         <div class="method-list">
+
+             <h6>Argument</h6>
+
+             <dl class="argument-list">
+                 <dt>ObjectArray</dt>
+                 <dd class="">Array <span> Array of CloudObjects.
+                       </span></dd>
+                 <div class="clearfix"></div>
+                 <dt>callback</dt>
+                 <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+             </dl>
+             </dl>
+
+             <h6>Returns</h6>
+             <p>Array of Deleted CloudObjects</p>
+
+         </div>
+     </div>
+     <div class="method-example" id="api-summary-example">
+         <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+  CB.CloudObject.deleteAll([obj1,obj2]).then(function(res){
+        console.log(res);
+  },function(err){
+        console.log(err);
+  });
+</span></span></span></code>
+     </div><!-- method-example -->
+ </div> <!-- method-section -->
 
  <div class="method">
           <a id='Relationships' name="Relationships" class="section-anchor">&nbsp;</a>

@@ -492,3 +492,88 @@ CB.CloudObject.off('Student', //name of the table
 </span></span></span></code>
                 </div><!-- method-example -->
             </div> <!-- method-section -->
+
+ <a id='CloudObject-bulkInsert' name="CloudObject-bulkInsert" class="section-anchor">&nbsp;</a>
+ <div class="method-section">
+     <div class="method-description">
+
+         <h3>CB.CloudObject.saveAll(<code>ObjectArray,callback</code>)</h3>
+         <p>
+             Saves an Array of CloudObject.
+         </p>
+
+         <div class="method-list">
+
+             <h6>Argument</h6>
+
+             <dl class="argument-list">
+                 <dt>ObjectArray</dt>
+                 <dd class="">Array <span> Array of CloudObjects.
+                       </span></dd>
+                 <div class="clearfix"></div>
+                 <dt>callback</dt>
+                 <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+             </dl>
+             </dl>
+
+             <h6>Returns</h6>
+             <p>Array of Saved CloudObjects</p>
+
+         </div>
+     </div>
+     <div class="method-example" id="api-summary-example">
+         <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+  var obj1 = new CB.CloudObject('Student');
+  obj1.set('name','abcd');
+  var obj2 = new CB.CloudObject('Student');
+  obj2.age('age',10);
+  CB.CloudObject.saveAll([obj1,obj2]).then(function(res){
+        console.log(res);
+  },function(err){
+        console.log(err);
+  });
+</span></span></span></code>
+     </div><!-- method-example -->
+ </div> <!-- method-section -->
+
+
+ <a id='CloudObject-bulkDelete' name="CloudObject-bulkDelete" class="section-anchor">&nbsp;</a>
+ <div class="method-section">
+     <div class="method-description">
+
+         <h3>CB.CloudObject.deleteAll(<code>ObjectArray,callback</code>)</h3>
+         <p>
+             Deletes an Array of CloudObject.
+         </p>
+
+         <div class="method-list">
+
+             <h6>Argument</h6>
+
+             <dl class="argument-list">
+                 <dt>ObjectArray</dt>
+                 <dd class="">Array <span> Array of CloudObjects.
+                       </span></dd>
+                 <div class="clearfix"></div>
+                 <dt>callback</dt>
+                 <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+             </dl>
+             </dl>
+
+             <h6>Returns</h6>
+             <p>Array of Deleted CloudObjects</p>
+
+         </div>
+     </div>
+     <div class="method-example" id="api-summary-example">
+         <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+  CB.CloudObject.deleteAll([obj1,obj2]).then(function(res){
+        console.log(res);
+  },function(err){
+        console.log(err);
+  });
+</span></span></span></code>
+     </div><!-- method-example -->
+ </div> <!-- method-section -->
