@@ -204,6 +204,8 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudFile-constructor" class="parent">Constructor</a>
             <a href="#CloudFile-save" class="parent">Save</a>
             <a href="#CloudFile-delete" class="parent">Delete</a>
+              <a href="#CloudFile-fetch" class="parent">Fetch</a>
+              <a href="#CloudFile-getFileContent" class="parent">GetFileContent</a>
           </span>
 
         </li>
@@ -4544,10 +4546,6 @@ CB.CloudUser.current.removeFromRole(role, {
               </div>
           </div>
 
-         
-
-
-
 
           <a id='CloudFile-constructor' name="CloudFile-constructor" class="section-anchor">&nbsp;</a>
           <div class="method-section">
@@ -4572,11 +4570,8 @@ CB.CloudUser.current.removeFromRole(role, {
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var documentFile = new Blob([
-              'This is the content of by document blob'
-              ], {
-                type : 'text/plain'
-              });
+var documentFile = new Blob(['This is the content of by document blob'],
+                  {type : 'text/plain'});
 var file = new CB.CloudFile(documentFile);</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -4654,8 +4649,8 @@ file.save({
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 file.delete({
-  success: function(roleObj) {
-    //file deletion successfull
+  success: function(fileObj) {
+    //file deletion successful
   },
   error: function(err) {
     //error in deleting file
@@ -4664,7 +4659,109 @@ file.delete({
             </div><!-- method-example -->
                   <div class="clearfix"></div>
             
-          </div> 
+          </div>
+
+        <a id='CloudFile-fetch' name="CloudFile-fetch" class="section-anchor">&nbsp;</a>
+        <div class="method-section">
+            <div class="method-description">
+
+                <h3>CloudFile.fetch( <code>[callback]</code> )</h3>
+                <p>
+                    Fetches the <code>CloudFile</code> object which has the URL along with other Properties of File.
+                </p>
+                <div class="method-list">
+
+                    <h6>Argument</h6>
+                    <dl class="argument-list">
+
+                        <dt>callback</dt>
+                        <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                        <div class="clearfix"></div>
+
+                    </dl>
+
+                    <h6>Returns</h6>
+                    It returns a <code>CloudFile</code> object having <code>url</code>
+                    if the operation is successful otherwise returns an error object along with JQuery promise
+                    (if <code>callback</code> is not provided).
+                </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+                <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Custom");
+query.find().then(function(res)
+        var file = res.get('file');
+        file.fetch({
+            success: function(roleObj) {
+                //Gets File Object
+            },
+            error: function(err) {
+                //error in geting file
+            }
+        },function(){
+            //error querying object
+        });
+});</span></span></code>
+            </div><!-- method-example -->
+            <div class="clearfix"></div>
+
+        </div>
+
+        <a id='CloudFile-getFileContent' name="CloudFile-getFileContent" class="section-anchor">&nbsp;</a>
+        <div class="method-section">
+            <div class="method-description">
+
+                <h3>CloudFile.getFileContent( <code>[callback]</code> )</h3>
+                <p>
+                    Get's the <code>CloudFile</code> content.
+                </p>
+                <div class="method-list">
+
+                    <h6>Argument</h6>
+                    <dl class="argument-list">
+
+                        <dt>callback</dt>
+                        <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                        <div class="clearfix"></div>
+
+                    </dl>
+
+                    <h6>Returns</h6>
+                    It returns the contents of a <code>CloudFile</code> object
+                    if the operation is successful otherwise returns an error object along with JQuery promise
+                    (if <code>callback</code> is not provided).
+                    </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+                <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Custom");
+query.find().then(function(res)
+        var file = res.get('file');
+        file.fetch({
+            success: function(fileObj) {
+                fileObj.getFileContent({
+                    success: function(fileObj) {
+                        //Gets the Content of the File Pointed By File Object
+                    },
+                    error: function(err) {
+                        //error in getting File Content
+                    });
+            //Gets File Object
+        },
+        error: function(err) {
+            //error in getting file
+        })
+     },function(){
+       //error querying object
+});
+
+});</span></span></code>
+            </div><!-- method-example -->
+            <div class="clearfix"></div>
+
+        </div>
 <div class="method">
   <a id='Column' name="Column" class="section-anchor">&nbsp;</a>
   <div class="method-section">
