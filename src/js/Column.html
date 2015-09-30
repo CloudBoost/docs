@@ -29,7 +29,7 @@
 
         <h6>Arguments</h6>
         <dl class="argument-list">
-          <dt>columnNmae</dt>
+          <dt>columnName</dt>
           <dd class="">String <span>Column Name should not start with a number and should not contain any spaces and special characters.</span></dd>
           <div class="clearfix"></div>
           <dt>dataType</dt>
@@ -104,7 +104,7 @@ table.save().then(function(obj){
     <div class="method-example" id="api-summary-example">
       <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var column3 = new CB.Column('department', 'Relation');
-column3.relatedTo = 'DeparmentTable';
+column3.relatedTo = 'DepartmentTable';
 var column4 = new CB.Column('skills', 'List');
 column4.relatedTo = 'Text';
 var table = new CB.CloudTable('Employee');
@@ -120,3 +120,34 @@ table.save().then(function(obj){
     </div><!-- method-example -->
   </div> <!-- method-section -->
 <div>  <!-- method -->
+
+    <a id='Column-datatype' name="Column-required" class="section-anchor">&nbsp;</a>
+    <div class="method-section">
+        <div class="method-description">
+            <h3>Required</h3>
+            <p> Used to set a column as required.</p>
+        </div>
+        <div class="method-example" id="api-summary-example">
+            <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var column3 = new CB.Column('department',);
+column3.required = true;
+      </span></span></code>
+
+        </div><!-- method-example -->
+    </div> <!-- method-section -->
+    <div>  <!-- method -->
+        <a id='Column-datatype' name="Column-unique" class="section-anchor">&nbsp;</a>
+        <div class="method-section">
+            <div class="method-description">
+                <h3>Unique</h3>
+                <p> Used to set a column as unique.</p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+                <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var column3 = new CB.Column('department',);
+column3.unique = true;
+      </span></span></code>
+
+            </div><!-- method-example -->
+        </div> <!-- method-section -->
+        <div>  <!-- method -->

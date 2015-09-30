@@ -215,6 +215,8 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
           <span class="children">
             <a href="#Column-constructor" class="parent">Constructor</a>
             <a href="#Column-datatype" class="parent">Data Type</a>
+              <a href="#Column-required" class="parent">Required</a>
+              <a href="#Column-unique" class="parent">Unique</a>
           </span>
         </li>
 
@@ -228,6 +230,8 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudTable-deletecolumn" class="parent">Delete Column</a>
             <a href="#CloudTable-save" class="parent">Save</a>
             <a href="#CloudTable-delete" class="parent">Delete</a>
+               <a href="#CloudTable-getColumn" class="parent">Get Column</a>
+               <a href="#CloudTable-updateColumn" class="parent">Update Column</a>
           </span>
         </li>
 
@@ -4793,7 +4797,7 @@ query.find().then(function(res)
 
         <h6>Arguments</h6>
         <dl class="argument-list">
-          <dt>columnNmae</dt>
+          <dt>columnName</dt>
           <dd class="">String <span>Column Name should not start with a number and should not contain any spaces and special characters.</span></dd>
           <div class="clearfix"></div>
           <dt>dataType</dt>
@@ -4868,7 +4872,7 @@ table.save().then(function(obj){
     <div class="method-example" id="api-summary-example">
       <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 var column3 = new CB.Column('department', 'Relation');
-column3.relatedTo = 'DeparmentTable';
+column3.relatedTo = 'DepartmentTable';
 var column4 = new CB.Column('skills', 'List');
 column4.relatedTo = 'Text';
 var table = new CB.CloudTable('Employee');
@@ -4884,6 +4888,37 @@ table.save().then(function(obj){
     </div><!-- method-example -->
   </div> <!-- method-section -->
 <div>  <!-- method -->
+
+    <a id='Column-datatype' name="Column-required" class="section-anchor">&nbsp;</a>
+    <div class="method-section">
+        <div class="method-description">
+            <h3>Required</h3>
+            <p> Used to set a column as required.</p>
+        </div>
+        <div class="method-example" id="api-summary-example">
+            <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var column3 = new CB.Column('department',);
+column3.required = true;
+      </span></span></code>
+
+        </div><!-- method-example -->
+    </div> <!-- method-section -->
+    <div>  <!-- method -->
+        <a id='Column-datatype' name="Column-unique" class="section-anchor">&nbsp;</a>
+        <div class="method-section">
+            <div class="method-description">
+                <h3>Unique</h3>
+                <p> Used to set a column as unique.</p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+                <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var column3 = new CB.Column('department',);
+column3.unique = true;
+      </span></span></code>
+
+            </div><!-- method-example -->
+        </div> <!-- method-section -->
+        <div>  <!-- method -->
 
 <div class="method">
   <a id='CloudTable' name="CloudTable" class="section-anchor">&nbsp;</a>
@@ -5134,6 +5169,69 @@ table.delete().then(function(status){
 
     </div><!-- method-example -->
   </div> <!-- method-section -->
+</div> <!-- method -->
+
+<a id='CloudTable-getColumn' name="CloudTable-getColumn" class="section-anchor">&nbsp;</a>
+<div class="method-section">
+    <div class="method-description">
+
+        <h3>CloudTable.getColumn(<code>column</code>)</h3>
+        <p>
+            Get's the column object.
+        </p>
+        <div class="method-list">
+            <h6>Arguments</h6>
+            <dl>
+                <dt>column</dt>
+                <dd class="">String <span> Name of the Column.
+                <div class="clearfix"></div>
+            </dl>
+            <h6>Returns</h6>
+            <p>Cloud Column Object</p>
+        </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+        <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var table = new CB.CloudTable('Student');
+var acl = table.getColumn('ACL');
+//gets the ACL column
+      </span></span></code>
+
+    </div><!-- method-example -->
+</div> <!-- method-section -->
+</div> <!-- method -->
+<a id='CloudTable-updateColumn' name="CloudTable-updateColumn" class="section-anchor">&nbsp;</a>
+<div class="method-section">
+    <div class="method-description">
+
+        <h3>CloudTable.updateColumn(<code>Column</code>)</h3>
+        <p>
+            Updated the CloudTable column to the column passed in.
+        </p>
+        <div class="method-list">
+            <h6>Arguments</h6>
+            <dl>
+                <dt>column</dt>
+                <dd class="">Object <span> Column object.
+                <div class="clearfix"></div>
+            </dl>
+            <h6>Returns</h6>
+            <p>void</p>
+        </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+        <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var table = new CB.CloudTable('Student');
+var name = new CB.Column('name');
+name.unique = true;
+table.updateColumn(name);
+//updated the existing column name to new Column
+      </span></span></code>
+
+    </div><!-- method-example -->
+</div> <!-- method-section -->
 </div> <!-- method -->
 
   <!--Acl -->

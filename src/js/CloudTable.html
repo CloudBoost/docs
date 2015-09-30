@@ -248,3 +248,66 @@ table.delete().then(function(status){
     </div><!-- method-example -->
   </div> <!-- method-section -->
 </div> <!-- method -->
+
+<a id='CloudTable-getColumn' name="CloudTable-getColumn" class="section-anchor">&nbsp;</a>
+<div class="method-section">
+    <div class="method-description">
+
+        <h3>CloudTable.getColumn(<code>column</code>)</h3>
+        <p>
+            Get's the column object.
+        </p>
+        <div class="method-list">
+            <h6>Arguments</h6>
+            <dl>
+                <dt>column</dt>
+                <dd class="">String <span> Name of the Column.
+                <div class="clearfix"></div>
+            </dl>
+            <h6>Returns</h6>
+            <p>Cloud Column Object</p>
+        </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+        <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var table = new CB.CloudTable('Student');
+var acl = table.getColumn('ACL');
+//gets the ACL column
+      </span></span></code>
+
+    </div><!-- method-example -->
+</div> <!-- method-section -->
+</div> <!-- method -->
+<a id='CloudTable-updateColumn' name="CloudTable-updateColumn" class="section-anchor">&nbsp;</a>
+<div class="method-section">
+    <div class="method-description">
+
+        <h3>CloudTable.updateColumn(<code>Column</code>)</h3>
+        <p>
+            Updated the CloudTable column to the column passed in.
+        </p>
+        <div class="method-list">
+            <h6>Arguments</h6>
+            <dl>
+                <dt>column</dt>
+                <dd class="">Object <span> Column object.
+                <div class="clearfix"></div>
+            </dl>
+            <h6>Returns</h6>
+            <p>void</p>
+        </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+        <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var table = new CB.CloudTable('Student');
+var name = new CB.Column('name');
+name.unique = true;
+table.updateColumn(name);
+//updated the existing column name to new Column
+      </span></span></code>
+
+    </div><!-- method-example -->
+</div> <!-- method-section -->
+</div> <!-- method -->
