@@ -190,8 +190,8 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
         <div class="border"></div>
 
         <div id="language">
-          <a class="language" href="index.html">JavaScript</a>
-          <a class="language selected" href="java.html">Java</a>
+          <a id="javascript-sdk" class="language" href="index.html">JavaScript</a>
+          <a id="java-sdk" class="language selected" href="java.html">Java</a>
         </div>
 
         <div class="method">
@@ -3829,6 +3829,16 @@ cloudFileObj.save(callbackObj);
      /****Tracking*********/              
         mixpanel.track('Documentation Views');
       /****End of Tracking*****/
+
+      $(document).ready(function(){
+          $("#javascript-sdk").click(function(){
+              window.location.href="index.html";
+          });
+
+          $("#java-sdk").click(function(){
+              window.location.href="java.html";
+          });
+      });
     </script>
   </body>
 </html>

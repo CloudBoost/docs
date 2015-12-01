@@ -268,8 +268,8 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
         <div class="border"></div>
 
         <div id="language">
-          <a class="language selected" href="index.html">JavaScript</a>
-          <a class="language" href="java.html">Java</a>
+          <a id="javascript-sdk" class="language selected" href="index.html">JavaScript</a>
+          <a id="java-sdk" class="language" href="java.html">Java</a>
         </div>
 
         <div class="method">
@@ -287,11 +287,11 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <div class="method-example" id="api-summary-example">
 
               <h3>JavaScript SDK</h3>
-              <h4>Non-minified :</h4> <a href="https://cloudboost.io/js-sdk/1.0.0.js">
+              <h4>Non-minified :</h4> <a href="https://cloudboost.io/js-sdk/cloudboost.js" target="_blank">
                 <code>https://cloudboost.io/js-sdk/cloudboost.js</code>
               </a> <br/>
 
-              <h4>Minified JS :</h4>  <a href="https://cloudboost.io/js-sdk/1.0.0.min.js">
+              <h4>Minified JS :</h4>  <a href="https://cloudboost.io/js-sdk/cloudboost.min.js" target="_blank">
                 <code>https://cloudboost.io/js-sdk/cloudboost.min.js</code>
               </a><br/>
 
@@ -5657,6 +5657,17 @@ CB.fromJSON({/*Serialized JSON*/});
      /****Tracking*********/              
         mixpanel.track('Documentation Views');
       /****End of Tracking*****/
+
+       $(document).ready(function(){
+          $("#javascript-sdk").click(function(){
+              window.location.href="index.html";
+          });
+
+          $("#java-sdk").click(function(){
+              window.location.href="java.html";
+          });
+      });
+       
     </script>
   </body>
 </html>
