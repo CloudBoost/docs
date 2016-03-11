@@ -22,8 +22,6 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
 
   </head>
 
-
-
    <body class="api-docs node">
     <div id="background"></div>
 
@@ -105,6 +103,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudQuery-orderByAsc" class="parent">Order by</a>
             <a href="#CloudQuery-setLimit" class="parent">Limit</a>
             <a href="#CloudQuery-setSkip" class="parent">Skip</a>
+             <a href="#CloudQuery-paginate" class="parent">Paginate</a>
             <a href="#CloudQuery-selectColumn" class="parent">Select Column</a>
             <a href="#CloudQuery-doNotSelectColumn" class="parent">Do Not Select Column</a>
             <a href="#CloudQuery-exists" class="parent">Exists</a>
@@ -1828,6 +1827,46 @@ query.setSkip(5);
 query.find({
   success: function(list){
     //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+<a id='CloudQuery-paginate' name="CloudQuery-paginate" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.paginate( <code>pageNo</code>, <code>totalItemsInPage</code>)</h3>
+              <p>
+              Paginate returns only the specified number of objects from the database. It takes in the current page number and total items in page as parameters and returns list of objects,count,total number of pages.
+              </p>              
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>pageNo</dt>
+                  <dd class="">number <span>Current page number</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>totalItemsInPage</dt>
+                  <dd class="">number <span>total items in page</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>List of objects,count,total number of pages</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.paginate(2,10,{
+  success: function(objectsList,count,totalPages){
+    //objectsList is an array of CloudObjects 
   },
   error: function(err) {
     //Error in retrieving the data.
