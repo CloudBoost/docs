@@ -4,3 +4,5 @@
 
 
 This is the API Reference for CloudBoost which is hosted at [https://docs.cloudboost.io](https://docs.cloudboost.io). If you want to have a look into documentation, you can check them out here : [https://tutorials.cloudboost.io](https://tutorials.cloudboost.io) and API reference is available here : [https://docs.cloudboost.io](https://docs.cloudboost.io)
+
+# Guide for writing api-reference
