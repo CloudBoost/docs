@@ -5,4 +5,17 @@
 
 This is the API Reference for CloudBoost which is hosted at [https://docs.cloudboost.io](https://docs.cloudboost.io). If you want to have a look into documentation, you can check them out here : [https://tutorials.cloudboost.io](https://tutorials.cloudboost.io) and API reference is available here : [https://docs.cloudboost.io](https://docs.cloudboost.io)
 
-# Guide for writing api-reference
+# Steps to add api-reference
+
+##Step1
+Create a html file in respective programming language folder e.g: api/java/functionalityName.html and add the code. If the file is already exists just append your code.
+
+##Step2
+Add the Menu for the functionality in content-guide.html file in respective language folder.
+
+##Step3
+Append the filename(If the filename doesn't exists already) in Gruntfile.js to grunt up 
+
+**Important**
+* Do not simply append your code in javascript.html,java.html. 
+
