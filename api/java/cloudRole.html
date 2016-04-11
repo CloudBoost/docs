@@ -1,0 +1,95 @@
+  <a id='CloudRole' name="CloudRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h1>CloudRole</h1>
+              <p>
+                As your app grows in scope and user-base, you may find yourself needing more 
+                coarse-grained control over access to pieces of your data than user-linked ACLs
+                can provide. To address this requirement, CloudBoost supports a form of Role-based 
+                Access Control. Roles provide a logical way of grouping users with common access 
+                privileges to your CB data. Roles are named objects that contain users and other 
+                roles. Any permission granted to a role is implicitly granted to its users as 
+                well as to the users of any roles that it contains.
+              </p>
+              <p>
+                We provide a specialized class called <code>CloudRole</code> that represents these role 
+                objects in your client code. <code>CloudRole</code> is a subclass of <code>CloudObject</code>, 
+                and has all of the same features, such as a flexible schema, automatic 
+                persistence, and a key value interface. All the methods that are on <code>CloudObject</code>
+                also exist on <code>CloudRole</code>. The difference is that CB.CloudRole has some additions 
+                specific to management of roles.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div>
+          </div>
+          <a id='CloudRole-constructor' name="CloudRole-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudRole</code> object.
+              </p>
+              <div class="method-list">
+              <h3>Package</h3>
+              	<p>
+              	<code>import com.cloudboost.CloudRole;</code>
+              	</p>
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>roleName</dt>
+                  <dd class="">string <span>The name of the role you want to deal with</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudRole role = new CloudRole("Student");</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudRole-getRole' name="CloudRole-getRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudRole.getRole( <code>role</code> )</h3>
+              <p>
+              Gets a <code>CloudRole</code> object for a given <code>role</code> object with <i>name</i>
+              field only.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>role</dt>
+                  <dd class="">CloudRole object <span>The name of the role you want to deal with</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudRole</code> object having the role information of the role whose name was 
+                provided in the object of <code>role</code> argument.
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudRole role = new CloudRole("my-collaborator");
+
+CloudRole.getRole(new CloudRoleCallback(){
+	@Override 
+	public void success(CloudRole obj){
+		System.out.println("success message"); 
+	}
+	@Override 
+	public void error(){ 
+		System.out.println("error message"); 
+	} 
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->

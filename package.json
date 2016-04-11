@@ -2,7 +2,7 @@
   "name": "api-reference",
   "version": "1.0.0",
   "description": "cloudboost api refernce",
-  "main": "Gruntfile.js", 
+  "main": "Gruntfile.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CloudBoost/api-reference.git"
@@ -14,13 +14,12 @@
   },
   "homepage": "https://github.com/CloudBoost/api-reference#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-bump": "^0.3.1",
-    "grunt-bumpup": "^0.6.3",
-    "grunt-contrib-concat": "^0.5.1",   
-    "grunt-release": "^0.13.0"    
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-release": "^0.13.0"
   }
 }

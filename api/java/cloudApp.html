@@ -1,0 +1,60 @@
+<div class="method">
+          <a id='CloudApp' name="CloudApp" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h1>CloudApp</h1>
+              <p>
+              This is your CloudApp object, and it is used to initalize your app with CloudBoost.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div>
+          </div>
+          <a id='CloudApp-init' name="CloudApp-init" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudApp.init( <code>appId, appKey</code> )</h3>
+              <p>
+              Initialises the app.
+              </p>
+              <p>
+                <i>ClientKey</i> and <i>MasterKey</i> are the two keys that are provided for each app your create.
+                If you want a client of your app have access to CloudBoost API, its <b>recommended</b> you only share <i>ClientKey</i> with your app.
+                <br/>
+                We dont recommend initialising your app with <i>MasterKey</i> unless you install our API and make requests from your server.
+              </p>
+              <div class="method-list">
+                <h3>Package</h3>
+              <p>
+              <code>import com.cloudboost.CloudApp;</code>
+              </p>
+              
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>appId</dt>
+                  <dd class="">Application ID <span>with which your app is registered.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>appKey</dt>
+                  <dd class="">Client/Master key <span>unique for your app</span></dd>
+                  <div class="clearfix"></div>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It doesn't return anything.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js java">
+
+final String myAppId = "schoolApp";
+final String myKey = "d1bae1c6978e3ecd3d5c8a0095767c9c";
+
+CloudApp.init(myAppId, myKey);
+              </span></span></code>
+
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+        </div> <!-- method -->

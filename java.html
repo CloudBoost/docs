@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-  <head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
     <meta charset="utf-8" />
     <title>CloudBoost SDK Reference</title>
-    <link rel="stylesheet" type="text/css" href="assets/site.css" media="screen" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-    <script src="assets/qframe.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/site.css" media="screen" />   
 
-    <script src="assets/jquery.js"></script>
-    <script src="assets/jquery.cookie.js"></script>
-    <script src="assets/waypoints.js"></script>
-    <script src="assets/shared.js"></script>
-    <script src="assets/api.js"></script>
-      <!-- start Mixpanel -->
-  <script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
-for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
-mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
-<!-- end Mixpanel --> 
+    <script src="assets/js/qframe.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
+    <script src="assets/js/waypoints.js"></script>
+    <script src="assets/js/shared.js"></script>
+    <script src="assets/js/api.js"></script>
+    <!-- start Mixpanel -->
+    <script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+      for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+      mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
+    <!-- end Mixpanel --> 
 
-  </head>
-  <body class="api-docs node">
-    <div id="background"></div>
+</head>
 
+<body class="api-docs node">
+  <div id="background"></div>
     <div id="header">
-      <a href="https://www.cloudboost.io"><img src="img/logoc81e.png" height="40" style="float:left;margin-top:5px" /></a>
+      <a href="https://www.cloudboost.io">
+        <img src="assets/images/logoc81e.png" height="40" style="float:left;margin-top:5px" />
+      </a>
       <div class="navigation">
         <div class="signin">
           <a id='signin' href="https://dashboard.cloudboost.io/accounts">
@@ -34,10 +37,11 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
         </div>
         <ul class="global">
           <li><a href="https://docs.cloudboost.io" class="selected">Documentation</a></li>
-          <li><a href="https://www.cloudboost.io/contact">Help &amp; Support</a></li>
+          <li><a href="http://stackoverflow.com/questions/ask?tags=cloudboost">Help &amp; Support</a></li>
         </ul>
       </div>
     </div>
+
     
     <div id="guide">
       <p class="ref-title">Overview</p>
@@ -180,21 +184,23 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             <a href="#CloudFile-delete" class="parent">Delete</a>
           </span>
         </li>
+        <li class="section section-charges"><a href="#Contribute" class="parent">Contribute</a>
+        </li>
       </ul>
 
     </div>
-    <!-- api docs -->
-    <div id="api-docs">
-      <a id="top" name="top" class="section-anchor">&nbsp;</a>
-      <div id="methods">
+<!-- api docs -->
+<div id="api-docs">
+    <a id="top" name="top" class="section-anchor">&nbsp;</a>
+      	<div id="methods">
         <div class="border"></div>
 
         <div id="language">
-          <a id="javascript-sdk" class="language" href="index.html">JavaScript</a>
-          <a id="java-sdk" class="language selected" href="java.html">Java</a>
+          <a id="javascript-sdk" class="language" href="javascript.html">JavaScript</a>
+          <a id="java-sdk" class="language" href="java.html">Java</a>
+          <a id="dotnet-sdk" class="language" href="dotnet.html">.Net</a>
         </div>
-
-        <div class="method">
+    <div class="method">
           <a id='Introduction' name="Introduction" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -217,8 +223,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             </div>
           </div>
         </div>
-
-        <div class="method">
+<div class="method">
           <a id='Dependencies' name="Dependencies" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -238,7 +243,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             </div> <!-- method-example -->
           </div> <!-- method-section -->
         </div> <!-- method -->
-        <div class="method">
+ <div class="method">
           <a id='Apps' name="Apps" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -255,7 +260,7 @@ mixpanel.init("be05a4d590e8bc9d5f2cd6b3b3ffb78b");</script>
             </div>
           </div>
         </div>
-        <div class="method">
+<div class="method">
           <a id='CloudApp' name="CloudApp" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -315,6 +320,9 @@ CloudApp.init(myAppId, myKey);
             </div><!-- method-example -->
           </div> <!-- method-section -->
         </div> <!-- method -->
+
+       
+        
         <div class="method">
           <a id='CloudObject' name="CloudObject" class="section-anchor">&nbsp;</a>
           <div class="method-section">
@@ -773,6 +781,7 @@ CloudObject.on("Student", "created",  callbackObj);
 
         </div> <!-- method -->
 
+
         <div class="method">
           <a id='Relationships' name="Relationships" class="section-anchor">&nbsp;</a>
           <div class="method-section">
@@ -956,7 +965,6 @@ obj.save(callbackObj);
           </div> <!-- method-section -->
 
         </div>
-
 
 <!-- CloudQuery Section -->
 
@@ -2085,9 +2093,7 @@ query.distinct("address",new CloudQuery1Callback({
           </div> <!-- method-section -->
         </div><!-- method -->
 
-
-
-        <!-- CloudNotifications  --> 
+<!-- CloudNotifications  --> 
 
         <div class="method">
              <a id='CloudNotifcations' name="CloudNotifcations" class="section-anchor">&nbsp;</a>
@@ -2231,11 +2237,7 @@ CloudNotification.off("sample", cloudNotificationMethodObj);
           </div> <!-- method-section -->
 
         </div>
-
-
-        <!-- CloudSearch -->
-
-        <div class="method">
+<div class="method">
           <a id='CloudSearch' name="CloudSearch" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -3000,9 +3002,7 @@ cs.search(callbackObj);</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
       </div>
-
-
-          <a id='ACL' name="ACL" class="section-anchor">&nbsp;</a>
+ <a id='ACL' name="ACL" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
               <h1>ACL</h1>
@@ -3309,8 +3309,7 @@ obj.save(new CloudObjectCallback(){
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-
-          <a id='CloudUser' name="CloudUser" class="section-anchor">&nbsp;</a>
+<a id='CloudUser' name="CloudUser" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
               <h1>CloudUser</h1>
@@ -3589,8 +3588,7 @@ CloudUser.current.removeFromRole(role);</span></span></code>
             <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-
-          <a id='CloudRole' name="CloudRole" class="section-anchor">&nbsp;</a>
+  <a id='CloudRole' name="CloudRole" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
               <h1>CloudRole</h1>
@@ -3686,159 +3684,94 @@ CloudRole.getRole(new CloudRoleCallback(){
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-          <a id='CloudFile' name="CloudFile" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-              <h1>CloudFile</h1>
-              <p>
-                <code>CloudFile</code> lets you store application files in the cloud that would otherwise be too large or 
-                cumbersome to fit into a regular <code>CloudObject</code>. The most common use case is storing images, 
-                but you can also use it for documents, videos, music, and any other binary data.
-              </p>
-            </div>
-            <div class="method-example" id="api-summary-example">
-            </div>
-          </div>
-          <a id='CloudFile-constructor' name="CloudFile-constructor" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
+ 
+<div class="method">
+  <a id='Contribute' name="Contribute" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
 
-              <h3>Constructor</h3>
-              <p>
-              Instantiates a <code>CloudFile</code> object.
-              </p>
-              <div class="method-list">
-               <h3>Package</h3>
-              	<p>
-             	 	<code>import com.cloudboost.CloudFile;</code>
-              	</p>
-                <h6>Argument</h6>
-                <dl class="argument-list">
+      <h1>Contribute</h1>
+      <p>
+      We heart contributors. Love what we do and want to contribute? <br/>
 
-                  <dt>file</dt>
-                  <dd class="">file/BLOB object<span>The file/BLOB that you want to save</span></dd>
-                  <div class="clearfix"></div>
-                  <h6>Error Handling</h6>
-                It throws <code>CloudBoostException</code>
-                </dl>
+      JavaScript SDK : <a href="https://github.com/CloudBoost/JavaScriptSDK">GitHub Repository</a>
 
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-File file = new File("/home/my-pc/Desktop/abc.txt");
-CloudFile cf = new CloudFile(file);
-</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudFile-save' name="CloudRole-save" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
+      <br/><br/>
 
-              <h3>CloudFile.save( )</h3>
-              <p>
-              Saves the <code>CloudFile</code> object.
-              </p>
-              <div class="method-list">
+      Our documentation is open source too! <br/><br/>
 
-                <h6>Returns</h6>
-                <p>It returns a <code>CloudFile</code> object having <code>url</code> attribute set to the URL 
-                of the blob uploaded to the server if the operation is successful.<p>
-                <h6>Error Handling</h6>
-                It throws <code>CloudBoostException, MalformedURLException, IOException</code>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-File file = new File("/home/my-pc/Desktop/abc.txt");
-CloudFile cloudFileObj = new CloudFile(file);
-CloudFileCallback callbackObj = new CloudFileCallback(){ 
-	@Override 
-	public void success(CloudFile obj){ 
-		System.out.println("success message");
-//got the file object successfully with the url to the file
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	} 
-}; 
-cloudFileObj.save(callbackObj);
-</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudFile-delete' name="CloudRole-delete" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
+      Documentation : <a href="https://github.com/CloudBoost/api-reference">GitHub Repository</a> 
+      </p>
 
-              <h3>CloudFile.delete( )</h3>
-              <p>
-              Deletes the <code>CloudFile</code> object.
-              </p>
-              <div class="method-list">
-
-                <h6>Returns</h6>
-                <p>It returns a <code>CloudFile</code> object having <code>url</code> attribute set to <code>null</code> 
-                if the operation is successful.<p>
-                <h6>Error Handling</h6>
-                It throws <code>CloudBoostException, MalformedURLException, IOException</code>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-File file = new File("/home/my-pc/Desktop/abc.txt");
-CloudFile cf = new CloudFile(file);
-File file = new File("/home/my-pc/Desktop/abc.txt");
-CloudFile cloudFileObj = new CloudFile(file);
-CloudFileCallback callbackObj = new CloudFileCallback(){ 
-	@Override 
-	public void success(CloudFile obj){ 
-		cf.delete(new CloudFileCallback(){
-			@Override 
-			public void success(CloudFile obj){
-				System.out.println("success message"); 
-			}
-			@Override 
-			public void error(){ 
-				System.out.println("error message"); 
-			} 
-		});
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	} 
-}; 
-cloudFileObj.save(callbackObj);
-</span></span></code>
-            </div><!-- method-example -->
-                  <div class="clearfix"></div>
-            
-          </div> <!-- method-section -->
-
-      </div> <!-- methods -->
-    </div> <!-- api-docs -->
+    </div>
+     <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+01001101 01100001 01100100 01100101
+01110111 01101001 01110100 01101000  
+00111100 00110011 
+      </span></span></code>
+    </div><!-- method-example -->
+  </div>
+ 
+</div> <!-- method -->
+	</div> <!-- methods -->
+</div> <!-- api-docs -->
     <div class="footer">
 
     </div>
 
-    <script src="assets/docs.js"></script>
-    <script src="assets/highlight.pack.js"></script>
-    <script src="assets/highlighter.js"></script>
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/highlight.pack.js"></script>
+    <script src="assets/js/highlighter.js"></script>
     <script>
-     /****Tracking*********/              
+      /****Tracking*********/              
         mixpanel.track('Documentation Views');
       /****End of Tracking*****/
 
+      var currentLangId="#javascript-sdk";
+      var url = window.location.href;
+      var urlParts=url.split("/");
+      var currentAPI=urlParts[3];     
+      
+
+      if(currentAPI=="javascript.html"){
+        currentLangId="#javascript-sdk";
+      }
+      if(currentAPI=="java.html"){
+        currentLangId="#java-sdk";
+      }
+      if(currentAPI=="dotnet.html"){
+        currentLangId="#dotnet-sdk";
+      }
+      _selectLanguage(currentLangId);
+
       $(document).ready(function(){
-          $("#javascript-sdk").click(function(){
-              window.location.href="index.html";
+          $("#javascript-sdk").click(function(){            
+            window.location.href="javascript.html";
+            _selectLanguage("#javascript-sdk");
           });
 
-          $("#java-sdk").click(function(){
-              window.location.href="java.html";
+          $("#java-sdk").click(function(){            
+            window.location.href="java.html";
+            _selectLanguage("#java-sdk");
+          });
+
+          $("#dotnet-sdk").click(function(){           
+            window.location.href="dotnet.html";
+            _selectLanguage("#dotnet-sdk");
           });
       });
+
+      function _selectLanguage(langId){
+        //remove from all
+        $("#javascript-sdk").removeClass("selected");
+        $("#java-sdk").removeClass("selected");
+        $("#dotnet-sdk").removeClass("selected");
+
+        //select current
+        $(langId).addClass("selected");
+      } 
+       
     </script>
   </body>
 </html>

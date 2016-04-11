@@ -1,0 +1,131 @@
+<!-- CloudNotifications  --> 
+
+        <div class="method">
+             <a id='CloudNotifcations' name="CloudNotifcations" class="section-anchor">&nbsp;</a>
+            <div class="method-section">
+              <div class="method-description">
+
+                <h1>CloudNotifcations</h1>
+                <p>
+
+                In Cloudboost, you can create realtime notification channels, publish messages to those channels and have other clients listen to those messages which are being published in real time. 
+                </p>
+
+              </div>
+            </div>
+
+                      <a id='CloudNotification-on' name="CloudNotification-on" class="section-anchor">&nbsp;</a>
+        
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudNotification.On( <code>channelName, Callback</code> )</h3>
+              <p>
+              Listens to notification channels.
+              </p>
+                          
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>channelName</dt>
+                  <dd class="">String<span>channel to listen to.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>Callback</dt>
+                  <dd class="">function <span> function to fire when data on this channel is published.</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>void</p>
+                <h6>Error Handling</h6>
+                <p>It throws <code>CB.Exception.CloudBoostException</code></p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudNotification.On("sample", new Callback(action));
+void action(Object result)
+{
+    //function to fire
+}
+
+
+              </span></span></code>
+
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='CloudNotification-publish' name="CloudNotification-publish" class="section-anchor">&nbsp;</a>
+        
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudNotification.publish( <code>channelName, data</code> )</h3>
+              <p>
+              Publishes data to notification channels.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>channelName</dt>
+                  <dd class="">String<span>channel to publish to.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything <span> data you want to publish to this channel</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>void</p>
+    
+                <h6>Error Handling</h6>
+                <p>It throws <code>CB.Exception.CloudBoostException</code></p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudNotification.Publsh("sample", "data");
+
+
+              </span></span></code>
+
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudNotification-off' name="CloudNotification-off" class="section-anchor">&nbsp;</a>
+        
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudNotification.Off( <code>channelName</code> )</h3>
+              <p>
+              Stops listening to notification channels.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>channelName</dt>
+                  <dd class="">String<span>channel to stop listening to.</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>void</p>
+                <h6>Error Handling</h6>
+                <p>It throws <code>CB.Exception.CloudBoostException</code></p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudNotification.Off("sample");
+
+              </span></span></code>
+
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+        </div>

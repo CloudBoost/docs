@@ -1,0 +1,59 @@
+    <div class="footer">
+
+    </div>
+
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/highlight.pack.js"></script>
+    <script src="assets/js/highlighter.js"></script>
+    <script>
+      /****Tracking*********/              
+        mixpanel.track('Documentation Views');
+      /****End of Tracking*****/
+
+      var currentLangId="#javascript-sdk";
+      var url = window.location.href;
+      var urlParts=url.split("/");
+      var currentAPI=urlParts[3];     
+      
+
+      if(currentAPI=="javascript.html"){
+        currentLangId="#javascript-sdk";
+      }
+      if(currentAPI=="java.html"){
+        currentLangId="#java-sdk";
+      }
+      if(currentAPI=="dotnet.html"){
+        currentLangId="#dotnet-sdk";
+      }
+      _selectLanguage(currentLangId);
+
+      $(document).ready(function(){
+          $("#javascript-sdk").click(function(){            
+            window.location.href="javascript.html";
+            _selectLanguage("#javascript-sdk");
+          });
+
+          $("#java-sdk").click(function(){            
+            window.location.href="java.html";
+            _selectLanguage("#java-sdk");
+          });
+
+          $("#dotnet-sdk").click(function(){           
+            window.location.href="dotnet.html";
+            _selectLanguage("#dotnet-sdk");
+          });
+      });
+
+      function _selectLanguage(langId){
+        //remove from all
+        $("#javascript-sdk").removeClass("selected");
+        $("#java-sdk").removeClass("selected");
+        $("#dotnet-sdk").removeClass("selected");
+
+        //select current
+        $(langId).addClass("selected");
+      } 
+       
+    </script>
+  </body>
+</html>

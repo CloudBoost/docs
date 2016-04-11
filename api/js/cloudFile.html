@@ -1,0 +1,231 @@
+
+
+ 
+
+          
+
+          
+        <a id='CloudFile' name="CloudFile" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+                  <h1>CB.CloudFile</h1>
+                  CB.CloudFile lets you store application files in the cloud that would otherwise be too large or cumbersome to fit into a regular CB.CloudObject. The most common use case is storing images, but you can also use it for documents, videos, music, and any other binary data.
+              </div>
+          </div>
+
+
+          <a id='CloudFile-constructor' name="CloudFile-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>file</dt>
+                  <dd class="">file/BLOB object<span>The file/BLOB that you want to save</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var documentFile = new Blob(['This is the content of by document blob'],
+                  {type : 'text/plain'});
+var file = new CB.CloudFile(documentFile);</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudFile-save' name="CloudRole-save" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudFile.save( <code>[callback]</code> )</h3>
+              <p>
+              Saves the <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudFile</code> object having <code>url</code> attribute set to the URL 
+                of the blob uploaded to the server if the operation is successful otherwise returns 
+                an error object along with JQuery promise (if <code>callback</code> is not provided).
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var documentFile = new Blob([
+            'This is the content of by document blob'
+            ], {
+              type : 'text/plain'
+            });
+var file = new CB.CloudFile(documentFile);
+
+file.save({
+  success: function(roleObj) {
+    //got the file object successfully with the url to the file
+  },
+  error: function(err) {
+    //error in uploading file
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudFile-delete' name="CloudRole-delete" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudFile.delete( <code>[callback]</code> )</h3>
+              <p>
+              Saves the <code>CloudFile</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudFile</code> object having <code>url</code> attribute set to <code>null</code> 
+                if the operation is successful otherwise returns an error object along with JQuery promise 
+                (if <code>callback</code> is not provided).
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+file.delete({
+  success: function(fileObj) {
+    //file deletion successful
+  },
+  error: function(err) {
+    //error in deleting file
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+                  <div class="clearfix"></div>
+            
+          </div>
+
+        <a id='CloudFile-fetch' name="CloudFile-fetch" class="section-anchor">&nbsp;</a>
+        <div class="method-section">
+            <div class="method-description">
+
+                <h3>CloudFile.fetch( <code>[callback]</code> )</h3>
+                <p>
+                    Fetches the <code>CloudFile</code> object which has the URL along with other Properties of File.
+                </p>
+                <div class="method-list">
+
+                    <h6>Argument</h6>
+                    <dl class="argument-list">
+
+                        <dt>callback</dt>
+                        <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                        <div class="clearfix"></div>
+
+                    </dl>
+
+                    <h6>Returns</h6>
+                    It returns a <code>CloudFile</code> object having <code>url</code>
+                    if the operation is successful otherwise returns an error object along with JQuery promise
+                    (if <code>callback</code> is not provided).
+                </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+                <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Custom");
+query.find().then(function(res)
+        var file = res.get('file');
+        file.fetch({
+            success: function(roleObj) {
+                //Gets File Object
+            },
+            error: function(err) {
+                //error in geting file
+            }
+        },function(){
+            //error querying object
+        });
+});</span></span></code>
+            </div><!-- method-example -->
+            <div class="clearfix"></div>
+
+        </div>
+
+        <a id='CloudFile-getFileContent' name="CloudFile-getFileContent" class="section-anchor">&nbsp;</a>
+        <div class="method-section">
+            <div class="method-description">
+
+                <h3>CloudFile.getFileContent( <code>[callback]</code> )</h3>
+                <p>
+                    Get's the <code>CloudFile</code> content.
+                </p>
+                <div class="method-list">
+
+                    <h6>Argument</h6>
+                    <dl class="argument-list">
+
+                        <dt>callback</dt>
+                        <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                        <div class="clearfix"></div>
+
+                    </dl>
+
+                    <h6>Returns</h6>
+                    It returns the contents of a <code>CloudFile</code> object
+                    if the operation is successful otherwise returns an error object along with JQuery promise
+                    (if <code>callback</code> is not provided).
+                    </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+                <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Custom");
+query.find().then(function(res)
+        var file = res.get('file');
+        file.fetch({
+            success: function(fileObj) {
+                fileObj.getFileContent({
+                    success: function(fileObj) {
+                        //Gets the Content of the File Pointed By File Object
+                    },
+                    error: function(err) {
+                        //error in getting File Content
+                    });
+            //Gets File Object
+        },
+        error: function(err) {
+            //error in getting file
+        })
+     },function(){
+       //error querying object
+});
+
+});</span></span></code>
+            </div><!-- method-example -->
+            <div class="clearfix"></div>
+
+        </div>

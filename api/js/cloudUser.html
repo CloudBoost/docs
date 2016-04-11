@@ -1,0 +1,341 @@
+         
+ <a id='CloudUser' name="CloudUser" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h1>CB.CloudUser</h1>
+              <p>
+                There is a notion of user accounts that lets users access their information in a secure manner.
+                We provide a specialized user class called <code>CB.CloudUser</code> that automatically handles
+                much of the functionality required for user account management.
+              </p>
+              <p>
+                <code>CB.CloudUser</code> is a subclass of <code>CB.CloudObject</code>, and has all the same features, such as flexible 
+                schema, automatic persistence, and a key value interface. All the methods that are on 
+                <code>CB.CloudObject</code> also exist in <code>CB.CloudUser</code>. The difference is that <code>CB.CloudUser</code> has some special 
+                additions specific to user accounts. With this class, you'll be able to add user account 
+                functionality in your app.
+              </p>
+              <p>
+                There is a special object <code>CB.CloudUser.current</code> which holds the
+                information of the current user logged in.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div>
+          </div>
+          <a id='CloudUser-constructor' name="CloudUser-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudUser</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <p>It takes no argument.</p>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var obj = new CB.CloudUser();</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-signUp' name="CloudUser-signUp" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.signUp( <code>[callback]</code> )</h3>
+              <p>
+                It registers new user given its <i>username</i>, <i>email</i> and <i>password</i>.
+                Registration is successful if the given <i>email</i> is not already registered to an existing user.
+              </p>
+              <p>
+                It sets the attributes of <code>CB.CloudUser.current</code> object with the 
+                <code>CloudUser</code> object recieved.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object which has the user information if registration is 
+                successful otherwise an error object along with JQuery promise (if <code>callback</code> 
+                is not provided).
+                </p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var user = new CB.CloudUser();
+user.set('username', 'my_username');
+user.set('password', 'my_solid_password');
+user.set('email', 'email@sample.com');
+user.signUp({
+  success: function(user) {
+    //Registration successfull
+  },
+  error: function(err) {
+    //Error in user registration.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-logIn' name="CloudUser-logIn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.logIn( <code>[callback]</code> )</h3>
+              <p>
+                It logs in user given its <i>username</i> and <i>password</i>.
+                Login is successful if the given <i>username</i> and <i>password</i> pair is already present in the database.
+              </p>
+              <p>
+                It sets the attributes of <code>CB.CloudUser.current</code> object with the 
+                <code>CloudUser</code> object recieved.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object which has the user information if registration is 
+                successful otherwise an error object along with JQuery promise (if <code>callback</code> 
+                is not provided).
+                </p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var user = new CB.CloudUser();
+user.set('username', 'my_username');
+user.set('password', 'my_solid_password');
+user.logIn({
+  success: function(user) {
+    //Login successfull
+  },
+  error: function(err) {
+    //Error occured in user registration.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-logOut' name="CloudUser-logOut" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.logOut( <code>[callback]</code> )</h3>
+              <p>
+                It logs the user out.
+              </p>
+              <p>
+                It sets the <code>CB.CloudUser.current</code> object to <i>null</i>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object having the user information of the user who was logged in 
+                otherwise an error object along with JQuery promise (if <code>callback</code> is not provided).
+                </p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudUser.current.logOut({
+  success: function(user) {
+    //log out successfull
+  },
+  error: function(err) {
+    //Error occured in user registration.
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudUser-current' name="CloudUser-current" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.current( <code>[callback]</code> )</h3>
+              <p>
+                Get the current logged in user.
+              </p>
+             
+              
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+//gets the current user if user is loggedIn, null otherwise.
+var currentUser = CB.CloudUser.current;</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+           <a id='CloudUser-addToRole' name="CloudUser-addToRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.addToRole( <code>role,  [callback]</code> )</h3>
+              <p>
+                A user can be a part of many roles, like in real world. For this functionality
+                user should get added to a Role.
+              </p>
+              <p>
+                For this purpose <code>addToRole()</code> of <code>CB.CloudUser</code> comes in handy.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>role</dt>
+                  <dd class="">CloudRole Object <span> The <code>CloudRole</code> object of the role you want to
+                  add the user to.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object having the user information of the user who was logged in 
+                otherwise an error object along with JQuery promise (if <code>callback</code> is not provided).
+                </p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//role is an instance of CloudRole Object.
+
+CB.CloudUser.current.addToRole(role, {
+  success: function(user) {
+    //added to role successfull
+  },
+  error: function(err) {
+    //Error occured in adding to role.
+  }
+});
+
+</span></span></code>
+            <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-isInRole' name="CloudUser-isInRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.isInRole( <code>role</code> )</h3>
+              <p>
+                To check if the current user is in the role provided by the role object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>role</dt>
+                  <dd class="">CloudRole Object <span> The <code>CloudRole</code> object of the role you want to
+                  check the user to.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <i>true/false</i> based on whether the user is in the given
+                role or not respectively.
+                </p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+//role is the instance of the CloudRole object. 
+
+if(CB.CloudUser.current.isInRole(role)) {
+  //The current user is in the given role.
+} else {
+  //The user is not in the given role.
+}
+
+}</span></span></code>
+            <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-removeFromRole' name="CloudUser-removeFromRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.removeFromRole( <code>role , [callback]</code> )</h3>
+              <p>
+                Removes the user from the given role provided in <code>role</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>role</dt>
+                  <dd class="">CloudRole Object <span> The <code>CloudRole</code> object of the role you want to
+                  remove the user from.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object having the user information of the user who was logged in 
+                otherwise an error object along with JQuery promise (if <code>callback</code> is not provided).
+                </p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CB.CloudUser.current.removeFromRole(role, {
+    success : function(user){
+      //get the updated user 
+    }, 
+    error : function(err){
+      //erorr if something goes wrong.
+    }
+  });
+}</span></span></code>
+            <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->

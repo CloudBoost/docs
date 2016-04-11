@@ -1,0 +1,1283 @@
+<!-- CloudSearch -->
+
+        <div class="method">
+          <a id='CloudSearch' name="CloudSearch" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h1>CloudSearch</h1>
+              <p>
+                It encapsulates a set of methods and attributes required to perform search on your data in CloudApp to retrieve desired set of relevant results.
+              </p>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div> <!-- method-example -->
+          </div><!-- method-section -->
+          <a id='CloudSearch-constructor' name="CloudSearch-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              CB.CloudSearch(<code>tableName</code>)
+              </p>
+              <div class="method-list">
+              
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>tableNames</dt>
+                  <dd class="">Array/string <span>The name of the table(s) you want to search on.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudSearch cs = new CloudSearch("Student");</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+           <a id='sq-searchOn' name="CloudSearch-searchOn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.SearchOn( <code>columnName, query</code> )</h3>
+              <p>
+              Used to perform a search query.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string / Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">query<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var list = new ArrayList();
+list.Add("C++");
+list.Add("Java");
+list.Add("C#");
+var cs = new CB.CloudSearch("Student");
+cs.SearchOn("resume", list);
+
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+<a id='sq-phrase' name="sq-searchOn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.phrase( <code>columns, queryText, [fuzziness], [priority]</code> )</h3>
+              <p>
+              Used to find the Phrase in search. For example, If you want to match a search text "Brown Fox" in your records <b>as is</b>, then you use Phrase Query. 
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string / Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.Phrase("resume", "Java");
+List&lt;CB.CloudObject&gt; response = await CS.Search();;
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+
+         
+
+
+        <a id='sq-bestColumns' name="sq-bestColumns" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.BestColumns( <code>columns, queryText, [fuzziness], [all_words], [match_percent], [priority]</code> )</h3>
+              <p>
+              This function is most useful when you are searching for multiple words best found in the same field. For instance “brown fox” in a single field is more meaningful than “brown” in one field and “fox” in the other.
+
+              For example : If you have two records, 
+              <table>
+                <th>
+                  <tr>
+                    ID
+                  </tr>
+                  <tr>
+                    Sample 1
+                  </tr>
+                  <tr>
+                   Sample 2
+                  </tr>
+                  
+                </th>
+                <td>
+                  <tr>
+                    1
+                  </tr>
+                  <tr>
+                    Brown Fox
+                  </tr>
+                  <tr>
+                    Up the hill
+                  </tr>
+                </td>
+                <td>
+                  <tr>
+                    2
+                  </tr>
+                  <tr>
+                    Brown 
+                  </tr>
+                  <tr>
+                   Fox up the hill
+                  </tr>
+                </td>
+              </table>
+
+              In this case, If you search for brown fox then Record with ID 1 will be more relevant than record with ID 2
+
+              </p>
+
+
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnNames</dt>
+                  <dd class=""> Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>all_words</dt>
+                  <dd class="">[Optional] string<span>Can take only value - true. If set the search will contain all the words in query. For example, If your search query is "Brown Fox". Results will contain both the words "Brown" AND "Fox".</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>match_percent</dt>
+                  <dd class=""> [Optional] string<span>Can take only value - %. For ex : "75%". If set the search will return all the results which matches 75%.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch('Student');
+cs.searchQuery = new CB.SearchQuery();
+var list = new ArrayList();
+list.Add("Sample1");
+list.Add("Sample2");
+cs.searchQuery.BestColumns(list, "Brown Fox", null, null, null, null);
+List&lt;CB.CloudObject&gt; response = await CS.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+        <a id='sq-mostColumns' name="sq-mostCOlumns" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.MostColumns( <code>columns, queryText, [fuzziness], [all_words], [match_percent], [priority]</code> )</h3>
+              <p>
+
+              This fucntion is most useful when querying multiple fields that contain the same text should be given higher relevance than others. 
+
+              For example : If you have two records, 
+              <table>
+                <th>
+                  <tr>
+                    ID
+                  </tr>
+                  <tr>
+                    Sample 1
+                  </tr>
+                  <tr>
+                   Sample 2
+                  </tr>
+                  
+                </th>
+                <td>
+                  <tr>
+                    1
+                  </tr>
+                  <tr>
+                    Brown
+                  </tr>
+                  <tr>
+                    Up the hill
+                  </tr>
+                </td>
+                <td>
+                  <tr>
+                    2
+                  </tr>
+                  <tr>
+                   Brown 
+                  </tr>
+                  <tr>
+                   Fox up the hill
+                  </tr>
+                </td>
+              </table>
+
+              In this case, If you search for brown fox then Record with ID 2 will be more relevant than record with ID 1
+
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnNames</dt>
+                  <dd class=""> Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>queryText</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>fuzziness</dt>
+                  <dd class="">[Optional] integer<span>Can be set to 0, 1, 2. Default is 0. This parameter sets the fuzziness on search.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>all_words</dt>
+                  <dd class="">[Optional] string<span>Can take only value - true. If set the search will contain all the words in query. For example, If your search query is "Brown Fox". Results will contain both the words "Brown" AND "Fox".</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>match_percent</dt>
+                  <dd class=""> [Optional] string<span>Can take only value - %. For ex : "75%". If set the search will return all the results which matches 75%.</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.searchQuery = new CB.SearchQuery();
+var list = new ArrayList();
+list.Add("Sample1");
+list.Add("Sample2");
+cs.searchQuery.MostColumns(list, "Brown Fox", null, null, null, null);
+List&lt;CB.CloudObject&gt; response = await CS.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+
+        <a id='sq-startsWith' name="sq-startsWith" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.StartsWith( <code>column, value, [priority]</code> )</h3>
+              <p>
+
+              Starts with query.
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class=""> String <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>value</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.StartsWith("Sample1", "Brown");
+List&lt;CB.CloudObject&gt; response = await CS.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-wildcard' name="sq-wildcard" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.WildCard( <code>column, value, [priority]</code> )</h3>
+              <p>
+
+              Wildcard Query.
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class=""> String <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>value</dt>
+                  <dd class="">string<span>A wildcard value</span></dd>
+                  <div class="clearfix"></div>
+
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student"");
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.WildCard("Sample1", "B*");
+
+List&lt;CB.CloudObject&gt; response = await CS.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-regexp' name="sq-regexp" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.RegExp( <code>column, value, [priority]</code> )</h3>
+              <p>
+
+              A Regular Expression Query
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class=""> String <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>value</dt>
+                  <dd class="">string<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+
+
+                  <dt>priority</dt>
+                  <dd class="">[Optional] integer<span>If set this query will have a higer priority over all other queries.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.RegExp("Sample", "B[a-z]*");
+
+List&lt;CB.CloudObject&gt; response = await CS.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+
+          <a id='sq-or' name="sq-or" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.Or( <code>searchQuery</code> )</h3>
+              <p>
+
+              OR a SearchQuery
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>searchQuery</dt>
+                  <dd class=""> CB.SearchQuery <span>SearchQuery object to be OR'ed</span></dd>
+                  <div class="clearfix"></div>
+
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student"");
+cs.searchQuery = new CB.SearchQuery();
+
+var obj1 = new CB.SearchQuery();
+obj1.SearchOn("name", "Dan", null, null, null, null);
+
+var obj2 = new CB.SearchQuery();
+obj2.SearchOn("name", "Sam", null, null, null, null);
+
+cs.searchQuery.Or(obj1);
+cs.searchQuery.Or(obj2);
+
+List&lt;CB.CloudObject&gt; response = await CS.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-and' name="sq-and" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.And( <code>searchQuery</code> )</h3>
+              <p>
+
+              AND a SearchQuery
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>searchQuery</dt>
+                  <dd class=""> CB.SearchQuery <span>SearchQuery object to be AND'ed</span></dd>
+                  <div class="clearfix"></div>
+
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student"");
+cs.searchQuery = new CB.SearchQuery();
+
+var obj1 = new CB.SearchQuery();
+obj1.SearchOn("name", "Dan", null, null, null, null);
+
+var obj2 = new CB.SearchQuery();
+obj2.SearchOn("name", "Sam", null, null, null, null);
+
+cs.searchQuery.And(obj1);
+cs.searchQuery.And(obj2);
+
+List&lt;CB.CloudObject&gt; response = await CS.Search();
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='sq-not' name="sq-not" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>SearchQuery.Not( <code>searchQuery</code> )</h3>
+              <p>
+
+              NOT a SearchQuery
+              </p>
+
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>searchQuery</dt>
+                  <dd class=""> CB.SearchQuery <span>SearchQuery object to be NOT</span></dd>
+                  <div class="clearfix"></div>
+
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same SearchQuery object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+
+
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student"");
+cs.searchQuery = new CB.SearchQuery();
+
+var obj1 = new CB.SearchQuery();
+obj1.SearchOn("name", "Dan", null, null, null, null);
+
+var obj2 = new CB.SearchQuery();
+obj2.SearchOn("name", "Sam", null, null, null, null);
+
+cs.searchQuery.Not(obj1);
+cs.searchQuery.Not(obj2);
+
+List&lt;CB.CloudObject&gt; response = await CS.Search();
+
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='SearchFilter-equalTo' name="CloudSearch-equalTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.EqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> is equal to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.EqualTo("age", 21); //find all Students who age is 21
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+         
+          <a id='SearchFilter-notEqualTo' name="CloudSearch-notEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.NotEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> does not has the value <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+//find all Students info except of Smith
+cs.NotEqualTo("name", "Smith");
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          
+          <a id='SearchFilter-greaterThan' name="CloudSearch-greaterThan" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.GreaterThan( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value greater than <code>data</code>.
+              </p>
+              <div class="method-list">
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string / number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions. </p>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var cs = new CloudSearch("Teacher");
+//find all the teachers who are old.
+cs.GreaterThan("age", 60);
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='SearchFilter-greaterThanEqualTo' name="CloudSearch-greaterThanEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.GreaterThanEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value greater than or equals to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string / number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Teacher");
+cs.GreaterThanEqualTo("age", 60);
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='SearchFilter-lessThan' name="CloudSearch-lessThan" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.LessThan( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value less than <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string/number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.LessThan("age", 18);
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='SearchFilter-lessThanEqualTo' name="CloudSearch-lessThanEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.LessThanEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value less than or equals to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string/number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.LessThanEqualTo("age", 17);
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='sq-or' name="CloudSearch-or" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.Or( <code>cloudSearch1, cloudSearch2</code> )</h3>
+              <p>
+              It adds a logical OR contriant between 2 <code>CloudSearch</code> objects for 
+              finding the set of the data satisfying conditions of both <code>cloudSearch1</code>
+              and <code>cloudSearch2</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>cloudSearch1</dt>
+                  <dd class=""><code>CloudSearch object</code></dd>
+                  <div class="clearfix"></div>
+                  <dt>cloudSearch2</dt>
+                  <dd class=""><code>CloudSearch object</code></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>CloudSearch</code> object which contains
+                OR'ed query of both of the <code>CloudSearch</code> objects.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//find all Student such that 10&lt;age&lt;18
+
+var cs1 = new CloudSearch("Student");
+cs1.LessThan("age", 18);
+cs1.SearchOn("name", "Sam");
+
+var cs2 = new CloudSearch("Student");
+cs2.GreaterThan("age", 10);
+cs1.SearchOn("name", "Dan");
+
+var cs = CloudSearch.or(cs1, cs2);
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+</span></span></code>
+              
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          
+          <a id='SearchFilter-or' name="SearchFilter-or" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h3>SearchFilter.Or( <code>searchFilter )</h3>
+              <p>
+              It adds a logical OR contriant to <code>SearchFilter</code> object for 
+              finding the set of the data satisfying conditions of <code>SearchFilter</code>
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>SearchFilter</dt>
+                  <dd class=""><code>SearchFilter Object</code></dd>
+                  <div class="clearfix"></div>
+                  
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>SearchFilter</code> object which contains
+                OR'ed query of <code>SearchFilter</code> object.</p>
+              </div>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//find all Student such that 10&lt;age&lt;18
+
+//create first searchFilter. 
+var searchFilter1 = new CB.SearchFilter();
+searchFilter1.LessThan("age", 10);
+
+//create second search Filter. 
+var searchFilter2 = new CB.SearchFilter();
+searchFilter2.GreaterThan("age", 18);
+
+//and both of these. 
+var searchFilter = new CB.SearchFilter();
+searchFilter.Or(searchFilter1);
+searchFilter.Or(searchFilter2);
+
+//attach NOT'ed searchFilter to CloudSearch. 
+var cs = new CB.CloudSearch("Student"");
+cs.searchFilter = searchFilter;
+//search term
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.SearchOn("name","Dan");
+
+List&lt;CB.CloudObject&gt; list = await cs.Search();
+</span></span></code>
+              
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='SearchFilter-and' name="SearchFilter-and" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h3>SearchFilter.And( <code>searchFilter )</h3>
+              <p>
+              It adds a logical AND contriant to <code>SearchFilter</code> object for 
+              finding the set of the data satisfying conditions of <code>SearchFilter</code>
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>SearchFilter</dt>
+                  <dd class=""><code>SearchFilter Object</code></dd>
+                  <div class="clearfix"></div>
+                  
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>SearchFilter</code> object which contains
+                OR'ed query of <code>SearchFilter</code> object.</p>
+              </div>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//find all students of age less than 10 AND greater than 18.
+
+//create first searchFilter. 
+var searchFilter1 = new CB.SearchFilter();
+searchFilter1.LessThan("age", 10);
+
+//create second search Filter. 
+var searchFilter2 = new CB.SearchFilter();
+searchFilter2.GreaterThan("age", 18);
+
+//and both of these. 
+var searchFilter = new CB.SearchFilter();
+searchFilter.And(searchFilter1);
+searchFilter.And(searchFilter2);
+
+//attach NOT'ed searchFilter to CloudSearch. 
+var cs = new CB.CloudSearch("Student"");
+cs.searchFilter = searchFilter;
+//search term
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.SearchOn("name","Dan");
+
+List&lt;CB.CloudObject&gt; list = await cs.Search();
+</span></span></code>
+              
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='SearchFilter-not' name="SearchFilter-not" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h3>SearchFilter.Not( <code>searchFilter )</h3>
+              <p>
+              It adds a logical NOT contriant to <code>SearchFilter</code> object for 
+              finding the set of the data satisfying conditions of <code>SearchFilter</code>
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>SearchFilter</dt>
+                  <dd class=""><code>SearchFilter Object</code></dd>
+                  <div class="clearfix"></div>
+                  
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>SearchFilter</code> object which contains
+                OR'ed query of <code>SearchFilter</code> object.</p>
+              </div>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//find all students of age less than 10 AND greater than 18.
+
+//create first searchFilter. 
+var searchFilter1 = new CB.SearchFilter();
+searchFilter1.LessThan("age", 10);
+
+//create second search Filter. 
+var searchFilter2 = new CB.SearchFilter();
+searchFilter2.GreaterThan("age", 18);
+
+//and both of these. 
+var searchFilter = new CB.SearchFilter();
+searchFilter.Not(searchFilter1);
+searchFilter.Not(searchFilter2);
+
+//attach NOT'ed searchFilter to CloudSearch. 
+var cs = new CB.CloudSearch("Student"");
+cs.searchFilter = searchFilter;
+//search term
+cs.searchQuery = new CB.SearchQuery();
+cs.searchQuery.SearchOn("name","Dan");
+
+List&lt;CB.CloudObject&gt; list = await cs.Search();
+</span></span></code>
+              
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-orderByAsc' name="CloudSearch-orderByAsc" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.OrderByAsc( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for arranging the subset of the data in ascending 
+              order.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.OrderByAsc("age");
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-orderByDesc' name="CloudSearch-orderByDesc" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.OrderByDesc( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for arranging the subset of the data in descending 
+              order.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+               <h6>Returns</h6>
+                <p>Same search object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CloudSearch("Student");
+cs.OrderByDesc('age');
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-setLimit' name="CloudSearch-setLimit" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.Limit</h3>
+              <p>
+              It adds a contriant to limit no. of the data to be
+              fetched from the database.
+              </p>
+              <p>
+                If it is not set explicitly, database returns 20 results by default.
+              </p>
+              <div class="method-list">
+                
+               
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.Limit = 5;
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-setSkip' name="CloudSearch-setSkip" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.Skip</h3>
+              <p>
+              It adds a constraint to skip <code>data</code> no. of data
+              matching satisfying the query contraints and fetching
+              from the database.
+              </p>
+              <div class="method-list">
+                
+                
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.Skip = 5;
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          
+
+          <a id='SearchFilter-exists' name="CloudSearch-exists" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h3>CloudSearch.Exists( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> exists irrespective of what its value is.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column name which is to be checked for existence</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.Exists("address");
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='SearchFilter-doesNotExists' name="CloudSearch-doesNotExists" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.DoesNotExists( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> does not exists.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column name which is to be checked for non-existence</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var cs = new CB.CloudSearch("Student");
+cs.DoesNotExists("address");
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudSearch-search' name="CloudSearch-search" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.Search( )</h3>
+              <p>
+                Searches the database on the constraints provided by the <code>CloudSearch</code>
+                object and gets the result as an array of <code>CloudObject</code> objects.
+              </p>
+              <p>
+              If no. of documents to be returned is not specified using <a href="#CloudQuery-setLimit">limit()</a>
+              then at max 20 documents are returned in each query by default.
+              </p>
+              <div class="method-list">
+         
+                <h6>Returns</h6>
+                <p>It returns an array of <code>CloudObject</code> objects.</p>
+                <h6>Error Handling</h6>
+                It throws <code>CB.Exception.CloudBoostException</code>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+
+var searchResultList = (List&lt;CB.CloudObject&gt;)await cs.Search();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+      </div>

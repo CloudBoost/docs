@@ -1,0 +1,765 @@
+<div class="method">
+          <a id='CloudSearch' name="CloudSearch" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h1>CloudSearch</h1>
+              <p>
+                It encapsulates a set of methods and attributes required to perform search on your data in CloudApp to retrieve desired set of relevant results.
+              </p>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div> <!-- method-example -->
+          </div><!-- method-section -->
+          <a id='CloudSearch-constructor' name="CloudSearch-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudSearch</code> object.
+              </p>
+              <div class="method-list">
+              <h3>Package</h3>
+              <p>
+              	<code>import com.cloudboost.CloudSearch;</code>
+              </p>
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>tableNames</dt>
+                  <dd class="">Array/string <span>The name of the table(s) you want to search on.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudSearch cs = new CloudSearch("Student");</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+           <a id='CloudSearch-searchOn' name="CloudSearch-searchOn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.searchOn( <code>columnName, query</code> )</h3>
+              <p>
+              Used to perform a search query.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string / Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">query<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+String[] list = {"C++", "Java", "C#"};
+CloudSearch cs = new CloudSearch("Student");
+cs.searchOn("resume", list);
+
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(Map&lt;String,Object&gt;[] list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='CloudSearch-equalTo' name="CloudSearch-equalTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.equalTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> is equal to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudSearch cs = new CloudSearch("Student");
+cs.equalTo("age", 21); //find all Students who age is 21
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(Map&lt;String,Object&gt;[] list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+         
+          <a id='CloudSearch-notEqualTo' name="CloudSearch-notEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.notEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> does not has the value <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudSearch cs = new CloudSearch("Student");
+//find all Students info except of Smith
+cs.notEqualTo("name", "Smith");
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(Map&lt;String,Object&gt;[] list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          
+          <a id='CloudSearch-greaterThan' name="CloudSearch-greaterThan" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.greaterThan( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value greater than <code>data</code>.
+              </p>
+              <div class="method-list">
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string / number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions. </p>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+CloudSearch cs = new CloudSearch("Teacher");
+//find all the teachers who are old.
+cs.greaterThan("age", 60);
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(Map&lt;String,Object&gt;[] list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudSearch-greaterThanEqualTo' name="CloudSearch-greaterThanEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.greaterThanEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value greater than or equals to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string / number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudSearch cs = new CloudSearch("Teacher");
+cs.greaterThanEqualTo("age", 60);
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(Map&lt;String,Object&gt;[] list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-lessThan' name="CloudSearch-lessThan" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.lessThan( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value less than <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string/number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudSearch cs = new CloudSearch("Student");
+cs.lessThan("age", 18);
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(Map&lt;String,Object&gt;[] list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='CloudSearch-lessThanEqualTo' name="CloudSearch-lessThanEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.lessThanEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value less than or equals to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string/number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudSearch cs = new CloudSearch("Student");
+cs.lessThanEqualTo("age", 17);
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(Map&lt;String,Object&gt;[] list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-or' name="CloudSearch-or" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.or( <code>cloudSearch1, cloudSearch2</code> )</h3>
+              <p>
+              It adds a logical OR contriant between 2 <code>CloudSearch</code> objects for 
+              finding the set of the data satisfying conditions of both <code>cloudSearch1</code>
+              and <code>cloudSearch2</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>cloudSearch1</dt>
+                  <dd class=""><code>CloudSearch object</code></dd>
+                  <div class="clearfix"></div>
+                  <dt>cloudSearch2</dt>
+                  <dd class=""><code>CloudSearch object</code></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>CloudSearch</code> object which contains
+                OR'ed query of both of the <code>CloudSearch</code> objects.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//find all Student such that 10&lt;age&lt;18
+
+CloudSearch cs1 = new CloudSearch("Student");
+cs1.lessThan("age", 18);
+cs1.searchOn("name", "Sam");
+
+CloudSearch cs2 = new CloudSearch("Student");
+cs2.greaterThan("age", 10);
+cs1.searchOn("name", "Dan");
+
+CloudSearch cs = CloudSearch.or(cs1, cs2);
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(Map&lt;String,Object&gt;[] list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);
+</span></span></code>
+              
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-orderByAsc' name="CloudSearch-orderByAsc" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.orderByAsc( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for arranging the subset of the data in ascending 
+              order.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudSearch cs = new CloudSearch("Student");
+cs.orderByAsc("age");
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(Map&lt;String,Object&gt;[] list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-orderByDesc' name="CloudSearch-orderByDesc" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.orderByDesc( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for arranging the subset of the data in descending 
+              order.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+               <h6>Returns</h6>
+                <p>Same search object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudSearch cs = new CloudSearch("Student");
+cs.orderByDesc('age');
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(Map&lt;String,Object&gt;[] list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-setLimit' name="CloudSearch-setLimit" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.setLimit( <code>data</code> )</h3>
+              <p>
+              It adds a contriant to limit no. of the data to be
+              fetched from the database.
+              </p>
+              <p>
+                If it is not set explicitly, database returns 20 results by default.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>data</dt>
+                  <dd class="">number <span>No. of data to be shown</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudSearch cs = new CloudSearch("Student");
+cs.setLimit(5);
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(Map&lt;String,Object&gt;[] list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-setSkip' name="CloudSearch-setSkip" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.setSkip( <code>data</code> )</h3>
+              <p>
+              It adds a constraint to skip <code>data</code> no. of data
+              matching satisfying the query contraints and fetching
+              from the database.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>data</dt>
+                  <dd class="">number <span>No. of data to be skipped</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudSearch cs = new CloudSearch("Student");
+cs.setSkip(5);
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(Map&lt;String,Object&gt;[] list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          
+
+          <a id='CloudSearch-exists' name="CloudSearch-exists" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h3>CloudSearch.exists( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> exists irrespective of what its value is.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column name which is to be checked for existence</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudSearch cs = new CloudSearch("Student");
+cs.exists("address");
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(Map&lt;String,Object&gt;[] list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-doesNotExists' name="CloudSearch-doesNotExists" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.doesNotExists( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> does not exists.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column name which is to be checked for non-existence</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudSearch cs = new CloudSearch("Student");
+cs.doesNotExists("address");
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(list) {
+		for(int i=0; i&lt;list.length; i++){
+			System.out.printMap&lt;String,Object&gt;[] ln(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudSearch-search' name="CloudSearch-search" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.search(<code>[callback]</code> )</h3>
+              <p>
+                Searches the database on the constraints provided by the <code>CloudSearch</code>
+                object and gets the result as an array of <code>CloudObject</code> objects.
+              </p>
+              <p>
+              If no. of documents to be returned is not specified using <a href="#CloudQuery-setLimit">limit()</a>
+              then at max 20 documents are returned in each query by default.
+              </p>
+              <div class="method-list">
+              
+				<h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">CloudSearchCallback interface object <span>must override success(Map&lt;String, Object &gt;) method and error method</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+                <h6>Returns</h6>
+                <p>It returns an array of <code>CloudObject</code> objects.</p>
+                <h6>Error Handling</h6>
+                It throws <code>CloudBoostException, MalformedURLException, IOException</code>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+Map&lt;String, Object &gt; list;
+//without callback 
+list = cs.search();
+//with callback
+CloudSearchCallback callbackObj = new CloudSearchCallback(){
+	@Override
+	public void success(list) {
+		for(int i=0; i&lt;liMap&lt;String,Object&gt;[] st.length; i++){
+			System.out.println(list[i].get("text"));
+		}
+	}
+	@Override
+	public void error() {
+		System.out.println("error message");
+	}
+};
+cs.search(callbackObj);</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+      </div>

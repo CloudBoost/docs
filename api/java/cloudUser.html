@@ -1,0 +1,279 @@
+<a id='CloudUser' name="CloudUser" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h1>CloudUser</h1>
+              <p>
+                There is a notion of user accounts that lets users access their information in a secure manner.
+                We provide a specialized user class called <code>CloudUser</code> that automatically handles
+                much of the functionality required for user account management.
+              </p>
+              <p>
+                <code>CloudUser</code> is a subclass of <code>CloudObject</code>, and has all the same features, such as flexible 
+                schema, automatic persistence, and a key value interface. All the methods that are on 
+                <code>CloudObject</code> also exist in <code>CloudUser</code>. The difference is that <code>CloudUser</code> has some special 
+                additions specific to user accounts. With this class, you'll be able to add user account 
+                functionality in your app.
+              </p>
+              <p>
+                There is a special object <code>CloudUser.current</code> which holds the
+                information of the current user logged in.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div>
+          </div>
+          <a id='CloudUser-constructor' name="CloudUser-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudUser</code> object.
+              </p>
+              <div class="method-list">
+              <h3>Package</h3>
+              <p>
+              <code>import com.cloudboost.CloudUser;</code>
+              </p>
+                <h6>Argument</h6>
+                <p>It takes no argument.</p>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudUser obj = new CloudUser();</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-signUp' name="CloudUser-signUp" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.signUp( )</h3>
+              <p>
+                It registers new user given its <i>username</i>, <i>email</i> and <i>password</i>.
+                Registration is successful if the given <i>email</i> is not already registered to an existing user.
+              </p>
+              <p>
+                It sets the attributes of <code>CloudUser.current</code> object with the 
+                <code>CloudUser</code> object recieved.
+              </p>
+              <div class="method-list">
+                
+                
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object which has the user information if registration is successful.
+                </p>
+                <h6>Error Handling</h6>
+                It throws <code>CloudBoostException</code>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudUser user = new CloudUser();
+user.set("username", "my_username");
+user.set("password", "my_solid_password");
+user.set("email", "email@sample.com");
+user.signUp();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-logIn' name="CloudUser-logIn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.logIn( )</h3>
+              <p>
+                It logs in user given its <i>username</i> and <i>password</i>.
+                Login is successful if the given <i>username</i> and <i>password</i> pair is already present in the database.
+              </p>
+              <p>
+                It sets the attributes of <code>CloudUser.current</code> object with the 
+                <code>CloudUser</code> object recieved.
+              </p>
+              <div class="method-list">
+                
+               </dl>
+
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object which has the user information if registration is 
+                successful.</p>
+                <h6>Error Handling</h6>
+                It throws <code>CloudBoostException</code>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudUser user = new CloudUser();
+user.set("username", "my_username");
+user.set("password", "my_solid_password");
+user.logIn();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-logOut' name="CloudUser-logOut" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.logOut( )</h3>
+              <p>
+                It logs the user out.
+              </p>
+              <p>
+                It sets the <code>CloudUser.current</code> object to <i>null</i>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object having the user information of the user who was logged in. 
+                </p>
+                <h6>Error Handling</h6>
+                It throws <code>CloudBoostException</code>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudUser.current.logOut();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudUser-current' name="CloudUser-current" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.current( )</h3>
+              <p>
+                Get the current logged in user.
+              </p>
+             
+              
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+//gets the current user if user is loggedIn, null otherwise.
+var currentUser = CloudUser.current;</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-addToRole' name="CloudUser-addToRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.addToRole( <code>role</code> )</h3>
+              <p>
+                A user can be a part of many roles, like in real world. For this functionality
+                user should get added to a Role.
+              </p>
+              <p>
+                For this purpose <code>addToRole()</code> of <code>CloudUser</code> comes in handy.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>role</dt>
+                  <dd class="">CloudRole Object <span> The <code>CloudRole</code> object of the role you want to
+                  add the user to.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object having the user information of the user who was logged in. 
+                </p>
+                <h6>Error Handling</h6>
+                It throws <code>CloudBoostExceptionn</code>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//role is an instance of CloudRole Object.
+
+CloudUser.current.addToRole(role);
+
+</span></span></code>
+            <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-isInRole' name="CloudUser-isInRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.isInRole( <code>role</code> )</h3>
+              <p>
+                To check if the current user is in the role provided by the role object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>role</dt>
+                  <dd class="">CloudRole Object <span> The <code>CloudRole</code> object of the role you want to
+                  check the user to.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <i>true/false</i> based on whether the user is in the given
+                role or not respectively.
+                </p>
+                <h6>Error Handling</h6>
+                It throws <code>CloudBoostException</code>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+//role is the instance of the CloudRole object. 
+
+if(CloudUser.current.isInRole(role)) {
+  //The current user is in the given role.
+} else {
+  //The user is not in the given role.
+}
+
+}</span></span></code>
+            <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudUser-removeFromRole' name="CloudUser-removeFromRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.removeFromRole( <code>role</code> )</h3>
+              <p>
+                Removes the user from the given role provided in <code>role</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>role</dt>
+                  <dd class="">CloudRole Object <span> The <code>CloudRole</code> object of the role you want to
+                  remove the user from.</span></dd>
+                  <div class="clearfix"></div>
+                  </dl>
+
+                <h6>Returns</h6>
+                <p>
+                It returns a <code>CloudUser</code> object having the user information of the user who was logged in.
+                </p>
+                <h6>Error Handling</h6>
+                It throws <code>CloudBoostException</code>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudUser.current.removeFromRole(role);</span></span></code>
+            <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->

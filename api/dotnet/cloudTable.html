@@ -1,0 +1,220 @@
+<div> 
+
+<div class="method">
+<a id="CloudTable" name="CloudTable" class="section-anchor">&nbsp;</a>
+<div class="method-section">
+<div class="method-description">
+<h1>CB.CloudTable</h1>
+<p>
+This API allows to create, delete, get details of a table from an App by using <b>master-key.</b>
+</p>
+</div>
+<div class="method-example" id="api-summary-example">
+</div>
+</div>
+<a id="CloudTable-constructor" name="CloudTable-constructor" class="section-anchor">&nbsp;</a>
+<div class="method-section">
+<div class="method-description">
+<h3>CB.CloudTable(<code>tableName</code>)</h3>
+<p>
+All the tables are in CloudBoost is a type of CloudTable. Pass the table name as a parameter to initialize a CloudTable.
+</p>
+<div class="method-list">
+<h6>Arguments</h6>
+<dl class="argument-list">
+<dt>tableName</dt>
+<dd class="">String <span>Table should not start with a number and should not contain any spaces and special characters.</span></dd>
+<div class="clearfix"></div>
+</dl>
+<h6>Returns</h6>
+<p>A CloudTable object</p>
+</div>
+</div>
+<div class="method-example" id="api-summary-example">
+<code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+<span class="keyword">var</span> table = <span class="keyword">new</span> CB.CloudTable(<span class="string">"TableName"</span>);
+</span></span></code>
+</div> 
+</div>  
+<a id="CloudTable-get" name="CloudTable-get" class="section-anchor">&nbsp;</a>
+<div class="method-section">
+<div class="method-description">
+<h3>CloudTable.GetAsync(<code>CloudTable, [callback]</code>)</h3>
+<p>
+To get a table's detail of an App use get method.
+</p>
+<div class="method-list">
+<h6>Arguments</h6>
+<dl class="argument-list">
+<dt>cloudtable</dt>
+<dd class="">CloudTable Object <span>Pass a CloudTable Object</span></dd>
+<dd>or</dd>
+<dd class="">CloudTable <span>Pass a Name of CloudTable</span></dd>
+<div class="clearfix"></div>
+<dt>callback</dt>
+<dd class="">Object <span>[optional] if provided must have success and error functions to handle respective response.</span></dd>
+<div class="clearfix"></div>
+</dl>
+<h6>Returns</h6>
+<p>A CloudTable Object</p>
+</div>
+</div>
+<div class="method-example" id="api-summary-example">
+<code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var obj = new CB.CloudTable("Address");
+CB.CloudTable table = await CB.CloudTable.GetAsync("Address");
+</span></span></code>
+</div> 
+</div>  
+<a id="CloudTable-getall" name="CloudTable-getall" class="section-anchor">&nbsp;</a>
+<div class="method-section">
+<div class="method-description">
+<h3>CloudTable.GetAllAsync(<code>[callback]</code>)</h3>
+<p>
+It fetch all tables of an App.
+</p>
+<div class="method-list">
+<h6>Arguments</h6>
+<dl>
+<dt>callback</dt>
+<dd class="">Object <span>[optional] if provided must have success and error functions to handle respective response.</span></dd>
+<div class="clearfix"></div>
+</dl>
+<h6>Returns</h6>
+<p>Array of CloudTable object</p>
+</div>
+</div>
+<div class="method-example" id="api-summary-example">
+<code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+List &lt;CB.CloudTable&gt; list = await CB.CloudTable.GetAllAsync();
+</span></span></code>
+</div> 
+</div>  
+<a id="CloudTable-addcolumn" name="CloudTable-addcolumn" class="section-anchor">&nbsp;</a>
+<div class="method-section">
+<div class="method-description">
+<h3>CloudTable.AddColumn(<code>columnObj</code>)</h3>
+<p>
+Add a column to a table. go through <a href="https://docs.cloudboost.io/#Column">Column</a> to get more detail about how to initialize a column object.
+</p>
+<div class="method-list">
+<h6>Arguments</h6>
+<dl>
+<dt>Column</dt>
+<dd class="">Column Object<span>Create a Column object using Column Class and put this object as an Argument</span></dd>
+<dd>or</dd>
+<dd class="">Column Name<span>Pass the Column Name as the Argument</span></dd>
+<div class="clearfix"></div>
+</dl>
+<h6>Returns</h6>
+<p>Void</p>
+</div>
+</div>
+<div class="method-example" id="api-summary-example">
+<code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var table = new CB.CloudTable("Student");
+var column = new CB.Column("Name", "Text", false, false);
+table.addColumn(column);
+await table.SaveAsync();
+</span></span></code>
+</div> 
+</div>  
+<a id="CloudTable-deletecolumn" name="CloudTable-deletecolumn" class="section-anchor">&nbsp;</a>
+<div class="method-section">
+<div class="method-description">
+<h3>CloudTable.DeleteColumn(<code>columnObj</code>)</h3>
+<p>
+Delete a column of a Table. go through <a href="">Column</a> to get more detail about how to initialize a Column Object.
+</p>
+<div class="method-list">
+<h6>Arguments</h6>
+<dl>
+<dt>Column</dt>
+<dd class="">Column Object<span>Create a column object using Column Class and put this object as an argument</span></dd>
+<dd>or</dd>
+<dd class="">Column Name<span>Pass the Column Name as the Argument</span></dd>
+<div class="clearfix"></div>
+</dl>
+<h6>Returns</h6>
+<p>Void</p>
+</div>
+</div>
+<div class="method-example" id="api-summary-example">
+<code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var column = new CB.Column("Name", "Text", false, false);
+table.DeleteColumn(column);
+await table.SaveAsync();
+</span></span></code>
+</div> 
+</div>  
+<a id="CloudTable-save" name="CloudTable-save" class="section-anchor">&nbsp;</a>
+<div class="method-section">
+<div class="method-description">
+<h3>CloudTable.SaveAsync(<code>[callback]</code>)</h3>
+<p>
+Save a CloudTable Object. It will automatically create all default columns for a table. If you want to create a user table or role table then just pass 'User' or 'Role' as an argument while creating cloudtable object.
+</p>
+<div class="method-list">
+<h6>Arguments</h6>
+<dl>
+<dt>callback</dt>
+<dd class="">Object <span>[optional] if provided must have success and error functions to handle respective response.</span></dd>
+<div class="clearfix"></div>
+</dl>
+<h6>Returns</h6>
+<p>CloudTable Object</p>
+</div>
+</div>
+<div class="method-example" id="api-summary-example">
+<code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var table = new CB.CloudTable("NewTable");
+awair table.SaveAsync();
+</span></span></code>
+</div> 
+</div>  
+<a id="CloudTable-delete" name="CloudTable-delete" class="section-anchor">&nbsp;</a>
+<div class="method-section">
+<div class="method-description">
+<h3>CloudTable.DeleteAsync(<code>[callback]</code>)</h3>
+<p>
+Delete a CloudTable object i.e. delete a table of an App.
+</p>
+<div class="method-list">
+<h6>Arguments</h6>
+<dl>
+<dt>callback</dt>
+<dd class="">Object <span>[optional] if provided must have success and error functions to handle respective response.</span></dd>
+<div class="clearfix"></div>
+</dl>
+<h6>Returns</h6>
+<p>Success or Error Status</p>
+</div>
+</div>
+<div class="method-example" id="api-summary-example">
+<code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var table = new CB.CloudTable("Student");
+await table.DeleteAsync();
+</span></span></code>
+</div> 
+</div>  
+</div>  
+<a id="CloudTable-getColumn" name="CloudTable-getColumn" class="section-anchor">&nbsp;</a>
+<div class="method-section">
+<div class="method-description">
+<h3>CloudTable.Columns
+<p>
+Get's all columns list.
+</p>
+<div class="method-list">
+
+<h6>Returns</h6>
+<p>List of Cloud Column Object</p>
+</div>
+</div>
+<div class="method-example" id="api-summary-example">
+<code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+table.Columns
+</span></span></code>
+</div> 
+</div>  
+</div>

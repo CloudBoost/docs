@@ -1,0 +1,991 @@
+<!-- CloudQuery Section -->
+
+        <div class="method">
+          <a id='CloudQuery' name="CloudQuery" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h1>CB.CloudQuery</h1>
+              <p>
+                It encapsulates a set of methods and attributes required to query your data in
+                CloudApp to retrieve desired set of results.
+              </p>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div> <!-- method-example -->
+          </div><!-- method-section -->
+          <a id='CloudQuery-constructor' name="CloudQuery-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">              
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudQuery</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>tableName</dt>
+                  <dd class="">string <span>The name of the table you want to query on.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>void</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("Student");</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='CloudQuery-equalTo' name="CloudQuery-equalTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.EqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> is equal to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.EqualTo("age", 21); //find all Students who age is 21
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudQuery-containedIn' name="CloudQuery-containedIn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.ContainedIn( <code>columnName, data</code> )</h3>
+              <p>
+              If you want to retrieve objects matching several different values, you can use containedIn, providing an array of acceptable values. This is often useful to replace multiple queries with a single query. 
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Array <span>The value(s) that are to be matched with.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+//Get Student where name is equal to Smith, Max or Lucy
+var list = new ArrayList();
+list.Add("Smith");
+list.Add("Max");
+list.Add("Lucy");
+query.ContainedIn("name", list);
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-containsAll' name="CloudQuery-containsAll" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.ContainsAll( <code>columnName, data</code> )</h3>
+              <p>
+               Find objects where the array data in columnName contains all of the elements of data.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Array <span>The value(s) that are to be matched with.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+//find Students who are in JavaScript and C# class
+var list = new ArrayList();
+list.Add("java");
+list.Add("javascript");
+query.ContainsAll("classes", list);
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-startsWith' name="CloudQuery-startsWith" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.StartsWith( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant to find the data in which value of <code>columnName</code>
+              of each data is starts with <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string <span>The value that is to be checked with.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+//find all the Students who name starts with letter 'S'
+query.StartsWith("name", "S");
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-notEqualTo' name="CloudQuery-notEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.NotEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> does not has the value <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+//find all Students info except of Smith
+query.NotEqualTo("name", "Smith");
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-notContainedIn' name="CloudQuery-notContainedIn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.NotContainedIn( <code>columnName, data</code> )</h3>
+              <p>
+               If you want to retrieve objects which doesnot include several different values, you can use notContainedIn, providing an array of acceptable values. This is often useful to replace multiple queries with a single query. 
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Array <span>The value(s) that are to be matched with.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var query = new CB.CloudQuery("Student");
+//Get all Students except Smith, Max and Lucy
+var list = new ArrayList();
+list.Add("Smith");
+list.Add("Max");
+list.Add("Lucy");
+query.NotContainedIn("name", list);
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-greaterThan' name="CloudQuery-greaterThan" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.GreaterThan( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value greater than <code>data</code>.
+              </p>
+              <div class="method-list">
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string / number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions. </p>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var query = new CB.CloudQuery("Teacher");
+//find all the teachers who are old.
+query.GreaterThan("age", 60);
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-greaterThanEqualTo' name="CloudQuery-greaterThanEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.GreaterThanEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value greater than or equals to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string / number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Teacher");
+query.GreaterThanEqualTo("age", 60);
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-lessThan' name="CloudQuery-lessThan" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.LessThan( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value less than <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string/number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.LessThan("age", 18);
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-lessThanEqualTo' name="CloudQuery-lessThanEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.LessThanEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value less than or equals to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string/number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.LessThanEqualTo("age", 17);
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-or' name="CloudQuery-or" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.Or( <code>query1, query2</code> )</h3>
+              <p>
+              It adds a logical OR contriant between 2 <code>CloudQuery</code> objects for 
+              finding the set of the data satisfying conditions of both <code>query1</code>
+              and <code>query2</code>.
+              </p>
+              <p>
+                Both of the <code>CloudQuery</code> objects should be of the same collection
+                otherwise it throws an error.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>query1</dt>
+                  <dd class=""><code>CloudQuery object</code></dd>
+                  <div class="clearfix"></div>
+                  <dt>query2</dt>
+                  <dd class=""><code>CloudQuery object</code></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>CloudQuery</code> object which contains
+                OR'ed query of both of the <code>CloudQuery</code> objects.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//find all Student such that 10&lt;age&lt;18
+
+var query1 = new CloudQuery("Student");
+query1.LessThan("age", 18);
+
+var query2 = new CB.CloudQuery("Student"");
+query2.GreaterThan("age", 10);
+
+CloudQuery query = CloudQuery.Or(query1, query2);
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();</span></span></code>
+              
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-orderByAsc' name="CloudQuery-orderByAsc" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.OrderByAsc( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for arranging the subset of the data in ascending 
+              order.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.OrderByAsc("age");
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-orderByDesc' name="CloudQuery-orderByDesc" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.OrderByDesc( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for arranging the subset of the data in descending 
+              order.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+               <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.OrderByDesc("age");
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-setLimit' name="CloudQuery-setLimit" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.Limit</h3>
+              <p>
+              It adds a contriant to limit no. of the data to be
+              fetched from the database.
+              </p>
+              <p>
+                If it is not set explicitly, database returns 20 results by default.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.Limit = 5;
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-setSkip' name="CloudQuery-setSkip" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.Skip</h3>
+              <p>
+              It adds a constraint to skip <code>data</code> no. of data
+              matching satisfying the query contraints and fetching
+              from the database.
+              </p>
+              <p>
+                It requires a <em>sort</em> contriant and if none of it is 
+                provided by the user then the documents are sorted according 
+                to the <i>createdAt</i> attribute associated with the data.
+              </p>
+             
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CloudQuery("Student");
+query.Skip = 5;
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-selectColumn' name="CloudQuery-selectColumn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.SelectColumn( <code>columnNames</code> )</h3>
+              <p>
+              It adds a contriant limiting the columns that are to fetched
+              for each of the data from the database.
+              </p>
+              <p>
+                <i>id</i>, <i>createdAt</i>, <i>updatedAt</i> and <i>ACL</i>
+                are always returned unless explicitly provided by the user to
+                discard it using <a href="#CloudQuery-doNotSelectColumn">doNotSelectColumn()</a>
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnNames</dt>
+                  <dd class="">string/Object/Array <span>The name of the column(s) that are to be returned</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudQuery query = new CloudQuery("Student");
+var list = new ArrayList();
+list.Add("name");
+list.Add("age");                  
+query.SelectColumn(list);
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-doNotSelectColumn' name="CloudQuery-doNotSelectColumn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.DoNotSelectColumn( <code>columnNames</code> )</h3>
+              <p>
+              It adds a contriant restricting the columns given in <code>columnNames</code> 
+              to be fetched for each of the data from the database.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnNames</dt>
+                  <dd class="">string/Object/Array <span>The name of the column(s) that are not to be returned</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudQuery query = new CloudQuery("Student");query.greaterThan("age", 18);
+query.DoNotSelectColumn("address");
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-exists' name="CloudQuery-exists" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h3>CloudQuery.Exists( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> exists irrespective of what its value is.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column name which is to be checked for existence</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.Exists("address");
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-doesNotExists' name="CloudQuery-doesNotExists" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.DoesNotExists( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> does not exists.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column name which is to be checked for non-existence</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+                
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.DoesNotExists("address");
+var response = (List&lt;CB.CloudObject&gt;) await query.FindAsync();</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+                    <a id='CloudQuery-find' name="CloudQuery-find" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.FindAsync()</h3>
+              <p>
+                Queries the database on the constraints provided by the <code>CloudQuery</code>
+                object and gets the result as an array of <code>CloudObject</code> objects.
+              </p>
+              <p>
+              If no. of documents to be returned is not specified using <a href="#CloudQuery-setLimit">limit()</a>
+              then at max 20 documents are returned in each query by default.
+              </p>
+              <p>
+                If no. of documents to be skipped is specified using <a href="#CloudQuery-setSkip">skip()</a> 
+                without sorting parameter then the documents matching the query provided in 
+                <code>CloudQuery</code> object are sorted in ascending order of <i>createdAt</i> field.
+              </p>
+              <div class="method-list">
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns an array of <code>CloudObject</code> objects.</p>
+                <h6>Error Handling</h6>
+                It throws <code>CB.Exception.CloudBoostException</code>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js java">
+
+var list = (List&lt;CB.CloudObject&gt;) await query.FindAsync();
+string name;
+int age;
+for(int i=0; i &lt; list.Count; i++ ){
+	name = (string)list[i].Get("name");
+	age = (int)list[i].Get("age");
+}</span></span></code>
+
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-findOne' name="CloudQuery-findOne" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.FindOneAsync( )</h3>
+              <p>
+                Queries the database on the constraints provided by the <code>CloudQuery</code>
+                object and gets a single <code>CloudObject</code> object satisfying the constraint.
+              </p>
+              <p>
+                If no. of documents to be skipped is specified using <a href="#CloudQuery-setSkip">skip()</a> 
+                without sorting parameter then the documents matching the query provided in 
+                <code>CloudQuery</code> object are sorted in ascending order of <i>createdAt</i> field.
+              </p>
+              <div class="method-list">
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>CloudObject</code> object or an error object if the opertion is successful.It throws an error 
+                too if sufficient data is not available to query the database.
+               </p>
+               <h6>Error Handling</h6>
+                It throws <code>CB.Exception.CloudBoostException</code>
+              </div>
+              
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js java">
+string name;
+int age;
+
+var obj = (CB.CloudObject) await query.FindOneAsync();
+name = (string)obj.get("name");
+age = (int)obj.get("age");
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-get' name="CloudQuery-get" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.GetAsync( <code>id</code> )</h3>
+              <p>
+                Queries the database gets a <code>CloudObject</code> object whose <i>id</i> field
+                matches <code>id</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>id</dt>
+                  <dd class="">string <span>The ID of the data which is to be matched with <i>_id</i> field
+                  in the database.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>CloudObject</code> object or an error object if the opertion is successful. It throws an error 
+                too if sufficient data is not available to query the database.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+//retrieve a Student detail by his unique ID
+var obj = (CB.CloudObject) await query.GetAsync("54e837d6d51a5ea011aa79ea");</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudQuery-count' name="CloudQuery-count" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.CountAsync( )</h3>
+              <p>
+              It adds a contriant to find the data in which value of <code>columnName</code>
+              of each data is at least equal to all of the value(s) provided in <code>data</code>.
+              </p>
+              <div class="method-list">
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns an <i>Integer</i> which is the number of documents matching the
+                constraints given in the <code>CloudQuery</code>.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//fetch how many Students are there who age&gt;18
+var count = await (int)query.CountAsync();</span></span></code>
+            </div><!-- method-example -->
+
+          </div> <!-- method-section -->
+          <a id='CloudQuery-distinct' name="CloudQuery-distinct" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.DistinctAsync( <code>columnName</code> )</h3>
+              <p>
+              It returns distinct objects which have columnName
+              </p>
+              <p>
+                Sort parameter is required and if not provided by the user ascending order
+                sorting on <i>createdAt</i> field is applied by default.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+                  
+                  <dt>columnName</dt>
+                  <dd class="">String <span> The column name which should have distinct values in the
+                  returned data set.</span></dd>
+                  <div class="clearfix"></div>                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns an array of <code>CloudObject</code> objects which are documents 
+                matching the given query in the <code>CloudQuery</code> object having distinct values of
+                <code>ColumnName</code>.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var list = (List&lt;CB.CloudObject&gt;) await query.DistinctAsync("address");</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+        </div><!-- method -->
+        
+        <!--Inlcude-->
+          <a id='CloudQuery-include' name="CloudQuery-include" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudQuery.Include( <code>columnName</code> )</h3>
+                  <p>
+                      It gives the join on columnName for the table being queried upon.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>columnName</dt>
+                          <dd class="">String <span> The column name on which join is to be performed.</span></dd>
+                          <div class="clearfix"></div>
+
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Same query object, which can be helpful in chaining query functions.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//joins table student with hostel
+var query = new CB.CloudQuery("Student");
+query.Include("hostel");
+</span></span></code>
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+
+          <a id='CloudQuery-near' name="CloudQuery-near" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudQuery.Near(columnName,geoPoint, range)</h3>
+                  <p>
+                      Queries for <code>CloudObject</code> objects which are within range.It gives result in the order of nearest to farthest.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>ColumnName</dt>
+                          <dd class="">String <span> Name of column which has the <code>CloudGeoPoint</code></span></dd>
+                          <div class="clearfix"></div>
+                          <dt>CloudGeoPoint</dt>
+                          <dd class="">Object <span> It is the point close to which the points are to be found
+                   respective response.</span></dd>
+                          <div class="clearfix"></div>
+                          <dt>Range</dt>
+                          <dd class="">Number <span> It the range within which are CloudObjects are to be sought. It is given in Meters</span></dd>
+                          <div class="clearfix"></div>
+
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Same query object, which can be helpful in chaining query functions.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc = new CB.CloudGeoPoint(17.7,80.3);
+var query = new CB.CloudQuery("Custom5"");
+query.Near("location", loc, 100000);
+var response = await query.Find();
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudQuery-geowithin' name="CloudQuery-geowithin" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudQuery.Geowithin("ColumnName",CloudGeoPoint,Radius)</h3>
+                  <p>
+                      Queries for CloudObject objects which are within range.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>ColumnName</dt>
+                          <dd class="">Object <span> Name of column which has the <code>CloudGeoPoint</code></span></dd>
+                          <div class="clearfix"></div>
+                          <dt>CloudGeoPoints</dt>
+                          <dd class="">Array <span> Array of CloudGeopoints within which we want to search CloudObjects or Center of Circle in case the shape is circle</span></dd>
+                          <div class="clearfix"></div>
+                          <dt>Radius</dt>
+                          <dd class="">decimal <span> [Optional] Radius of Circle. Radius is taken in Meters</span></dd>
+                          <div class="clearfix"></div>
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Same query object, which can be helpful in chaining query functions.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc1 = new CB.CloudGeoPoint(18.4,78.9);
+var loc2 = new CB.CloudGeoPoint(17.4,78.4);
+var loc3 = new CB.CloudGeoPoint(17.7,80.4);
+var query = new CB.CloudQuery("Custom");
+var list = new ArrayList();
+list.Add(loc1);
+list.Add(loc2);
+list.Add(loc3);
+query.GeoWithin("location", list);
+var response = await query.Find();
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->

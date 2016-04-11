@@ -1,0 +1,1252 @@
+
+
+<!-- CloudQuery Section -->
+
+        <div class="method">
+          <a id='CloudQuery' name="CloudQuery" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h1>CloudQuery</h1>
+              <p>
+                It encapsulates a set of methods and attributes required to query your data in
+                CloudApp to retrieve desired set of results.
+              </p>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div> <!-- method-example -->
+          </div><!-- method-section -->
+          <a id='CloudQuery-constructor' name="CloudQuery-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudQuery</code> object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>tableName</dt>
+                  <dd class="">string <span>The name of the table you want to query on.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>void</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("Student");</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='CloudQuery-equalTo' name="CloudQuery-equalTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.equalTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> is equal to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.equalTo('age', 21); //find all Students who age is 21
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+           <a id='CloudQuery-notEqualTo' name="CloudQuery-notEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.notEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> does not has the value <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+//find all Students info except of Smith
+query.notEqualTo('name', 'Smith');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudQuery-containedIn' name="CloudQuery-containedIn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.containedIn( <code>columnName, data</code> )</h3>
+              <p>
+              If you want to retrieve objects matching several different values, you can use containedIn, providing an array of acceptable values. This is often useful to replace multiple queries with a single query. 
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Array <span>The value(s) that are to be matched with.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+//Get Student where name is equal to Smith, Max <b>OR</b> Lucy
+query.containedIn('name', ['Smith', 'Max', 'Lucy']);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+}); 
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-containsAll' name="CloudQuery-containsAll" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.containsAll( <code>columnName, data</code> )</h3>
+              <p>
+               Find objects where the array data in columnName contains all of the elements of data.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Array <span>The value(s) that are to be matched with.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+//find Students who are in JavaScript <b>AND</b> C# class
+query.containsAll('classes', ['JavaScript', 'C#']);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudQuery-notContainedIn' name="CloudQuery-notContainedIn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.notContainedIn( <code>columnName, data</code> )</h3>
+              <p>
+               If you want to retrieve objects which doesnot include several different values, you can use notContainedIn, providing an array of acceptable values. This is often useful to replace multiple queries with a single query. 
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Array <span>The value(s) that are to be matched with.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var query = new CB.CloudQuery("Student");
+//Get all Students except Smith, Max and Lucy
+query.notContainedIn('name', ['Smith', 'Max', 'Lucy']);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          
+          <a id='CloudQuery-greaterThan' name="CloudQuery-greaterThan" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.greaterThan( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value greater than <code>data</code>.
+              </p>
+              <div class="method-list">
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string / number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions. </p>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+var query = new CB.CloudQuery("Teacher");
+//find all the teachers who are old.
+query.greaterThan('age', 60);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-greaterThanEqualTo' name="CloudQuery-greaterThanEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.greaterThanEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value greater than or equals to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string / number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Teacher");
+query.greaterThanEqualTo('age', 60);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+
+
+          <a id='CloudQuery-lessThan' name="CloudQuery-lessThan" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.lessThan( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value less than <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string/number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.lessThan('age', 18);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-lessThanEqualTo' name="CloudQuery-lessThanEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.lessThanEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value less than or equals to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string/number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.lessThanEqualTo('age', 17);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+           <a id='CloudQuery-startsWith' name="CloudQuery-startsWith" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.startsWith( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant to find the data in which value of <code>columnName</code>
+              of each data is starts with <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The name of the column whose value is to be checked</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string <span>The value that is to be checked with.</span></dd>
+                  <div class="clearfix"></div>
+
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+//find all the Students who name starts with letter 'S'
+query.startsWith('name', 'S');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudQuery-or' name="CloudQuery-or" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.or( <code>query1, query2</code> )</h3>
+              <p>
+              It adds a logical OR contriant between 2 <code>CloudQuery</code> objects for 
+              finding the set of the data satisfying conditions of both <code>query1</code>
+              and <code>query2</code>.
+              </p>
+              <p>
+                Both of the <code>CloudQuery</code> objects should be of the same collection
+                otherwise it throws an error.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>query1</dt>
+                  <dd class=""><code>CloudQuery object</code></dd>
+                  <div class="clearfix"></div>
+                  <dt>query2</dt>
+                  <dd class=""><code>CloudQuery object</code></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>CloudQuery</code> object which contains
+                OR'ed query of both of the <code>CloudQuery</code> objects.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//find all Student such that 10&lt;age&lt;18
+
+var query1 = new CB.CloudQuery('Student');
+query1.lessThan('age', 18);
+
+var query2 = new CB.CloudQuery('Student');
+query2.greaterThan('age', 10);
+
+var query = CB.CloudQuery.or(query1, query2);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+              
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-orderByAsc' name="CloudQuery-orderByAsc" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.orderByAsc( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for arranging the subset of the data in ascending 
+              order.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.orderByAsc('age');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-orderByDesc' name="CloudQuery-orderByDesc" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.orderByDesc( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for arranging the subset of the data in descending 
+              order.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+               <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.orderByDesc('age');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-setLimit' name="CloudQuery-setLimit" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.setLimit( <code>data</code> )</h3>
+              <p>
+              It adds a contriant to limit no. of the data to be
+              fetched from the database.
+              </p>
+              <p>
+                If it is not set explicitly, database returns 20 results by default.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>data</dt>
+                  <dd class="">number <span>No. of data to be shown</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.setLimit(5);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-setSkip' name="CloudQuery-setSkip" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.setSkip( <code>data</code> )</h3>
+              <p>
+              It adds a constraint to skip <code>data</code> no. of data
+              matching satisfying the query contraints and fetching
+              from the database.
+              </p>
+              <p>
+                It requires a <em>sort</em> contriant and if none of it is 
+                provided by the user then the documents are sorted according 
+                to the <i>createdAt</i> attribute associated with the data.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>data</dt>
+                  <dd class="">number <span>No. of data to be skipped</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.setSkip(5);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+<a id='CloudQuery-paginate' name="CloudQuery-paginate" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.paginate( <code>pageNo</code>, <code>totalItemsInPage</code>)</h3>
+              <p>
+              Paginate returns only the specified number of objects from the database. It takes in the current page number and total items in page as parameters and returns list of objects,count,total number of pages.
+              </p>              
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>pageNo</dt>
+                  <dd class="">number <span>Current page number</span></dd>
+                  <div class="clearfix"></div>
+
+                  <dt>totalItemsInPage</dt>
+                  <dd class="">number <span>total items in page</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>List of objects,count,total number of pages</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.paginate(2,10,{
+  success: function(objectsList,count,totalPages){
+    //objectsList is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-selectColumn' name="CloudQuery-selectColumn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.selectColumn( <code>columnNames</code> )</h3>
+              <p>
+              It adds a contriant limiting the columns that are to fetched
+              for each of the data from the database.
+              </p>
+              <p>
+                <i>id</i>, <i>createdAt</i>, <i>updatedAt</i> and <i>ACL</i>
+                are always returned unless explicitly provided by the user to
+                discard it using <a href="#CloudQuery-doNotSelectColumn">doNotSelectColumn()</a>
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnNames</dt>
+                  <dd class="">string/Object/Array <span>The name of the column(s) that are to be returned</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("Student");
+query.selectColumn(['name', 'age']);
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-doNotSelectColumn' name="CloudQuery-doNotSelectColumn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.doNotSelectColumn( <code>columnNames</code> )</h3>
+              <p>
+              It adds a contriant restricting the columns given in <code>columnNames</code> 
+              to be fetched for each of the data from the database.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnNames</dt>
+                  <dd class="">string/Object/Array <span>The name of the column(s) that are not to be returned</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">var query = new CB.CloudQuery("Student");
+query.greaterThan('age', 18);
+query.doNotSelectColumn('address');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-exists' name="CloudQuery-exists" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h3>CloudQuery.exists( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> exists irrespective of what its value is.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column name which is to be checked for existence</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.exists('address');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-doesNotExists' name="CloudQuery-doesNotExists" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.doesNotExists( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> does not exists.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column name which is to be checked for non-existence</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same query object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var query = new CB.CloudQuery("Student");
+query.doesNotExists('address');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+                    <a id='CloudQuery-find' name="CloudQuery-find" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.find( <code>[callback]</code> )</h3>
+              <p>
+                Queries the database on the constraints provided by the <code>CloudQuery</code>
+                object and gets the result as an array of <code>CloudObject</code> objects.
+              </p>
+              <p>
+              If no. of documents to be returned is not specified using <a href="#CloudQuery-setLimit">limit()</a>
+              then at max 20 documents are returned in each query by default.
+              </p>
+              <p>
+                If no. of documents to be skipped is specified using <a href="#CloudQuery-setSkip">skip()</a> 
+                without sorting parameter then the documents matching the query provided in 
+                <code>CloudQuery</code> object are sorted in ascending order of <i>createdAt</i> field.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns an array of <code>CloudObject</code> objects or an error object if the opertion is successful or fails respectively along with JQuery promise (if <code>callback</code> is not provided).</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects 
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-findOne' name="CloudQuery-findOne" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.findOne( <code>[callback]</code> )</h3>
+              <p>
+                Queries the database on the constraints provided by the <code>CloudQuery</code>
+                object and gets a single <code>CloudObject</code> object satisfying the constraint.
+              </p>
+              <p>
+                If no. of documents to be skipped is specified using <a href="#CloudQuery-setSkip">skip()</a> 
+                without sorting parameter then the documents matching the query provided in 
+                <code>CloudQuery</code> object are sorted in ascending order of <i>createdAt</i> field.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>CloudObject</code> object or an error object if the opertion is successful
+                or fails respectively along with JQuery promise (if <code>callback</code> is not provided). It throws an error 
+                too if sufficient data is not available to query the database</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+query.findOne({
+  success: function(obj){
+    //obj is an instance of CloudObject
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudQuery-get' name="CloudQuery-get" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.findById( <code>id,  [callback]</code> )</h3>
+              <p>
+                Queries the database gets a <code>CloudObject</code> object whose <i>id</i> field
+                matches <code>id</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>id</dt>
+                  <dd class="">string <span>The ID of the data which is to be matched with <i>_id</i> field
+                  in the database.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>CloudObject</code> object or an error object if the opertion is successful
+                or fails respectively along with JQuery promise (if <code>callback</code> is not provided). It throws an error 
+                too if sufficient data is not available to query the database</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+//retrieve a Student detail by his unique ID
+query.findById('xxxxx', {
+  success: function(obj){
+    //obj an instance of CloudObject
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  } 
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudQuery-count' name="CloudQuery-count" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.count( <code>[callback]</code> )</h3>
+              <p>
+              It adds a contriant to find the data in which value of <code>columnName</code>
+              of each data is at least equal to all of the value(s) provided in <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+                  
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns an <i>Integer</i> which is the number of documents matching the
+                constraints given in the <code>CloudQuery</code> object along with JQuery 
+                promise (if <code>callback</code> is not provided).</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+query.count({
+  success: function(count){
+    //count is the count of data which belongs to the query
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+
+          </div> <!-- method-section -->
+          <a id='CloudQuery-distinct' name="CloudQuery-distinct" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.distinct( <code>columnName,  [callback]</code> )</h3>
+              <p>
+              It returns distinct objects which have columnName
+              </p>
+              <p>
+                Sort parameter is required and if not provided by the user ascending order
+                sorting on <i>createdAt</i> field is applied by default.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+                  
+                  <dt>columnName</dt>
+                  <dd class="">String <span> The column name which should have distinct values in the
+                  returned data set.</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>callback</dt>
+                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
+                   respective response.</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns an array of <code>CloudObject</code> objects which are documents 
+                matching the given query in the <code>CloudQuery</code> object having distinct values of
+                <code>ColumnName</code> along with JQuery promise (if <code>callback</code> is not provided).</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+query.distinct('address', {
+  success: function(data){
+    //data is an array of document(s)
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+        </div><!-- method -->
+
+        <!--Inlcude-->
+          <a id='CloudQuery-include' name="CloudQuery-include" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudQuery.include( <code>columnName</code> )</h3>
+                  <p>
+                      It gives the join on columnName for the table being queried upon.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>columnName</dt>
+                          <dd class="">String <span> The column name on which join is to be performed.</span></dd>
+                          <div class="clearfix"></div>
+
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Same query object, which can be helpful in chaining query functions.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//joins table student with hostel
+var query = new CB.CloudQuery("Student");
+query.include('hostel');
+query.find({
+  success: function(list){
+    //list is an array of CloudObjects
+  },
+  error: function(err) {
+    //Error in retrieving the data.
+  }
+});</span></span></code>
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+
+          <a id='CloudQuery-near' name="CloudQuery-near" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudQuery.near(columnName,geoPoint, range)</h3>
+                  <p>
+                      Queries for <code>CloudObject</code> objects which are within range.It gives result in the order of nearest to farthest.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>ColumnName</dt>
+                          <dd class="">String <span> Name of column which has the <code>CloudGeoPoint</code></span></dd>
+                          <div class="clearfix"></div>
+                          <dt>CloudGeoPoint</dt>
+                          <dd class="">Object <span> It is the point close to which the points are to be found
+                   respective response.</span></dd>
+                          <div class="clearfix"></div>
+                          <dt>Range</dt>
+                          <dd class="">Number <span> It the range within which are CloudObjects are to be sought. It is given in Meters</span></dd>
+                          <div class="clearfix"></div>
+
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Same query object, which can be helpful in chaining query functions.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc = new CB.CloudGeoPoint(17.7,80.3);
+var query = new CB.CloudQuery('Custom5');
+query.near("location", loc, 100000);
+query.find().then(function(list) {
+       //searches for cloudobjects within 100000 meters
+}, function (err) {
+      //error
+  })
+});
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudQuery-geowithin' name="CloudQuery-geowithin" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+              <div class="method-description">
+
+                  <h3>CloudQuery.geowithin("ColumnName",CloudGeoPoint,Radius)</h3>
+                  <p>
+                      Queries for CloudObject objects which are within range.
+                  </p>
+                  <div class="method-list">
+
+                      <h6>Argument</h6>
+                      <dl class="argument-list">
+
+                          <dt>ColumnName</dt>
+                          <dd class="">Object <span> Name of column which has the <code>CloudGeoPoint</code></span></dd>
+                          <div class="clearfix"></div>
+                          <dt>CloudGeoPoints</dt>
+                          <dd class="">Array <span> Array of CloudGeopoints within which we want to search CloudObjects or Center of Circle in case the shape is circle</span></dd>
+                          <div class="clearfix"></div>
+                          <dt>Radius</dt>
+                          <dd class="">decimal <span> [Optional] Radius of Circle. Radius is taken in Meters</span></dd>
+                          <div class="clearfix"></div>
+                      </dl>
+
+                      <h6>Returns</h6>
+                      <p>Same query object, which can be helpful in chaining query functions.</p>
+                  </div>
+              </div>
+              <div class="method-example" id="api-summary-example">
+                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var loc1 = new CB.CloudGeoPoint(18.4,78.9);
+var loc2 = new CB.CloudGeoPoint(17.4,78.4);
+var loc3 = new CB.CloudGeoPoint(17.7,80.4);
+var query = new CB.CloudQuery('Custom');
+query.geoWithin("location", [loc1, loc2, loc3]);
+query.find().then(function(list) {
+       //searches for cloudobjects within triangle formed by the CloudGeoPoints
+}, function (err) {
+      //error
+  })
+});
+
+</span></span></span></code>
+
+              </div><!-- method-example -->
+          </div> <!-- method-section -->

@@ -1,0 +1,133 @@
+<a id='CloudFile' name="CloudFile" class="section-anchor">&nbsp;</a>
+      <div class="method-section">
+        <div class="method-description">
+          <h1>CloudFile</h1>
+          <p>
+            <code>CloudFile</code> lets you store application files in the cloud that would otherwise be too large or 
+            cumbersome to fit into a regular <code>CloudObject</code>. The most common use case is storing images, 
+            but you can also use it for documents, videos, music, and any other binary data.
+          </p>
+        </div>
+        <div class="method-example" id="api-summary-example">
+        </div>
+      </div>
+      <a id='CloudFile-constructor' name="CloudFile-constructor" class="section-anchor">&nbsp;</a>
+      <div class="method-section">
+        <div class="method-description">
+
+          <h3>Constructor</h3>
+          <p>
+          Instantiates a <code>CloudFile</code> object.
+          </p>
+          <div class="method-list">
+           <h3>Package</h3>
+          	<p>
+         	 	<code>import com.cloudboost.CloudFile;</code>
+          	</p>
+            <h6>Argument</h6>
+            <dl class="argument-list">
+
+              <dt>file</dt>
+              <dd class="">file/BLOB object<span>The file/BLOB that you want to save</span></dd>
+              <div class="clearfix"></div>
+              <h6>Error Handling</h6>
+            It throws <code>CloudBoostException</code>
+            </dl>
+
+          </div>
+        </div>
+        <div class="method-example" id="api-summary-example">
+          <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+File file = new File("/home/my-pc/Desktop/abc.txt");
+CloudFile cf = new CloudFile(file);
+</span></span></code>
+        </div><!-- method-example -->
+      </div> <!-- method-section -->
+      <a id='CloudFile-save' name="CloudRole-save" class="section-anchor">&nbsp;</a>
+      <div class="method-section">
+        <div class="method-description">
+
+          <h3>CloudFile.save( )</h3>
+          <p>
+          Saves the <code>CloudFile</code> object.
+          </p>
+          <div class="method-list">
+
+            <h6>Returns</h6>
+            <p>It returns a <code>CloudFile</code> object having <code>url</code> attribute set to the URL 
+            of the blob uploaded to the server if the operation is successful.<p>
+            <h6>Error Handling</h6>
+            It throws <code>CloudBoostException, MalformedURLException, IOException</code>
+          </div>
+        </div>
+        <div class="method-example" id="api-summary-example">
+          <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+File file = new File("/home/my-pc/Desktop/abc.txt");
+CloudFile cloudFileObj = new CloudFile(file);
+CloudFileCallback callbackObj = new CloudFileCallback(){ 
+@Override 
+public void success(CloudFile obj){ 
+System.out.println("success message");
+//got the file object successfully with the url to the file
+} 
+@Override 
+public void error(){ 
+System.out.println("error message"); 
+} 
+}; 
+cloudFileObj.save(callbackObj);
+</span></span></code>
+        </div><!-- method-example -->
+      </div> <!-- method-section -->
+      <a id='CloudFile-delete' name="CloudRole-delete" class="section-anchor">&nbsp;</a>
+      <div class="method-section">
+        <div class="method-description">
+
+          <h3>CloudFile.delete( )</h3>
+          <p>
+          Deletes the <code>CloudFile</code> object.
+          </p>
+          <div class="method-list">
+
+            <h6>Returns</h6>
+            <p>It returns a <code>CloudFile</code> object having <code>url</code> attribute set to <code>null</code> 
+            if the operation is successful.<p>
+            <h6>Error Handling</h6>
+            It throws <code>CloudBoostException, MalformedURLException, IOException</code>
+          </div>
+        </div>
+        <div class="method-example" id="api-summary-example">
+          <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+File file = new File("/home/my-pc/Desktop/abc.txt");
+CloudFile cf = new CloudFile(file);
+File file = new File("/home/my-pc/Desktop/abc.txt");
+CloudFile cloudFileObj = new CloudFile(file);
+CloudFileCallback callbackObj = new CloudFileCallback(){ 
+@Override 
+public void success(CloudFile obj){ 
+cf.delete(new CloudFileCallback(){
+	@Override 
+	public void success(CloudFile obj){
+		System.out.println("success message"); 
+	}
+	@Override 
+	public void error(){ 
+		System.out.println("error message"); 
+	} 
+});
+} 
+@Override 
+public void error(){ 
+System.out.println("error message"); 
+} 
+}; 
+cloudFileObj.save(callbackObj);
+</span></span>
+</code>
+
+</div>
+<!-- method-example -->
+<div class="clearfix"></div>
+        
+</div> <!-- method-section -->
+
