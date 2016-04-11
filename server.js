@@ -8,6 +8,8 @@ app.use(express.static(__dirname));
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/javascript.html'));
 });
+
+//Others link
 app.get('/swagger', function(req, res) {
     res.redirect('https://swagger.cloudboost.io')
 });
