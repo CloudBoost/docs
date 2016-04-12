@@ -14,6 +14,7 @@ module.exports = function(grunt) {
                 'api/js/relationships.html',
                 'api/js/cloudQuery.html',
                 'api/js/cloudNotifications.html',
+                'api/js/cloudPushNotifications.html',
                 'api/js/cloudObject.html',
                 'api/js/cloudSearch.html',
                 'api/js/cloudGeoPoint.html',

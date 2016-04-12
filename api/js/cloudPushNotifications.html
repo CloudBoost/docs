@@ -1,0 +1,76 @@
+
+<!-- Cloud Push Notifications  --> 
+<div class="method">
+
+    <a id='CloudPushNotifcations' name="CloudPushNotifcations" class="section-anchor">&nbsp;</a>
+    <div class="method-section">
+      <div class="method-description">
+
+        <h1>Cloud Push Notifcations</h1>
+        <p>
+
+        In Cloudboost, you can send push notifications. Push notifications are a very important feature in an app because it enables seamless communication from your server to your app. 
+        </p>
+
+      </div>
+
+    </div>
+
+  <a id='CloudPushNotifcations-send' name="CloudNotification-on" class="section-anchor">&nbsp;</a>
+  <!-- method-section -->
+  <div class="method-section">
+
+    <!-- method-description -->
+    <div class="method-description">
+
+      <h3>CB.CloudPush.send( <code>dataJSON, cloudQuery/ChannelArray/SingleChannelString, [callback]</code> )</h3>
+      <p>
+      Sending push notifications
+      </p>
+      <div class="method-list">
+        
+        <h6>Arguments</h6>
+        <dl class="argument-list">
+          <dt>dataJSON</dt>
+          <dd class="">Object <span>[required] must have <code>message</code> 
+          property, and <code>title</code> ,<code>icon</code> are optional. icon is only aplicable for android and IOS.</span></dd>
+          <div class="clearfix"></div>
+          <dt>Query/Channels</dt>
+          <dd class="">cloudQuery or ChannelArray or ChannelString <span> you can make queries on sending push notifications, it can be cloudQuery on Device table or Single Channel string  or Channel Array.</span></dd>
+          <div class="clearfix"></div>
+          <dt>callback</dt>
+          <dd class="">Object <span>[optional] if provided must have <code>success</code> 
+          and <code>error</code> functions to handle respective response.</span>
+          </dd>
+          <div class="clearfix"></div>
+        </dl>
+
+        <h6>Returns</h6>
+        <p>It returns JQuery promise, if <code>callback</code> is not specified</p>
+      </div>
+    </div>
+    <!-- /method-description -->
+
+    <!--method-example -->
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+        var query = new CB.CloudQuery("Device");
+        query.containedIn('channels', "hackers");
+        //
+        CB.CloudPush.send({message:"my first notifications"},query,{
+            success:function(){
+                //Success
+            },
+            error:function(error){
+                //Error
+            }
+        });
+      </span></span></code>
+
+    </div>
+    <!--/method-example -->
+  </div> 
+  <!-- /method-section -->
+
+
+  
