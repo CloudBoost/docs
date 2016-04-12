@@ -1,0 +1,300 @@
+  <a id='CloudPush' name="CloudPush" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h1>CloudPush</h1>
+              <p>
+               Push notifications are a very important feature in an android app because it enables seamless communication from your server to your app. In this case your server will be **CloudBoost** Push notification server. One big problem with smart phones is excessive battery consumption due to constant activity by the many apps installed. An app which has push notification feature may reduce this problem because it does not have to keep polling the server for new information.
+              </p>
+              <p>
+Not that **CloudBoost** server uses Google Cloud Messaging to reach your app. So before you start using this feature, ensure that you have created a project for your app on google developer console and obtained credentials like senderID/Project_number and ApiKey.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div>
+          </div>
+          <a id='CloudPush-constructor' name="CloudPush-constructor" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Constructor</h3>
+              <p>
+              Instantiates a <code>CloudPush</code> object.
+              </p>
+              <div class="method-list">
+              <h3>Package</h3>
+              	<p>
+              	<code>import com.cloudboost.CloudPush;</code>
+              	</p>
+                <h6>Argument</h6>
+                <dl class="argument-list">
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudPush role = new CloudPush();</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudPush-addDevice' name="CloudPush-addDevice" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudPush.addDevice( <code>token</code>,<code>timezone</code>,<code>[channels]</code>,<code>appname</code>,<code>callback</code> )</h3>
+              <p>
+              Adds a <code>GCM</code> registered device to your app on CloudBoost so that it can start receiving push messages.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>token</dt>
+                  <dd class="">The registrationID you got from <code>GCM</code>'s <code>InstanceID</code> API</dd>
+                  <div class="clearfix"></div>
+				  
+                  <dt>timezone</dt>
+                  <dd class="">An arbitrary string representing your timezone</dd>
+                  <div class="clearfix"></div>
+                  
+				   <dt>[channels]</dt>
+                  <dd class="">An array of channels you would like to subscribe to upfront. You can still subscribe and unsubscribe from any channel later</dd>
+                  <div class="clearfix"></div>
+				  <dt>appname</dt>
+                  <dd class="">The name of your application</dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudObject</code> object having the Device information..
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudPush push=new CloudPush();
+String[] channels={"hackers","crackers"};
+push.addDevice([xxxxxxxdeviceToken],[Timezone as String], channels, [appname], new CloudObjectCallback() {
+	@Override
+	public void done(CloudObject x, CloudException t) throws CloudException {
+			//
+	}
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+		  
+          <a id='CloudPush-addSettings' name="CloudPush-addSettings" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudPush.addSettings( <code>senderId</code>,<code>apiKey</code>,<code>callback</code> )</h3>
+              <p>
+	  adds new GCM credentials to your app and replaces any pre-existing ones. Additionally, it deletes any other settings for other mobile app platforms like windows credentials or iOS certificates. If these are important to your CloudApp, you can add them from the dashboard.
+Without these credentials, <code>GCM</code> will not authenticate your <code>CloudApp</code>	  </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>senderId</dt>
+                  <dd class="">This is the <code>senderID/Project_number</code> that you get from goodle developer console when you create a GCM project</dd>
+                  <div class="clearfix"></div>
+				  
+                  <dt>apiKey</dt>
+                  <dd class="">A unique key given to your project on google developer, it will be used to authenticate any server that is trying to send push notifications to your devices</dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                It returns an <code>Object</code>, showing your new setting have been added, you can create a JSONObject out of this.
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudPush push=new CloudPush();
+push.addSettings([senderId], [apikey], new ObjectCallback() {
+	@Override
+	public void done(Object x, CloudException t) throws CloudException {
+		//object is a json object with _id, _tableName etc
+	}
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+		  
+		  
+		            <a id='CloudPush-subscibe' name="CloudPush-subscibe" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudPush.subscribe( <code>channel</code>,<code>deviceToken</code>,<code>callback</code> )</h3>
+              <p>
+	 This API is used to subscribe a device running your app to a given channel in your <code>CloudApp</code>. If the channel is already subscribed to, you will get an exception stating this. 
+	 </p>
+	 <p>This method has an overloaded version which takes an array of channels</p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>channels/channel</dt>
+                  <dd class="">A String or an array of channels you'd like to subscribe to</dd>
+                  <div class="clearfix"></div>
+				  
+                  <dt>deviceToken</dt>
+                  <dd class="">A unique registrationID given to your app by <code>GCM</code> server on registering with the <code>InstanceID</code> API. It is expected that after submitting this data to your <code>CloudApp</code> via the <code>addDevice</code> API, you will keep a copy in <code>sharedPreferences</code> for such an operation</dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudObject</code>, showing your new device data plus the new subscriptions.
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+CloudPush push=new CloudPush();
+push.subscribe("movers", "xxxxxxxxxxxx", new CloudObjectCallback() {	
+	@Override
+	public void done(CloudObject x, CloudException t) throws CloudException {
+		//
+	}
+});
+
+//Alternatively, you could specify an array of channels to subscribe to
+
+CloudPush push=new CloudPush();
+String[] channels={"movers","shakers"};
+push.subscribe(channels, "xxxxxxxxxxxx", new CloudObjectCallback() {	
+	@Override
+	public void done(CloudObject x, CloudException t) throws CloudException {
+		//
+	}
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+		  
+		  
+		  
+		  
+		  		            <a id='CloudPush-unSubscibe' name="CloudPush-unSubscibe" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudPush.unSubscibe( <code>channel</code>,<code>deviceToken</code>,<code>callback</code> )</h3>
+              <p>
+	 This API is used to unsubscribe a device running your app from a given channel in your <code>CloudApp</code>. If the channel is not already subscribed to, you will get an exception stating this. 
+	 </p>
+	 <p>This method has an overloaded version which takes an array of channels</p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>channels/channel</dt>
+                  <dd class="">A String or an array of channels you'd like to subscribe to</dd>
+                  <div class="clearfix"></div>
+				  
+                  <dt>deviceToken</dt>
+                  <dd class="">A unique registrationID given to your app by <code>GCM</code> server on registering with the <code>InstanceID</code> API. It is expected that after submitting this data to your <code>CloudApp</code> via the <code>addDevice</code> API, you will keep a copy in <code>sharedPreferences</code> for such an operation</dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudObject</code>, showing your new device data plus the new subscriptions.
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+CloudPush push=new CloudPush();
+push.unSubscibe("movers", "xxxxxxxxxxxx", new CloudObjectCallback() {	
+	@Override
+	public void done(CloudObject x, CloudException t) throws CloudException {
+		//
+	}
+});
+
+//Alternatively, you could specify an array of channels to unSubscibe from
+
+CloudPush push=new CloudPush();
+String[] channels={"movers","shakers"};
+push.unSubscibe(channels, "xxxxxxxxxxxx", new CloudObjectCallback() {	
+	@Override
+	public void done(CloudObject x, CloudException t) throws CloudException {
+		//
+	}
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+		  
+		  
+		  
+			  		            <a id='CloudPush-send' name="CloudPush-send" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudPush.send( <code>pushData</code>,<code>query</code>,<code>callback</code> )</h3>
+              <p>
+	 This API is used to push a message to the devices running your application. 
+	 </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>pushData</dt>
+                  <dd class="">A simple POJO containing your message title and body</dd>
+                  <div class="clearfix"></div>
+				  
+                  <dt>query</dt>
+                  <dd class="">This argument is very dynamic. It can take a <code>CloudQuery</code> specifying which channels you are pushing the message to. It can also take a channel or a channel array and re-create for you a <code>CloudQuery</code> based on them to target specific channels</dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudPush</code> Object.
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//CloudPush.send with cloudquery
+
+CloudPush push=new CloudPush();
+String[] channels={"movers","shakers"};
+CloudQuery query=new CloudQuery("Device");
+query.containedIn("channels", channels);
+push.send(new PushData("title", "my message"), query, new CloudPushCallback() {
+	@Override
+	public void done(Object x, CloudException t) throws CloudException {
+		//
+	}
+});
+
+
+//CloudPush.send with channel
+
+CloudPush push=new CloudPush();
+push.send(new PushData("title", "my message"), "movers", new CloudPushCallback() {
+	@Override
+	public void done(Object x, CloudException t) throws CloudException {
+		//
+	}
+});
+
+//CloudPush.send with Channel array
+CloudPush push=new CloudPush();
+String[] channels={"movers","shakers"};
+push.send(new PushData("title", "my message"), channels, new CloudPushCallback() {
+	@Override
+	public void done(Object x, CloudException t) throws CloudException {
+		//
+	}
+});
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
