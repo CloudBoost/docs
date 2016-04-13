@@ -269,10 +269,10 @@ CloudPush.send(new PushData("title", "my message"), channels,
 
 /*
 *or instead of using PushData, you could pass only 
-*a title or only a title and message
+*a message or only a title and message
 */
 
-CloudPush.send("title", channels, new 
+CloudPush.send("message", channels, new 
 		CloudPushCallback() {
 	@Override
 	public void done(Object x, CloudException t) 
@@ -283,7 +283,7 @@ CloudPush.send("title", channels, new
 
 //
 
-CloudPush.send("title","message", channels, 
+CloudPush.send("message","title", channels, 
 	new CloudPushCallback() {
 	@Override
 	public void done(Object x, CloudException t) 
