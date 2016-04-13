@@ -44,18 +44,16 @@
 CloudObject student = new CloudObject("Student"); 
 CloudObject address = new CloudObject("Address"); 
 
-//here one student can only have one address for example. 
-//address column of Student Table is pointed to the Address Table with unique set to true.
+/*
+*here one student can only have one address for example. 
+*address column of Student Table is pointed to the Address Table with unique set to true.
+*/
 student.set("address", address); 
 
 CloudObjectCallback callbackObj = new CloudObjectCallback(){
 	@Override
-	public void success(CloudObject obj) {
-		System.out.println("success message");
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject obj,CloudException e) {
+		//
 	}
 };
 obj.save(callbackObj);
@@ -77,19 +75,16 @@ obj.save(callbackObj);
 CloudObject teacher = new CloudObject("Teacher"); 
 CloudObject course = new CloudObject("Course"); 
 
-//here one teacher be assigned to many courses. 
-//address column of Student Table is pointed to the Address Table with unique set to true.
-
+/*
+*here one teacher be assigned to many courses. 
+*address column of Student Table is pointed to the Address Table with unique set to true.
+*/
 course.set("teacher", address); 
 
 CloudObjectCallback callbackObj = new CloudObjectCallback(){
 	@Override
-	public void success(CloudObject obj) {
-		System.out.println("success message");
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject obj,CloudException e) {
+		//
 	}
 };
 obj.save(callbackObj);
@@ -136,12 +131,8 @@ studentCourse.set("teacher", teacher);
 
 CloudObjectCallback callbackObj = new CloudObjectCallback(){
 	@Override
-	public void success(CloudObject obj) {
-		System.out.println("success message");
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject obj,CloudException e) {
+		//
 	}
 };
 obj.save(callbackObj);
@@ -167,12 +158,8 @@ student.set("courses", courseList);
 
 CloudObjectCallback callbackObj = new CloudObjectCallback(){
 	@Override
-	public void success(CloudObject obj) {
-		System.out.println("success message");
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject obj,CloudException e) {
+		//
 	}
 };
 obj.save(callbackObj);

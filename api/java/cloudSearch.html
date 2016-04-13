@@ -76,14 +76,8 @@ cs.searchOn("resume", list);
 
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(Map&lt;String,Object&gt;[] list) {
-		for(int i=0; i&lt;list.length; i++){
-			System.out.println(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);
@@ -125,14 +119,8 @@ CloudSearch cs = new CloudSearch("Student");
 cs.equalTo("age", 21); //find all Students who age is 21
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(Map&lt;String,Object&gt;[] list) {
-		for(int i=0; i&lt;list.length; i++){
-			System.out.println(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);
@@ -175,14 +163,8 @@ CloudSearch cs = new CloudSearch("Student");
 cs.notEqualTo("name", "Smith");
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(Map&lt;String,Object&gt;[] list) {
-		for(int i=0; i&lt;list.length; i++){
-			System.out.println(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);
@@ -223,14 +205,8 @@ CloudSearch cs = new CloudSearch("Teacher");
 cs.greaterThan("age", 60);
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(Map&lt;String,Object&gt;[] list) {
-		for(int i=0; i&lt;list.length; i++){
-			System.out.println(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);
@@ -271,14 +247,8 @@ CloudSearch cs = new CloudSearch("Teacher");
 cs.greaterThanEqualTo("age", 60);
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(Map&lt;String,Object&gt;[] list) {
-		for(int i=0; i&lt;list.length; i++){
-			System.out.println(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);
@@ -318,14 +288,8 @@ CloudSearch cs = new CloudSearch("Student");
 cs.lessThan("age", 18);
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(Map&lt;String,Object&gt;[] list) {
-		for(int i=0; i&lt;list.length; i++){
-			System.out.println(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);
@@ -367,14 +331,8 @@ CloudSearch cs = new CloudSearch("Student");
 cs.lessThanEqualTo("age", 17);
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(Map&lt;String,Object&gt;[] list) {
-		for(int i=0; i&lt;list.length; i++){
-			System.out.println(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);
@@ -427,14 +385,8 @@ cs1.searchOn("name", "Dan");
 CloudSearch cs = CloudSearch.or(cs1, cs2);
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(Map&lt;String,Object&gt;[] list) {
-		for(int i=0; i&lt;list.length; i++){
-			System.out.println(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);
@@ -472,14 +424,8 @@ CloudSearch cs = new CloudSearch("Student");
 cs.orderByAsc("age");
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(Map&lt;String,Object&gt;[] list) {
-		for(int i=0; i&lt;list.length; i++){
-			System.out.println(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);
@@ -516,14 +462,8 @@ CloudSearch cs = new CloudSearch("Student");
 cs.orderByDesc('age');
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(Map&lt;String,Object&gt;[] list) {
-		for(int i=0; i&lt;list.length; i++){
-			System.out.println(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);
@@ -563,14 +503,8 @@ CloudSearch cs = new CloudSearch("Student");
 cs.setLimit(5);
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(Map&lt;String,Object&gt;[] list) {
-		for(int i=0; i&lt;list.length; i++){
-			System.out.println(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);
@@ -608,14 +542,8 @@ CloudSearch cs = new CloudSearch("Student");
 cs.setSkip(5);
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(Map&lt;String,Object&gt;[] list) {
-		for(int i=0; i&lt;list.length; i++){
-			System.out.println(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);
@@ -653,14 +581,8 @@ CloudSearch cs = new CloudSearch("Student");
 cs.exists("address");
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(Map&lt;String,Object&gt;[] list) {
-		for(int i=0; i&lt;list.length; i++){
-			System.out.println(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);
@@ -697,14 +619,8 @@ CloudSearch cs = new CloudSearch("Student");
 cs.doesNotExists("address");
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(list) {
-		for(int i=0; i&lt;list.length; i++){
-			System.out.printMap&lt;String,Object&gt;[] ln(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);
@@ -749,14 +665,8 @@ list = cs.search();
 //with callback
 CloudSearchCallback callbackObj = new CloudSearchCallback(){
 	@Override
-	public void success(list) {
-		for(int i=0; i&lt;liMap&lt;String,Object&gt;[] st.length; i++){
-			System.out.println(list[i].get("text"));
-		}
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject[] list,CloudException e) {
+		//
 	}
 };
 cs.search(callbackObj);</span></span></code>

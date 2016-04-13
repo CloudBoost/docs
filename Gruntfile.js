@@ -50,6 +50,7 @@ module.exports = function(grunt) {
                 'api/java/cloudUser.html',
                 'api/java/cloudRole.html',
                 'api/java/cloudFile.html',
+				'api/java/cloudPush.html',
                 'api/java/contribute.html',
                 'api/langMenuFootWrap.html',
                 'api/commonFoot.html'

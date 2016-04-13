@@ -109,7 +109,13 @@ user.signUp();
 CloudUser user = new CloudUser();
 user.set("username", "my_username");
 user.set("password", "my_solid_password");
-user.logIn();
+CloudUserCallback callbackObj = new CloudUserCallback(){
+	@Override
+	public void done(CloudObject obj,CloudException e) {
+		//
+	}
+};
+user.logIn(callbackObj);
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -136,7 +142,13 @@ user.logIn();
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudUser.current.logOut();
+CloudUserCallback callbackObj = new CloudUserCallback(){
+	@Override
+	public void done(CloudObject obj,CloudException e) {
+		//
+	}
+};
+CloudUser.getCurrent().logOut(callbackObj);
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -145,7 +157,7 @@ CloudUser.current.logOut();
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudUser.current( )</h3>
+              <h3>CloudUser.getCurrent( )</h3>
               <p>
                 Get the current logged in user.
               </p>
@@ -155,7 +167,7 @@ CloudUser.current.logOut();
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 //gets the current user if user is loggedIn, null otherwise.
-var currentUser = CloudUser.current;</span></span></code>
+CloudUser currentUser = CloudUser.getCurrent();</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudUser-addToRole' name="CloudUser-addToRole" class="section-anchor">&nbsp;</a>
@@ -192,10 +204,16 @@ var currentUser = CloudUser.current;</span></span></code>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudUserCallback callbackObj = new CloudUserCallback(){
+	@Override
+	public void done(CloudObject obj,CloudException e) {
+		//
+	}
+};
 
 //role is an instance of CloudRole Object.
 
-CloudUser.current.addToRole(role);
+CloudUser.getCurrent().addToRole(role,callbackObj);
 
 </span></span></code>
             <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
@@ -234,7 +252,7 @@ CloudUser.current.addToRole(role);
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 //role is the instance of the CloudRole object. 
 
-if(CloudUser.current.isInRole(role)) {
+if(CloudUser.getCurrent().isInRole(role)) {
   //The current user is in the given role.
 } else {
   //The user is not in the given role.
@@ -273,7 +291,75 @@ if(CloudUser.current.isInRole(role)) {
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudUser.current.removeFromRole(role);</span></span></code>
+CloudUserCallback callbackObj = new CloudUserCallback(){
+	@Override
+	public void done(CloudObject obj,CloudException e) {
+		//
+	}
+};
+
+//role is an instance of CloudRole Object.
+
+CloudUser.getCurrent().removeFromRole(role,callbackObj);
+
+</span></span></code>
             <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+		  
+		  
+          <a id='CloudUser-changePassword' name="CloudUser-changePassword" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.changePassword( )</h3>
+              <p>
+                To change the password of a user you need to call the changePassword function of the CB.CloudUser instance. Before you call the changePassword function make sure the current user is loggedIn and the current session is valid. Please note : Calling change password will not log the user out of its current session.
+              </p>
+             
+              
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudUser.getCurrentUser().changePassword("oldPassword","newPassword",
+	new CloudUserCallback(){
+	@Override
+	public void done(CloudUser user,CloudException e){
+		if(user!=null)
+			//user
+		if(e!=null)
+			//e
+	}
+});
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+		  
+		  
+          <a id='CloudUser-resetPassword' name="CloudUser-resetPassword" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudUser.resetPassword( )</h3>
+              <p>
+To reset the password of a user you need to call the resetPassword function of the CB.CloudUser class. Reset Password takes in an email of the user as first parameter and callback as second parameter. CloudBoost automatically takes care of emailing the user with password reset link. Please note : If you want to change the format the email which CloudBoost sends by default. You can head over to your CloudBoost App Dashboard and change the email settings of an app.
+              </p>
+             
+              
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+CloudUser.resetPassword("email",new CloudStringCallback(){
+	@Override
+	public void done(String msg,CloudException e){
+		if(msg!=null)
+			//reset password email sent
+		if(e!=null)
+			//e
+	}
+});
+
+</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->

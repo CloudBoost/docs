@@ -21,7 +21,7 @@
             <div class="method-description">
 			<h3>Package</h3>
               <p>
-              <code>import com.cloudboost.CloudQuery;</code>
+              <code>import io.cloudboost.CloudQuery;</code>
               </p>
               <h3>Constructor</h3>
               <p>
@@ -79,17 +79,11 @@
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 CloudQuery query = new CloudQuery("Student");
 query.equalTo("age", 21); //find all Students who age is 21
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	} 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
+	}
 });
 </span></span></code>
             </div><!-- method-example -->
@@ -127,16 +121,10 @@ CloudQuery query = new CloudQuery("Student");
 //Get Student where name is equal to Smith, Max or Lucy
 String[] list = {"Smith", "Max", "Lucy"};
 query.containedIn("name", list);
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
 	} 
 });
 </span></span></code>
@@ -174,17 +162,11 @@ CloudQuery query = new CloudQuery("Student");
 //find Students who are in JavaScript and C# class
 String[] list = {"java", "javascript"};
 query.containsAll("classes", list);
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	} 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
+	}
 });
 </span></span></code>
             </div><!-- method-example -->
@@ -221,16 +203,10 @@ query.find(new CloudSearchCallback(){
 CloudQuery query = new CloudQuery("Student");
 //find all the Students who name starts with letter 'S'
 query.startsWith("name", "S");
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
 	} 
 });
 </span></span></code>
@@ -268,16 +244,10 @@ query.find(new CloudSearchCallback(){
 CloudQuery query = new CloudQuery("Student");
 //find all Students info except of Smith
 query.notEqualTo("name", "Smith");
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
 	} 
 });
 </span></span></code>
@@ -316,16 +286,10 @@ CloudQuery query = new CloudQuery("Student");
 //Get all Students except Smith, Max and Lucy
 String[] list = {"Smith", "Max", "Lucy"};
 query.notContainedIn("name", list);
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
 	} 
 });
 </span></span></code>
@@ -362,16 +326,10 @@ query.find(new CloudSearchCallback(){
 CloudQuery query = new CloudQuery("Teacher");
 //find all the teachers who are old.
 query.greaterThan("age", 60);
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
 	} 
 });
 </span></span></code>
@@ -408,17 +366,11 @@ query.find(new CloudSearchCallback(){
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 CloudQuery query = new CloudQuery("Teacher");
 query.greaterThanEqualTo("age", 60);
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	} 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
+	}
 });
 </span></span></code>
             </div><!-- method-example -->
@@ -454,17 +406,11 @@ query.find(new CloudSearchCallback(){
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 CloudQuery query = new CloudQuery("Student");
 query.lessThan("age", 18);
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	} 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
+	}
 });
 </span></span></code>
             </div><!-- method-example -->
@@ -500,17 +446,11 @@ query.find(new CloudSearchCallback(){
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 CloudQuery query = new CloudQuery("Student");
 query.lessThanEqualTo("age", 17);
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	} 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
+	}
 });
 </span></span></code>
             </div><!-- method-example -->
@@ -560,16 +500,10 @@ CloudQuery query2 = new CloudQuery('Student');
 query2.greaterThan("age", 10);
 
 CloudQuery query = CloudQuery.or(query1, query2);
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
 	} 
 });</span></span></code>
               
@@ -603,17 +537,11 @@ query.find(new CloudSearchCallback(){
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 CloudQuery query = new CloudQuery("Student");
 query.orderByAsc("age");
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	} 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
+	}
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -645,17 +573,11 @@ query.find(new CloudSearchCallback(){
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 CloudQuery query = new CloudQuery("Student");
 query.orderByDesc("age");
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	} 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
+	}
 });</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -690,16 +612,10 @@ query.find(new CloudSearchCallback(){
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 CloudQuery query = new CloudQuery("Student");
 query.setLimit(5);
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
 	} 
 });</span></span></code>
             </div><!-- method-example -->
@@ -738,16 +654,10 @@ query.find(new CloudSearchCallback(){
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 CloudQuery query = new CloudQuery("Student");
 query.setSkip(5);
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
 	} 
 });</span></span></code>
             </div><!-- method-example -->
@@ -785,16 +695,10 @@ query.find(new CloudSearchCallback(){
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudQuery query = new CloudQuery("Student");
 String[] list = {"name", "age"};
 query.selectColumn(list);
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
 	} 
 });</span></span></code>
             </div><!-- method-example -->
@@ -827,16 +731,10 @@ query.find(new CloudSearchCallback(){
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudQuery query = new CloudQuery("Student");
 query.greaterThan("age", 18);
 query.doNotSelectColumn("address");
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
 	} 
 });</span></span></code>
             </div><!-- method-example -->
@@ -868,16 +766,10 @@ query.find(new CloudSearchCallback(){
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 CloudQuery query = new CloudQuery("Student");
 query.exists("address");
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
 	} 
 });</span></span></code>
             </div><!-- method-example -->
@@ -911,16 +803,10 @@ query.find(new CloudSearchCallback(){
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 CloudQuery query = new CloudQuery("Student");
 query.doesNotExists("address");
-query.find(new CloudSearchCallback(){ 
-	@Override 
-	public void success(Map&lt;String,Object&gt;[] list){ 
-		for(int i=0; i&lt;list.length; i++){ 
-			System.out.println(list[i].get("text")); 
-		} 
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
 	} 
 });</span></span></code>
             </div><!-- method-example -->
@@ -957,14 +843,14 @@ query.find(new CloudSearchCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js java">
-Map&lt;String, Object&gt;[] list;
-list = query.find();
-String name;
-Integer age;
-for(int i=0; i&lt;list.length; i++ ){
-	name = (String)list[i].get("name");
-	age = (Integer)list[i].get("age");
-}</span></span></code>
+CloudQuery query = new CloudQuery("Student");
+query.find(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
+	} 
+});
+</span></span></code>
 
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -997,12 +883,14 @@ for(int i=0; i&lt;list.length; i++ ){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js java">
-String name;
-Integer age;
-CloudObject obj;
-obj = query.findOne();
-name = (String)obj.get("name");
-age = (Integer)obj.get("age");
+CloudQuery query = new CloudQuery("Student");
+query.exists("address");
+query.findOne(new CloudQueryCallback(){ 
+	@Override
+	public void done(CloudObject obj,CloudException e) {
+		//
+	} 
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1028,7 +916,7 @@ age = (Integer)obj.get("age");
                 </dl>
 
                 <h6>Returns</h6>
-                <p>It returns a <code>CloudObject</code> object or an error object if the opertion is successful. It throws an error 
+                <p>It returns a <code>CloudObject</code> object or an error object if the operation is successful. It throws an error 
                 too if sufficient data is not available to query the database.</p>
               </div>
             </div>
@@ -1036,14 +924,13 @@ age = (Integer)obj.get("age");
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 //retrieve a Student detail by his unique ID
 query.get("54e837d6d51a5ea011aa79ea", new CloudObjectCallback({ 
-	@Override 
-	public void success(CloudObject obj){ 
-		System.out.println("success message"); 
+	@Override
+	public void done(CloudObject obj,CloudException e) {
+		//
 	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	}));</span></span></code>
+));
+	
+	</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
@@ -1067,17 +954,15 @@ query.get("54e837d6d51a5ea011aa79ea", new CloudObjectCallback({
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">//fetch how many Students are there who age&gt;18
-query.count(new CloudQueryCallback({ 
-	@Override 
-	public void success(int count){ 
-		System.out.println("success message"); 
-		//count is the count of data which belongs to the query
-	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	}));</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+ //fetch how many Students are there who age&gt;18
+query.greaterThan(18);
+query.count(new CloudIntegerCallback( 
+	@Override
+	public void done(Integer count,CloudException e) {
+		//
+	})
+);</span></span></code>
             </div><!-- method-example -->
 
           </div> <!-- method-section -->
@@ -1107,21 +992,62 @@ query.count(new CloudQueryCallback({
                 <h6>Returns</h6>
                 <p>It returns an array of <code>CloudObject</code> objects which are documents 
                 matching the given query in the <code>CloudQuery</code> object having distinct values of
-                <code>ColumnName</code>.</p>
+                <code>ColumnName</code></p>
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-query.distinct("address",new CloudQuery1Callback({ 
-	@Override 
-	public void success(Object[] data){ 
-		System.out.println("success message"); 
-		//data is an array of document(s)
+query.distinct("address",new CloudQuery1Callback(
+	@Override
+	public void done(CloudObject[] obj,CloudException e) {
+		//
 	} 
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	}));</span></span></code>
+));</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-        </div><!-- method -->
+		  		
+		
+		
+		          <a id='CloudQuery-paginate' name="CloudQuery-paginate" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudQuery.paginate( <code>pageNo</code>,<code>totalItemsPerPage</code>,<code>callback</code> )</h3>
+              <p>
+              Paginate returns only the specified number of objects from the database. It takes in the current page number and total items in page as parameters and returns list of objects,count,total number of pages. 
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+                  
+                  <dt>pageNo</dt>
+                  <dd class=""><span>The page from which to count records to return</span></dd>
+                  <div class="clearfix"></div>   
+				<dt>totalItemsPerPage</dt>
+                  <dd class=""><span>How many items will appear on each page whenever we paginate</span></dd>
+                  <div class="clearfix"></div> 
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Paginate returns only the specified number of objects from the database</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+query.paginate(1, null, new PaginatorCallback() {
+	@Override
+	public void done(CloudObject[] objects, 
+		Integer count, Integer totalPages,
+		CloudException t) throws CloudException {
+			if(t!=null)
+				//					
+			else
+				//
+	}
+});
+
+</span></span>
+</code>
+            </div><!--method-example -->
+          </div><!--  method-section -->

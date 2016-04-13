@@ -82,13 +82,9 @@ CloudRole role = new CloudRole("my-collaborator");
 
 CloudRole.getRole(new CloudRoleCallback(){
 	@Override 
-	public void success(CloudRole obj){
-		System.out.println("success message"); 
+	public void done(CloudRole obj,CloudException e){
+		//
 	}
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	} 
 });
 </span></span></code>
             </div><!-- method-example -->

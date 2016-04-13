@@ -71,14 +71,11 @@ obj.acl = new ACL();
 obj.acl.setPublicWriteAccess(false);
 
 obj.save(new CloudObjectCallback(){
-	@Override 
-	public void success(CloudObject obj){
-		System.out.println("success message"); 
+	@Override
+	public void done(CloudObject obj,CloudException e) {
+		//
 	}
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	});
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -112,14 +109,11 @@ obj.acl = new ACL();
 obj.acl.setPublicReadAccess(false);
 
 obj.save(new CloudObjectCallback(){
-	@Override 
-	public void success(CloudObject obj){
-		System.out.println("success message"); 
+	@Override
+	public void done(CloudObject obj,CloudException e) {
+		//
 	}
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	});
+});
 
 </span></span></code>
             </div><!-- method-example -->
@@ -157,14 +151,11 @@ obj.acl = new ACL();
 obj.acl.setUserWriteAccess("idOfTheUser",true);
 
 obj.save(new CloudObjectCallback(){
-	@Override 
-	public void success(CloudObject obj){
-		System.out.println("success message"); 
+	@Override
+	public void done(CloudObject obj,CloudException e) {
+		//
 	}
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	});
+});
 
               </span></span></code>
                 
@@ -203,14 +194,11 @@ obj.acl = new ACL();
 obj.acl.setUserReadAccess("idOfTheUser",true);
 
 obj.save(new CloudObjectCallback(){
-	@Override 
-	public void success(CloudObject obj){
-		System.out.println("success message"); 
+	@Override
+	public void done(CloudObject obj,CloudException e) {
+		//
 	}
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	});
+});
 
               </span></span></code>
             </div><!-- method-example -->
@@ -249,14 +237,11 @@ obj.acl = new ACL();
 obj.acl.setRoleWriteAccess("roleId", true);
 
 obj.save(new CloudObjectCallback(){
-	@Override 
-	public void success(CloudObject obj){
-		System.out.println("success message"); 
+	@Override
+	public void done(CloudObject obj,CloudException e) {
+		//
 	}
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	});
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -294,14 +279,11 @@ CloudObject obj = new CloudObject("Student");
 obj.acl = new ACL();
 obj.acl.setWriteAccess("roleId", true);
 obj.save(new CloudObjectCallback(){
-	@Override 
-	public void success(CloudObject obj){
-		System.out.println("success message"); 
+	@Override
+	public void done(CloudObject obj,CloudException e) {
+		//
 	}
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	} );
+});
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
