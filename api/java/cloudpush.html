@@ -3,7 +3,7 @@
             <div class="method-description">
               <h1>CloudPush</h1>
               <p>
-               Push notifications are a very important feature in an android app because it enables seamless communication from your server to your app. In this case your server will be CloudBoost Push notification server. One big problem with smart phones is excessive battery consumption due to constant activity by the many apps installed. An app which has push notification feature may reduce this problem because it does not have to keep polling the server for new information.
+               Push notifications are a very important feature in an android app because it enables seamless communication from your server to your app. In this case your server will be CloudBoost Push notification server.
               </p>
               <p>
 Not that CloudBoost server uses Google Cloud Messaging to reach your app. So before you start using this feature, ensure that you have created a project for your app on google developer console and obtained credentials like senderID/Project_number and ApiKey.
@@ -41,7 +41,7 @@ Not that CloudBoost server uses Google Cloud Messaging to reach your app. So bef
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudPush.addDevice( <code>token</code>,<code>timezone</code>,<code>[channels]</code>,<code>appname</code>,<code>callback</code> )</h3>
+              <h3>CloudPush.addDevice( <code>token</code>,<code>timezone</code>,<code>[channels]</code>,<code>callback</code> )</h3>
               <p>
               Adds a <code>GCM</code> registered device to your app on CloudBoost so that it can start receiving push messages.
               </p>
@@ -205,7 +205,7 @@ CloudPush.unSubscibe(channels, "xxxxxxxxxxxx",
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudPush.send( <code>pushData</code>,<code>query</code>,<code>callback</code> )</h3>
+              <h3>CloudPush.send( <code>pushData</code>,<code>query/channelArray/oneChannelString</code>,<code>callback</code> )</h3>
               <p>
 	 This API is used to push a message to the devices running your application. 
 	 </p>
