@@ -1,0 +1,836 @@
+<div class="method">
+           <a id='CloudSearch-searchOn' name="CloudSearch-searchOn" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.searchOn( <code>columnName, query</code> )</h3>
+              <p>
+              Used to perform a search query.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string / Array <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">query<span>A text query</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {
+        "bool": {
+          "must_not": [],
+          "should": [{
+            "match": {
+              "name": {
+                "query": "[\"egima\",\"bengi\"]"
+              }
+            }
+          }],
+          "must": []
+        }
+      },
+      "filter": {        
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='CloudSearch-equalTo' name="CloudSearch-equalTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.equalTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> is equal to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {
+      },
+      "filter": {
+        "bool": {
+          "must_not": [],
+          "should": [],
+          "must": [{
+            "term": {
+              "name": "John"
+            }
+          }]
+        }
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+         
+          <a id='CloudSearch-notEqualTo' name="CloudSearch-notEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.notEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> does not has the value <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">Anything<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining query functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+        "bool": {
+          "must_not": [{
+            "term": {
+              "name": "bengi"
+            }
+          }],
+          "should": [],
+          "must": []
+        }
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          
+          <a id='CloudSearch-greaterThan' name="CloudSearch-greaterThan" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.greaterThan( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value greater than <code>data</code>.
+              </p>
+              <div class="method-list">
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string / number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions. </p>
+
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+        "bool": {
+          "must_not": [],
+          "should": [],
+          "must": [{
+            "range": {
+              "age": {
+                "gt": 10
+              }
+            }
+          }]
+        }
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudSearch-greaterThanEqualTo' name="CloudSearch-greaterThanEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.greaterThanEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value greater than or equals to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string / number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+        "bool": {
+          "must_not": [],
+          "should": [],
+          "must": [{
+            "range": {
+              "age": {
+                "gte": 10
+              }
+            }
+          }]
+        }
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-lessThan' name="CloudSearch-lessThan" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.lessThan( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value less than <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string/number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+        "bool": {
+          "must_not": [],
+          "should": [],
+          "must": [{
+            "range": {
+              "age": {
+                "lt": 10
+              }
+            }
+          }]
+        }
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='CloudSearch-lessThanEqualTo' name="CloudSearch-lessThanEqualTo" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.lessThanEqualTo( <code>columnName, data</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> has the value less than or equals to <code>data</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>data</dt>
+                  <dd class="">string/number<span>The value of the equals contraint</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+        "bool": {
+          "must_not": [],
+          "should": [],
+          "must": [{
+            "range": {
+              "age": {
+                "lte": 10
+              }
+            }
+          }]
+        }
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-or' name="CloudSearch-or" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.or( <code>cloudSearch1, cloudSearch2</code> )</h3>
+              <p>
+              It adds a logical OR contriant between 2 <code>CloudSearch</code> objects for 
+              finding the set of the data satisfying conditions of both <code>cloudSearch1</code>
+              and <code>cloudSearch2</code>.
+              </p>
+              <div class="method-list">
+                
+                <h6>Arguments</h6>
+                <dl class="argument-list">
+
+                  <dt>cloudSearch1</dt>
+                  <dd class=""><code>CloudSearch object</code></dd>
+                  <div class="clearfix"></div>
+                  <dt>cloudSearch2</dt>
+                  <dd class=""><code>CloudSearch object</code></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns a <code>CloudSearch</code> object which contains
+                OR'ed query of both of the <code>CloudSearch</code> objects.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+//search for Students either called Adam or smith
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+        "bool": {
+          "must_not": [],
+          "should": [],
+          "must": [{
+            "term": {
+              "name": "Adam"
+            }
+          },
+          {
+            "term": {
+              "name": "smith"
+            }
+          }]
+        }
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+</span></span></code>
+              
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-orderByAsc' name="CloudSearch-orderByAsc" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.orderByAsc( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for arranging the subset of the data in ascending 
+              order.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [{
+    "name": {
+      "order": "asc"
+    }
+  }],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-orderByDesc' name="CloudSearch-orderByDesc" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.orderByDesc( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for arranging the subset of the data in descending 
+              order.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The attribute on which the contraint is to be applied</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+               <h6>Returns</h6>
+                <p>Same search object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [{
+    "name": {
+      "order": "desc"
+    }
+  }],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-setLimit' name="CloudSearch-setLimit" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.setLimit( <code>data</code> )</h3>
+              <p>
+              It adds a contriant to limit no. of the data to be
+              fetched from the database.
+              </p>
+              <p>
+                If it is not set explicitly, database returns 20 results by default.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>data</dt>
+                  <dd class="">number <span>No. of data to be shown</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+//default limit is 10
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 5,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-setSkip' name="CloudSearch-setSkip" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.setSkip( <code>data</code> )</h3>
+              <p>
+              It adds a constraint to skip <code>data</code> no. of data
+              matching satisfying the query contraints and fetching
+              from the database.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>data</dt>
+                  <dd class="">number <span>No. of data to be skipped</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+//default skip is 0
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+      }
+    }
+  },
+  "skip": 5,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          
+
+          <a id='CloudSearch-exists' name="CloudSearch-exists" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h3>CloudSearch.exists( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> exists irrespective of what its value is.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column name which is to be checked for existence</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+    "query": {
+  "filtered": {
+    "query": {      
+    },
+    "filter": {
+      "bool": {
+        "must_not": [],
+        "should": [],
+        "must": [{
+          "exists": {
+            "field": "name"
+          }
+        }]
+      }
+    }
+  }
+},
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='CloudSearch-doesNotExists' name="CloudSearch-doesNotExists" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.doesNotExists( <code>columnName</code> )</h3>
+              <p>
+              It adds a contriant for finding the subset of the data in which 
+              <code>columnName</code> does not exists.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>columnName</dt>
+                  <dd class="">string <span>The column name which is to be checked for non-existence</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>Same CloudSearch object, which can be helpful in chaining search functions.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+    "query": {
+  "filtered": {
+    "query": {      
+    },
+    "filter": {
+      "bool": {
+        "must_not": [{
+          "exists": {
+            "field": "name"
+          }
+        }],
+        "should": [],
+        "must": []
+      }
+    }
+  }
+},
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='CloudSearch-search' name="CloudSearch-search" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudSearch.search(<code>[callback]</code> )</h3>
+              <p>
+                Searches the database on the constraints provided by the <code>CloudSearch</code>
+                object and gets the result as an array of <code>CloudObject</code> objects.
+              </p>
+              <p>
+              If no. of documents to be returned is not specified using <a href="#CloudQuery-setLimit">limit()</a>
+              then at max 20 documents are returned in each query by default.
+              </p>
+              <div class="method-list">
+              
+				<h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>callback</dt>
+                  <dd class="">CloudSearchCallback interface object <span>must override success(Map&lt;String, Object &gt;) method and error method</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+                <h6>Returns</h6>
+                <p>It returns an array of <code>CloudObject</code> objects.</p>
+                <h6>Error Handling</h6>
+                It throws <code>CloudBoostException, MalformedURLException, IOException</code>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {
+        "bool": {
+          "must_not": [],
+          "should": [{
+            "match": {
+              "name": {
+                "query": "[\"egima\",\"bengi\"]"
+              }
+            }
+          }],
+          "must": []
+        }
+      },
+      "filter": {        
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+      </div>

@@ -86,7 +86,29 @@ module.exports = function(grunt) {
                 ],
                 // the location of the resulting dotnet html file
                 dest: 'dotnet.html'
-            }           
+            },
+            "curl-api": {
+                // the files to concatenate
+                src: ['api/commonHead.html',
+                'api/java/content-guide.html',
+                'api/langMenuHeadWrap.html',
+                'api/java/introduction.html', 
+                'api/java/dependencies.html',
+                'api/java/cloudObjects.html',
+                'api/java/relationships.html',
+                'api/java/cloudQuery.html',   
+                'api/java/cloudSearch.html',
+                'api/java/cloudACL.html',
+                'api/java/cloudUser.html',
+                'api/java/cloudRole.html',
+                'api/java/cloudFile.html',
+                'api/java/contribute.html',
+                'api/langMenuFootWrap.html',
+                'api/commonFoot.html'
+                ],
+                // the location of the resulting java html file
+                dest: 'curl.html'
+            }			
         }       
     };   
 
@@ -94,6 +116,6 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-concat');    
 
-    grunt.registerTask('default',['concat:js-api','concat:java-api','concat:dotnet-api']);    
+    grunt.registerTask('default',['concat:js-api','concat:java-api','concat:dotnet-api','concat:curl-api']);    
 
 };

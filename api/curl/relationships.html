@@ -1,0 +1,350 @@
+
+
+        <div class="method">
+          <a id='Relationships' name="Relationships" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h1>Relationships</h1>
+
+              <p>
+                This section is dedicated to modelling relationships with CloudBoost.
+              </p>
+              <p>
+                There are usually three types of relationships. 
+                <ul>
+                  <li> 
+                    One-to-One Relationship
+                  </li>
+                  <li> 
+                    One-to-many Relationship
+                  </li>
+                  <li> 
+                    Many-to-many Relationship
+                  </li>
+                </ul>
+              </p>
+
+            </div>
+            <div class="method-example" id="api-summary-example">
+            </div> <!-- method-example -->
+          </div><!-- method-section -->
+
+          <a id='Relationships-oneToOne' name="Relationships-oneToOne" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>One-to-One Relationship</h3>
+              <p>
+                If you want to model one-to-one relationship. Then you need to create a new column of type <code> Relation </code> pointed to a table which you want it to be related to and set that column <code> Unique </code> property to true.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+    "document": {
+        "_type": "custom",
+        "expires": null,
+        "address": {
+            "_type": "custom",
+            "expires": null,
+            "StreetName": "Manhattan",
+            "_modifiedColumns": ["createdAt",
+            "updatedAt",
+            "ACL",
+            "expires",
+            "StreetName",
+            "Country"],
+            "_tableName": "table",
+            "ACL": {
+                "write": {
+                    "allow": {
+                        "role": [],
+                        "user": ["all"]
+                    },
+                    "deny": {
+                        "role": [],
+                        "user": []
+                    }
+                },
+                "read": {
+                    "allow": {
+                        "role": [],
+                        "user": ["all"]
+                    },
+                    "deny": {
+                        "role": [],
+                        "user": []
+                    }
+                }
+            },
+            "Country": "United States",
+            "_isModified": true
+        },
+        "name": "John Smith",
+        "_modifiedColumns": ["createdAt",
+        "updatedAt",
+        "ACL",
+        "expires",
+        "name",
+        "address"],
+        "_tableName": "Student",
+        "ACL": {
+            "write": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            },
+            "read": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            }
+        },
+        "_isModified": true
+    }
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='Relationships-oneToMany' name="Relationships-oneToMany" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>One-to-Many Relationship</h3>
+               <p>
+                If you want to model one-to-many relationship. Then you need to create a new column of type <code> Relation </code> pointed to a table which you want it to be related to and set that column <code> Unique </code> property to false.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+    "document": {
+        "_type": "custom",
+        "expires": null,
+        "address": {
+            "_type": "custom",
+            "expires": null,
+            "StreetName": "Manhattan",
+            "_modifiedColumns": ["createdAt",
+            "updatedAt",
+            "ACL",
+            "expires",
+            "StreetName",
+            "Country"],
+            "_tableName": "Address",
+            "ACL": {
+                "write": {
+                    "allow": {
+                        "role": [],
+                        "user": ["all"]
+                    },
+                    "deny": {
+                        "role": [],
+                        "user": []
+                    }
+                },
+                "read": {
+                    "allow": {
+                        "role": [],
+                        "user": ["all"]
+                    },
+                    "deny": {
+                        "role": [],
+                        "user": []
+                    }
+                }
+            },
+            "Country": "United States",
+            "_isModified": true
+        },
+        "name": "John Smith",
+        "_modifiedColumns": ["createdAt",
+        "updatedAt",
+        "ACL",
+        "expires",
+        "name",
+        "address"],
+        "_tableName": "Student",
+        "ACL": {
+            "write": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            },
+            "read": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            }
+        },
+        "_isModified": true
+    }
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='Relationships-manyToMany' name="Relationships-manyToMany" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>Many-to-Many Relationship</h3>
+               <p>
+                If you want to model many-to-many relationship. Then you have two options<br/>
+                <ol>
+                  <li><b>#1 - Relation Option</b></li>
+                  <li><b>#2 - List Option</b></li>
+                </ol>
+
+                We will discuss both of these options below. <br/><br/><br/>
+
+                <h4>Relation Option</h4>
+                <p> This option is recommended only if you have huge number of relationships assigned to any one object. </p>
+                <p> This relationship can be created by creating a third table and having two columns that are relatied to tables you want to have many to many relationships on.  </p>
+
+                <br/><br/><br/><br/><br/><br/><br/><br/>
+
+                <h4>List Option</h4>
+                <p> This option is recommended only if you have small number of relationships assigned to any one object. </p>
+                <p> This relationship can be created by creating an array and having related objects pushed to that array and having that array saved in any column of the table. </p>
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+    "document": {
+        "course": {
+            "_type": "custom",
+            "expires": null,
+            "name": "Java",
+            "_modifiedColumns": ["createdAt",
+            "updatedAt",
+            "ACL",
+            "expires",
+            "name"],
+            "_tableName": "Course",
+            "ACL": {
+                "write": {
+                    "allow": {
+                        "role": [],
+                        "user": ["all"]
+                    },
+                    "deny": {
+                        "role": [],
+                        "user": []
+                    }
+                },
+                "read": {
+                    "allow": {
+                        "role": [],
+                        "user": ["all"]
+                    },
+                    "deny": {
+                        "role": [],
+                        "user": []
+                    }
+                }
+            },
+            "_isModified": true
+        },
+        "_type": "custom",
+        "expires": null,
+        "student": {
+            "_type": "custom",
+            "expires": null,
+            "name": "John Smith",
+            "_modifiedColumns": ["createdAt",
+            "updatedAt",
+            "ACL",
+            "expires",
+            "name"],
+            "_tableName": "Student",
+            "ACL": {
+                "write": {
+                    "allow": {
+                        "role": [],
+                        "user": ["all"]
+                    },
+                    "deny": {
+                        "role": [],
+                        "user": []
+                    }
+                },
+                "read": {
+                    "allow": {
+                        "role": [],
+                        "user": ["all"]
+                    },
+                    "deny": {
+                        "role": [],
+                        "user": []
+                    }
+                }
+            },
+            "_isModified": true
+        },
+        "_modifiedColumns": ["createdAt",
+        "updatedAt",
+        "ACL",
+        "expires",
+        "student",
+        "course"],
+        "_tableName": "StudentCourses",
+        "ACL": {
+            "write": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            },
+            "read": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            }
+        },
+        "_isModified": true
+    }
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+
+
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+        </div>
