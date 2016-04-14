@@ -58,27 +58,15 @@
       </ul>
 
       <p class="ref-title">Features</p>
-      <ul class="ref-list">
-
-        <li class="section section-charges">
-          <a href="#CloudApp" class="parent">CloudApp</a>
-          <span class="children">
-            <a href="#CloudApp-init" class="parent">Initialize CloudApp</a>
-          </span>
-        </li>
+      <ul class="ref-list">       
       
         <li class="section section-charges">
           <a href="#CloudObject" class="parent">CloudObject</a>
           <span class="children">
-            <a href="#CloudObject-constructor" class="parent">Constructor</a>
-            <a href="#CloudObject-set" class="parent">Set</a>
-            <a href="#CloudObject-get" class="parent">Get</a>
-            <a href="#CloudObject-unset" class="parent">Unset</a>
             <a href="#CloudObject-save" class="parent">Save</a>
             <a href="#CloudObject-fetch" class="parent">Fetch</a>
             <a href="#CloudObject-delete" class="parent">Delete</a>
             <a href="#CloudObject-searchable" class="parent">Index for Search</a>
-            <a href="#CloudObject-on" class="parent">Notification</a>
             <a href="#CloudObject-expires" class="parent">Expires</a>
           </span>
         </li>
@@ -93,7 +81,6 @@
 
         <li class="section section-charges"><a href="#CloudQuery" class="parent">CloudQuery</a>
           <span class="children">
-            <a href="#CloudQuery-constructor" class="parent">Constructor</a>
             <a href="#CloudQuery-equalTo" class="parent">Equal To</a>
             <a href="#CloudQuery-containedIn" class="parent">Contained In</a>
             <a href="#CloudQuery-containsAll" class="parent">Contains All</a>
@@ -119,18 +106,9 @@
 			<a href="#CloudQuery-paginate" class="parent">Paginate</a>
           </span>
         </li>
-
-        <li class="section section-charges"><a href="#CloudNotifcations" class="parent">CloudNotifications</a>
-          <span class="children">
-            <a href="#CloudNotification-on" class="parent">Subscribe</a>
-            <a href="#CloudNotification-publish" class="parent">Publish</a>
-            <a href="#CloudNotification-off" class="parent">Unsubscribe</a>
-          </span>
-        </li>
         <li class="section section-charges"><a href="#CloudSearch" class="parent">CloudSearch</a>
 
           <span class="children">
-            <a href="#CloudSearch-constructor" class="parent">Constructor</a>
             <a href="#CloudSearch-searchOn" class="parent">Search On</a>
             <a href="#CloudSearch-equalTo" class="parent">Equal To</a>
             <a href="#CloudSearch-notEqualTo" class="parent">Not Equal To</a>
@@ -151,7 +129,6 @@
         
         <li class="section section-charges"><a href="#ACL" class="parent">ACL</a>
           <span class="children">
-            <a href="#ACL-constructor" class="parent">Constructor</a>
             <a href="#ACL-setPublicWriteAccess" class="parent">Public Write Access</a>
             <a href="#ACL-setPublicReadAccess" class="parent">Public Read Access</a>
             <a href="#ACL-setUserWriteAccess" class="parent">User Write Access</a>
@@ -162,7 +139,6 @@
         </li>
         <li class="section section-charges"><a href="#CloudUser" class="parent">CloudUser</a>
           <span class="children">
-            <a href="#CloudUser-constructor" class="parent">Constructor</a>
             <a href="#CloudUser-signUp" class="parent">Signup</a>
             <a href="#CloudUser-logIn" class="parent">Login</a>
             <a href="#CloudUser-logOut" class="parent">Logout</a>
@@ -173,24 +149,13 @@
         </li>
         <li class="section section-charges"><a href="#CloudRole" class="parent">CloudRole</a>
           <span class="children">
-            <a href="#CloudRole-constructor" class="parent">Constructor</a>
             <a href="#CloudRole-getRole" class="parent">Get Role</a>
           </span>
         </li>
         <li class="section section-charges"><a href="#CloudFile" class="parent">CloudFile</a>
           <span class="children">
-            <a href="#CloudFile-constructor" class="parent">Constructor</a>
             <a href="#CloudFile-save" class="parent">Save</a>
             <a href="#CloudFile-delete" class="parent">Delete</a>
-          </span>
-        </li>
-		<li class="section section-charges"><a href="#CloudPush" class="parent">CloudPush</a>
-          <span class="children">
-            <a href="#CloudPush-constructor" class="parent">Constructor</a>
-            <a href="#CloudPush-addDevice" class="parent">addDevice</a>
-            <a href="#CloudPush-subscribe" class="parent">subscribe</a>
-			<a href="#CloudPush-unSubscribe" class="parent">unSubscribe</a>
-			<a href="#CloudPush-send" class="parent">send</a>
           </span>
         </li>
         <li class="section section-charges"><a href="#Contribute" class="parent">Contribute</a>
@@ -208,6 +173,7 @@
           <a id="javascript-sdk" class="language" href="javascript.html">JavaScript</a>
           <a id="java-sdk" class="language" href="java.html">Java</a>
           <a id="dotnet-sdk" class="language" href="dotnet.html">.Net</a>
+          <a id="curl-sdk" class="language" href="curl.html">cURL</a>
           <a id="others-swagger" class="language" href="swagger">Others</a>
         </div>
     <div class="method">
@@ -224,10 +190,10 @@
             </div>
             <div class="method-example" id="api-summary-example">
 
-              <h3>Java SDK</h3>
+              <h3>Endpoint</h3>
               
-              <h4>GitHub :</h4>  <a href="https://github.com/CloudBoost/JavaSDK">
-                <code>https://github.com/CloudBoost/JavaSDK</code>
+              <h4></h4> 
+                <code>https://api.cloudboost.io</code>
               </a><br/>
 
             </div>
@@ -240,221 +206,39 @@
 
               <h1>Dependencies</h1>
               <p>
-              This SDK require few external libraries. 
+              These calls require few external dependencies. 
               <ul>
-              	<li><a href="">Google-gson Libraray</a></li>
-              	<li><a href="">Socket.io Engine</a></li>
-              	<li><a href="">Socket.io Client</a></li>
+              	<li><a href="">curl-x.x.x</a></li>
               </ul>
-              All the dependent libraries are included in Cloudboost Sdk zip file. Download and import these libraries in your java project.
               </p>
             </div>
             <div class="method-example" id="api-summary-example">
             </div> <!-- method-example -->
           </div> <!-- method-section -->
         </div> <!-- method -->
-
-       
-        
-        <div class="method">
-          <a id='CloudObject' name="CloudObject" class="section-anchor">&nbsp;</a>
+ <div class="method">
+          <a id='Apps' name="Apps" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
-              <h1>CloudObject</h1>
+
+              <h1>Apps</h1>
               <p>
-              Your data in CloudBoost is represented with CloudObjects <code>CloudObject</code>. Each <code>CloudObject</code> 
-              belongs to a table in your database with us and each objct represents a row of data in that table. The data you can store in CloudObject has schema which you define in Table Designer in CloudBoost portal. You 
-              simply set whatever key-value pairs you want, and our backend will store it for you.
+              In Cloudboost, you create an app each of which has its own AppID, Java 
+              Client Key and the Master Key that you apply to your web app. You master key is a secret which should not be shared in your client apps. Your account on CloudBoost can accommodate multiple apps.
+
+              This is useful even if you have one application, since you can deploy different versions for test and production.
               </p>
-			
             </div>
             <div class="method-example" id="api-summary-example">
             </div>
           </div>
-          <a id='CloudObject-constructor' name="CloudObject-constructor" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-			<h3>Package</h3>
-              <p>
-              <code>import io.cloudboost.CloudObject;</code>
-              </p>
-              <h3>Constructor</h3>
-              <p>
-              Instantiates a <code>CloudObject</code> object.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>tableName</dt>
-                  <dd class="">string <span>The name of the table you want to deal with</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-                <h6>Returns</h6>
-                <p>It returns an instance of a CloudObject, because its a constructor. </p>
-              </div>
-
-              <div class="method-list">
-                
-                <h6>Properties</h6>
-
-                <p>Every instance of CloudObject has these properties </p>
-
-                <dl class="argument-list">
-
-                  <dt>id</dt>
-                  <dd class="">string <span>The id of the CloudObject which is populated after the object is saved.</span></dd>
-                  <div class="clearfix"></div>
-
-                  <dt>createdAt</dt>
-                  <dd class="">Date <span>The Date and time when the object was saved in the database.</span></dd>
-                  <div class="clearfix"></div>
-
-                   <dt>updatedAt</dt>
-                  <dd class="">Date <span>The Date and time when the object was updated in the database.</span></dd>
-                  <div class="clearfix"></div>
-
-                  <dt>isSearchable</dt>
-                  <dd class="">boolean <span>Set this to true if you want this object to be indexe for search and is accessible with CloudSearch</span></dd>
-                  <div class="clearfix"></div>
-
-                  <dt>ACL</dt>
-                  <dd class="">ACL <span>Access Control List, by defualt this object is publicily readbale and writable. You set object leevel security here. Refer ACL's</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-                
-              </div>
-
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node">
-              <span class="highlight_js javascript">
-/*
-*creates an object for Student table
-*all the CloudBoost functionality.
-*/
-CloudObject obj = new CloudObject("Student"); 
-              </span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudObject-set' name="CloudObject-set" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudObject.set( <code>columnName, data</code> )</h3>
-              <p>
-              Sets the value of an attribute of a <code>CloudObject</code> object.
-              </p>
-              <div class="method-list">
-                
-                <h6>Arguments</h6>
-                <dl class="argument-list">
-
-                  <dt>columnName</dt>
-                  <dd class="">string <span>The name of the column whose value is to be set.</span></dd>
-                  <div class="clearfix"></div>
-                  <dt>data</dt>
-                  <dd class="">Any data<span>The value which is to be stored in the column.</span></dd>
-                  <div class="clearfix"></div>
-
-                </dl>
-
-                <h6>Returns</h6>
-                <p>void</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObject obj = new CloudObject("Student"); //create a new object.
-obj.set("name", "John Smith"); //store string
-obj.set("age", 21); // store number
-Map&lt;String, Object&gt; address = new HashMap&lt;String,Object&gt;();
-address.put("city","Hyderabad");
-address.put("state", "Telangana");
-address.put("country","India");
-address.put("zip", 500046);
-obj.set("address",address);
-                   </span></span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudObject-get' name="CloudObject-get" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudObject.get( <code>columnName</code> )</h3>
-              <p>
-              Gets the value of an column of an instance of <code>CloudObject</code> object.
-              </p>
-              <div class="method-list">
-                <h6>Argument</h6>
-                <dl class="argument-list">
-                  <dt>columnName</dt>
-                  <dd class="">string <span>The name of the column whose value is to be fetched.</span></dd>
-                  <div class="clearfix"></div>
-                </dl>
-
-                <h6>Returns</h6>
-                <p>It returns <code>undefined</code> if the attribute is not set previously otherwise 
-                returns the value of column which was previously set. Type of the value is an Object type which can be cast to an aproperiate data type</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-Map&lt;String,Object&gt; getAddressObject = new HashMap&lt;String,Object&gt;();
-getAddressObject = (Map&lt;String, Object&gt;)obj.get("address"); //get the data.  
-address will be a Map Object 
-String city = (String)getAddressObject.get("city");
-String state = (String)getAddressObject.get("state");
-which was saved using object.set
-String name = (String)obj.get("name");
-                   </span></span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudObject-unset' name="CloudObject-unset" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudObject.unset( <code>columnName, [callback]</code> )</h3>
-              <p>
-              Sets the value of an column of a <code>CloudObject</code> object to <code>null</code>.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>columnName</dt>
-                  <dd class="">string <span>The name of the column which is to be unset.</span></dd>
-                  <div class="clearfix"></div>
-                  
-
-                </dl>
-
-                <h6>Returns</h6>
-                <p>void</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObject obj = new CloudObject("Student");
-obj.set("name", "John Smith");
-obj.get("name"); //returns John Smith.
-obj.unset("name");
-obj.get("name"); //returns null.
-</span></span></code>
-             
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
+        </div>
+ 
           <a id='CloudObject-save' name="CloudObject-save" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudObject.save()</h3>
+              <h3>CloudObject.save(callback)</h3>
               <p>
               Saves the <code>CloudObject</code> object to CloudBoost.
               </p>
@@ -462,7 +246,7 @@ obj.get("name"); //returns null.
               <h6>Argument</h6>
                 <dl class="argument-list">
                 <dt>callback</dt>
-                  <dd class="">Callback interface object <span>Override the success and error method. both method do not take any argument.</span></dd>
+                  <dd class="">Callback interface object <span>Override the done.</span></dd>
                   <div class="clearfix"></div>
                 <h6>Error Handling</h6>
                 <p>It throws <code>CloudBoostException</code></p>
@@ -476,20 +260,47 @@ obj.get("name"); //returns null.
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObject obj = new CloudObject("Student");
-obj.set("name", "Smith");
-
-CloudObjectCallback callbackObj = new CloudObjectCallback(){
-	@Override
-	public void done(CloudObject x,CloudException e){
-		//
-	}
-};
-obj.save(callbackObj);
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {     "_type": "custom",
+        "expires": null,
+        ${column_name}: ${column_value},
+        "_modifiedColumns": ["createdAt",
+        "updatedAt",
+        "ACL",
+        "expires",
+        ${column_name}],
+        "_tableName": "data",
+        "ACL": {
+            "write": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            },
+            "read": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            }
+        },
+        "_isModified": true}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
 </span></span></span></code>
 
             </div><!-- method-example -->
-          </div> <!-- method-section -->
+          </div> <!-- method-section -->	  
+		  
+		   
           <a id='CloudObject-fetch' name="CloudObject-fetch" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -509,17 +320,27 @@ obj.save(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-
-CloudObjectCallback callbackObj = new CloudObjectCallback(){
-	@Override
-	public void done(CloudObject x,CloudException e){
-		//
-	}
-};
-obj.fetch(callbackObj);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+    "limit": 1,
+    "sort": {        
+    },
+    "select": {        
+    },
+    "query": {
+        "$includeList": [],
+        "$include": [],
+        "_id": ${id_of_object_to_fetch}
+    },
+    "skip": 0,
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 </span></span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+		  
+		  
+		  
+		  
           <a id='CloudObject-delete' name="CloudObject-delete" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -536,16 +357,47 @@ obj.fetch(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObjectCallback callbackObj = new CloudObjectCallback(){
-	@Override
-	public void done(CloudObject x,CloudException e){
-		//
-	}
-};
-obj.delete(callbackObj);
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+    "document": {
+        "updatedAt": "2016-03-15T09:22:10.446Z",
+        "_type": "custom",
+        "_version": 0,
+        "expires": null,
+        "_id": ${id_of_object_to_delete},
+        "createdAt": "2016-03-15T09:22:10.446Z",
+        "_tableName": "data",
+        "ACL": {
+            "write": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            },
+            "read": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            }
+        }
+    },
+    "method": "DELETE",
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
               </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+		  
+		  
+		  
 
            <a id='CloudObject-searchable' name="CloudObject-searchable" class="section-anchor">&nbsp;</a>
           <div class="method-section">
@@ -558,109 +410,48 @@ obj.delete(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObject obj = new CloudObject('Student');
-obj.set("name", "John Smith");
-obj.setIsSearchable(true); //index this object for Search
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {     "_type": "custom",
+        "expires": null,
+        ${column_name}: ${column_value},
+        "_modifiedColumns": ["createdAt",
+        "updatedAt",
+        "ACL",
+        "expires",
+        ${column_name}],
+        "_tableName": "data",
+        "ACL": {
+            "write": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            },
+            "read": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            }
+        },
+        "_isModified": true,
+		"isSearchable":true
+		}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
 </span></span></span></code>
             </div><!-- method-example -->
-          </div> <!-- method-section -->
+          </div> <!-- method-section -->	  
+		  
 
-          <a id='CloudObject-on' name="CloudObject-on" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudObject.on( <code> tableName, eventType, functionToFire</code>)</h3>
-              <p>
-              Realtime Notifications : Listens to  <code>CloudObject</code> events like insert, update, delete in the database.
-              </p>
-
-              <div class="method-list">
-
-               <h6>Argument</h6>
-
-                <dl class="argument-list"> 
-                  <dt>tableName</dt>
-                  <dd class="">String <span> Name of the table on which you want to listen for events.
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-
-                  <dt>eventType</dt>
-                  <dd class="">String / Array<span> Type of an event you want to listen to, Only  <code> created, updated, deleted </code> are supported values.</span></dd>
-                  <div class="clearfix"></div>
-
-                  <dt>functiontoFire</dt>
-                  <dd class="">Function <span> Your custom function to fire when the event occours</dd>
-                  <div class="clearfix"></div>
-                  
-                  <div class="clearfix"></div>
-                
-                </dl>
-
-                <h6>Returns</h6>
-                <p>void</p>
-
-              </div>
-
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-//listen to an event
-
-//intializing CloudNotificationMethod, and overriding methods 
-CloudNotificationCallback callbackObj = new CloudNotificationCallback(){ 
-	@Override 
-	public void done(Object data,CloudException e) {
-		// override this function as per your requirnment.  
-		System.out.println("message : " + data); 
-	} 
-}; 
-CloudObject.on("Student", "created",  callbackObj);
-</span></span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-
-
-                    <a id='CloudObject-off' name="CloudObject-off" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudObject.off( <code> tableName, eventType </code>)</h3>
-              <p>
-              Realtime Notifications : Switches off listening to  <code>CloudObject</code> events like insert, update, delete in the database.
-              </p>
-
-              <div class="method-list">
-
-               <h6>Argument</h6>
-
-                <dl class="argument-list"> 
-                  <dt>tableName</dt>
-                  <dd class="">String <span> Name of the table on which you want to stop listening for events to.
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-
-                  <dt>eventType</dt>
-                  <dd class="">String / Array<span> Type of an event you want to stop listening to, Only  <code> created, updated, deleted </code> are supported values.</span></dd>
-                  <div class="clearfix"></div>
-                  <div class="clearfix"></div>
-                
-                </dl>
-
-                <h6>Returns</h6>
-                <p>void</p>
-
-              </div>
-
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-//stop listening to an event
-
-CloudObject.off("Student","created");
-
-</span></span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
 
             <a id='CloudObject-expires' name="CloudObject-expires" class="section-anchor">&nbsp;</a>
             <div class="method-section">
@@ -674,237 +465,397 @@ CloudObject.off("Student","created");
                 </div>
                 <div class="method-example" id="api-summary-example">
                     <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObject obj = new CloudObject("Student");
-obj.set("name", "John Smith");
-Date date = new Date(2015, 12, 25);
-expire = date.getTime()+1000;
-obj.setExpires(expires); //Set the expire time for object Student
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+    "document": {
+        "updatedAt": "2016-03-15T09:22:10.446Z",
+        "_type": "custom",
+        "_version": 0,
+        "expires": "2016-04-15T09:22:10.446Z",
+        "_id": ${id_of_object_to_delete},
+        "createdAt": "2016-03-15T09:22:10.446Z",
+        "_tableName": "data",
+        "ACL": {
+            "write": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            },
+            "read": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            }
+        }
+    }
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
 </span></span></span></code>
                 </div><!-- method-example -->
             </div> <!-- method-section -->
 
-        </div> <!-- method -->
+      
 
 
-        <div class="method">
-          <a id='Relationships' name="Relationships" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
+<div class="method">
+  <a id='Relationships' name="Relationships" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
 
-              <h1>Relationships</h1>
+      <h1>Relationships</h1>
 
-              <p>
-                This section is dedicated to modelling relationships with CloudBoost.
-              </p>
-              <p>
-                There are usually three types of relationships. 
-                <ul>
-                  <li> 
-                    One-to-One Relationship
-                  </li>
-                  <li> 
-                    One-to-many Relationship
-                  </li>
-                  <li> 
-                    Many-to-many Relationship
-                  </li>
-                </ul>
-              </p>
+      <p>
+        This section is dedicated to modelling relationships with CloudBoost.
+      </p>
+      <p>
+        There are usually three types of relationships. 
+        <ul>
+          <li> 
+            One-to-One Relationship
+          </li>
+          <li> 
+            One-to-many Relationship
+          </li>
+          <li> 
+            Many-to-many Relationship
+          </li>
+        </ul>
+      </p>
 
-            </div>
-            <div class="method-example" id="api-summary-example">
-            </div> <!-- method-example -->
-          </div><!-- method-section -->
+    </div>
+    <div class="method-example" id="api-summary-example">
+    </div> <!-- method-example -->
+  </div><!-- method-section -->
 
-          <a id='Relationships-oneToOne' name="Relationships-oneToOne" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
+  <a id='Relationships-oneToOne' name="Relationships-oneToOne" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
 
-              <h3>One-to-One Relationship</h3>
-              <p>
-                If you want to model one-to-one relationship. Then you need to create a new column of type <code> Relation </code> pointed to a table which you want it to be related to and set that column <code> Unique </code> property to true.
-              </p>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObject student = new CloudObject("Student"); 
-CloudObject address = new CloudObject("Address"); 
+      <h3>One-to-One Relationship</h3>
+      <p>
+        If you want to model one-to-one relationship. Then you need to create a new column of type <code> Relation </code> pointed to a table which you want it to be related to and set that column <code> Unique </code> property to true.
+      </p>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+"key": ${client_key},
+"document": {
+"_type": "custom",
+"expires": null,
+"address": {
+    "_type": "custom",
+    "expires": null,
+    "StreetName": "Manhattan",
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "StreetName",
+    "Country"],
+    "_tableName": "table",
+    "ACL": {
+        "write": {
+            "allow": {
+                "role": [],
+                "user": ["all"]
+            },
+            "deny": {
+                "role": [],
+                "user": []
+            }
+        },
+        "read": {
+            "allow": {
+                "role": [],
+                "user": ["all"]
+            },
+            "deny": {
+                "role": [],
+                "user": []
+            }
+        }
+    },
+    "Country": "United States",
+    "_isModified": true
+},
+"name": "John Smith",
+"_modifiedColumns": ["createdAt",
+"updatedAt",
+"ACL",
+"expires",
+"name",
+"address"],
+"_tableName": "Student",
+"ACL": {
+    "write": {
+        "allow": {
+            "role": [],
+            "user": ["all"]
+        },
+        "deny": {
+            "role": [],
+            "user": []
+        }
+    },
+    "read": {
+        "allow": {
+            "role": [],
+            "user": ["all"]
+        },
+        "deny": {
+            "role": [],
+            "user": []
+        }
+    }
+},
+"_isModified": true
+}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+      </span></span></code>
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
 
-/*
-*here one student can only have one address for example. 
-*address column of Student Table is pointed to the Address Table with unique set to true.
-*/
-student.set("address", address); 
+  <a id='Relationships-oneToMany' name="Relationships-oneToMany" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
 
-CloudObjectCallback callbackObj = new CloudObjectCallback(){
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	}
-};
-obj.save(callbackObj);
-              </span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
+      <h3>One-to-Many Relationship</h3>
+       <p>
+        If you want to model one-to-many relationship. Then you need to create a new column of type <code> Relation </code> pointed to a table which you want it to be related to and set that column <code> Unique </code> property to false.
+      </p>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+"key": ${client_key},
+"document": {
+"_type": "custom",
+"expires": null,
+"address": {
+    "_type": "custom",
+    "expires": null,
+    "StreetName": "Manhattan",
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "StreetName",
+    "Country"],
+    "_tableName": "Address",
+    "ACL": {
+        "write": {
+            "allow": {
+                "role": [],
+                "user": ["all"]
+            },
+            "deny": {
+                "role": [],
+                "user": []
+            }
+        },
+        "read": {
+            "allow": {
+                "role": [],
+                "user": ["all"]
+            },
+            "deny": {
+                "role": [],
+                "user": []
+            }
+        }
+    },
+    "Country": "United States",
+    "_isModified": true
+},
+"name": "John Smith",
+"_modifiedColumns": ["createdAt",
+"updatedAt",
+"ACL",
+"expires",
+"name",
+"address"],
+"_tableName": "Student",
+"ACL": {
+    "write": {
+        "allow": {
+            "role": [],
+            "user": ["all"]
+        },
+        "deny": {
+            "role": [],
+            "user": []
+        }
+    },
+    "read": {
+        "allow": {
+            "role": [],
+            "user": ["all"]
+        },
+        "deny": {
+            "role": [],
+            "user": []
+        }
+    }
+},
+"_isModified": true
+}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+      </span></span></code>
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
 
-          <a id='Relationships-oneToMany' name="Relationships-oneToMany" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
+  <a id='Relationships-manyToMany' name="Relationships-manyToMany" class="section-anchor">&nbsp;</a>
+  <div class="method-section">
+    <div class="method-description">
 
-              <h3>One-to-Many Relationship</h3>
-               <p>
-                If you want to model one-to-many relationship. Then you need to create a new column of type <code> Relation </code> pointed to a table which you want it to be related to and set that column <code> Unique </code> property to false.
-              </p>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObject teacher = new CloudObject("Teacher"); 
-CloudObject course = new CloudObject("Course"); 
+      <h3>Many-to-Many Relationship</h3>
+       <p>
+        If you want to model many-to-many relationship. Then you have two options<br/>
+        <ol>
+          <li><b>#1 - Relation Option</b></li>
+          <li><b>#2 - List Option</b></li>
+        </ol>
 
-/*
-*here one teacher be assigned to many courses. 
-*address column of Student Table is pointed to the Address Table with unique set to true.
-*/
-course.set("teacher", address); 
+        We will discuss both of these options below. <br/><br/><br/>
 
-CloudObjectCallback callbackObj = new CloudObjectCallback(){
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	}
-};
-obj.save(callbackObj);
-              </span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
+        <h4>Relation Option</h4>
+        <p> This option is recommended only if you have huge number of relationships assigned to any one object. </p>
+        <p> This relationship can be created by creating a third table and having two columns that are relatied to tables you want to have many to many relationships on.  </p>
 
-          <a id='Relationships-manyToMany' name="Relationships-manyToMany" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
+        <br/><br/><br/><br/><br/><br/><br/><br/>
 
-              <h3>Many-to-Many Relationship</h3>
-               <p>
-                If you want to model many-to-many relationship. Then you have two options<br/>
-                <ol>
-                  <li><b>#1 - Relation Option</b></li>
-                  <li><b>#2 - List Option</b></li>
-                </ol>
+        <h4>List Option</h4>
+        <p> This option is recommended only if you have small number of relationships assigned to any one object. </p>
+        <p> This relationship can be created by creating an array and having related objects pushed to that array and having that array saved in any column of the table. </p>
+      </p>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 
-                We will discuss both of these options below. <br/><br/><br/>
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+"key": ${client_key},
+"document": {
+"course": {
+    "_type": "custom",
+    "expires": null,
+    "name": "Java",
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "Course",
+    "ACL": {
+        "write": {
+            "allow": {
+                "role": [],
+                "user": ["all"]
+            },
+            "deny": {
+                "role": [],
+                "user": []
+            }
+        },
+        "read": {
+            "allow": {
+                "role": [],
+                "user": ["all"]
+            },
+            "deny": {
+                "role": [],
+                "user": []
+            }
+        }
+    },
+    "_isModified": true
+},
+"_type": "custom",
+"expires": null,
+"student": {
+    "_type": "custom",
+    "expires": null,
+    "name": "John Smith",
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "Student",
+    "ACL": {
+        "write": {
+            "allow": {
+                "role": [],
+                "user": ["all"]
+            },
+            "deny": {
+                "role": [],
+                "user": []
+            }
+        },
+        "read": {
+            "allow": {
+                "role": [],
+                "user": ["all"]
+            },
+            "deny": {
+                "role": [],
+                "user": []
+            }
+        }
+    },
+    "_isModified": true
+},
+"_modifiedColumns": ["createdAt",
+"updatedAt",
+"ACL",
+"expires",
+"student",
+"course"],
+"_tableName": "StudentCourses",
+"ACL": {
+    "write": {
+        "allow": {
+            "role": [],
+            "user": ["all"]
+        },
+        "deny": {
+            "role": [],
+            "user": []
+        }
+    },
+    "read": {
+        "allow": {
+            "role": [],
+            "user": ["all"]
+        },
+        "deny": {
+            "role": [],
+            "user": []
+        }
+    }
+},
+"_isModified": true
+}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
 
-                <h4>Relation Option</h4>
-                <p> This option is recommended only if you have huge number of relationships assigned to any one object. </p>
-                <p> This relationship can be created by creating a third table and having two columns that are relatied to tables you want to have many to many relationships on.  </p>
 
-                <br/><br/><br/><br/><br/><br/><br/><br/>
+      </span></span></code>
+    </div><!-- method-example -->
+  </div> <!-- method-section -->
 
-                <h4>List Option</h4>
-                <p> This option is recommended only if you have small number of relationships assigned to any one object. </p>
-                <p> This relationship can be created by creating an array and having related objects pushed to that array and having that array saved in any column of the table. </p>
-              </p>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-
-//Type #1 : Relation Option
-CloudObject student = new CloudObject("Student"); 
-CloudObject course = new CloudObject("Course"); 
-
-//here one student be into many courses, and vice versa. 
-CloudObject studentCourse = new CloudObject('StudentCourse');
-studentCourse.set("student", student);
-studentCourse.set("teacher", teacher); 
-
-CloudObjectCallback callbackObj = new CloudObjectCallback(){
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	}
-};
-obj.save(callbackObj);
-
-// ======================================================
-
-//Type #2 : List Option.
-
-CloudObject student = new CloudObject("Student"); 
-
-//create an array. 
-ArrayList courseList = [];
-
-//a new course
-CloudObject course = new CloudObject("Course"); 
-
-//add it to the list. You can push any number of objects you need. 
-courseList.add(course);
-
-
-//here one student be into many courses, and vice versa. 
-student.set("courses", courseList); 
-
-CloudObjectCallback callbackObj = new CloudObjectCallback(){
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	}
-};
-obj.save(callbackObj);
-
-
-              </span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-
-        </div>
+</div>
 
 <!-- CloudQuery Section -->
-
-        <div class="method">
-          <a id='CloudQuery' name="CloudQuery" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h1>CloudQuery</h1>
-              <p>
-                It encapsulates a set of methods and attributes required to query your data in
-                CloudApp to retrieve desired set of results.
-              </p>
-
-            </div>
-            <div class="method-example" id="api-summary-example">
-            </div> <!-- method-example -->
-          </div><!-- method-section -->
-          <a id='CloudQuery-constructor' name="CloudQuery-constructor" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-			<h3>Package</h3>
-              <p>
-              <code>import io.cloudboost.CloudQuery;</code>
-              </p>
-              <h3>Constructor</h3>
-              <p>
-              Instantiates a <code>CloudQuery</code> object.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>tableName</dt>
-                  <dd class="">string <span>The name of the table you want to query on.</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-                <h6>Returns</h6>
-                <p>void</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudQuery query = new CloudQuery("Student");</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-
 
           <a id='CloudQuery-equalTo' name="CloudQuery-equalTo" class="section-anchor">&nbsp;</a>
           <div class="method-section">
@@ -935,14 +886,20 @@ obj.save(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudQuery query = new CloudQuery("Student");
-query.equalTo("age", 21); //find all Students who age is 21
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	}
-});
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "name": "john"
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -975,16 +932,24 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudQuery query = new CloudQuery("Student");
-//Get Student where name is equal to Smith, Max or Lucy
-String[] list = {"Smith", "Max", "Lucy"};
-query.containedIn("name", list);
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	} 
-});
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "name": {
+      "$nin": [],
+      "$in": ["adam",
+      "bengi"]
+    },
+    "$include": []
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1016,16 +981,22 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudQuery query = new CloudQuery("Student");
-//find Students who are in JavaScript and C# class
-String[] list = {"java", "javascript"};
-query.containsAll("classes", list);
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	}
-});
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "name": {
+      "$all": ["adam","bengi"]
+    },
+    "$include": []
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1058,15 +1029,24 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudQuery query = new CloudQuery("Student");
-//find all the Students who name starts with letter 'S'
-query.startsWith("name", "S");
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	} 
-});
+//starts with b
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "name": {
+      "$options": "im",
+      "$regex": "^b"
+    }
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1099,15 +1079,23 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudQuery query = new CloudQuery("Student");
-//find all Students info except of Smith
-query.notEqualTo("name", "Smith");
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	} 
-});
+//name not equal to adam
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "name": {
+      "$ne": "adam"
+    }
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1139,17 +1127,23 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-
-CloudQuery query = new CloudQuery("Student");
-//Get all Students except Smith, Max and Lucy
-String[] list = {"Smith", "Max", "Lucy"};
-query.notContainedIn("name", list);
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	} 
-});
+//name "ben" should not be contained in returned results
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "name": {
+      "$nin": ["ben"]
+    }
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1180,16 +1174,24 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-
-CloudQuery query = new CloudQuery("Teacher");
-//find all the teachers who are old.
-query.greaterThan("age", 60);
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	} 
-});
+//age column should be greater than 30 in all returned results
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "name": "bengi",
+    "age": {
+      "$gt": 30
+    }
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1222,14 +1224,23 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudQuery query = new CloudQuery("Teacher");
-query.greaterThanEqualTo("age", 60);
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	}
-});
+//age should be equal to or greater than 30 in all returned records
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "age": {
+      "$gte": 30
+    }
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1262,14 +1273,22 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudQuery query = new CloudQuery("Student");
-query.lessThan("age", 18);
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	}
-});
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "age": {
+      "$lt": 30
+    }
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1302,14 +1321,22 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudQuery query = new CloudQuery("Student");
-query.lessThanEqualTo("age", 17);
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	}
-});
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "age": {
+      "$lte": 30
+    }
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1349,21 +1376,37 @@ query.find(new CloudQueryCallback(){
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 
-//find all Student such that 10&lt;age&lt;18
+//find all Student such that 30&lt;age&lt;60
 
-CloudQuery query1 = new CloudQuery('Student');
-query1.lessThan("age", 18);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "$or": [{
+      "$includeList": [],
+      "$include": [],
+      "age": {
+        "$gt": 30
+      }
+    },
+    {
+      "$includeList": [],
+      "$include": [],
+      "age": {
+        "$lt": 60
+      }
+    }]
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 
-CloudQuery query2 = new CloudQuery('Student');
-query2.greaterThan("age", 10);
-
-CloudQuery query = CloudQuery.or(query1, query2);
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	} 
-});</span></span></code>
+</span></span></code>
               
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1393,14 +1436,23 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudQuery query = new CloudQuery("Student");
-query.orderByAsc("age");
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	}
-});</span></span></code>
+//order by ascending 
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {
+    "age": 1
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": []
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
+
+</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-orderByDesc' name="CloudQuery-orderByDesc" class="section-anchor">&nbsp;</a>
@@ -1429,14 +1481,23 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudQuery query = new CloudQuery("Student");
-query.orderByDesc("age");
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	}
-});</span></span></code>
+//order by desscending 
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {
+    "age": -1
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": []
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
+
+</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-setLimit' name="CloudQuery-setLimit" class="section-anchor">&nbsp;</a>
@@ -1468,14 +1529,22 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudQuery query = new CloudQuery("Student");
-query.setLimit(5);
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	} 
-});</span></span></code>
+//limit
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 5,
+  "sort": {
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": []
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
+
+</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-setSkip' name="CloudQuery-setSkip" class="section-anchor">&nbsp;</a>
@@ -1510,14 +1579,22 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudQuery query = new CloudQuery("Student");
-query.setSkip(5);
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	} 
-});</span></span></code>
+//skip
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": []
+  },
+  "skip": 5
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
+
+</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-selectColumn' name="CloudQuery-selectColumn" class="section-anchor">&nbsp;</a>
@@ -1550,15 +1627,32 @@ query.find(new CloudQueryCallback(){
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudQuery query = new CloudQuery("Student");
-String[] list = {"name", "age"};
-query.selectColumn(list);
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	} 
-});</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+			  
+//select
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {
+  },
+  "select": {
+    "updatedAt": 1,
+    "_type": 1,
+    "_id": 1,
+    "createdAt": 1,
+    "age": 1,
+    "name": 1,
+    "_tableName": 1,
+    "ACL": 1
+  },
+  "query": {
+    "$includeList": [],
+    "$include": []
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
+
+</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-doNotSelectColumn' name="CloudQuery-doNotSelectColumn" class="section-anchor">&nbsp;</a>
@@ -1586,15 +1680,25 @@ query.find(new CloudQueryCallback(){
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudQuery query = new CloudQuery("Student");
-query.greaterThan("age", 18);
-query.doNotSelectColumn("address");
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	} 
-});</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+			  
+//do not select
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {
+  },
+  "select": {
+    "name": 0
+  },
+  "query": {
+    "$includeList": [],
+    "$include": []
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
+
+</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-exists' name="CloudQuery-exists" class="section-anchor">&nbsp;</a>
@@ -1622,14 +1726,22 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudQuery query = new CloudQuery("Student");
-query.exists("address");
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	} 
-});</span></span></code>
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "sort": {
+  },
+  "select": {},
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "ben": {
+      "$exists": true
+    }
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
+
+</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudQuery-doesNotExists' name="CloudQuery-doesNotExists" class="section-anchor">&nbsp;</a>
@@ -1659,14 +1771,22 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudQuery query = new CloudQuery("Student");
-query.doesNotExists("address");
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	} 
-});</span></span></code>
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "sort": {
+  },
+  "select": {},
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "ben": {
+      "$exists": false
+    }
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/findOne'
+
+</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
@@ -1701,13 +1821,19 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js java">
-CloudQuery query = new CloudQuery("Student");
-query.find(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	} 
-});
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": [],
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 </span></span></code>
 
             </div><!-- method-example -->
@@ -1741,14 +1867,19 @@ query.find(new CloudQueryCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js java">
-CloudQuery query = new CloudQuery("Student");
-query.exists("address");
-query.findOne(new CloudQueryCallback(){ 
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	} 
-});
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 1,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": [],
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/findOne'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -1781,12 +1912,19 @@ query.findOne(new CloudQueryCallback(){
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 //retrieve a Student detail by his unique ID
-query.get("54e837d6d51a5ea011aa79ea", new CloudObjectCallback({ 
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	} 
-));
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {
+  },
+  "select": {},
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "_id": "id"
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 	
 	</span></span></code>
             </div><!-- method-example -->
@@ -1813,14 +1951,21 @@ query.get("54e837d6d51a5ea011aa79ea", new CloudObjectCallback({
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
- //fetch how many Students are there who age&gt;18
-query.greaterThan(18);
-query.count(new CloudIntegerCallback( 
-	@Override
-	public void done(Integer count,CloudException e) {
-		//
-	})
-);</span></span></code>
+ //fetch how many Students are there, satisfying any criteria defined in query
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {
+  },
+  "select": {},
+  "query": {
+    "$includeList": [],
+    "$include": []
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/count'
+
+</span></span></code>
             </div><!-- method-example -->
 
           </div> <!-- method-section -->
@@ -1855,12 +2000,21 @@ query.count(new CloudIntegerCallback(
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-query.distinct("address",new CloudQuery1Callback(
-	@Override
-	public void done(CloudObject[] obj,CloudException e) {
-		//
-	} 
-));</span></span></code>
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {
+  },
+  "select": {},
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "name": "name"
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/distinct'
+
+</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
 		  		
@@ -1893,66 +2047,26 @@ query.distinct("address",new CloudQuery1Callback(
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-query.paginate(1, null, new PaginatorCallback() {
-	@Override
-	public void done(CloudObject[] objects, 
-		Integer count, Integer totalPages,
-		CloudException t) throws CloudException {
-			if(t!=null)
-				//					
-			else
-				//
-	}
-});
+//paginate
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": ${total_items_per_page},
+  "sort": {
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": []
+  },
+  "skip": ${(page_no*total_items_per_page)-total_items_per_page}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
 
 </span></span>
 </code>
             </div><!--method-example -->
           </div><!--  method-section -->
 <div class="method">
-          <a id='CloudSearch' name="CloudSearch" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h1>CloudSearch</h1>
-              <p>
-                It encapsulates a set of methods and attributes required to perform search on your data in CloudApp to retrieve desired set of relevant results.
-              </p>
-
-            </div>
-            <div class="method-example" id="api-summary-example">
-            </div> <!-- method-example -->
-          </div><!-- method-section -->
-          <a id='CloudSearch-constructor' name="CloudSearch-constructor" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>Constructor</h3>
-              <p>
-              Instantiates a <code>CloudSearch</code> object.
-              </p>
-              <div class="method-list">
-              <h3>Package</h3>
-              <p>
-              	<code>import com.cloudboost.CloudSearch;</code>
-              </p>
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>tableNames</dt>
-                  <dd class="">Array/string <span>The name of the table(s) you want to search on.</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudSearch cs = new CloudSearch("Student");</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-
            <a id='CloudSearch-searchOn' name="CloudSearch-searchOn" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -1981,17 +2095,32 @@ query.paginate(1, null, new PaginatorCallback() {
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-String[] list = {"C++", "Java", "C#"};
-CloudSearch cs = new CloudSearch("Student");
-cs.searchOn("resume", list);
-
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {
+        "bool": {
+          "must_not": [],
+          "should": [{
+            "match": {
+              "name": {
+                "query": "[\"egima\",\"bengi\"]"
+              }
+            }
+          }],
+          "must": []
+        }
+      },
+      "filter": {        
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2026,15 +2155,30 @@ cs.search(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudSearch cs = new CloudSearch("Student");
-cs.equalTo("age", 21); //find all Students who age is 21
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {
+      },
+      "filter": {
+        "bool": {
+          "must_not": [],
+          "should": [],
+          "must": [{
+            "term": {
+              "name": "John"
+            }
+          }]
+        }
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2069,16 +2213,30 @@ cs.search(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudSearch cs = new CloudSearch("Student");
-//find all Students info except of Smith
-cs.notEqualTo("name", "Smith");
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+        "bool": {
+          "must_not": [{
+            "term": {
+              "name": "bengi"
+            }
+          }],
+          "should": [],
+          "must": []
+        }
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2111,16 +2269,32 @@ cs.search(callbackObj);
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 
-CloudSearch cs = new CloudSearch("Teacher");
-//find all the teachers who are old.
-cs.greaterThan("age", 60);
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+        "bool": {
+          "must_not": [],
+          "should": [],
+          "must": [{
+            "range": {
+              "age": {
+                "gt": 10
+              }
+            }
+          }]
+        }
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2154,15 +2328,32 @@ cs.search(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudSearch cs = new CloudSearch("Teacher");
-cs.greaterThanEqualTo("age", 60);
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+        "bool": {
+          "must_not": [],
+          "should": [],
+          "must": [{
+            "range": {
+              "age": {
+                "gte": 10
+              }
+            }
+          }]
+        }
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2195,15 +2386,32 @@ cs.search(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudSearch cs = new CloudSearch("Student");
-cs.lessThan("age", 18);
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+        "bool": {
+          "must_not": [],
+          "should": [],
+          "must": [{
+            "range": {
+              "age": {
+                "lt": 10
+              }
+            }
+          }]
+        }
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2238,15 +2446,32 @@ cs.search(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudSearch cs = new CloudSearch("Student");
-cs.lessThanEqualTo("age", 17);
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+        "bool": {
+          "must_not": [],
+          "should": [],
+          "must": [{
+            "range": {
+              "age": {
+                "lte": 10
+              }
+            }
+          }]
+        }
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
 
 </span></span></code>
             </div><!-- method-example -->
@@ -2283,24 +2508,36 @@ cs.search(callbackObj);
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 
-//find all Student such that 10&lt;age&lt;18
-
-CloudSearch cs1 = new CloudSearch("Student");
-cs1.lessThan("age", 18);
-cs1.searchOn("name", "Sam");
-
-CloudSearch cs2 = new CloudSearch("Student");
-cs2.greaterThan("age", 10);
-cs1.searchOn("name", "Dan");
-
-CloudSearch cs = CloudSearch.or(cs1, cs2);
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);
+//search for Students either called Adam or smith
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+        "bool": {
+          "must_not": [],
+          "should": [],
+          "must": [{
+            "term": {
+              "name": "Adam"
+            }
+          },
+          {
+            "term": {
+              "name": "smith"
+            }
+          }]
+        }
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
 </span></span></code>
               
             </div><!-- method-example -->
@@ -2331,15 +2568,25 @@ cs.search(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudSearch cs = new CloudSearch("Student");
-cs.orderByAsc("age");
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [{
+    "name": {
+      "order": "asc"
+    }
+  }],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2369,15 +2616,25 @@ cs.search(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudSearch cs = new CloudSearch("Student");
-cs.orderByDesc('age');
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [{
+    "name": {
+      "order": "desc"
+    }
+  }],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2410,15 +2667,22 @@ cs.search(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudSearch cs = new CloudSearch("Student");
-cs.setLimit(5);
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);
+//default limit is 10
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 5,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2449,15 +2713,22 @@ cs.search(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudSearch cs = new CloudSearch("Student");
-cs.setSkip(5);
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);
+//default skip is 0
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {        
+      },
+      "filter": {
+      }
+    }
+  },
+  "skip": 5,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2488,15 +2759,30 @@ cs.search(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudSearch cs = new CloudSearch("Student");
-cs.exists("address");
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+    "query": {
+  "filtered": {
+    "query": {      
+    },
+    "filter": {
+      "bool": {
+        "must_not": [],
+        "should": [],
+        "must": [{
+          "exists": {
+            "field": "name"
+          }
+        }]
+      }
+    }
+  }
+},
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2526,15 +2812,30 @@ cs.search(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudSearch cs = new CloudSearch("Student");
-cs.doesNotExists("address");
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+    "query": {
+  "filtered": {
+    "query": {      
+    },
+    "filter": {
+      "bool": {
+        "must_not": [{
+          "exists": {
+            "field": "name"
+          }
+        }],
+        "should": [],
+        "must": []
+      }
+    }
+  }
+},
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2570,17 +2871,34 @@ cs.search(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-Map&lt;String, Object &gt; list;
-//without callback 
-list = cs.search();
-//with callback
-CloudSearchCallback callbackObj = new CloudSearchCallback(){
-	@Override
-	public void done(CloudObject[] list,CloudException e) {
-		//
-	}
-};
-cs.search(callbackObj);</span></span></code>
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": [],
+  "query": {
+    "filtered": {
+      "query": {
+        "bool": {
+          "must_not": [],
+          "should": [{
+            "match": {
+              "name": {
+                "query": "[\"egima\",\"bengi\"]"
+              }
+            }
+          }],
+          "must": []
+        }
+      },
+      "filter": {        
+      }
+    }
+  },
+  "skip": 0,
+  "collectionName": ${table_name}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/search'
+
+</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
       </div>
@@ -2599,34 +2917,8 @@ cs.search(callbackObj);</span></span></code>
                 All the modifications in the ACL can be reflected only after the object is saved after the changes.
               </p>
             </div>
-          </div>
-
-          <a id='ACL-constructor' name="ACL-constructor" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>Constructor</h3>
-              <p>
-              Instantiates an <code>ACL</code> object.
-              </p>
-              <div class="method-list">
-                <h3>Package</h3>
-              <p>
-              	<code>import com.cloudboost.ACL;</code>
-              </p>
-                <h6>Argument</h6>
-                <p>It takes no argument</p>
-
-                <h6>Returns</h6>
-                <p>It returns nothing. It is called using a variable of which various parameters are set.</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObject obj = new CloudObject("Student");
-obj.acl = new ACL();</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
+          </div>		  
+		  
           <a id='ACL-setPublicWriteAccess' name="ACL-setPublicWriteAccess" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -2652,16 +2944,41 @@ obj.acl = new ACL();</span></span></code>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObject obj = new CloudObject("Student");
-obj.acl = new ACL();
-obj.acl.setPublicWriteAccess(false);
-
-obj.save(new CloudObjectCallback(){
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	}
-});
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {   "_type": "custom",
+    "expires": null,
+    ${column_name}: ${column_value},
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "data",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "_isModified": true}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2690,16 +3007,41 @@ obj.save(new CloudObjectCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
                           <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObject obj = new CloudObject("Student");
-obj.acl = new ACL();
-obj.acl.setPublicReadAccess(false);
-
-obj.save(new CloudObjectCallback(){
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	}
-});
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {   "_type": "custom",
+    "expires": null,
+    ${column_name}: ${column_value},
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "data",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "_isModified": true}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
 
 </span></span></code>
             </div><!-- method-example -->
@@ -2732,16 +3074,41 @@ obj.save(new CloudObjectCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObject obj = new CloudObject("Student");
-obj.acl = new ACL();
-obj.acl.setUserWriteAccess("idOfTheUser",true);
-
-obj.save(new CloudObjectCallback(){
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	}
-});
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {   "_type": "custom",
+    "expires": null,
+    ${column_name}: ${column_value},
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "data",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["userId"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "_isModified": true}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
 
               </span></span></code>
                 
@@ -2775,16 +3142,41 @@ obj.save(new CloudObjectCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObject obj = new CloudObject("Student");
-obj.acl = new ACL();
-obj.acl.setUserReadAccess("idOfTheUser",true);
-
-obj.save(new CloudObjectCallback(){
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	}
-});
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {   "_type": "custom",
+    "expires": null,
+    ${column_name}: ${column_value},
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "data",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["userId"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "_isModified": true}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
 
               </span></span></code>
             </div><!-- method-example -->
@@ -2818,16 +3210,41 @@ obj.save(new CloudObjectCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObject obj = new CloudObject("Student");
-obj.acl = new ACL();
-obj.acl.setRoleWriteAccess("roleId", true);
-
-obj.save(new CloudObjectCallback(){
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	}
-});
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {   "_type": "custom",
+    "expires": null,
+    ${column_name}: ${column_value},
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "data",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": ["rolename"],
+          "user": []
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "_isModified": true}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2861,62 +3278,42 @@ obj.save(new CloudObjectCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
                  <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudObject obj = new CloudObject("Student");
-obj.acl = new ACL();
-obj.acl.setWriteAccess("roleId", true);
-obj.save(new CloudObjectCallback(){
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	}
-});
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {   "_type": "custom",
+    "expires": null,
+    ${column_name}: ${column_value},
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "data",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": ["rolename"],
+          "user": []
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "_isModified": true}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
 </span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-<a id='CloudUser' name="CloudUser" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-              <h1>CloudUser</h1>
-              <p>
-                There is a notion of user accounts that lets users access their information in a secure manner.
-                We provide a specialized user class called <code>CloudUser</code> that automatically handles
-                much of the functionality required for user account management.
-              </p>
-              <p>
-                <code>CloudUser</code> is a subclass of <code>CloudObject</code>, and has all the same features, such as flexible 
-                schema, automatic persistence, and a key value interface. All the methods that are on 
-                <code>CloudObject</code> also exist in <code>CloudUser</code>. The difference is that <code>CloudUser</code> has some special 
-                additions specific to user accounts. With this class, you'll be able to add user account 
-                functionality in your app.
-              </p>
-              <p>
-                There is a special object <code>CloudUser.current</code> which holds the
-                information of the current user logged in.
-              </p>
-            </div>
-            <div class="method-example" id="api-summary-example">
-            </div>
-          </div>
-          <a id='CloudUser-constructor' name="CloudUser-constructor" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>Constructor</h3>
-              <p>
-              Instantiates a <code>CloudUser</code> object.
-              </p>
-              <div class="method-list">
-              <h3>Package</h3>
-              <p>
-              <code>import com.cloudboost.CloudUser;</code>
-              </p>
-                <h6>Argument</h6>
-                <p>It takes no argument.</p>
-
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudUser obj = new CloudUser();</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudUser-signUp' name="CloudUser-signUp" class="section-anchor">&nbsp;</a>
@@ -2945,11 +3342,48 @@ obj.save(new CloudObjectCallback(){
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudUser user = new CloudUser();
-user.set("username", "my_username");
-user.set("password", "my_solid_password");
-user.set("email", "email@sample.com");
-user.signUp();
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+    "document": {
+    "_type": "user",
+    "username": ${user_name},
+    "expires": null,
+    "email": "${usr_email},
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "username",
+    "password",
+    "email"],
+    "_tableName": "User",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "password": ${password},
+    "_isModified": true
+  }
+}' 'http://api.cloudboost.io/user/${app_id}/signup'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -2981,16 +3415,45 @@ user.signUp();
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudUser user = new CloudUser();
-user.set("username", "my_username");
-user.set("password", "my_solid_password");
-CloudUserCallback callbackObj = new CloudUserCallback(){
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	}
-};
-user.logIn(callbackObj);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+    "document": {
+    "_type": "user",
+    "username": ${user_name},
+    "expires": null,
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "username",
+    "password"],
+    "_tableName": "User",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "password": ${password},
+    "_isModified": true
+  }
+}' 'http://api.cloudboost.io/user/${app_id}/login'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -3017,34 +3480,47 @@ user.logIn(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudUserCallback callbackObj = new CloudUserCallback(){
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	}
-};
-CloudUser.getCurrent().logOut(callbackObj);
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+    "document": {
+  "_id": "M6gLT9DI",
+  "_type": "user",
+  "username": "momo",
+  "expires": null,
+  "email": "momo@gmail.com",
+  "_tableName": "User",
+  "ACL": {
+    "write": {
+      "allow": {
+        "role": [],
+        "user": ["all"]
+      },
+      "deny": {
+        "role": [],
+        "user": []
+      }
+    },
+    "read": {
+      "allow": {
+        "role": [],
+        "user": ["all"]
+      },
+      "deny": {
+        "role": [],
+        "user": []
+      }
+    }
+  },
+  "password": ${encrypted_password},
+  "createdAt": "2016-03-15T09:44:28.978Z",
+  "updatedAt": "2016-03-15T09:44:28.978Z",
+  "_version": 0
+  }
+}' 'http://api.cloudboost.io/user/${app_id}/logout'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
 
-          <a id='CloudUser-current' name="CloudUser-current" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudUser.getCurrent( )</h3>
-              <p>
-                Get the current logged in user.
-              </p>
-             
-              
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-//gets the current user if user is loggedIn, null otherwise.
-CloudUser currentUser = CloudUser.getCurrent();</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
           <a id='CloudUser-addToRole' name="CloudUser-addToRole" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -3079,64 +3555,80 @@ CloudUser currentUser = CloudUser.getCurrent();</span></span></code>
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudUserCallback callbackObj = new CloudUserCallback(){
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	}
-};
-
 //role is an instance of CloudRole Object.
-
-CloudUser.getCurrent().addToRole(role,callbackObj);
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${app_key},
+  "role": {   "_type": "role",
+    "expires": null,
+    "name": "admin",
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "Role",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "_isModified": true},
+  "user": {   "updatedAt": "2016-03-15T09:44:28.978Z",
+    "_type": "user",
+    "_version": 0,
+    "username": "momo",
+    "expires": null,
+    "_id": "M6gLT9DI",
+    "email": "momo@gmail.com",
+    "createdAt": "2016-03-15T09:44:28.978Z",
+    "_tableName": "User",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "password": ${encrypted password}}
+}' 'http://api.cloudboost.io/user/cpnbzclvxjts/addToRole'
 
 </span></span></code>
             <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-          <a id='CloudUser-isInRole' name="CloudUser-isInRole" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
 
-              <h3>CloudUser.isInRole( <code>role</code> )</h3>
-              <p>
-                To check if the current user is in the role provided by the role object.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>role</dt>
-                  <dd class="">CloudRole Object <span> The <code>CloudRole</code> object of the role you want to
-                  check the user to.</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-                <h6>Returns</h6>
-                <p>
-                It returns a <i>true/false</i> based on whether the user is in the given
-                role or not respectively.
-                </p>
-                <h6>Error Handling</h6>
-                It throws <code>CloudBoostException</code>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-//role is the instance of the CloudRole object. 
-
-if(CloudUser.getCurrent().isInRole(role)) {
-  //The current user is in the given role.
-} else {
-  //The user is not in the given role.
-}
-
-}</span></span></code>
-            <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
           <a id='CloudUser-removeFromRole' name="CloudUser-removeFromRole" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -3166,16 +3658,79 @@ if(CloudUser.getCurrent().isInRole(role)) {
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudUserCallback callbackObj = new CloudUserCallback(){
-	@Override
-	public void done(CloudObject obj,CloudException e) {
-		//
-	}
-};
-
-//role is an instance of CloudRole Object.
-
-CloudUser.getCurrent().removeFromRole(role,callbackObj);
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  {
+  "role": {
+    "_type": "role",
+    "expires": null,
+    "name": "admin",
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "Role",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "_isModified": true
+  },
+  "user": {
+    "updatedAt": "2016-03-15T09:44:28.978Z",
+    "_type": "user",
+    "_version": 0,
+    "username": "momo",
+    "expires": null,
+    "_id": "M6gLT9DI",
+    "email": "momo@gmail.com",
+    "createdAt": "2016-03-15T09:44:28.978Z",
+    "_tableName": "User",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "password": ${encrypted_password}
+  },
+  "key":${app_key}
+}
+}' 'http://api.cloudboost.io/user/${app_id}/removeFromRole'
 
 </span></span></code>
             <p>Given <a href="#CloudRole-getRole">getRole()</a> is discussed later</p>
@@ -3196,16 +3751,13 @@ CloudUser.getCurrent().removeFromRole(role,callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudUser.getCurrentUser().changePassword("oldPassword","newPassword",
-	new CloudUserCallback(){
-	@Override
-	public void done(CloudUser user,CloudException e){
-		if(user!=null)
-			//user
-		if(e!=null)
-			//e
-	}
-});
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  {
+  "newPassword": ${old_pass},
+  "oldPassword": ${new_pass},
+  "key":${app_key}
+}
+}' 'http://api.cloudboost.io/user/${app_id}/changePassword'
 
 </span></span></code>
             </div><!-- method-example -->
@@ -3225,72 +3777,17 @@ To reset the password of a user you need to call the resetPassword function of t
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudUser.resetPassword("email",new CloudStringCallback(){
-	@Override
-	public void done(String msg,CloudException e){
-		if(msg!=null)
-			//reset password email sent
-		if(e!=null)
-			//e
-	}
-});
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  {
+  "email": ${email_address},
+  "key":${app_key}
+}
+}' 'http://api.cloudboost.io/user/${app_id}/resetPassword'
 
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
-  <a id='CloudRole' name="CloudRole" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-              <h1>CloudRole</h1>
-              <p>
-                As your app grows in scope and user-base, you may find yourself needing more 
-                coarse-grained control over access to pieces of your data than user-linked ACLs
-                can provide. To address this requirement, CloudBoost supports a form of Role-based 
-                Access Control. Roles provide a logical way of grouping users with common access 
-                privileges to your CB data. Roles are named objects that contain users and other 
-                roles. Any permission granted to a role is implicitly granted to its users as 
-                well as to the users of any roles that it contains.
-              </p>
-              <p>
-                We provide a specialized class called <code>CloudRole</code> that represents these role 
-                objects in your client code. <code>CloudRole</code> is a subclass of <code>CloudObject</code>, 
-                and has all of the same features, such as a flexible schema, automatic 
-                persistence, and a key value interface. All the methods that are on <code>CloudObject</code>
-                also exist on <code>CloudRole</code>. The difference is that CB.CloudRole has some additions 
-                specific to management of roles.
-              </p>
-            </div>
-            <div class="method-example" id="api-summary-example">
-            </div>
-          </div>
-          <a id='CloudRole-constructor' name="CloudRole-constructor" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
 
-              <h3>Constructor</h3>
-              <p>
-              Instantiates a <code>CloudRole</code> object.
-              </p>
-              <div class="method-list">
-              <h3>Package</h3>
-              	<p>
-              	<code>import com.cloudboost.CloudRole;</code>
-              	</p>
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>roleName</dt>
-                  <dd class="">string <span>The name of the role you want to deal with</span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudRole role = new CloudRole("Student");</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
           <a id='CloudRole-getRole' name="CloudRole-getRole" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -3318,17 +3815,135 @@ CloudUser.resetPassword("email",new CloudStringCallback(){
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudRole role = new CloudRole("my-collaborator");
-
-CloudRole.getRole(new CloudRoleCallback(){
-	@Override 
-	public void done(CloudRole obj,CloudException e){
-		//
-	}
-});
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "name": "role_name"
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/Role/find'
 </span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
+<a id='CloudFile' name="CloudFile" class="section-anchor">&nbsp;</a>
+      <div class="method-section">
+        <div class="method-description">
+          <h1>CloudFile</h1>
+          <p>
+            <code>CloudFile</code> lets you store application files in the cloud that would otherwise be too large or 
+            cumbersome to fit into a regular <code>CloudObject</code>. The most common use case is storing images, 
+            but you can also use it for documents, videos, music, and any other binary data.
+          </p>
+        </div>
+        <div class="method-example" id="api-summary-example">
+        </div>
+      </div>  
+	  
+	  
+	  
+	  
+      <a id='CloudFile-save' name="CloudRole-save" class="section-anchor">&nbsp;</a>
+      <div class="method-section">
+        <div class="method-description">
+
+          <h3>CloudFile.save( )</h3>
+          <p>
+          Saves the <code>CloudFile</code> object.
+          </p>
+          <div class="method-list">
+
+            <h6>Returns</h6>
+            <p>It returns a <code>CloudFile</code> object having <code>url</code> attribute set to the URL 
+            of the blob uploaded to the server if the operation is successful.<p>
+            <h6>Error Handling</h6>
+            It throws <code>CloudBoostException, MalformedURLException, IOException</code>
+          </div>
+        </div>
+        <div class="method-example" id="api-summary-example">
+          <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${app_key},
+  "data": "this data will be written to the new file",
+  "fileObj": {
+    "_id": "string",
+    "_type": "file",
+    "ACL": {
+      "read": {
+        "allow": {
+          "user": [
+            "all"
+          ],
+          "role": []
+        },
+        "deny": {
+          "user": [],
+          "role": []
+        }
+      },
+      "write": {
+        "allow": {
+          "user": [
+            "all"
+          ],
+          "role": []
+        },
+        "deny": {
+          "user": [],
+          "role": []
+        }
+      }
+    },
+    "name": "string",
+    "size": 0,
+    "url": "string",
+    "expires": "2016-03-16T13:31:41.151Z",
+    "contentType": "application/octet-stream"
+  }
+}' 'https://api.cloudboost.io/file/${app_id}'
+</span></span></code>
+        </div><!-- method-example -->
+      </div> <!-- method-section -->
+      
+      <a id='CloudFile-delete' name="CloudRole-delete" class="section-anchor">&nbsp;</a>
+      <div class="method-section">
+        <div class="method-description">
+
+          <h3>CloudFile.delete( )</h3>
+          <p>
+          Deletes the <code>CloudFile</code> object.
+          </p>
+          <div class="method-list">
+
+            <h6>Returns</h6>
+            <p>It returns a <code>CloudFile</code> object having <code>url</code> attribute set to <code>null</code> 
+            if the operation is successful.<p>
+            <h6>Error Handling</h6>
+            It throws <code>CloudBoostException, MalformedURLException, IOException</code>
+          </div>
+        </div>
+        <div class="method-example" id="api-summary-example">
+          <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: text/html' -d '{
+  "key": ${app_key},
+  "method": "DELETE"
+}' 'http://api.cloudboost.io/file/${app_id}/${file_id}'
+</span></span>
+</code>
+
+</div>
+<!-- method-example -->
+<div class="clearfix"></div>
+        
+</div> <!-- method-section -->
+
+
 
  
 <div class="method">
@@ -3338,13 +3953,7 @@ CloudRole.getRole(new CloudRoleCallback(){
 
       <h1>Contribute</h1>
       <p>
-      We heart contributors. Love what we do and want to contribute? <br/>
-
-      JavaScript SDK : <a href="https://github.com/CloudBoost/JavaScriptSDK">GitHub Repository</a>
-
-      <br/><br/>
-
-      Our documentation is open source too! <br/><br/>
+      Our documentation is open source <br/><br/>
 
       Documentation : <a href="https://github.com/CloudBoost/api-reference">GitHub Repository</a> 
       </p>
@@ -3379,14 +3988,17 @@ CloudRole.getRole(new CloudRoleCallback(){
       var currentAPI=urlParts[3];     
       
 
-      if(currentAPI=="javascript.html"){
+      if(currentAPI=="javascript.html" || currentAPI.indexOf("javascript.html")>-1){
         currentLangId="#javascript-sdk";
       }
-      if(currentAPI=="java.html"){
+      if(currentAPI=="java.html" || currentAPI.indexOf("java.html")>-1){
         currentLangId="#java-sdk";
       }
-      if(currentAPI=="dotnet.html"){
+      if(currentAPI=="dotnet.html" || currentAPI.indexOf("dotnet.html")>-1){
         currentLangId="#dotnet-sdk";
+      }
+      if(currentAPI=="curl.html" || currentAPI.indexOf("curl.html")>-1){
+        currentLangId="#curl-sdk";
       }
       _selectLanguage(currentLangId);
 
@@ -3406,6 +4018,11 @@ CloudRole.getRole(new CloudRoleCallback(){
             _selectLanguage("#dotnet-sdk");
           });
 
+          $("#curl-sdk").click(function(){           
+            window.location.href="curl.html";
+            _selectLanguage("#curl-sdk");
+          });
+
           $("#others-swagger").click(function(){           
             window.location.href="https://swagger.cloudboost.io";            
           });
@@ -3416,6 +4033,7 @@ CloudRole.getRole(new CloudRoleCallback(){
         $("#javascript-sdk").removeClass("selected");
         $("#java-sdk").removeClass("selected");
         $("#dotnet-sdk").removeClass("selected");
+        $("#curl-sdk").removeClass("selected");
 
         //select current
         $(langId).addClass("selected");
