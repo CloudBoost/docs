@@ -21,7 +21,7 @@
             <div class="method-description">
 			<h3>Package</h3>
               <p>
-              <code>import com.cloudboost.CloudObject;</code>
+              <code>import io.cloudboost.CloudObject;</code>
               </p>
               <h3>Constructor</h3>
               <p>
@@ -79,8 +79,10 @@
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node">
               <span class="highlight_js javascript">
-//creates an object for Student table
-//all the CloudBoost functionality.
+/*
+*creates an object for Student table
+*all the CloudBoost functionality.
+*/
 CloudObject obj = new CloudObject("Student"); 
               </span></span></code>
             </div><!-- method-example -->
@@ -149,18 +151,12 @@ obj.set("address",address);
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 Map&lt;String,Object&gt; getAddressObject = new HashMap&lt;String,Object&gt;();
-getAddressObject = (Map&lt;String, Object&gt;)obj.get("address"); //get the data. 
-/* address will be a Map Object 
- 
-  String city = (String)getAddressObject.get("city");
-  String state = (String)getAddressObject.get("state");
-	
-  which was saved using object.set
-*/
+getAddressObject = (Map&lt;String, Object&gt;)obj.get("address"); //get the data.  
+address will be a Map Object 
+String city = (String)getAddressObject.get("city");
+String state = (String)getAddressObject.get("state");
+which was saved using object.set
 String name = (String)obj.get("name");
-
-
-
                    </span></span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -228,18 +224,10 @@ obj.get("name"); //returns null.
 CloudObject obj = new CloudObject("Student");
 obj.set("name", "Smith");
 
-//without callback
-obj.save();
-
-//with callback
 CloudObjectCallback callbackObj = new CloudObjectCallback(){
 	@Override
-	public void success(CloudObject obj) {
-		System.out.println("success message");
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject x,CloudException e){
+		//
 	}
 };
 obj.save(callbackObj);
@@ -266,18 +254,11 @@ obj.save(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-//without callback
-obj.fetch();
 
-//with callback
-Callback callbackObj = new Callback(){
+CloudObjectCallback callbackObj = new CloudObjectCallback(){
 	@Override
-	public void success() {
-		System.out.println("success message");
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject x,CloudException e){
+		//
 	}
 };
 obj.fetch(callbackObj);
@@ -300,18 +281,10 @@ obj.fetch(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-//without callback
-obj.delete();
-
-//with callback
 CloudObjectCallback callbackObj = new CloudObjectCallback(){
 	@Override
-	public void success(CloudObject obj) {
-		System.out.println("success message");
-	}
-	@Override
-	public void error() {
-		System.out.println("error message");
+	public void done(CloudObject x,CloudException e){
+		//
 	}
 };
 obj.delete(callbackObj);
@@ -330,9 +303,9 @@ obj.delete(callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-  CloudObject obj = new CloudObject('Student');
-  obj.set("name", "John Smith");
-  obj.setIsSearchable(true); //index this object for Search
+CloudObject obj = new CloudObject('Student');
+obj.set("name", "John Smith");
+obj.setIsSearchable(true); //index this object for Search
 </span></span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
@@ -379,9 +352,9 @@ obj.delete(callbackObj);
 //listen to an event
 
 //intializing CloudNotificationMethod, and overriding methods 
-CloudNotificationMethod callbackObj = new CloudNotificationMethod(){ 
+CloudNotificationCallback callbackObj = new CloudNotificationCallback(){ 
 	@Override 
-	public void onMethod(Object data) {
+	public void done(Object data,CloudException e) {
 		// override this function as per your requirnment.  
 		System.out.println("message : " + data); 
 	} 
@@ -426,11 +399,9 @@ CloudObject.on("Student", "created",  callbackObj);
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-  //stop listening to an event
+//stop listening to an event
 
-  CloudObject.off("Student", //name of the table
-                    "created" //type of an event
-                   );
+CloudObject.off("Student","created");
 
 </span></span></span></code>
             </div><!-- method-example -->
@@ -448,11 +419,11 @@ CloudObject.on("Student", "created",  callbackObj);
                 </div>
                 <div class="method-example" id="api-summary-example">
                     <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-  CloudObject obj = new CloudObject("Student");
-  obj.set("name", "John Smith");
-  Date date = new Date(2015, 12, 25);
-  expire = date.getTime()+1000;
-  obj.setExpires(expires); //Set the expire time for object Student
+CloudObject obj = new CloudObject("Student");
+obj.set("name", "John Smith");
+Date date = new Date(2015, 12, 25);
+expire = date.getTime()+1000;
+obj.setExpires(expires); //Set the expire time for object Student
 </span></span></span></code>
                 </div><!-- method-example -->
             </div> <!-- method-section -->

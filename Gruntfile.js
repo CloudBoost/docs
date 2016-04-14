@@ -51,6 +51,7 @@ module.exports = function(grunt) {
                 'api/java/cloudUser.html',
                 'api/java/cloudRole.html',
                 'api/java/cloudFile.html',
+				'api/java/cloudPush.html',
                 'api/java/contribute.html',
                 'api/langMenuFootWrap.html',
                 'api/commonFoot.html'
@@ -86,7 +87,30 @@ module.exports = function(grunt) {
                 ],
                 // the location of the resulting dotnet html file
                 dest: 'dotnet.html'
-            }           
+            },
+            "curl-api": {
+                // the files to concatenate
+                src: ['api/commonHead.html',
+                'api/curl/content-guide.html',
+                'api/langMenuHeadWrap.html',
+                'api/curl/introduction.html',
+                'api/curl/dependencies.html',
+                'api/curl/apps.html',
+                'api/curl/cloudObjects.html',
+                'api/curl/relationships.html',
+                'api/curl/cloudQuery.html',   
+                'api/curl/cloudSearch.html',
+                'api/curl/cloudACL.html',
+                'api/curl/cloudUser.html',
+                'api/curl/cloudRole.html',
+                'api/curl/cloudFiles.html',
+                'api/curl/contribute.html',
+                'api/langMenuFootWrap.html',
+                'api/commonFoot.html'
+                ],
+                // the location of the resulting java html file
+                dest: 'curl.html'
+            }			
         }       
     };   
 
@@ -94,6 +118,6 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-concat');    
 
-    grunt.registerTask('default',['concat:js-api','concat:java-api','concat:dotnet-api']);    
+    grunt.registerTask('default',['concat:js-api','concat:java-api','concat:dotnet-api','concat:curl-api']);    
 
 };

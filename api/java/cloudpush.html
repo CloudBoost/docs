@@ -3,10 +3,10 @@
             <div class="method-description">
               <h1>CloudPush</h1>
               <p>
-               Push notifications are a very important feature in an android app because it enables seamless communication from your server to your app. In this case your server will be **CloudBoost** Push notification server. One big problem with smart phones is excessive battery consumption due to constant activity by the many apps installed. An app which has push notification feature may reduce this problem because it does not have to keep polling the server for new information.
+               Push notifications are a very important feature in an android app because it enables seamless communication from your server to your app. In this case your server will be CloudBoost Push notification server.
               </p>
               <p>
-Not that **CloudBoost** server uses Google Cloud Messaging to reach your app. So before you start using this feature, ensure that you have created a project for your app on google developer console and obtained credentials like senderID/Project_number and ApiKey.
+Not that CloudBoost server uses Google Cloud Messaging to reach your app. So before you start using this feature, ensure that you have created a project for your app on google developer console and obtained credentials like senderID/Project_number and ApiKey.
               </p>
             </div>
             <div class="method-example" id="api-summary-example">
@@ -23,7 +23,7 @@ Not that **CloudBoost** server uses Google Cloud Messaging to reach your app. So
               <div class="method-list">
               <h3>Package</h3>
               	<p>
-              	<code>import com.cloudboost.CloudPush;</code>
+              	<code>import io.cloudboost.CloudPush;</code>
               	</p>
                 <h6>Argument</h6>
                 <dl class="argument-list">
@@ -34,14 +34,14 @@ Not that **CloudBoost** server uses Google Cloud Messaging to reach your app. So
               </div>
             </div>
             <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudPush role = new CloudPush();</span></span></code>
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">CloudPush push = new CloudPush();</span></span></code>
             </div><!-- method-example -->
           </div> <!-- method-section -->
           <a id='CloudPush-addDevice' name="CloudPush-addDevice" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudPush.addDevice( <code>token</code>,<code>timezone</code>,<code>[channels]</code>,<code>appname</code>,<code>callback</code> )</h3>
+              <h3>CloudPush.addDevice( <code>token</code>,<code>timezone</code>,<code>[channels]</code>,<code>callback</code> )</h3>
               <p>
               Adds a <code>GCM</code> registered device to your app on CloudBoost so that it can start receiving push messages.
               </p>
@@ -61,9 +61,6 @@ Not that **CloudBoost** server uses Google Cloud Messaging to reach your app. So
 				   <dt>[channels]</dt>
                   <dd class="">An array of channels you would like to subscribe to upfront. You can still subscribe and unsubscribe from any channel later</dd>
                   <div class="clearfix"></div>
-				  <dt>appname</dt>
-                  <dd class="">The name of your application</dd>
-                  <div class="clearfix"></div>
                 </dl>
 
                 <h6>Returns</h6>
@@ -72,59 +69,20 @@ Not that **CloudBoost** server uses Google Cloud Messaging to reach your app. So
             </div>
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudPush push=new CloudPush();
 String[] channels={"hackers","crackers"};
-push.addDevice([xxxxxxxdeviceToken],[Timezone as String], channels, [appname], new CloudObjectCallback() {
+CloudPush.addDevice([deviceToken],[Timezone as String], 
+	channels, new CloudObjectCallback() {
 	@Override
-	public void done(CloudObject x, CloudException t) throws CloudException {
+	public void done(CloudObject x, CloudException t) 
+		throws CloudException {
 			//
 	}
 });
 </span></span></code>
             </div><!-- method-example -->
-          </div> <!-- method-section -->
+          </div> <!-- method-section -->		  
 		  
-          <a id='CloudPush-addSettings' name="CloudPush-addSettings" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudPush.addSettings( <code>senderId</code>,<code>apiKey</code>,<code>callback</code> )</h3>
-              <p>
-	  adds new GCM credentials to your app and replaces any pre-existing ones. Additionally, it deletes any other settings for other mobile app platforms like windows credentials or iOS certificates. If these are important to your CloudApp, you can add them from the dashboard.
-Without these credentials, <code>GCM</code> will not authenticate your <code>CloudApp</code>	  </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>senderId</dt>
-                  <dd class="">This is the <code>senderID/Project_number</code> that you get from goodle developer console when you create a GCM project</dd>
-                  <div class="clearfix"></div>
-				  
-                  <dt>apiKey</dt>
-                  <dd class="">A unique key given to your project on google developer, it will be used to authenticate any server that is trying to send push notifications to your devices</dd>
-                  <div class="clearfix"></div>
-                </dl>
-
-                <h6>Returns</h6>
-                It returns an <code>Object</code>, showing your new setting have been added, you can create a JSONObject out of this.
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-CloudPush push=new CloudPush();
-push.addSettings([senderId], [apikey], new ObjectCallback() {
-	@Override
-	public void done(Object x, CloudException t) throws CloudException {
-		//object is a json object with _id, _tableName etc
-	}
-});
-</span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-		  
-		  
-		            <a id='CloudPush-subscibe' name="CloudPush-subscibe" class="section-anchor">&nbsp;</a>
+		            <a id='CloudPush-subscribe' name="CloudPush-subscribe" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
@@ -154,21 +112,26 @@ push.addSettings([senderId], [apikey], new ObjectCallback() {
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 
-CloudPush push=new CloudPush();
-push.subscribe("movers", "xxxxxxxxxxxx", new CloudObjectCallback() {	
+CloudPush.subscribe("movers", "xxxxxxxxxxxx", 
+	new CloudObjectCallback() {	
 	@Override
-	public void done(CloudObject x, CloudException t) throws CloudException {
+	public void done(CloudObject x, CloudException t) 
+	throws CloudException {
 		//
 	}
 });
 
-//Alternatively, you could specify an array of channels to subscribe to
+/*
+*Alternatively, you could specify 
+*an array of channels to subscribe to
+*/
 
-CloudPush push=new CloudPush();
 String[] channels={"movers","shakers"};
-push.subscribe(channels, "xxxxxxxxxxxx", new CloudObjectCallback() {	
+CloudPush.subscribe(channels, "xxxxxxxxxxxx", 
+	new CloudObjectCallback() {	
 	@Override
-	public void done(CloudObject x, CloudException t) throws CloudException {
+	public void done(CloudObject x, CloudException t) 
+		throws CloudException {
 		//
 	}
 });
@@ -179,11 +142,11 @@ push.subscribe(channels, "xxxxxxxxxxxx", new CloudObjectCallback() {
 		  
 		  
 		  
-		  		            <a id='CloudPush-unSubscibe' name="CloudPush-unSubscibe" class="section-anchor">&nbsp;</a>
+		  		            <a id='CloudPush-unSubscribe' name="CloudPush-unSubscribe" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudPush.unSubscibe( <code>channel</code>,<code>deviceToken</code>,<code>callback</code> )</h3>
+              <h3>CloudPush.unSubscribe( <code>channel</code>,<code>deviceToken</code>,<code>callback</code> )</h3>
               <p>
 	 This API is used to unsubscribe a device running your app from a given channel in your <code>CloudApp</code>. If the channel is not already subscribed to, you will get an exception stating this. 
 	 </p>
@@ -209,21 +172,26 @@ push.subscribe(channels, "xxxxxxxxxxxx", new CloudObjectCallback() {
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 
-CloudPush push=new CloudPush();
-push.unSubscibe("movers", "xxxxxxxxxxxx", new CloudObjectCallback() {	
+CloudPush.unSubscibe("movers", "xxxxxxxxxxxx", 
+	new CloudObjectCallback() {	
 	@Override
-	public void done(CloudObject x, CloudException t) throws CloudException {
+	public void done(CloudObject x, CloudException t) 
+		throws CloudException {
 		//
 	}
 });
 
-//Alternatively, you could specify an array of channels to unSubscibe from
+/*
+*Alternatively, you could specify 
+*an array of channels to unSubscibe from
+*/
 
-CloudPush push=new CloudPush();
 String[] channels={"movers","shakers"};
-push.unSubscibe(channels, "xxxxxxxxxxxx", new CloudObjectCallback() {	
+CloudPush.unSubscibe(channels, "xxxxxxxxxxxx", 
+	new CloudObjectCallback() {	
 	@Override
-	public void done(CloudObject x, CloudException t) throws CloudException {
+	public void done(CloudObject x, CloudException t) 
+		throws CloudException {
 		//
 	}
 });
@@ -237,7 +205,7 @@ push.unSubscibe(channels, "xxxxxxxxxxxx", new CloudObjectCallback() {
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudPush.send( <code>pushData</code>,<code>query</code>,<code>callback</code> )</h3>
+              <h3>CloudPush.send( <code>pushData</code>,<code>query/channelArray/oneChannelString</code>,<code>callback</code> )</h3>
               <p>
 	 This API is used to push a message to the devices running your application. 
 	 </p>
@@ -264,34 +232,62 @@ push.unSubscibe(channels, "xxxxxxxxxxxx", new CloudObjectCallback() {
 
 //CloudPush.send with cloudquery
 
-CloudPush push=new CloudPush();
 String[] channels={"movers","shakers"};
 CloudQuery query=new CloudQuery("Device");
 query.containedIn("channels", channels);
-push.send(new PushData("title", "my message"), query, new CloudPushCallback() {
+CloudPush.send(new PushData("title", "my message"), query, 
+	new CloudPushCallback() {
 	@Override
-	public void done(Object x, CloudException t) throws CloudException {
+	public void done(Object x, CloudException t) 
+		throws CloudException {
 		//
 	}
 });
 
 
-//CloudPush.send with channel
+//CloudPush.send with single channel
 
-CloudPush push=new CloudPush();
-push.send(new PushData("title", "my message"), "movers", new CloudPushCallback() {
+CloudPush.send(new PushData("title", "my message"), "movers",
+	new CloudPushCallback() {
 	@Override
-	public void done(Object x, CloudException t) throws CloudException {
+	public void done(Object x, CloudException t) 
+		throws CloudException {
 		//
 	}
 });
 
 //CloudPush.send with Channel array
-CloudPush push=new CloudPush();
 String[] channels={"movers","shakers"};
-push.send(new PushData("title", "my message"), channels, new CloudPushCallback() {
+CloudPush.send(new PushData("title", "my message"), channels, 
+	new CloudPushCallback() {
 	@Override
-	public void done(Object x, CloudException t) throws CloudException {
+	public void done(Object x, CloudException t) 
+		throws CloudException {
+		//
+	}
+});
+
+/*
+*or instead of using PushData, you could pass only 
+*a message or only a title and message
+*/
+
+CloudPush.send("message", channels, new 
+		CloudPushCallback() {
+	@Override
+	public void done(Object x, CloudException t) 
+		throws CloudException {
+		//
+	}
+});
+
+//title and message
+
+CloudPush.send("message","title", channels, 
+	new CloudPushCallback() {
+	@Override
+	public void done(Object x, CloudException t) 
+		throws CloudException {
 		//
 	}
 });

@@ -17,14 +17,17 @@
       var currentAPI=urlParts[3];     
       
 
-      if(currentAPI=="javascript.html"){
+      if(currentAPI=="javascript.html" || currentAPI.indexOf("javascript.html")>-1){
         currentLangId="#javascript-sdk";
       }
-      if(currentAPI=="java.html"){
+      if(currentAPI=="java.html" || currentAPI.indexOf("java.html")>-1){
         currentLangId="#java-sdk";
       }
-      if(currentAPI=="dotnet.html"){
+      if(currentAPI=="dotnet.html" || currentAPI.indexOf("dotnet.html")>-1){
         currentLangId="#dotnet-sdk";
+      }
+      if(currentAPI=="curl.html" || currentAPI.indexOf("curl.html")>-1){
+        currentLangId="#curl-sdk";
       }
       _selectLanguage(currentLangId);
 
@@ -44,6 +47,11 @@
             _selectLanguage("#dotnet-sdk");
           });
 
+          $("#curl-sdk").click(function(){           
+            window.location.href="curl.html";
+            _selectLanguage("#curl-sdk");
+          });
+
           $("#others-swagger").click(function(){           
             window.location.href="https://swagger.cloudboost.io";            
           });
@@ -54,6 +62,7 @@
         $("#javascript-sdk").removeClass("selected");
         $("#java-sdk").removeClass("selected");
         $("#dotnet-sdk").removeClass("selected");
+        $("#curl-sdk").removeClass("selected");
 
         //select current
         $(langId).addClass("selected");

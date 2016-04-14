@@ -1,0 +1,414 @@
+ <a id='ACL' name="ACL" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+              <h1>ACL</h1>
+              <p>
+              Each <code>CloudObject</code> namespace has security option by default. By default every object can be read and modified by anyone so for each object change the security option as desidred.
+              For any object, you can specify which users/roles are allowed to read the object, and which users/roles are allowed to modify an object. To support this type of security, each object has an access control list, implemented by the <code>ACL</code> class.
+              </p>
+              <p>
+                For each object <code>ACL</code> object is a property in  <code>CloudObject.ACL</code> class.
+              </p>
+              <p>
+                All the modifications in the ACL can be reflected only after the object is saved after the changes.
+              </p>
+            </div>
+          </div>		  
+		  
+          <a id='ACL-setPublicWriteAccess' name="ACL-setPublicWriteAccess" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>ACL.setPublicWriteAccess( <code>value</code> )</h3>
+              <p>
+                To allow/disallow <i>public</i> to write on a particular CloudObject
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>value</dt>
+                  <dd class="">boolean</dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>void</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {   "_type": "custom",
+    "expires": null,
+    ${column_name}: ${column_value},
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "data",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "_isModified": true}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='ACL-setPublicReadAccess' name="ACL-setPublicReadAccess" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>ACL.setPublicReadAccess( <code>value</code> )</h3>
+              <p>
+                To allow/disallow <i>public</i> to read a particular object
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>value</dt>
+                  <dd class="">boolean</dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>void</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+                          <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {   "_type": "custom",
+    "expires": null,
+    ${column_name}: ${column_value},
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "data",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "_isModified": true}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='ACL-setUserWriteAccess' name="ACL-setUserWriteAccess" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>ACL.setUserWriteAccess( <code>userId, value</code> )</h3>
+              <p>
+                To allow/disallow user having to write on a particular object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+                  
+                  <dt>userId</dt>
+                  <dd class="">string <span>The User ID of the user you want to set the access for</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>value</dt>
+                  <dd class="">boolean</dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>void</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+             <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {   "_type": "custom",
+    "expires": null,
+    ${column_name}: ${column_value},
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "data",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["userId"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "_isModified": true}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+
+              </span></span></code>
+                
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+          <a id='ACL-setUserReadAccess' name="ACL-setUserReadAccess" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>ACL.setUserReadAccess( <code>userId, value</code> )</h3>
+              <p>
+                To allow/disallow user having <i>_id</i> <code>userId</code> to read a particular object.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+                  
+                  <dt>userId</dt>
+                  <dd class="">string <span>The user ID of the user you want to set the access for</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>value</dt>
+                  <dd class="">boolean</dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>It returns nothing.</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+                 <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {   "_type": "custom",
+    "expires": null,
+    ${column_name}: ${column_value},
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "data",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["userId"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "_isModified": true}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+          <a id='ACL-setRoleWriteAccess' name="ACL-setRoleWriteAccess" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>ACL.setRoleWriteAccess( <code>roleId, value</code> )</h3>
+              <p>
+                To allow/disallow users of <i>roles</i> <code>roleId</code> to write on a particular object
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+                  
+                  <dt>roleId</dt>
+                  <dd class="">string <span>The role ID of the Role you want to set the access for</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>value</dt>
+                  <dd class="">boolean</dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>void</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+                 <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {   "_type": "custom",
+    "expires": null,
+    ${column_name}: ${column_value},
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "data",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": ["rolename"],
+          "user": []
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "_isModified": true}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+
+
+          <a id='ACL-setRoleReadAccess' name="ACL-setRoleReadAccess" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>ACL.setRoleReadAccess( <code>roleId, value</code> )</h3>
+              <p>
+                To allow/disallow users of <i>roles</i> <code>roleId</code> to read a particular object
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+                  
+                  <dt>roleId</dt>
+                  <dd class="">string <span>The role ID of the Role you want to set the access for</span></dd>
+                  <div class="clearfix"></div>
+                  <dt>value</dt>
+                  <dd class="">boolean</dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                <p>void</p>
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+                 <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {   "_type": "custom",
+    "expires": null,
+    ${column_name}: ${column_value},
+    "_modifiedColumns": ["createdAt",
+    "updatedAt",
+    "ACL",
+    "expires",
+    "name"],
+    "_tableName": "data",
+    "ACL": {
+      "write": {
+        "allow": {
+          "role": [],
+          "user": ["all"]
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      },
+      "read": {
+        "allow": {
+          "role": ["rolename"],
+          "user": []
+        },
+        "deny": {
+          "role": [],
+          "user": []
+        }
+      }
+    },
+    "_isModified": true}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->

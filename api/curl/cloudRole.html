@@ -1,0 +1,45 @@
+
+          <a id='CloudRole-getRole' name="CloudRole-getRole" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudRole.getRole( <code>role</code> )</h3>
+              <p>
+              Gets a <code>CloudRole</code> object for a given <code>role</code> object with <i>name</i>
+              field only.
+              </p>
+              <div class="method-list">
+                
+                <h6>Argument</h6>
+                <dl class="argument-list">
+
+                  <dt>role</dt>
+                  <dd class="">CloudRole object <span>The name of the role you want to deal with</span></dd>
+                  <div class="clearfix"></div>
+                  
+                </dl>
+
+                <h6>Returns</h6>
+                It returns a <code>CloudRole</code> object having the role information of the role whose name was 
+                provided in the object of <code>role</code> argument.
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "limit": 10,
+  "sort": {    
+  },
+  "select": {    
+  },
+  "query": {
+    "$includeList": [],
+    "$include": [],
+    "name": "role_name"
+  },
+  "skip": 0
+}' 'http://api.cloudboost.io/data/${app_id}/Role/find'
+</span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->

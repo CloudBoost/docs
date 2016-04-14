@@ -65,15 +65,10 @@ CloudFile cf = new CloudFile(file);
 File file = new File("/home/my-pc/Desktop/abc.txt");
 CloudFile cloudFileObj = new CloudFile(file);
 CloudFileCallback callbackObj = new CloudFileCallback(){ 
-@Override 
-public void success(CloudFile obj){ 
-System.out.println("success message");
-//got the file object successfully with the url to the file
-} 
-@Override 
-public void error(){ 
-System.out.println("error message"); 
-} 
+	@Override 
+	public void done(CloudFile obj,CloudException e){ 
+		//
+	} 
 }; 
 cloudFileObj.save(callbackObj);
 </span></span></code>
@@ -100,27 +95,20 @@ cloudFileObj.save(callbackObj);
           <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 File file = new File("/home/my-pc/Desktop/abc.txt");
 CloudFile cf = new CloudFile(file);
+
 File file = new File("/home/my-pc/Desktop/abc.txt");
 CloudFile cloudFileObj = new CloudFile(file);
+
 CloudFileCallback callbackObj = new CloudFileCallback(){ 
-@Override 
-public void success(CloudFile obj){ 
-cf.delete(new CloudFileCallback(){
 	@Override 
-	public void success(CloudFile obj){
-		System.out.println("success message"); 
-	}
-	@Override 
-	public void error(){ 
-		System.out.println("error message"); 
-	} 
+	public void done(CloudFile obj,CloudException e){ 
+		cf.delete(new CloudFileCallback(){
+			@Override 
+			public void done(CloudFile obj,CloudException e){
+				//
+			}
 });
 } 
-@Override 
-public void error(){ 
-System.out.println("error message"); 
-} 
-}; 
 cloudFileObj.save(callbackObj);
 </span></span>
 </code>

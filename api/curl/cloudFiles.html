@@ -1,0 +1,111 @@
+<a id='CloudFile' name="CloudFile" class="section-anchor">&nbsp;</a>
+      <div class="method-section">
+        <div class="method-description">
+          <h1>CloudFile</h1>
+          <p>
+            <code>CloudFile</code> lets you store application files in the cloud that would otherwise be too large or 
+            cumbersome to fit into a regular <code>CloudObject</code>. The most common use case is storing images, 
+            but you can also use it for documents, videos, music, and any other binary data.
+          </p>
+        </div>
+        <div class="method-example" id="api-summary-example">
+        </div>
+      </div>  
+	  
+	  
+	  
+	  
+      <a id='CloudFile-save' name="CloudRole-save" class="section-anchor">&nbsp;</a>
+      <div class="method-section">
+        <div class="method-description">
+
+          <h3>CloudFile.save( )</h3>
+          <p>
+          Saves the <code>CloudFile</code> object.
+          </p>
+          <div class="method-list">
+
+            <h6>Returns</h6>
+            <p>It returns a <code>CloudFile</code> object having <code>url</code> attribute set to the URL 
+            of the blob uploaded to the server if the operation is successful.<p>
+            <h6>Error Handling</h6>
+            It throws <code>CloudBoostException, MalformedURLException, IOException</code>
+          </div>
+        </div>
+        <div class="method-example" id="api-summary-example">
+          <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${app_key},
+  "data": "this data will be written to the new file",
+  "fileObj": {
+    "_id": "string",
+    "_type": "file",
+    "ACL": {
+      "read": {
+        "allow": {
+          "user": [
+            "all"
+          ],
+          "role": []
+        },
+        "deny": {
+          "user": [],
+          "role": []
+        }
+      },
+      "write": {
+        "allow": {
+          "user": [
+            "all"
+          ],
+          "role": []
+        },
+        "deny": {
+          "user": [],
+          "role": []
+        }
+      }
+    },
+    "name": "string",
+    "size": 0,
+    "url": "string",
+    "expires": "2016-03-16T13:31:41.151Z",
+    "contentType": "application/octet-stream"
+  }
+}' 'https://api.cloudboost.io/file/${app_id}'
+</span></span></code>
+        </div><!-- method-example -->
+      </div> <!-- method-section -->
+      
+      <a id='CloudFile-delete' name="CloudRole-delete" class="section-anchor">&nbsp;</a>
+      <div class="method-section">
+        <div class="method-description">
+
+          <h3>CloudFile.delete( )</h3>
+          <p>
+          Deletes the <code>CloudFile</code> object.
+          </p>
+          <div class="method-list">
+
+            <h6>Returns</h6>
+            <p>It returns a <code>CloudFile</code> object having <code>url</code> attribute set to <code>null</code> 
+            if the operation is successful.<p>
+            <h6>Error Handling</h6>
+            It throws <code>CloudBoostException, MalformedURLException, IOException</code>
+          </div>
+        </div>
+        <div class="method-example" id="api-summary-example">
+          <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: text/html' -d '{
+  "key": ${app_key},
+  "method": "DELETE"
+}' 'http://api.cloudboost.io/file/${app_id}/${file_id}'
+</span></span>
+</code>
+
+</div>
+<!-- method-example -->
+<div class="clearfix"></div>
+        
+</div> <!-- method-section -->
+

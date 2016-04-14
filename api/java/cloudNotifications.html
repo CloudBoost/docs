@@ -14,7 +14,7 @@
               </div>
             </div>
 
-                      <a id='CloudNotification-on' name="CloudNotification-on" class="section-anchor">&nbsp;</a>
+           <a id='CloudNotification-on' name="CloudNotification-on" class="section-anchor">&nbsp;</a>
         
           <div class="method-section">
             <div class="method-description">
@@ -49,9 +49,10 @@
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 //intializing CloudNotificationMethod, and overriding methods
-CloudNotificationMethod cloudNotificationMethodObject = new CloudNotificationMethod(){
+CloudNotificationCallback cloudNotificationMethodObject = new CloudNotificationCallback(){
 	@Override
-	public void onMethod(Object data) {// override this function as per your requirnment.
+	public void done(Object data,CloudException e) {
+	// override this function as per your requirnment.
 		System.out.println("message : " + data);
 	}
 };
@@ -129,9 +130,10 @@ CloudNotification.publish("sample","data");
             <div class="method-example" id="api-summary-example">
               <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 //intializing CloudNotificationMethod, and overriding methods
-CloudNotificationMethod cloudNotificationMethodObject = new CloudNotificationMethod(){
+CloudNotificationCallback cloudNotificationMethodObject = new CloudNotificationCallback(){
 	@Override
-	public void offMethod(Object data) {// override this function as per your requirnment.
+	public void done(Object data,CloudException e) {
+	// override this function as per your requirnment.
 		System.out.println("Unsubscribed");
 	}
 };
