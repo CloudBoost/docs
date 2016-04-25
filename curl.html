@@ -74,7 +74,7 @@
         <li class="section section-charges"><a href="#Relationships" class="parent">Relationships</a>
           <span class="children">
             <a href="#Relationships-oneToOne" class="parent">One-to-One</a>
-            <a href="#Relationships-onetoMany" class="parent">One-to-Many</a>
+            <a href="#Relationships-oneToMany" class="parent">One-to-Many</a>
             <a href="#Relationships-manyToMany" class="parent">Many-to-many</a>
           </span>
         </li>
@@ -143,9 +143,10 @@
             <a href="#CloudUser-signUp" class="parent">Signup</a>
             <a href="#CloudUser-logIn" class="parent">Login</a>
             <a href="#CloudUser-logOut" class="parent">Logout</a>
-            <a href="#CloudUser-addToRole" class="parent">Add To Role</a>
-            <a href="#CloudUser-isInRole" class="parent">Is In Role</a>
+            <a href="#CloudUser-addToRole" class="parent">Add To Role</a>            
             <a href="#CloudUser-removeFromRole" class="parent">Remove from Role</a>
+            <a href="#CloudUser-changePassword" class="parent">Change Password</a>
+            <a href="#CloudUser-resetPassword" class="parent">Reset Password</a>
           </span>
         </li>
         <li class="section section-charges"><a href="#CloudRole" class="parent">Role</a>
@@ -626,7 +627,7 @@ curl -X PUT --header 'Content-Type: application/json' --header 'Accept: applicat
     </div><!-- method-example -->
   </div> <!-- method-section -->
 
-  <a id='Relationships-oneToMany' name="Relationships-oneToMany" class="section-anchor">&nbsp;</a>
+<a id='Relationships-oneToMany' name="Relationships-oneToMany" class="section-anchor">&nbsp;</a>
   <div class="method-section">
     <div class="method-description">
 
@@ -636,7 +637,7 @@ curl -X PUT --header 'Content-Type: application/json' --header 'Accept: applicat
       </p>
     </div>
     <div class="method-example" id="api-summary-example">
-      <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+    <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
 curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
 "key": ${client_key},
 "document": {
@@ -3850,7 +3851,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 	  
 	  
 	  
-      <a id='CloudFile-save' name="CloudRole-save" class="section-anchor">&nbsp;</a>
+      <a id='CloudFile-save' name="CloudFile-save" class="section-anchor">&nbsp;</a>
       <div class="method-section">
         <div class="method-description">
 
@@ -3912,7 +3913,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
         </div><!-- method-example -->
       </div> <!-- method-section -->
       
-      <a id='CloudFile-delete' name="CloudRole-delete" class="section-anchor">&nbsp;</a>
+      <a id='CloudFile-delete' name="CloudFile-delete" class="section-anchor">&nbsp;</a>
       <div class="method-section">
         <div class="method-description">
 
@@ -3962,7 +3963,12 @@ curl -X PUT --header 'Content-Type: application/json' --header 'Accept: text/htm
     </div>
      <div class="method-example" id="api-summary-example">
       <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
- 
+01001101 01100001 01100100 01100101
+01110111 01101001 01110100 01101000  
+00111100 00110011
+01001101 01100001 01100100 01100101
+01110111 01101001 01110100 01101000  
+00111100 00110011 
       </span></span></code>
     </div><!-- method-example -->
   </div>
