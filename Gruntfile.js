@@ -109,7 +109,7 @@ module.exports = function(grunt) {
                 'api/commonFoot.html'
                 ],
                 // the location of the resulting java html file
-                dest: 'curldocs.html'
+                dest: 'curl.html'
             }			
         }       
     };   
