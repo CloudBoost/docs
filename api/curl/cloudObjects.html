@@ -1,33 +1,30 @@
  
-<a id='CloudObject-save' name="CloudObject-save" class="section-anchor">&nbsp;</a>
-<div class="method-section">
-  <div class="method-description">
+          <a id='CloudObject-save' name="CloudObject-save" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
 
-    <h3>CloudObject.save(callback)</h3>
-    <p>
-    Saves the <code>CloudObject</code> object to CloudBoost.
-    </p>
-    <div class="method-list">
-    <h6>Argument</h6>
-      <dl class="argument-list">
-      <dt>callback</dt>
-        <dd class="">Callback interface object <span>Override the done.</span></dd>
-        <div class="clearfix"></div>
-      <h6>Error Handling</h6>
-      <p>It throws <code>CloudBoostException</code></p>
-      
-        
-        <div class="clearfix"></div>
-      
-      </dl>
+              <h3>CloudObject.save(callback)</h3>
+              <p>
+              Saves the <code>CloudObject</code> object to CloudBoost.
+              </p>
+              <div class="method-list">
+              <h6>Argument</h6>
+                <dl class="argument-list">
+                <dt>callback</dt>
+                  <dd class="">Callback interface object <span>Override the done.</span></dd>
+                  <div class="clearfix"></div>
+                <h6>Error Handling</h6>
+                <p>It throws <code>CloudBoostException</code></p>
+                
+                  
+                  <div class="clearfix"></div>
+                
+                </dl>
 
-    </div>
-  </div>
+              </div>
+            </div>
   <div class="method-example" id="api-summary-example">
-    <code class="method-request">
-      <span class="prompt"></span>
-        <span class="lang lang-node">
-          <span class="highlight_js javascript">
+<code class="method-request"><span class="prompt"></span><span class="lang lang-curl"><span class="highlight_js http">
 curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
   "key": ${client_key},
   "document": {     "_type": "custom",
@@ -63,12 +60,212 @@ curl -X PUT --header 'Content-Type: application/json' --header 'Accept: applicat
         },
         "_isModified": true}
 }' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
-        </span>
-      </span>
-    </code>
-  </div><!-- method-example -->
-</div> <!-- method-section -->	  
+</span></span></span></code>
+
+            </div><!-- method-example -->
+          </div> <!-- method-section -->	  
 		  
 		   
-    
+          <a id='CloudObject-fetch' name="CloudObject-fetch" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudObject.fetch()</h3>
+              <p>
+              Refreshes a <code>CloudObject</code> object to by fetching its values from the database.
+              </p>
+              <div class="method-list">
+              		<h6>Error Handling</h6>
+                <p>It throws <code>CloudBoostException</code></p>
+                  <div class="clearfix"></div>
+                </dl>
+
+                
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+    "limit": 1,
+    "sort": {        
+    },
+    "select": {        
+    },
+    "query": {
+        "$includeList": [],
+        "$include": [],
+        "_id": ${id_of_object_to_fetch}
+    },
+    "skip": 0,
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}/find'
+</span></span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+		  
+		  
+		  
+		  
+          <a id='CloudObject-delete' name="CloudObject-delete" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudObject.delete()</h3>
+              <p>
+              Delete a <code>CloudObject</code> object, if it is saved in the database.
+              </p>
+              <div class="method-list">
+                <h6>Error Handling</h6>
+                <p>It throws <code>CloudBoostException</code></p>
+                
+              </div>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+    "document": {
+        "updatedAt": "2016-03-15T09:22:10.446Z",
+        "_type": "custom",
+        "_version": 0,
+        "expires": null,
+        "_id": ${id_of_object_to_delete},
+        "createdAt": "2016-03-15T09:22:10.446Z",
+        "_tableName": "data",
+        "ACL": {
+            "write": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            },
+            "read": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            }
+        }
+    },
+    "method": "DELETE",
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+              </span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->
+		  
+		  
+		  
+
+           <a id='CloudObject-searchable' name="CloudObject-searchable" class="section-anchor">&nbsp;</a>
+          <div class="method-section">
+            <div class="method-description">
+
+              <h3>CloudObject.isSearchable</h3>
+              <p>
+              Indexes <code>CloudObject</code> for search using CloudSearch.
+              </p>
+            </div>
+            <div class="method-example" id="api-summary-example">
+              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {     "_type": "custom",
+        "expires": null,
+        ${column_name}: ${column_value},
+        "_modifiedColumns": ["createdAt",
+        "updatedAt",
+        "ACL",
+        "expires",
+        ${column_name}],
+        "_tableName": "data",
+        "ACL": {
+            "write": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            },
+            "read": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            }
+        },
+        "_isModified": true,
+		"isSearchable":true
+		}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+</span></span></span></code>
+            </div><!-- method-example -->
+          </div> <!-- method-section -->	  
+		  
+
+
+            <a id='CloudObject-expires' name="CloudObject-expires" class="section-anchor">&nbsp;</a>
+            <div class="method-section">
+                <div class="method-description">
+
+                    <h3>CloudObject.expires</h3>
+                    <p>
+                        Sets the expiration time for <code>CloudObject</code>. Expiration time is to be given as number of
+                        milliseconds from 1 Jan 1970.
+                    </p>
+                </div>
+                <div class="method-example" id="api-summary-example">
+                    <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+    "document": {
+        "updatedAt": "2016-03-15T09:22:10.446Z",
+        "_type": "custom",
+        "_version": 0,
+        "expires": "2016-04-15T09:22:10.446Z",
+        "_id": ${id_of_object_to_delete},
+        "createdAt": "2016-03-15T09:22:10.446Z",
+        "_tableName": "data",
+        "ACL": {
+            "write": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            },
+            "read": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            }
+        }
+    }
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+</span></span></span></code>
+                </div><!-- method-example -->
+            </div> <!-- method-section -->
+
       
