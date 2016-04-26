@@ -204,42 +204,15 @@
               </div>
             </div>
   <div class="method-example" id="api-summary-example">
-<code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js xpath">
-curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
-  "key": ${client_key},
-  "document": {     "_type": "custom",
-        "expires": null,
-        ${column_name}: ${column_value},
-        "_modifiedColumns": ["createdAt",
-        "updatedAt",
-        "ACL",
-        "expires",
-        ${column_name}],
-        "_tableName": "data",
-        "ACL": {
-            "write": {
-                "allow": {
-                    "role": [],
-                    "user": ["all"]
-                },
-                "deny": {
-                    "role": [],
-                    "user": []
-                }
-            },
-            "read": {
-                "allow": {
-                    "role": [],
-                    "user": ["all"]
-                },
-                "deny": {
-                    "role": [],
-                    "user": []
-                }
-            }
-        },
-        "_isModified": true}
-}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+<code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var obj = new CB.CloudObject('Student'); //create a new object.
+obj.set("name", "John Smith"); //store string
+obj.set("age", 21); // store number
+obj.set("address", {
+                      city: "Hyderabad",
+                      state: "Telangana",
+                      country: "India"
+                   });  // store object
 </span></span></code>
 
             </div><!-- method-example -->
