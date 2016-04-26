@@ -1,30 +1,33 @@
  
-          <a id='CloudObject-save' name="CloudObject-save" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
+<a id='CloudObject-save' name="CloudObject-save" class="section-anchor">&nbsp;</a>
+<div class="method-section">
+  <div class="method-description">
 
-              <h3>CloudObject.save(callback)</h3>
-              <p>
-              Saves the <code>CloudObject</code> object to CloudBoost.
-              </p>
-              <div class="method-list">
-              <h6>Argument</h6>
-                <dl class="argument-list">
-                <dt>callback</dt>
-                  <dd class="">Callback interface object <span>Override the done.</span></dd>
-                  <div class="clearfix"></div>
-                <h6>Error Handling</h6>
-                <p>It throws <code>CloudBoostException</code></p>
-                
-                  
-                  <div class="clearfix"></div>
-                
-                </dl>
+    <h3>CloudObject.save(callback)</h3>
+    <p>
+    Saves the <code>CloudObject</code> object to CloudBoost.
+    </p>
+    <div class="method-list">
+    <h6>Argument</h6>
+      <dl class="argument-list">
+      <dt>callback</dt>
+        <dd class="">Callback interface object <span>Override the done.</span></dd>
+        <div class="clearfix"></div>
+      <h6>Error Handling</h6>
+      <p>It throws <code>CloudBoostException</code></p>
+      
+        
+        <div class="clearfix"></div>
+      
+      </dl>
 
-              </div>
-            </div>
+    </div>
+  </div>
   <div class="method-example" id="api-summary-example">
-<code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+    <code class="method-request">
+      <span class="prompt"></span>
+        <span class="lang lang-node">
+          <span class="highlight_js javascript">
 curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
   "key": ${client_key},
   "document": {     "_type": "custom",
@@ -60,10 +63,11 @@ curl -X PUT --header 'Content-Type: application/json' --header 'Accept: applicat
         },
         "_isModified": true}
 }' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
-</span></span></span></code>
-
-            </div><!-- method-example -->
-          </div> <!-- method-section -->	  
+        </span>
+      </span>
+    </code>
+  </div><!-- method-example -->
+</div> <!-- method-section -->	  
 		  
 		   
     
