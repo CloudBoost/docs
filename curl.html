@@ -42,33 +42,43 @@
         </ul>
       </div>
     </div>
-
-    
-    <div id="guide">
-      <p class="ref-title">Overview</p>
-      <ul class="ref-list">
-        <li class="section">
-          <a href="#Introduction" class="parent viewing">Introduction</a>
-        </li>
-        <li class="section">
-          <a href="#Dependencies" class="parent">Dependencies</a>
-        </li>
-        <li class="section">
-          <a href="#Apps" class="parent">Apps</a>
-        </li>
-      </ul>
+<div id="guide">
+    <p class="ref-title">Overview</p>
+    <ul class="ref-list">
+      <li class="section">
+        <a href="#Introduction" class="parent viewing">Introduction</a>
+      </li>
+      <li class="section">
+        <a href="#Apps" class="parent">Apps</a>
+      </li>
+    </ul>
 
       <p class="ref-title">Features</p>
-      <ul class="ref-list">       
-      
+      <ul class="ref-list">
+
+        <li class="section section-charges">
+          <a href="#CloudApp" class="parent">App</a>
+          <span class="children">
+            <a href="#CloudApp-init" class="parent">Initialize App</a>
+          </span>
+        </li>
+
         <li class="section section-charges">
           <a href="#CloudObject" class="parent">Object</a>
           <span class="children">
+            <a href="#CloudObject-constructor" class="parent">Constructor</a>
+            <a href="#CloudObject-set" class="parent">Set</a>
+            <a href="#CloudObject-get" class="parent">Get</a>
+            <a href="#CloudObject-unset" class="parent">Unset</a>
             <a href="#CloudObject-save" class="parent">Save</a>
             <a href="#CloudObject-fetch" class="parent">Fetch</a>
             <a href="#CloudObject-delete" class="parent">Delete</a>
-            <a href="#CloudObject-searchable" class="parent">Index for Search</a>
+            <a href="#CloudObject-on" class="parent">On</a>
+            <a href="#CloudObject-off" class="parent">Off</a>
             <a href="#CloudObject-expires" class="parent">Expires</a>
+            <a href="#CloudObject-relate" class="parent">Relate</a>
+            <a href="#CloudObject-bulkInsert" class="parent">Bulk Save</a>
+            <a href="#CloudObject-bulkDelete" class="parent">Bulk Delete</a>
           </span>
         </li>
         <li class="section section-charges"><a href="#Relationships" class="parent">Relationships</a>
@@ -76,60 +86,167 @@
             <a href="#Relationships-oneToOne" class="parent">One-to-One</a>
             <a href="#Relationships-oneToMany" class="parent">One-to-Many</a>
             <a href="#Relationships-manyToMany" class="parent">Many-to-many</a>
+            <a href="#Relationships-query" class="parent">Query on Relationships</a>
           </span>
         </li>
 
 
         <li class="section section-charges"><a href="#CloudQuery" class="parent">Query</a>
           <span class="children">
+            <a href="#CloudQuery-constructor" class="parent">Constructor</a>
             <a href="#CloudQuery-equalTo" class="parent">Equal To</a>
+            <a href="#CloudQuery-notEqualTo" class="parent">Not Equal To</a>
             <a href="#CloudQuery-containedIn" class="parent">Contained In</a>
             <a href="#CloudQuery-containsAll" class="parent">Contains All</a>
-            <a href="#CloudQuery-startsWith" class="parent">Starts With</a>
-            <a href="#CloudQuery-notEqualTo" class="parent">Not Equal To</a>
             <a href="#CloudQuery-notContainedIn" class="parent">Not Contained In</a>
             <a href="#CloudQuery-greaterThan" class="parent">Greater Than</a>
             <a href="#CloudQuery-greaterThanEqualTo" class="parent">Greater Than and Equal To</a>
             <a href="#CloudQuery-lessThan" class="parent">Less Than</a>
             <a href="#CloudQuery-lessThanEqualTo" class="parent">Less than and equal to</a>
+            <a href="#CloudQuery-startsWith" class="parent">Starts With</a>
             <a href="#CloudQuery-or" class="parent">Or</a>
             <a href="#CloudQuery-orderByAsc" class="parent">Order by</a>
             <a href="#CloudQuery-setLimit" class="parent">Limit</a>
             <a href="#CloudQuery-setSkip" class="parent">Skip</a>
+             <a href="#CloudQuery-paginate" class="parent">Paginate</a>
             <a href="#CloudQuery-selectColumn" class="parent">Select Column</a>
+            <a href="#CloudQuery-doNotSelectColumn" class="parent">Do Not Select Column</a>
             <a href="#CloudQuery-exists" class="parent">Exists</a>
             <a href="#CloudQuery-doesNotExists" class="parent">Does not exist</a>
             <a href="#CloudQuery-find" class="parent">Find</a>
             <a href="#CloudQuery-findOne" class="parent">Find One</a>
-            <a href="#CloudQuery-get" class="parent">Get</a>
+            <a href="#CloudQuery-get" class="parent">Find By Id</a>
             <a href="#CloudQuery-count" class="parent">Count</a>
             <a href="#CloudQuery-distinct" class="parent">Distinct</a>
-			<a href="#CloudQuery-paginate" class="parent">Paginate</a>
+            <a href="#CloudQuery-include" class="parent">Include</a>
+            <a href="#CloudQuery-near" class="parent">Near</a>
+            <a href="#CloudQuery-geowithin" class="parent">GeoWithin</a>
           </span>
         </li>
+
+        <li class="section section-charges"><a href="#CloudNotifcations" class="parent">Notifications</a>
+          <span class="children">
+            <a href="#CloudNotification-on" class="parent">Subscribe</a>
+            <a href="#CloudNotification-publish" class="parent">Publish</a>
+            <a href="#CloudNotification-off" class="parent">Unsubscribe</a>
+          </span>
+        </li>
+
+        <li class="section section-charges">
+          <a href="#CloudPushNotifcations" class="parent">PushNotifications</a>
+          <span class="children">
+            <a href="#CloudPushNotifcations-send" class="parent">Send</a>            
+          </span>
+        </li>
+
         <li class="section section-charges"><a href="#CloudSearch" class="parent">Search</a>
 
           <span class="children">
-            <a href="#CloudSearch-searchOn" class="parent">Search On</a>
-            <a href="#CloudSearch-equalTo" class="parent">Equal To</a>
-            <a href="#CloudSearch-notEqualTo" class="parent">Not Equal To</a>
-            <a href="#CloudSearch-greaterThan" class="parent">Greater Than</a>
-            <a href="#CloudSearch-greaterThanEqualTo" class="parent">Greater Than and Equal To</a>
-            <a href="#CloudSearch-lessThan" class="parent">Less Than</a>
-            <a href="#CloudSearch-lessThanEqualTo" class="parent">Less than and equal to</a>
-            <a href="#CloudSearch-or" class="parent">OR</a>
+            <a href="#CloudSearch-constructor" class="parent">Constructor</a>
+
+            <a href="#sq-searchOn" class="parent">Query : Search On</a>
+            <a href="#sq-phrase" class="parent">Query : Phrase</a>
+            <a href="#sq-bestColumns" class="parent">Query : Best Columns</a>
+            <a href="#sq-mostColumns" class="parent">Query : Most Columns</a>
+            <a href="#sq-startsWith" class="parent">Query : StartsWith</a>
+            <a href="#sq-wildcard" class="parent">Query : Wildcard</a>
+            <a href="#sq-regexp" class="parent">Query : Regexp</a>
+            <a href="#sq-and" class="parent">Query : and</a>
+            <a href="#sq-or" class="parent">Query : or</a>
+            <a href="#sq-not" class="parent">Query : not</a>
+
+            <a href="#SearchFilter-equalTo" class="parent">Filter : Equal To</a>
+            <a href="#SearchFilter-notEqualTo" class="parent">Filter : Not Equal To</a>
+            <a href="#SearchFilter-greaterThan" class="parent"> Filter : Greater Than</a>
+            <a href="#SearchFilter-greaterThanEqualTo" class="parent"> Filter : Greater Than and Equal To</a>
+            <a href="#SearchFilter-lessThan" class="parent"> Filter : Less Than</a>
+            <a href="#SearchFilter-lessThanEqualTo" class="parent"> Filter : Less than and equal to</a>
+            <a href="#SearchFilter-exists" class="parent"> Filter : Exists</a>
+            <a href="#SearchFilter-doesNotExists" class="parent"> Filter : Does not exist</a>
+            <a href="#SearchFilter-or" class="parent">Filter : or</a>
+            <a href="#SearchFilter-and" class="parent">Filter : and</a>
+            <a href="#SearchFilter-not" class="parent">Filter : not</a>
+
             <a href="#CloudSearch-orderByAsc" class="parent">Order by</a>
             <a href="#CloudSearch-setLimit" class="parent">Limit</a>
             <a href="#CloudSearch-setSkip" class="parent">Skip</a>
-            <a href="#CloudSearch-exists" class="parent">Exists</a>
-            <a href="#CloudSearch-doesNotExists" class="parent">Does not exist</a>
             <a href="#CloudSearch-search" class="parent">Search</a>
+
+          </span>
+        </li>
+
+        <li class="section section-charges"><a href="#CloudGeoPoint" class="parent">GeoPoint</a>
+
+          <span class="children">
+            <a href="#CloudGeoPoint-constructor" class="parent">Constructor</a>
+              <a href="#CloudGeoPoint-dkm" class="parent">Distance In kilometers</a>
+              <a href="#CloudGeoPoint-miles" class="parent">Distance In Miles</a>
+              <a href="#CloudGeoPoint-radians" class="parent">Distance In Radians</a>
+
           </span>
 
         </li>
-        
-        <li class="section section-charges"><a href="#ACL" class="parent">ACL</a>
+
+        <li class="section section-charges"><a href="#CloudUser" class="parent">User</a>
           <span class="children">
+            <a href="#CloudUser-constructor" class="parent">Constructor</a>
+            <a href="#CloudUser-signUp" class="parent">Signup</a>
+            <a href="#CloudUser-logIn" class="parent">Login</a>
+            <a href="#CloudUser-logOut" class="parent">Logout</a>
+            <a href="#CloudUser-addToRole" class="parent">Add To Role</a>
+            <a href="#CloudUser-isInRole" class="parent">Is In Role</a>
+            <a href="#CloudUser-removeFromRole" class="parent">Remove from Role</a>
+          </span>
+        </li>
+
+        <li class="section section-charges"><a href="#CloudRole" class="parent">Role</a>
+          <span class="children">
+            <a href="#CloudRole-constructor" class="parent">Constructor</a>
+          </span>
+        </li>
+
+
+
+        <li class="section section-charges"><a href="#CloudFile" class="parent">File</a>
+
+          <span class="children">
+            <a href="#CloudFile-constructor" class="parent">Constructor</a>
+            <a href="#CloudFile-save" class="parent">Save</a>
+            <a href="#CloudFile-delete" class="parent">Delete</a>
+              <a href="#CloudFile-fetch" class="parent">Fetch</a>
+              <a href="#CloudFile-getFileContent" class="parent">GetFileContent</a>
+          </span>
+
+        </li>
+
+         <li class="section section-charges">
+          <a href="#Column" class="parent">Column</a>
+          <span class="children">
+            <a href="#Column-constructor" class="parent">Constructor</a>
+            <a href="#Column-datatype" class="parent">Data Type</a>
+              <a href="#Column-required" class="parent">Required</a>
+              <a href="#Column-unique" class="parent">Unique</a>
+          </span>
+        </li>
+
+        <li class="section section-charges">
+          <a href="#CloudTable" class="parent">Table</a>
+          <span class="children">
+            <a href="#CloudTable-constructor" class="parent">Constructor</a>
+            <a href="#CloudTable-get" class="parent">Get</a>
+            <a href="#CloudTable-getall" class="parent">GetAll</a>
+            <a href="#CloudTable-addcolumn" class="parent">Add Column</a>
+            <a href="#CloudTable-deletecolumn" class="parent">Delete Column</a>
+            <a href="#CloudTable-save" class="parent">Save</a>
+            <a href="#CloudTable-delete" class="parent">Delete</a>
+               <a href="#CloudTable-getColumn" class="parent">Get Column</a>
+               <a href="#CloudTable-updateColumn" class="parent">Update Column</a>
+          </span>
+        </li>
+
+        <li class="section section-charges"><a href="#ACL" class="parent">Access Control List (ACL)</a>
+          <span class="children">
+            <a href="#ACL-constructor" class="parent">Constructor</a>
             <a href="#ACL-setPublicWriteAccess" class="parent">Public Write Access</a>
             <a href="#ACL-setPublicReadAccess" class="parent">Public Read Access</a>
             <a href="#ACL-setUserWriteAccess" class="parent">User Write Access</a>
@@ -138,28 +255,15 @@
             <a href="#ACL-setRoleReadAccess" class="parent">Role Read Access</a>
           </span>
         </li>
-        <li class="section section-charges"><a href="#CloudUser" class="parent">User</a>
+
+         <li class="section section-charges"><a href="#JSON" class="parent">JSON</a>
+
           <span class="children">
-            <a href="#CloudUser-signUp" class="parent">Signup</a>
-            <a href="#CloudUser-logIn" class="parent">Login</a>
-            <a href="#CloudUser-logOut" class="parent">Logout</a>
-            <a href="#CloudUser-addToRole" class="parent">Add To Role</a>            
-            <a href="#CloudUser-removeFromRole" class="parent">Remove from Role</a>
-            <a href="#CloudUser-changePassword" class="parent">Change Password</a>
-            <a href="#CloudUser-resetPassword" class="parent">Reset Password</a>
+            <a href="#JSON-serialize" class="parent">Serialize to JSON</a>
+            <a href="#JSON-deserialize" class="parent">Deserialize from JSON</a>
           </span>
         </li>
-        <li class="section section-charges"><a href="#CloudRole" class="parent">Role</a>
-          <span class="children">
-            <a href="#CloudRole-getRole" class="parent">Get Role</a>
-          </span>
-        </li>
-        <li class="section section-charges"><a href="#CloudFile" class="parent">File</a>
-          <span class="children">
-            <a href="#CloudFile-save" class="parent">Save</a>
-            <a href="#CloudFile-delete" class="parent">Delete</a>
-          </span>
-        </li>
+
         <li class="section section-charges"><a href="#Contribute" class="parent">Contribute</a>
         </li>
       </ul>
@@ -178,585 +282,76 @@
           <a id="curl-sdk" class="language" href="curl.html">cURL</a>
           <a id="others-swagger" class="language" href="swagger">Others</a>
         </div>
-<div class="method">
-          <a id='CloudObject' name="CloudObject" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-              <h1>CB.CloudObject</h1>
-              <p>
-              Your data in CloudBoost is represented with CloudObjects <code>CB.CloudObject</code>. Each <code>CB.CloudObject</code> 
-              belongs to a table in your database with us and each object represents a row of data in that table. The data you can store in CloudObject has schema which you define in Table Designer in CloudBoost portal. CloudBoost is schema-mix, So you can store validate the piece of data with a schema or not. Simply set whatever key-value pairs you want, and CloudBoost will store it for you.
-              </p>
-
-            </div>
-            <div class="method-example" id="api-summary-example">
-            </div>
-          </div>
-          <a id='CloudObject-constructor' name="CloudObject-constructor" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>Constructor : CloudObject( <code>columnName, [objectId]</code> )</h3>
-              <p>
-              Instantiates a <code>CloudObject</code> object.
-              </p>
-              <div class="method-list">
-                <h6>Argument</h6>
-                <dl class="argument-list">
-                  <dt>tableName</dt>
-                  <dd class="">string <span>The name of the table you want to deal with</span></dd>
-                  <div class="clearfix"></div>
-                  <dt>objectId</dt>
-                  <dd class="">[optional] string <span>The id of the object you want it to be. <b>Important : Use this parameter only when you're working on relations. For more information</b></span></dd>
-                  <div class="clearfix"></div>
-                </dl>
-
-                <h6>Returns</h6>
-                <p>It returns an instance of a CloudObject, as its a constructor. </p>
-              </div>
-
-              <div class="method-list">
-                <h6>Properties</h6>
-
-                <p>Every instance of CloudObject has these properties </p>
-
-                <dl class="argument-list">
-
-                  <dt>id</dt>
-                  <dd class="">string <span>The id of the CloudObject which is populated after the object is saved.</span></dd>
-                  <div class="clearfix"></div>
-
-                  <dt>createdAt</dt>
-                  <dd class="">Date <span>The Date and time when the object was saved in the database.</span></dd>
-                  <div class="clearfix"></div>
-
-                   <dt>updatedAt</dt>
-                  <dd class="">Date <span>The Date and time when the object was updated in the database.</span></dd>
-                  <div class="clearfix"></div>
-
-
-                  <dt>ACL</dt>
-                  <dd class="">ACL <span>Access Control List, by default this object is publicily readable and writeable. You set object level security here. Refer <a href="/#ACL">ACL's</a></span></dd>
-                  <div class="clearfix"></div>
-                  
-                </dl>
-                
-              </div>
-
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node">
-              <span class="highlight_js javascript">
-//creates an object for Student table
-var obj = new CB.CloudObject("Student"); 
-              </span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudObject-set' name="CloudObject-set" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudObject.set( <code>columnName, data</code> )</h3>
-              <p>
-              Sets the value of an attribute of a <code>CloudObject</code> object.
-              </p>
-              <div class="method-list">
-                
-                <h6>Arguments</h6>
-                <dl class="argument-list">
-
-                  <dt>columnName</dt>
-                  <dd class="">string <span>The name of the column whose value is to be set.</span></dd>
-                  <div class="clearfix"></div>
-                  <dt>data</dt>
-                  <dd class="">Any data<span>The value which is to be stored in the column.</span></dd>
-                  <div class="clearfix"></div>
-
-                </dl>
-
-                <h6>Returns</h6>
-                <p>void</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var obj = new CB.CloudObject('Student'); //create a new object.
-obj.set("name", "John Smith"); //store string
-obj.set("age", 21); // store number
-obj.set("address", {
-                      city: "Hyderabad",
-                      state: "Telangana",
-                      country: "India"
-                   });  // store object
-
-                   
-                   </span></span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudObject-get' name="CloudObject-get" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudObject.get( <code>columnName</code> )</h3>
-              <p>
-              Gets the value of an column of an instance of <code>CloudObject</code> object.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>columnName</dt>
-                  <dd class="">string <span>The name of the column whose value is to be fetched.</span></dd>
-                  <div class="clearfix"></div>
-
-                </dl>
-
-                <h6>Returns</h6>
-                <p>It returns the value of column which was previously set otherwise returns <code>undefined</code> if the column is not set to a value.</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var address = obj.get('address'); //get the data. 
-
-/* address will be 
-
-  {
-      city: "Hyderabad",
-      state: "Telangana",
-      country: "India"
-  }
-
-  which was saved in the object using object.set
-
-*/
-
-
-
-                   </span></span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudObject-unset' name="CloudObject-unset" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudObject.unset( <code>columnName</code> )</h3>
-              <p>
-              Unsets or Sets the value of an column of a <code>CloudObject</code> object to <code>null</code>.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>columnName</dt>
-                  <dd class="">string <span>The name of the column which is to be unset.</span></dd>
-                  <div class="clearfix"></div>
-
-                </dl>
-
-                <h6>Returns</h6>
-                <p>void</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var obj = new CB.CloudObject('Student');
-obj.set("name", "John Smith");
-obj.get("name"); //returns John Smith.
-obj.unset("name");
-obj.get("name"); //returns null.
-</span></span></code>
-             
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
+<div class="method"> 
           <a id='CloudObject-save' name="CloudObject-save" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
 
-              <h3>CloudObject.save( <code>[callback]</code> )</h3>
+              <h3>CloudObject.save(callback)</h3>
               <p>
               Saves the <code>CloudObject</code> object to CloudBoost.
               </p>
               <div class="method-list">
-                
-                <h6>Argument</h6>
+              <h6>Argument</h6>
                 <dl class="argument-list">
+                <dt>callback</dt>
+                  <dd class="">Callback interface object <span>Override the done.</span></dd>
+                  <div class="clearfix"></div>
+                <h6>Error Handling</h6>
+                <p>It throws <code>CloudBoostException</code></p>
                 
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-                
-                </dl>
-
-                <h6>Returns</h6>
-                <p>It returns a <code>Promise</code> which when resolved and returns instance of <code>CloudObject </code> saved .If the promise is rejected, you get an error object back. (if <code>callback</code> is not provided).</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-var obj = new CB.CloudObject('Student');
-obj.set("name", "Smith");
-obj.save({
-  success: function(obj) {
-    //Saving successfull
-    //obj is instance of CloudObject
-  },
-  error: function(err) {
-   //Error occured in saving the object
-  }
-});
-
-</span></span></span></code>
-
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudObject-fetch' name="CloudObject-fetch" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudObject.fetch( <code>[callback]</code> )</h3>
-              <p>
-              Refreshes a <code>CloudObject</code> object to by fetching its values from the database.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle respective response.</span></dd>
-                  <div class="clearfix"></div>
-
-                </dl>
-
-                <h6>Returns</h6>
-                <p>It returns <code>Promise</code> whcih resolves or rejects (if <code>callback</code> is not provided).</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-obj.fetch({
-  success: function(obj) {
-    //obj is an instance of a refreshed CloudObject
-  },
-  error: function(err) {
-    //Error occurred in fetching the data
-  }              
-});
-</span></span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-          <a id='CloudObject-delete' name="CloudObject-delete" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudObject.delete( <code>[callback]</code> )</h3>
-              <p>
-              Delete a <code>CloudObject</code> object, if it is saved in the database.
-              </p>
-              <div class="method-list">
-                
-                <h6>Argument</h6>
-                <dl class="argument-list">
-
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-
-                </dl>
-
-                <h6>Returns</h6>
-                <p>It returns <code>Promise</code> whcih resolves or rejects (if <code>callback</code> is not provided).</p>
-              </div>
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-obj.delete({
-  success: function(obj) {
-    //success
-  },
-  error: function(err) {
-    //Error
-  }              
-});
-              </span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-
-           
-
-          <a id='CloudObject-on' name="CloudObject-on" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudObject.on( <code> tableName, eventType, functionToFire, [callback] </code>)</h3>
-              <p>
-              Realtime Notifications : Listens to  <code>CloudObject</code> events like insert, update, delete in the database.
-              </p>
-
-              <div class="method-list">
-
-               <h6>Argument</h6>
-
-                <dl class="argument-list"> 
-                  <dt>tableName</dt>
-                  <dd class="">String <span> Name of the table on which you want to listen for events.
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-
-                  <dt>eventType</dt>
-                  <dd class="">String / Array<span> Type of an event you want to listen to, Only  <code> created, updated, deleted </code> are supported values.</span></dd>
-                  <div class="clearfix"></div>
-
-                  <dt>functionToFire</dt>
-                  <dd class="">Function <span> Your custom function to fire when the event occours</dd>
-                  <div class="clearfix"></div>
-
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] Success/Error callback if the subscribe to event was successful / failed.
+                  
                   <div class="clearfix"></div>
                 
                 </dl>
 
-                <h6>Returns</h6>
-                <p>It returns a <code>Promise</code> (if <code>callback</code> is not provided).</p>
-
               </div>
-
             </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-  //listen to an event
+  <div class="method-example" id="api-summary-example">
+<code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+  "key": ${client_key},
+  "document": {     "_type": "custom",
+        "expires": null,
+        ${column_name}: ${column_value},
+        "_modifiedColumns": ["createdAt",
+        "updatedAt",
+        "ACL",
+        "expires",
+        ${column_name}],
+        "_tableName": "data",
+        "ACL": {
+            "write": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            },
+            "read": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            }
+        },
+        "_isModified": true}
+}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+</span></span></code>
 
-CB.CloudObject.on('Student', //name of the table
-'created', //type of an event
-function(obj){ //your custom function which you want to fire.
-  //obj is an instance of CloudObject
-  console.log('Student Created : '+obj.get('name'));
-}, 
-{ //callback
-  success : function(){
-    //subscribe success
-  },
-  error : function(err){
-    //failed
-  }
-});
-
-</span></span></span></code>
             </div><!-- method-example -->
-          </div> <!-- method-section -->
+          </div> <!-- method-section -->	
+          </div>  
+		  
 
-
-                    <a id='CloudObject-off' name="CloudObject-off" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h3>CloudObject.off( <code> tableName, eventType, [callback] </code>)</h3>
-              <p>
-              Realtime Notifications : Switches off listening to  <code>CloudObject</code> events like insert, update, delete in the database.
-              </p>
-
-              <div class="method-list">
-
-               <h6>Argument</h6>
-
-                <dl class="argument-list"> 
-                  <dt>tableName</dt>
-                  <dd class="">String <span> Name of the table on which you want to stop listening for events to.
-                   respective response.</span></dd>
-                  <div class="clearfix"></div>
-
-                  <dt>eventType</dt>
-                  <dd class="">String / Array<span> Type of an event you want to stop listening to, Only  <code> created, updated, deleted </code> are supported values.</span></dd>
-                  <div class="clearfix"></div>
-
-                  <dt>callback</dt>
-                  <dd class="">Object <span> [optional] Success/Error callback if the unsubscribe to event was successful / failed.
-                  <div class="clearfix"></div>
-                
-                </dl>
-
-                <h6>Returns</h6>
-                <p>It returns a <code>Promise</code> (if <code>callback</code> is not provided).</p>
-
-              </div>
-
-            </div>
-            <div class="method-example" id="api-summary-example">
-              <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-//stop listening to an event
-
-CB.CloudObject.off('Student', //name of the table
-'created', //type of an event
-{ //callback
-  success : function(){
-    //unsubscribe success
-  },
-  error : function(err){
-    //unsubscribe failed
-  }
-});
-
-</span></span></span></code>
-            </div><!-- method-example -->
-          </div> <!-- method-section -->
-
-            <a id='CloudObject-expires' name="CloudObject-expires" class="section-anchor">&nbsp;</a>
-            <div class="method-section">
-                <div class="method-description">
-
-                    <h3>CloudObject.expires</h3>
-                    <p>
-                        Automatically deletes the object from the database at specified time. Sets the expiration time for <code>CloudObject</code>. Expiration time is to be given as number of
-                        milliseconds from 1 Jan 1970.
-                    </p>
-                </div>
-                <div class="method-example" id="api-summary-example">
-                    <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-  var obj = new CB.CloudObject('Student');
-  obj.set('name', 'John Smith');
-  expire=new Date().getTime()+1000; //increase the expiration time by 1 second from current time
-  obj.expires = expires; //Set the expire time for object Student
-</span></span></span></code>
-                </div><!-- method-example -->
-            </div> <!-- method-section -->
-
-        </div> <!-- method -->
-
-
-        <a id='CloudObject-relate' name="CloudObject-relate" class="section-anchor">&nbsp;</a>
-            <div class="method-section">
-                <div class="method-description">
-
-                    <h3>CloudObject.relate(<code>columnName,tableName,objectId</code>)</h3>
-                    <p>
-                        Relates a CloudObject which is already saved to this CloudObject. Can be used to relate objects together in a relation.
-                    </p>
-
-                     <div class="method-list">
-
-                   <h6>Argument</h6>
-
-                    <dl class="argument-list"> 
-                      <dt>columnName</dt>
-                      <dd class="">String <span> Name of the column of the current CloudObject.
-                       </span></dd>
-                      <div class="clearfix"></div>
-
-                      <dt>tableName</dt>
-                      <dd class="">String <span> Name of the table of the CloudObject which you want to relate to.
-                       </span></dd>
-                      <div class="clearfix"></div>
-
-                      <dt>objectId</dt>
-                      <dd class="">String <span> Id of the object which you want to relate to.
-                       </span></dd>
-                      <div class="clearfix"></div>
-                    
-                    </dl>
-
-                    <h6>Returns</h6>
-                    <p>void</p>
-
-              </div>
-                </div>
-                <div class="method-example" id="api-summary-example">
-                    <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-  var obj = new CB.CloudObject('Student');
-  obj.relate('teacher','Teacher','xxxxxx'); //relates the teacher in the Teacher table with id xxxxx to this student.
-</span></span></span></code>
-                </div><!-- method-example -->
-            </div> <!-- method-section -->
-
- <a id='CloudObject-bulkInsert' name="CloudObject-bulkInsert" class="section-anchor">&nbsp;</a>
- <div class="method-section">
-     <div class="method-description">
-
-         <h3>CB.CloudObject.saveAll(<code>ObjectArray,callback</code>)</h3>
-         <p>
-             Saves an Array of CloudObject.
-         </p>
-
-         <div class="method-list">
-
-             <h6>Argument</h6>
-
-             <dl class="argument-list">
-                 <dt>ObjectArray</dt>
-                 <dd class="">Array <span> Array of CloudObjects.
-                       </span></dd>
-                 <div class="clearfix"></div>
-                 <dt>callback</dt>
-                 <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-             </dl>
-             </dl>
-
-             <h6>Returns</h6>
-             <p>Array of Saved CloudObjects</p>
-
-         </div>
-     </div>
-     <div class="method-example" id="api-summary-example">
-         <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-  var obj1 = new CB.CloudObject('Student');
-  obj1.set('name','abcd');
-  var obj2 = new CB.CloudObject('Student');
-  obj2.age('age',10);
-  CB.CloudObject.saveAll([obj1,obj2]).then(function(res){
-        console.log(res);
-  },function(err){
-        console.log(err);
-  });
-</span></span></span></code>
-     </div><!-- method-example -->
- </div> <!-- method-section -->
-
-
- <a id='CloudObject-bulkDelete' name="CloudObject-bulkDelete" class="section-anchor">&nbsp;</a>
- <div class="method-section">
-     <div class="method-description">
-
-         <h3>CB.CloudObject.deleteAll(<code>ObjectArray,callback</code>)</h3>
-         <p>
-             Deletes an Array of CloudObject.
-         </p>
-
-         <div class="method-list">
-
-             <h6>Argument</h6>
-
-             <dl class="argument-list">
-                 <dt>ObjectArray</dt>
-                 <dd class="">Array <span> Array of CloudObjects.
-                       </span></dd>
-                 <div class="clearfix"></div>
-                 <dt>callback</dt>
-                 <dd class="">Object <span> [optional] if provided must have success and error functions to handle
-                   respective response.</span></dd>
-             </dl>
-             </dl>
-
-             <h6>Returns</h6>
-             <p>Array of Deleted CloudObjects</p>
-
-         </div>
-     </div>
-     <div class="method-example" id="api-summary-example">
-         <code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
-  CB.CloudObject.deleteAll([obj1,obj2]).then(function(res){
-        console.log(res);
-  },function(err){
-        console.log(err);
-  });
-</span></span></span></code>
-     </div><!-- method-example -->
- </div> <!-- method-section -->
+      
 	</div> <!-- methods -->
 </div> <!-- api-docs -->
     <div class="footer">
