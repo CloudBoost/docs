@@ -24,8 +24,10 @@
               </div>
             </div>
   <div class="method-example" id="api-summary-example">
-<code class="method-request"><span class="prompt"></span><span class="lang lang-curl"><span class="highlight_js http">
-curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+<code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+var url='http://api.cloudboost.io/data/${app_id}/${table_name}';
+
+var data={
   "key": ${client_key},
   "document": {     "_type": "custom",
         "expires": null,
@@ -58,8 +60,11 @@ curl -X PUT --header 'Content-Type: application/json' --header 'Accept: applicat
                 }
             }
         },
-        "_isModified": true}
-}' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
+        "_isModified": true
+    }
+};
+
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d data url
 </span></span></span></code>
 
             </div><!-- method-example -->
