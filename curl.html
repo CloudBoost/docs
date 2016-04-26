@@ -23,7 +23,7 @@
 
 </head>
 
-<body class="api-docs node">
+<body class="api-docs curl">
   <div id="background"></div>
     <div id="header">
       <a href="https://www.cloudboost.io">
@@ -204,9 +204,41 @@
               </div>
             </div>
   <div class="method-example" id="api-summary-example">
-<code class="method-request"><span class="prompt"></span><span class="lang lang-node"><span class="highlight_js javascript">
+<code class="method-request"><span class="prompt"></span><span class="lang lang-curl"><span class="highlight_js javascript">
 curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
-  "hello":"world"
+  "key": ${client_key},
+  "document": {     "_type": "custom",
+        "expires": null,
+        ${column_name}: ${column_value},
+        "_modifiedColumns": ["createdAt",
+        "updatedAt",
+        "ACL",
+        "expires",
+        ${column_name}],
+        "_tableName": "data",
+        "ACL": {
+            "write": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            },
+            "read": {
+                "allow": {
+                    "role": [],
+                    "user": ["all"]
+                },
+                "deny": {
+                    "role": [],
+                    "user": []
+                }
+            }
+        },
+        "_isModified": true}
 }' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
 </span></span></code>
 
