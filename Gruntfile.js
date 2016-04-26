@@ -92,13 +92,24 @@ module.exports = function(grunt) {
                 // the files to concatenate
                 src: ['api/commonHead.html',
                 'api/curl/content-guide.html',
-                'api/langMenuHeadWrap.html',               
-                'api/curl/cloudObjects.html',              
+                'api/langMenuHeadWrap.html',
+                'api/curl/introduction.html',
+                'api/curl/dependencies.html',
+                'api/curl/apps.html',
+                'api/curl/cloudObjects.html',
+                'api/curl/relationships.html',
+                'api/curl/cloudQuery.html',   
+                'api/curl/cloudSearch.html',
+                'api/curl/cloudACL.html',
+                'api/curl/cloudUser.html',
+                'api/curl/cloudRole.html',
+                'api/curl/cloudFiles.html',
+                'api/curl/contribute.html',
                 'api/langMenuFootWrap.html',
                 'api/commonFoot.html'
                 ],
                 // the location of the resulting java html file
-                dest: 'curl.html'
+                dest: 'curldocs.html'
             }			
         }       
     };   

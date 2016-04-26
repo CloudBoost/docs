@@ -26,7 +26,7 @@
       if(currentAPI=="dotnet.html" || currentAPI.indexOf("dotnet.html")>-1){
         currentLangId="#dotnet-sdk";
       }
-      if(currentAPI=="curl.html" || currentAPI.indexOf("curl.html")>-1){
+      if(currentAPI=="curldocs.html" || currentAPI.indexOf("curldocs.html")>-1){
         currentLangId="#curl-sdk";
       }
       _selectLanguage(currentLangId);
@@ -48,7 +48,7 @@
           });
 
           $("#curl-sdk").click(function(){           
-            window.location.href="curl.html";
+            window.location.href="curldocs.html";
             _selectLanguage("#curl-sdk");
           });
 
