@@ -178,63 +178,7 @@
           <a id="curl-sdk" class="language" href="curl.html">cURL</a>
           <a id="others-swagger" class="language" href="swagger">Others</a>
         </div>
-<div class="method">
-          <a id='Introduction' name="Introduction" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h1>API Reference</h1>
-
-              <p>
-              The CloudBoost API is organized around <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST</a>. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">cross-origin resource sharing</a> to allow you to interact securely with our API from a client-side web application / mobile application (though you should remember that you should never expose your secret API master key in any public website's client-side code, Client Key can be exposed). <a href="http://www.json.org/">JSON</a> will be returned in all responses from the API, including errors (though if you're using API bindings / SDK, we will convert the response to the appropriate language-specific object).
-          </p>
-         
-            </div>
-            <div class="method-example" id="api-summary-example">
-
-              <h3>Endpoint</h3>
-              <h4></h4> <a href="">
-                <code>https://api.cloudboost.io</code>
-              </a> <br/>            
-
-            </div>
-          </div>
-        </div>        
-<div class="method">
-          <a id='Dependencies' name="Dependencies" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h1>Dependencies</h1>
-              <p>
-              These calls require few external dependencies. 
-              <ul>
-              	<li><a href="">curl-x.x.x</a></li>
-              </ul>
-              </p>
-            </div>
-            <div class="method-example" id="api-summary-example">
-            </div> <!-- method-example -->
-          </div> <!-- method-section -->
-        </div> <!-- method -->
- <div class="method">
-          <a id='Apps' name="Apps" class="section-anchor">&nbsp;</a>
-          <div class="method-section">
-            <div class="method-description">
-
-              <h1>Apps</h1>
-              <p>
-              In Cloudboost, you create an app each of which has its own AppID, Java 
-              Client Key and the Master Key that you apply to your web app. You master key is a secret which should not be shared in your client apps. Your account on CloudBoost can accommodate multiple apps.
-
-              This is useful even if you have one application, since you can deploy different versions for test and production.
-              </p>
-            </div>
-            <div class="method-example" id="api-summary-example">
-            </div>
-          </div>
-        </div>
- 
+<div class="method"> 
           <a id='CloudObject-save' name="CloudObject-save" class="section-anchor">&nbsp;</a>
           <div class="method-section">
             <div class="method-description">
@@ -296,10 +240,11 @@ curl -X PUT --header 'Content-Type: application/json' --header 'Accept: applicat
         },
         "_isModified": true}
 }' 'http://api.cloudboost.io/data/${app_id}/${table_name}'
-</span></span></span></code>
+</span></span></code>
 
             </div><!-- method-example -->
-          </div> <!-- method-section -->	  
+          </div> <!-- method-section -->	
+          </div>  
 		  
 
       

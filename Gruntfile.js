@@ -92,10 +92,7 @@ module.exports = function(grunt) {
                 // the files to concatenate
                 src: ['api/commonHead.html',
                 'api/curl/content-guide.html',
-                'api/langMenuHeadWrap.html',
-                'api/curl/introduction.html',
-                'api/curl/dependencies.html',
-                'api/curl/apps.html',
+                'api/langMenuHeadWrap.html',               
                 'api/curl/cloudObjects.html',              
                 'api/langMenuFootWrap.html',
                 'api/commonFoot.html'
