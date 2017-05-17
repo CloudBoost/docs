@@ -19,4 +19,4 @@ Create a `<functionalityName>.html` file in the folder `api/<programminglanguage
 Add the Menu item for the functionality in `api/<programming-language>/content-guide.html` file. If the menu item of your functionality exists. Ignore this step. 
 
 ##Edit gruntfile.js
-Append the `filename.html` (If the filename doesn't exists already) in `/Gruntfile.js` 
+Append the `filename.html` (If the filename doesn't exists already) in `/Gruntfile.js`
