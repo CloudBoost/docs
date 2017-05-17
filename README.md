@@ -20,5 +20,3 @@ Add the Menu item for the functionality in `api/<programming-language>/content-g
 
 ##Edit gruntfile.js
 Append the `filename.html` (If the filename doesn't exists already) in `/Gruntfile.js` 
-
-
