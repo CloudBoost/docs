@@ -14,7 +14,6 @@ module.exports = function(grunt) {
                 'api/js/relationships.html',
                 'api/js/cloudQuery.html',
                 'api/js/cloudNotifications.html',
-                'api/js/cloudPushNotifications.html',
                 'api/js/cloudObject.html',
                 'api/js/cloudSearch.html',
                 'api/js/cloudGeoPoint.html',
@@ -51,7 +50,6 @@ module.exports = function(grunt) {
                 'api/java/cloudUser.html',
                 'api/java/cloudRole.html',
                 'api/java/cloudFile.html',
-				'api/java/cloudPush.html',
                 'api/java/contribute.html',
                 'api/langMenuFootWrap.html',
                 'api/commonFoot.html'
